@@ -1,0 +1,93 @@
+<div class="post-comment-list">
+    <!-- POST COMMENT -->
+    <div *ngFor="let comment of comments" class="post-comment">
+        <!-- USER AVATAR -->
+        <a class="user-avatar small no-outline" [routerLink]="['/profile',comment.author._id]">
+            <!-- USER AVATAR CONTENT -->
+            <figure class="picture round liquid small">
+                <img class="round" [src]="API+comment?.author?.profilePicture" alt="profile picture">
+            </figure>
+        </a>
+        <!-- /USER AVATAR -->
+
+        <!-- POST COMMENT TEXT -->
+        <p class="post-comment-text"><a class="post-comment-text-author"
+                [routerLink]="['/profile',comment.author._id]">
+                {{comment?.author?.fullName}}
+            </a>{{comment?.content}}</p>
+        <!-- /POST COMMENT TEXT -->
+
+        <!-- CONTENT ACTIONS -->
+        <div class="content-actions">
+            <!-- CONTENT ACTION -->
+            <div class="content-action">
+                <!-- META LINE -->
+                <div class="meta-line">
+                    <!-- META LINE TIMESTAMP -->
+                    <p [owlTooltip]="comment.createdAt | date : ' MMMM, d, y,  h:mm a'"
+                        [owlTooltipPosition]="'left'" class="meta-line-timestamp">{{ comment?.createdAt |
+                        timeAgo :language}}</p>
+                    <!-- /META LINE TIMESTAMP -->
+                </div>
+                <!-- /META LINE -->
+
+                <!-- META LINE -->
+                <div class="meta-line settings">
+                    <!-- POST SETTINGS WRAP -->
+                    <div class="post-settings-wrap" style="position: relative;">
+                        <!-- POST SETTINGS -->
+                        <div class="post-settings post-settings-dropdown-trigger">
+                            <!-- POST SETTINGS ICON -->
+                            <svg class="post-settings-icon icon-more-dots">
+                                <use xlink:href="#svg-more-dots"></use>
+                            </svg>
+                            <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+
+                        <!-- SIMPLE DROPDOWN -->
+                        <div class="simple-dropdown post-settings-dropdown"
+                            style="position: absolute; z-index: 9999; bottom: 30px; right: 0px; opacity: 0; visibility: hidden; transform: translate(0px, 16px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
+                            <!-- SIMPLE DROPDOWN LINK -->
+                            <p class="simple-dropdown-link">Report Post</p>
+                            <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                    </div>
+                    <!-- /POST SETTINGS WRAP -->
+                </div>
+                <!-- /META LINE -->
+            </div>
+            <!-- /CONTENT ACTION -->
+        </div>
+        <!-- /CONTENT ACTIONS -->
+    </div>
+    <!-- /POST COMMENT -->
+
+    <!-- POST COMMENT FORM -->
+    <div class="post-comment-form">
+
+        <!-- FORM -->
+        <form class="form" (submit)="submitComment()">
+            <!-- FORM ROW -->
+            <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                    <!-- FORM INPUT -->
+                    <div class="form-input small">
+                        <input [(ngModel)]="newComment" placeholder="Your comment" type="text" id="post-comment"
+                            name="post_comment" autocomplete="off">
+                        <button type="submit" style="display:none">hidden submit</button>
+
+                    </div>
+                    <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+            </div>
+            <!-- /FORM ROW -->
+        </form>
+        <!-- /FORM -->
+
+    </div>
+    <!-- /POST COMMENT FORM -->
+</div>
