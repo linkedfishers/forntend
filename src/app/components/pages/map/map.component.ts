@@ -149,7 +149,7 @@ export class MapComponent implements AfterViewInit {
             icon: homeIcon,
             draggable: false,
             autoPan: true
-          }).bindPopup(`<a target="_blank" href="/detail-home/${hebergement?._id}" ><h1>${hebergement.name}</h1><a> by <a target="_blank" href="/profile/${hebergement?.owner?.slug}">
+          }).bindPopup(`<a target="_blank" href="/details-home/${hebergement?._id}" ><h1>${hebergement.name}</h1><a> by <a target="_blank" href="/profile/${hebergement?.owner?.slug}">
                       ${hebergement?.owner?.fullName}</a>`));
           this.homesMarker[i].addTo(this.map);
           i++

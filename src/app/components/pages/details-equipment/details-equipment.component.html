@@ -7,7 +7,7 @@
         <!-- /SECTION BANNER ICON -->
 
         <!-- SECTION BANNER TITLE -->
-        <p class="section-banner-title">Hebergement details!</p>
+        <p class="section-banner-title">Equipment details!</p>
         <!-- /SECTION BANNER TITLE -->
     </div>
     <!-- /SECTION BANNER -->
@@ -17,7 +17,7 @@
         <!-- SECTION HEADER INFO -->
         <div class="section-header-info">
             <!-- SECTION TITLE -->
-            <h2 class="section-title">{{hebergement?.name}}</h2>
+            <h2 class="section-title">{{equipment?.name}}</h2>
             <!-- /SECTION TITLE -->
         </div>
         <!-- /SECTION HEADER INFO -->
@@ -39,7 +39,7 @@
                         <div id="product-box-slider-items"
                             class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal">
                             <!-- SLIDER PANEL SLIDE -->
-                            <img style="border-radius: 2%" [src]="hebergement.image? API + hebergement.image : '../../../../assets/img/fishing-home-header.png'" alt="item-10">
+                            <img style="border-radius: 2%" [src]="equipment.image? API + equipment.image : '../../../../assets/img/fishing-home-header.png'" alt="item-10">
                             <!-- /SLIDER PANEL SLIDE -->
                         </div>
                     </div>
@@ -85,9 +85,9 @@
                         <!-- TAB BOX ITEM CONTENT -->
                         <div class="tab-box-item-content">
                             <!-- TAB BOX ITEM TITLE -->
-                            <p class="tab-box-item-title">{{hebergement?.name}}</p>
+                            <p class="tab-box-item-title">{{equipment?.name}}</p>
                             <!-- /TAB BOX ITEM TITLE -->
-                            <p class="tab-box-item-paragraph">{{hebergement?.description}}</p>
+                            <p class="tab-box-item-paragraph">{{equipment?.description}}</p>
                         </div>
                         <!-- /TAB BOX ITEM CONTENT -->
                     </div>
@@ -100,7 +100,7 @@
                             <!-- POST COMMENT -->
                             <div class="post-comment">
                                 <!-- USER AVATAR -->
-                                <a class="user-avatar small no-outline" href="profile-timeline.html">
+                                <a class="user-avatar small no-outline">
                                     <!-- USER AVATAR CONTENT -->
                                     <div class="user-avatar-content">
                                         <!-- HEXAGON -->
@@ -2056,7 +2056,7 @@
                 <!-- SIDEBAR BOX ITEMS -->
                 <div class="sidebar-box-items">
                     <!-- PRICE TITLE -->
-                    <p class="price-title big"><span class="currency">$</span> {{hebergement?.price}}</p>
+                    <p class="price-title big"><span class="currency">$</span> {{equipment?.price}}</p>
                     <!-- /PRICE TITLE -->
 
                     <!-- BUTTON -->
@@ -2152,12 +2152,12 @@
                     <!-- USER STATUS -->
                     <div class="user-status">
                         <!-- USER AVATAR -->
-                        <img class="round" [src]="API+hebergement?.owner?.profilePicture" alt="avatar-01">
+                        <img class="round" [src]="API+equipment?.owner?.profilePicture" alt="avatar-01">
                         <!-- /USER AVATAR -->
 
                         <!-- USER STATUS TITLE -->
                         <p class="user-status-title"><a class="bold"
-                                href="profile-timeline.html">{{hebergement?.owner?.fullName}}</a>
+                                href="profile-timeline.html">{{equipment?.owner?.fullName}}</a>
                         </p>
                         <!-- /USER STATUS TITLE -->
 
@@ -2169,13 +2169,13 @@
 
 
                     <!-- BUTTON -->
-                    <a class="button small white" [routerLink]="['/profile/',(hebergement?.owner?.slug || hebergement?.owner?._id)]" >View Owner's Store</a>
+                    <a class="button small white" [routerLink]="['/profile/',(equipment?.owner?.slug || equipment?.owner?._id)]" >View Owner's Store</a>
                     <!-- /BUTTON -->
                 </div>
                 <!-- /SIDEBAR BOX ITEMS -->
 
                 <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">Hebergement Details</p>
+                <p class="sidebar-box-title medium-space">Equipment Details</p>
                 <!-- /SIDEBAR BOX TITLE -->
 
                 <!-- SIDEBAR BOX ITEMS -->
@@ -2190,7 +2190,7 @@
                             <!-- /INFORMATION LINE TITLE -->
 
                             <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{hebergement?.createdAt | date : ' MMMM, d, y,  h:mm a'    }}</span></p>
+                            <p class="information-line-text"><span class="bold">{{equipment?.createdAt | date : ' MMMM, d, y,  h:mm a'    }}</span></p>
                             <!-- /INFORMATION LINE TEXT -->
                         </div>
                         <!-- /INFORMATION LINE -->

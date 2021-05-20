@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hebergement } from 'src/app/interfaces/equipments.interface';
+import { Equipment, EquipmentType } from 'src/app/interfaces/equipments.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
@@ -15,11 +15,11 @@ declare var app, loadSvg, initTooltips,
   initLoader, loadSvg: any;
 
 @Component({
-  selector: 'app-details-hebergements',
-  templateUrl: './details-hebergements.component.html',
-  styleUrls: ['./details-hebergements.component.scss']
+  selector: 'app-details-equipment',
+  templateUrl: './details-equipment.component.html',
+  styleUrls: ['./details-equipment.component.scss']
 })
-export class DetailsHebergementsComponent implements OnInit {
+export class DetailsEquipmentComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
@@ -29,7 +29,7 @@ export class DetailsHebergementsComponent implements OnInit {
   ) { }
   readonly API: string = environment.apiUrl + '/';
 
-  hebergement: Hebergement;
+  equipment: Equipment;
   currentUser: User
   ngOnInit(): void {
 
@@ -37,8 +37,8 @@ export class DetailsHebergementsComponent implements OnInit {
     this.currentUser = this.authService.getCurrentUser();
     this.route.params.subscribe(params => {
       let id = params.id;
-      this.equipmentService.getHebergement(id).subscribe((response) => {
-        this.hebergement = response.data;
+      this.equipmentService.getEquipment(id).subscribe((response) => {
+        this.equipment = response.data;
       })
     });
     initContent();

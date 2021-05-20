@@ -60,6 +60,8 @@ import { NgImageFullscreenViewModule } from 'ng-image-fullscreen-view';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { CommentComponent } from './components/common/comment/comment.component';
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
+import { DetailsBoatComponent } from './components/pages/details-boat/details-boat.component';
+import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -112,6 +114,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminComponent,
     CommentComponent,
     DetailsHebergementsComponent,
+    DetailsBoatComponent,
+    DetailsEquipmentComponent,
   
   ],
   imports: [

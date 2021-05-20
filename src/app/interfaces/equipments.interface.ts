@@ -1,11 +1,13 @@
 export class Equipment {
     _id: string;
     name: string;
+    price: number;
     owner: any;
     type: any;
     image: string;
     description: string;
     isAvailable: boolean;
+    createdAt: any;
 }
 export class EquipmentType {
     _id: string;
@@ -18,9 +20,11 @@ export class Boat {
     _id: string;
     name: string;
     owner: any;
+    price: number;
     image: string;
     description: string;
     isAvailable: boolean;
+    createdAt: any;
 }
 
 export class Hebergement {

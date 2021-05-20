@@ -6,6 +6,8 @@ import { DemoComponent } from './components/pages/account/demo/demo.component';
 import { ActivateAccountComponent } from './components/pages/activate-account/activate-account.component';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { BoatsComponent } from './components/pages/boats/boats.component';
+import { DetailsBoatComponent } from './components/pages/details-boat/details-boat.component';
+import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
 import { CategoriesComponent } from './components/pages/equipments/categories/categories.component';
 import { EquipmentListComponent } from './components/pages/equipments/equipment-list/equipment-list.component';
@@ -91,8 +93,16 @@ const routes: Routes = [
         component: ProfileComponent,
       },
       {
-        path: 'detail-home/:id',
+        path: 'details-home/:id',
         component: DetailsHebergementsComponent,
+      },
+      {
+        path: 'details-boat/:id',
+        component: DetailsBoatComponent,
+      },
+      {
+        path: 'details-equipment/:id',
+        component: DetailsEquipmentComponent,
       },
     ]
   },
