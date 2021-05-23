@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
+import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
@@ -20,7 +20,7 @@ import { WeatherComponent } from './components/common/weather/weather.component'
 import { TimelineComponent } from './components/pages/profile/timeline/timeline.component';
 import { AboutComponent } from './components/pages/profile/about/about.component';
 import { PhotosComponent } from './components/pages/profile/photos/photos.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ProfileInfoComponent } from './components/pages/account/profile-info/profile-info.component';
@@ -62,6 +62,8 @@ import { CommentComponent } from './components/common/comment/comment.component'
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
 import { DetailsBoatComponent } from './components/pages/details-boat/details-boat.component';
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
+  import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { CarouselComponent } from './components/pages/carousel/carousel.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -116,14 +118,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsHebergementsComponent,
     DetailsBoatComponent,
     DetailsEquipmentComponent,
-  
+    CarouselComponent,
+
   ],
   imports: [
     BrowserModule,
+    CarouselModule ,
+    IvyCarouselModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fr',
       loader: {

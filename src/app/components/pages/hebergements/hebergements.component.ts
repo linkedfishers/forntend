@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Boat, Hebergement } from 'src/app/interfaces/equipments.interface';
+import { Boat, Hebergement ,Equipment} from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -33,7 +33,6 @@ export class HebergementsComponent implements OnInit {
   formData: FormData;
   imageSrc: any;
   newHome: Hebergement;
-
   userHomes: Hebergement[] = [];
 
   selectedHome = -1;

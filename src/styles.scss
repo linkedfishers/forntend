@@ -1,4 +1,7 @@
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 /* You can add global styles to this file, and also import other style files */
 .hide-svg {
     display: none;
 }
+.image-carousel{width: 100%}
+.picsum-img-wrapper{text-align: center;border-radius: 11px}

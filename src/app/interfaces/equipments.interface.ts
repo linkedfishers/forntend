@@ -6,6 +6,7 @@ export class Equipment {
     type: any;
     image: string;
     description: string;
+    position:any;
     isAvailable: boolean;
     createdAt: any;
 }

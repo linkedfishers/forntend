@@ -10,6 +10,8 @@ import { EventService } from "src/app/services/event.service";
 import { Hebergement } from "src/app/interfaces/equipments.interface";
 import { Event } from "src/app/interfaces/event.interface";
 import { environment } from 'src/environments/environment';
+import { Equipment } from "src/app/interfaces/equipments.interface";
+
 
 declare var initContent, initSidebar: any;
 
@@ -17,6 +19,7 @@ declare var $: any;
 
 const iconRetinaUrl = 'assets/leaflet/marker-icon-2x.png';
 const homeIconUrl = 'assets/leaflet/home-icon.png';
+const equipmentIconUrl = "asset/leaflet/marker-icon-2x.png"
 const eventIconUrl = 'assets/leaflet/event-icon.png';
 const iconUrl = 'assets/leaflet/position-icon.png';
 const shadowUrl = 'assets/leaflet/marker-shadow.png';
@@ -60,6 +63,15 @@ var eventIcon = L.icon({
   tooltipAnchor: [16, -28],
   shadowSize: [41, 41]
 });
+var equipmenetIcon = L.icon({
+  iconUrl: eventIconUrl,
+  shadowUrl: shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
 Marker.prototype.options.icon = iconDefault;
 @Component({
   selector: "app-map",
@@ -76,15 +88,18 @@ export class MapComponent implements AfterViewInit {
 
   posts: Post[];
   homes: Hebergement[];
+  equipments:Equipment[]
   events: Event[];
   showFilters = true;
   showPosts = true;
   showEvents = true;
   showHomes = true;
+  showEquipment=true;
 
   eventsMarker: Marker[] = [];
   postsMarker: Marker[] = [];
   homesMarker: Marker[] = [];
+  equipmenetMarker:Marker[]=[];
   currentPositionMarker: Marker;
   circleRadius: number = 20;
   showCircle: false;
@@ -99,6 +114,7 @@ export class MapComponent implements AfterViewInit {
   readonly API: string = environment.apiUrl + '/';
 
   selectedEvent: Event;
+  selectedEquipment:Equipment;
 
 
   async ngAfterViewInit() {
@@ -134,6 +150,7 @@ export class MapComponent implements AfterViewInit {
       this.toggleEvents();
       this.toggleHomes();
       this.togglePosts();
+      this.toggleEquipment();
       if (this.showCircle) {
         this.updateCircle();
       }
@@ -157,6 +174,27 @@ export class MapComponent implements AfterViewInit {
       },
       error => console.log(error)
     );
+
+     /*  this.equipmentService.getEquipment().subscribe(
+      (res) => {
+        this.equipments = res.data;
+        let i = 0;
+        this.equipments.forEach(equipment => {
+          if (!equipment.position) return;
+          this.equipmenetMarker.push(L.marker(equipment.position.coordinates, {
+            icon: homeIcon,
+            draggable: false,
+            autoPan: true
+          }).bindPopup(`<a target="_blank" href="/details-home/${equipment?._id}" ><h1>${equipment.name}</h1><a> by <a target="_blank" href="/profile/${hebergement?.owner?.slug}">
+                      ${equipment?.owner?.fullName}</a>`));
+          this.equipmenetMarker[i].addTo(this.map);
+          i++
+        });
+      },
+      error => console.log(error)
+    ); */
+
+
 
     this.eventService.getAll().subscribe(
       res => {
@@ -232,10 +270,22 @@ export class MapComponent implements AfterViewInit {
     }
   }
 
+   toggleEquipment() {
+    if (this.showEquipment) {
+      this.equipmenetMarker.forEach(marker => {
+        console.log(marker.getLatLng());
+        marker.addTo(this.map)
+      });
+    } else {
+      this.equipmenetMarker.forEach(marker => this.map.removeLayer(marker));
+    }
+  }
+
   updateCircle() {
     this.eventsMarker.forEach(marker => this.map.removeLayer(marker));
     this.homesMarker.forEach(marker => this.map.removeLayer(marker));
     this.postsMarker.forEach(marker => this.map.removeLayer(marker));
+    this.equipmenetMarker.forEach(marker => this.map.removeLayer(marker));
 
     this.circle.setRadius(this.circleRadius * 1000);
     if (this.showPosts) {
@@ -258,6 +308,15 @@ export class MapComponent implements AfterViewInit {
     }
     if (this.showHomes) {
       this.homesMarker.forEach(
+        marker => {
+          let distance = this.getDistanceFromLatLonInKm(this.currentPositionMarker, marker);
+          if (distance <= this.circleRadius) {
+            marker.addTo(this.map)
+          }
+        });
+    }
+     if (this.showEquipment) {
+      this.equipmenetMarker.forEach(
         marker => {
           let distance = this.getDistanceFromLatLonInKm(this.currentPositionMarker, marker);
           if (distance <= this.circleRadius) {
@@ -300,6 +359,8 @@ export class MapComponent implements AfterViewInit {
     this.toggleEvents();
     this.toggleHomes();
     this.togglePosts();
+        this.toggleEquipment();
+
   }
 
   showEvent(event: Event) {

@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 declare var initContent, initSidebar, initHexagons, $: any;
-
+import {OwlOptions} from "ngx-owl-carousel-o"
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -81,7 +81,30 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-
+ customOptions: any = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
   createPost() {
     if (!this.formData && !this.newPost.content) {
       return;
