@@ -22,6 +22,11 @@ export class AuthService {
       .pipe(tap(res => this.setSession(res.data)));
   }
 
+  public authenticateWithGoogle(user: any) {
+    return this.httpClient.post<any>(this.API + "/auth/google", user)
+      .pipe(tap(res => this.setSession(res.data)));
+  }
+
   public signUp(user: any) {
     return this.httpClient.post<any>(this.API + "/auth/signup", user)
   }

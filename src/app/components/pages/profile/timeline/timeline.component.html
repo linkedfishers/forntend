@@ -110,10 +110,10 @@
                 <!-- PICTURE ITEM LIST -->
                 <div class="picture-item-list small">
                     <!-- PICTURE ITEM -->
-                    <div *ngFor="let picture of user?.pictures" class="picture-item">
+                    <div *ngFor="let userPicture of user?.pictures" class="picture-item">
                         <!-- PICTURE -->
                         <figure class="picture round liquid">
-                            <img [src]="API+picture" alt="avatar-01">
+                            <img [src]="userPicture | picture" alt="avatar-01">
                         </figure>
                         <!-- /PICTURE -->
                     </div>
