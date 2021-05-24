@@ -62,8 +62,10 @@ import { CommentComponent } from './components/common/comment/comment.component'
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
 import { DetailsBoatComponent } from './components/pages/details-boat/details-boat.component';
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
-  import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { CarouselComponent } from './components/pages/carousel/carousel.component';
+import { SocialLoginModule, GoogleLoginProvider } from 'angularx-social-login';
+import { PicturePipe } from './pipes/picture.pipe';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -119,11 +121,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsBoatComponent,
     DetailsEquipmentComponent,
     CarouselComponent,
+    PicturePipe,
 
   ],
   imports: [
     BrowserModule,
-    CarouselModule ,
+    CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,
     FormsModule,
@@ -158,8 +161,20 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgxLinkifyjsModule.forRoot(),
     Ng5SliderModule,
     NgImageFullscreenViewModule,
+    SocialLoginModule,
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: true, //keeps the user signed in
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider('108417378352-9o4n67jsc1rd3mqcmgoobr7b6ns2ep55.apps.googleusercontent.com') // your client id
+        }
+      ]
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

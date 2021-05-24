@@ -5,6 +5,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
+import { SocialLoginModule, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { User } from 'src/app/interfaces/users.interface';
 
 declare var initForm: any;
 declare var initLoginTabs: any;
@@ -22,7 +24,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private toastr: ToastrService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private socialAuthService: SocialAuthService,
   ) { }
 
   ngOnInit(): void {
@@ -78,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.signUpForm.invalid) {
-      if(this.signUpForm.controls?.checkPassword?.errors?.confirm) {
+      if (this.signUpForm.controls?.checkPassword?.errors?.confirm) {
         this.toastr.error("Passwords does not match!");
         return;
       }
@@ -112,5 +115,25 @@ export class LoginComponent implements OnInit {
     }
     return {};
   };
+
+  loginWithGoogle() {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((response) => {
+        let user: User = {
+          googleId: response.id,
+          firstName: response.firstName,
+          lastName: response.lastName,
+          profilePicture: response.photoUrl,
+          fullName: response.name,
+          email: response.email
+        } as User
+        this.authService.authenticateWithGoogle(user).subscribe(res => {
+          this.toastr.success('Login Successful!', res.message);
+          this.router.navigate(['/']);
+        }, (err: any) => {
+          this.toastr.error("Can't login!", err.error.message);
+        });
+      });
+  }
 
 }

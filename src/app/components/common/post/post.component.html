@@ -47,7 +47,7 @@
                         <div class="user-avatar small no-outline">
                             <!-- USER AVATAR CONTENT -->
                             <figure class="picture round liquid small">
-                                <img class="round" [src]="API+post?.author?.profilePicture" alt="avatar-01">
+                                <img class="round" [src]="post?.author?.profilePicture | picture" alt="avatar-01">
                             </figure>
                         </div>
                         <!-- /USER AVATAR -->
@@ -223,7 +223,7 @@
             <!-- /POST OPTION -->
         </div>
         <!-- /POST OPTIONS -->
-        <app-comment *ngIf="commentsVisible && comments.length > 0" [post]="post" [comments]="comments"></app-comment>
+        <app-comment *ngIf="commentsVisible" [post]="post" [comments]="comments"></app-comment>
     </div>
     <!-- /WIDGET BOX -->
 </ng-container>
