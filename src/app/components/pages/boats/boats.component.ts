@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
-import { loadavg } from 'os';
+
 
 declare var initSidebar, initPopups: any , loadSvg: any;
 declare var initForm, $: any;

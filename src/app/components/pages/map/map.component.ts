@@ -21,7 +21,7 @@ declare var $: any;
 const iconRetinaUrl = 'assets/leaflet/marker-icon-2x.png';
 const homeIconUrl = 'assets/leaflet/home-icon.png';
 const equipmentIconUrl = "asset/leaflet/marker-icon-2x.png"
-const boatIconUrl = "asset/leaflet/home-icon.png"
+const boatIconUrl = "assets/leaflet/boat-icon.png"
 const eventIconUrl = 'assets/leaflet/event-icon.png';
 const iconUrl = 'assets/leaflet/position-icon.png';
 const shadowUrl = 'assets/leaflet/marker-shadow.png';
@@ -46,7 +46,7 @@ var postIcon = L.icon({
   shadowSize: [41, 41]
 });
 var boatIcon = L.icon({
-  iconUrl: homeIconUrl,
+  iconUrl: boatIconUrl,
   shadowUrl: shadowUrl,
   iconSize: [25, 41],
   iconAnchor: [12, 41],
