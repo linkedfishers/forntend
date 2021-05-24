@@ -54,6 +54,10 @@ export class EquipmentService {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
   }
 
+   getBoats() {
+    return this.httpClient.get<any>(`${this.API}/boats/all/`);
+  }
+
   deleteEquipment(id: string) {
     return this.httpClient.delete<any>(`${this.API}/equipment/${id}`);
   }

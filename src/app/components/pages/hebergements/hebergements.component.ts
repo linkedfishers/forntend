@@ -29,12 +29,10 @@ export class HebergementsComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
 
   currentUser: User
-
   formData: FormData;
   imageSrc: any;
   newHome: Hebergement;
   userHomes: Hebergement[] = [];
-
   selectedHome = -1;
 
   ngOnInit(): void {

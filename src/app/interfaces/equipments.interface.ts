@@ -26,6 +26,7 @@ export class Boat {
     description: string;
     isAvailable: boolean;
     createdAt: any;
+    position:any;
 }
 
 export class Hebergement {

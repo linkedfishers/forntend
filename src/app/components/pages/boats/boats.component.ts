@@ -7,8 +7,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
+import { loadavg } from 'os';
 
-declare var initSidebar, initPopups: any;
+declare var initSidebar, initPopups: any , loadSvg: any;
 declare var initForm, $: any;
 @Component({
   selector: 'app-boats',
@@ -28,22 +29,21 @@ export class BoatsComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
 
   currentUser: User
-
   formData: FormData;
   imageSrc: any;
   newBoat: Boat;
-
   userBoats: Boat[] = [];
-
   selectedBoat = -1;
 
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.newBoat = new Boat();
+    this.newBoat.price = 0;
     initSidebar();
     initPopups();
     initForm();
+    loadSvg()
     this.equipmentService.getBoatsByUser(this.currentUser._id).subscribe(
       res => {
         this.userBoats = res.data;
@@ -79,10 +79,19 @@ export class BoatsComponent implements OnInit {
         this.formData.append(key, this.newBoat[key]);
       }
     }
+if(this.newBoat.position){
+  this.formData.append("lat",this.newBoat.position["lat"]);
+    this.formData.append("lng",this.newBoat.position["lng"]);
+
+}
+
     this.equipmentService.createBoat(this.formData).subscribe(
       res => {
         this.userBoats.unshift(res.data);
         this.toastr.success(res.message);
+        this.formData=new FormData();
+        this.newBoat = new Boat();
+        this.imageSrc="";
       },
       err => {
         console.log(err);
@@ -133,6 +142,10 @@ export class BoatsComponent implements OnInit {
       if (this.userBoats[this.selectedBoat].hasOwnProperty(key)) {
         this.formData.append(key, this.userBoats[this.selectedBoat][key]);
       }
+        if (this.userBoats[this.selectedBoat].position) {
+      this.formData.append('lat', this.userBoats[this.selectedBoat].position['lat']);
+      this.formData.append('lng', this.userBoats[this.selectedBoat].position['lng']);
+    }
     }
 
     this.equipmentService.updateBoat(this.formData, this.userBoats[this.selectedBoat]._id).subscribe(

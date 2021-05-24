@@ -7,7 +7,7 @@
         <!-- /SECTION BANNER ICON -->
 
         <!-- SECTION BANNER TITLE -->
-        <p class="section-banner-title">Boat details!</p>
+        <p class="section-banner-title">boat details!</p>
         <!-- /SECTION BANNER TITLE -->
     </div>
     <!-- /SECTION BANNER -->
@@ -26,7 +26,7 @@
     <!-- /SECTION HEADER -->
 
     <!-- GRID -->
-    <div *ngIf="boat" class="grid grid-9-3">
+    <div class="grid grid-9-3">
         <!-- MARKETPLACE CONTENT -->
         <div class="marketplace-content grid-column">
             <!-- SLIDER PANEL -->
@@ -39,9 +39,7 @@
                         <div id="product-box-slider-items"
                             class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal">
                             <!-- SLIDER PANEL SLIDE -->
-                            <img style="border-radius: 2%"
-                                [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-home-header.png'"
-                                alt="item-10">
+                            <img style="border-radius: 2%" [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-home-header.png'" alt="item-10">
                             <!-- /SLIDER PANEL SLIDE -->
                         </div>
                     </div>
@@ -2058,7 +2056,7 @@
                 <!-- SIDEBAR BOX ITEMS -->
                 <div class="sidebar-box-items">
                     <!-- PRICE TITLE -->
-                    <p class="price-title big"><span class="currency">$</span> {{boat?.price || 0}}</p>
+                    <p class="price-title big"><span class="currency">$</span> {{boat?.price}}</p>
                     <!-- /PRICE TITLE -->
 
                     <!-- BUTTON -->
@@ -2171,14 +2169,13 @@
 
 
                     <!-- BUTTON -->
-                    <a class="button small white"
-                        [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]">View Owner's Store</a>
+                    <a class="button small white" [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]" >View Owner's Store</a>
                     <!-- /BUTTON -->
                 </div>
                 <!-- /SIDEBAR BOX ITEMS -->
 
                 <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">Hebergement Details</p>
+                <p class="sidebar-box-title medium-space">boat Details</p>
                 <!-- /SIDEBAR BOX TITLE -->
 
                 <!-- SIDEBAR BOX ITEMS -->
@@ -2193,8 +2190,7 @@
                             <!-- /INFORMATION LINE TITLE -->
 
                             <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.createdAt | date : ' MMMM, d, y,
-                                    h:mm a' }}</span></p>
+                            <p class="information-line-text"><span class="bold">{{boat?.createdAt | date : ' MMMM, d, y,  h:mm a'    }}</span></p>
                             <!-- /INFORMATION LINE TEXT -->
                         </div>
                         <!-- /INFORMATION LINE -->
@@ -2240,19 +2236,4 @@
         <!-- /MARKETPLACE SIDEBAR -->
     </div>
     <!-- /GRID -->
-    <div *ngIf="!boat" class="grid grid-12">
-        <!-- LOADER BARS -->
-        <div class="loader-bars">
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-            <div class="loader-bar"></div>
-        </div>
-        <!-- /LOADER BARS -->
-        
-    </div>
 </div>

@@ -94,6 +94,9 @@
                         <!-- PRODUCT PREVIEW TITLE -->
                         <p class="product-preview-title"><a [routerLink]="">{{boat?.name}}</a>
                         </p>
+
+                         <p class="product-preview-title"><a [routerLink]="">{{boat?.price}}</a>
+                        </p>
                         <!-- /PRODUCT PREVIEW TITLE -->
 
                         <!-- PRODUCT PREVIEW CATEGORY -->
@@ -106,8 +109,7 @@
 
                         <!-- BUTTON -->
                         <p (click)="removeBoat(i)" class="button secondary full popup-manage-boat-trigger">
-                            {{'delete_boat' |
-                            translate}}</p>
+                            {{'delete_boat' | translate}}</p>
                         <!-- /BUTTON -->
                     </div>
                     <!-- /PRODUCT PREVIEW INFO -->
@@ -202,6 +204,19 @@
                             </div>
                             <!-- /FORM ITEM -->
                         </div>
+
+                          <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small active">
+                                    <label for="item-name">Boat Name</label>
+                                    <input min="0"[(ngModel)]="newBoat.price" type="number" id="item-name" name="item_name">
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
                         <!-- /FORM ROW -->
 
                         <!-- FORM ROW -->
@@ -213,6 +228,18 @@
                                     <label for="item-files" class="active">Description</label>
                                     <textarea [(ngModel)]="newBoat.description" id="item-files" name="item_files"
                                         placeholder=""></textarea>
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
+
+                         <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small mid-textarea">
+                                    <app-map-box [(position)]="newBoat.position"></app-map-box>
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
@@ -262,6 +289,8 @@
                 <!-- PRODUCT PREVIEW INFO -->
                 <div class="product-preview-info">
                     <!-- PRODUCT PREVIEW TITLE -->
+                  <p class="text-sticker"><span class="highlighted">$</span> {{userBoats[selectedBoat]?.price}}</p>
+
                     <p class="product-preview-title"><a (click)="openFileInput()" [routerLink]="">update
                             picture</a></p>
                     <input id="postPhoto" type="file" style="display:none" (change)="fileChange($event)">
@@ -312,6 +341,18 @@
                             </div>
                             <!-- /FORM ITEM -->
                         </div>
+                          <div class="form-row split">
+                            <div class="form-item">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small active">
+                                    <label for="item-name">Boat Price</label>
+                                    <input min="0" *ngIf="selectedBoat>=0" [(ngModel)]="userBoats[selectedBoat].price" type="number" id="item-name"
+                                        name="item_price">
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
                         <!-- /FORM ROW -->
 
                         <!-- FORM ROW -->
@@ -329,6 +370,17 @@
                             <!-- /FORM ITEM -->
                         </div>
                         <!-- /FORM ROW -->
+                         <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small mid-textarea">
+                                    <app-map-box *ngIf="selectedBoat>=0" [(position)]="userBoats[selectedBoat].position"></app-map-box>
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
                     </form>
                     <!-- /FORM -->
                 </div>
