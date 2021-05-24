@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/interfaces/users.interface';
+import { PicturePipe } from 'src/app/pipes/picture.pipe';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 declare var initHexagons;
@@ -19,6 +20,7 @@ export class NavigationWidgetComponent implements OnInit {
   currentUser: User
   isAdmin = false;
   ngOnInit(): void {
+    const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
     let profilePicture1, profilePicture2, profilePicture3;
     profilePicture1 = this.el.nativeElement.querySelector(
@@ -30,11 +32,13 @@ export class NavigationWidgetComponent implements OnInit {
     profilePicture3 = this.el.nativeElement.querySelector(
       '#profilePicture3'
     );
-    profilePicture1.setAttribute('data-src', this.API + '/' + this.currentUser.profilePicture);
-    profilePicture2.setAttribute('data-src', this.API + '/' + this.currentUser.profilePicture);
-    profilePicture3.setAttribute('data-src', this.API + '/' + this.currentUser.profilePicture);
+    profilePicture1.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
+    profilePicture2.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
+    profilePicture3.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
     initHexagons();
     this.isAdmin = this.authService.isAdmin();
   }
+
+
 
 }
