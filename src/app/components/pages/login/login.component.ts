@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { User } from 'src/app/interfaces/users.interface';
 import { DatePipe } from '@angular/common';
-import * as data from "../../../../interfaces/countries.json";
+import * as data from "../../../interfaces/countries.json";
 
 declare var initForm: any;
 declare var initLoginTabs: any;
