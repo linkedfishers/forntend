@@ -66,6 +66,7 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { CarouselComponent } from './components/pages/carousel/carousel.component';
 import { SocialLoginModule, GoogleLoginProvider } from 'angularx-social-login';
 import { PicturePipe } from './pipes/picture.pipe';
+import { DatePipe } from '@angular/common';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -174,7 +175,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         }
       ]
     }
-  }],
+  },
+    DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
