@@ -101,6 +101,19 @@
                             <!-- /TABLE ACTION -->
                         </div>
                         <!-- /TABLE COLUMN -->
+                         <!-- TABLE COLUMN -->
+                         <div class="table-column padded-big-left">
+                            <!-- TABLE ACTION -->
+                            <div class="table-action">
+                                <!-- /PRODUCT PREVIEW CATEGORY -->
+                        <button (click)="openVerticallyCentered(content,i)" class="btn btn-primary">
+                            edit </button>
+                        <!-- /BUTTON -->
+                                <!-- /ICON DELETE -->
+                            </div>
+                            <!-- /TABLE ACTION -->
+                        </div>
+                        <!-- /TABLE COLUMN -->
                     </div>
                     <!-- /TABLE ROW -->
                 </div>
@@ -151,8 +164,25 @@
             <!-- /PROMO LINE ACTIONS -->
         </div>
         <!-- /PROMO LINE -->
-    </div>
-    <!-- /GRID COLUMN -->
-
+        
+<!-- /POPUP BOX CONTENT -->
 </div>
-<!-- /GRID -->
+<!-- /POPUP BOX BODY -->
+
+
+  
+
+  <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <input type="text" [(ngModel)]="equipments[selectedEquipment].description">
+        <input type="text" [(ngModel)]="equipments[selectedEquipment].name">
+    </div>
+      <div class="modal-footer">
+       
+        <button type="button" (click)="onUpdateEquipement()" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+    </ng-template>

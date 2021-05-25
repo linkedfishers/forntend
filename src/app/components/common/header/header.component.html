@@ -137,7 +137,7 @@
                         <div class="user-status-avatar">
                             <div class="user-avatar small no-outline">
                                 <figure class="picture round liquid small">
-                                    <img class="round" [src]="user?.profilePicture | picture" alt="avatar-01">
+                                    <img class="round" [src]="API+user?.profilePicture" alt="avatar-01">
                                 </figure>
                             </div>
                         </div>
@@ -326,7 +326,7 @@
                                 <div class="user-status-avatar">
                                     <div class="user-avatar small no-outline">
                                         <figure>
-                                            <img class="round" [src]="notification?.sender?.profilePicture | picture"
+                                            <img class="round" [src]="API+notification?.sender?.profilePicture"
                                                 alt="avatar-01">
                                         </figure>
                                     </div>
@@ -410,7 +410,7 @@
                         <div class="user-status-avatar">
                             <div class="user-avatar small no-outline">
                                 <figure>
-                                    <img [src]="currentUser?.profilePicture | picture" alt="avatar-01">
+                                    <img [src]="API+currentUser?.profilePicture" alt="avatar-01">
                                 </figure>
                             </div>
                         </div>

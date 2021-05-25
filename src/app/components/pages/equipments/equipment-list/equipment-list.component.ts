@@ -8,7 +8,10 @@ import { EquipmentService } from 'src/app/services/equipment.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 declare var initForm, $: any;
+declare var initSidebar, initPopups: any;
 
 @Component({
   selector: 'app-equipment-list',
@@ -24,6 +27,7 @@ export class EquipmentListComponent implements OnInit {
     private router: Router,
     private equipmentService: EquipmentService,
     private translate: TranslateService,
+    private modalService: NgbModal
 
   ) { }
   readonly API: string = environment.apiUrl + '/';
@@ -34,8 +38,17 @@ export class EquipmentListComponent implements OnInit {
   formData: FormData;
   imageSrc: any;
   newEquipment: Equipment;
+
+  
+  userEquipements: Equipment[] = [];
+  selectedEquipment = -1;
+
+
+
   ngOnInit(): void {
     initForm();
+    initSidebar();
+    initPopups();
     this.currentUser = this.authService.getCurrentUser();
 
     this.route.params.subscribe(params => {
@@ -132,5 +145,38 @@ export class EquipmentListComponent implements OnInit {
       }
     })
   }
+  onUpdateEquipement() {
+    this.formData = this.formData || new FormData();
+    for (const key in this.equipments[this.selectedEquipment]) {
+      if (this.equipments[this.selectedEquipment].hasOwnProperty(key)) {
+        this.formData.append(key, this.equipments[this.selectedEquipment][key]);
+      }
+    }
+    this.equipmentService.updateEquipment(this.formData, this.equipments[this.selectedEquipment]._id).subscribe(
+      res => {
+        this.toastr.success(res.message);
+        this.formData = new FormData();
+        this.imageSrc = "";
+        this.modalService.dismissAll();
+      },
+      err => {
+        this.imageSrc = "";
+        console.log(err);
+        this.toastr.error(err.error.message);
+      },
+      () => {
+      }
+    )
+  }
+  openUpdatePopup(i) {
+    initForm();
+    this.imageSrc = "";
+    this.selectedEquipment = i;
+    $("#updateBtn").click();
+  }
 
+  openVerticallyCentered(content,i) {
+    this.modalService.open(content, { centered: true });
+    this.selectedEquipment = i;
+  }
 }

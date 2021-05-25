@@ -1,8 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Event } from '../interfaces/event.interface';
-import { Post } from '../interfaces/posts.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +28,10 @@ export class PostService {
     return this.httpClient.delete<any>(`${this.API}/posts/post/${postId}`);
   }
 
+  updatePost(formData, id: string) {
+    return this.httpClient.put<any>(`${this.API}/posts/post/${id}`, formData);
+  }
+
   reactToPost(postId: string, reactType: string) {
     return this.httpClient.put<any>(`${this.API}/posts/react/${postId}`, { reactType });
   }
@@ -45,5 +47,12 @@ export class PostService {
   getComments(postId: string, count: number) {
     return this.httpClient.get<any>(`${this.API}/posts/comments/${postId}/${count}`);
   }
+  deleteComment(commentId: string) {
+    return this.httpClient.delete<any>(`${this.API}/posts/comment/${commentId}`);
+  }
 
+  updateComment(formData, id: string) {
+    return this.httpClient.put<any>(`${this.API}/posts/comments/${id}`, formData);
+  }
+  
 }

@@ -42,7 +42,7 @@ export class HeaderComponent implements OnInit {
       this.language = event.lang;
     });
     this.currentUser = this.authService.getCurrentUser();
-    this.firstname = this.currentUser.fullName.split(' ')[0];
+    this.firstname = this.currentUser.firstName || this.currentUser.fullName.split(' ')[0];
     this.userService.getNotifications().subscribe(
       res => {
         this.notifications = res.data;

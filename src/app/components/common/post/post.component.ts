@@ -8,8 +8,9 @@ import { User } from 'src/app/interfaces/users.interface';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { EventEmitter } from '@angular/core';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-
-declare var app, loadSvg, initTooltips,
+import { ToastrService } from 'ngx-toastr';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+declare var loadSvg, initTooltips,
   initCharts,
   initHexagons,
   initPopups,
@@ -29,22 +30,30 @@ export class PostComponent implements OnInit {
     private authService: AuthService,
     private el: ElementRef,
     private translate: TranslateService,
+    private toastr: ToastrService,
+    private modalService: NgbModal,
   ) { }
   @Input()
   post: Post;
+  comment: Comment
 
   @Output()
   postDeleted = new EventEmitter();
+  commentDeleted = new EventEmitter();
 
   readonly API: string = environment.apiUrl + '/';
+  //readonly API: string ="http://localhost:3000/posts/download/";
   groupedReactions: any[];
   reacted: boolean = false;
   currentUser: User
   profilePicture: HTMLInputElement;
   commentsVisible = false;
   newComment: string;
-  comments: Comment[] = [];
+  formData: FormData;
+  comments: Comment[];
   language: string;
+  imageSrc: any;
+  selectedPost = -1;
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
 
@@ -56,7 +65,7 @@ export class PostComponent implements OnInit {
       reaction => {
         return reaction.author._id == this.currentUser._id
       });
-    
+
     loadSvg();
     initTooltips();
     initCharts();
@@ -64,6 +73,7 @@ export class PostComponent implements OnInit {
     initHeader();
     initContent();
     initLoader();
+
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
@@ -86,7 +96,6 @@ export class PostComponent implements OnInit {
 
   toggleComments() {
     this.commentsVisible = !this.commentsVisible;
-    this.comments = [];
     if (!this.commentsVisible) {
       return;
     }
@@ -99,6 +108,20 @@ export class PostComponent implements OnInit {
       }
     )
   }
+
+  submitComment() {
+    this.postService.addComment(this.newComment, this.post._id).subscribe(
+      res => {
+        console.log(res);
+        this.newComment = "";
+        this.post.comments++;
+        res.data.author = this.currentUser;
+        this.comments.push(res.data);
+      },
+      err => { console.log(err) }
+    )
+  }
+  // deletePOST
 
   deletePost() {
     Swal.fire({
@@ -117,6 +140,8 @@ export class PostComponent implements OnInit {
                 icon: 'success'
               });
             this.postDeleted.emit(this.post._id);
+
+
           },
           err => {
             Swal.fire({
@@ -131,26 +156,115 @@ export class PostComponent implements OnInit {
     })
   }
 
-  updatePost() {
-    Swal.fire({
+  async updatePost() {
+    const { value: result } = await Swal.fire({
       input: 'textarea',
       inputLabel: 'Message',
       inputPlaceholder: 'Type your message here...',
       inputAttributes: {
         'aria-label': 'Type your message here'
       },
+      inputValue: this.post.content,
       showCancelButton: true
+    })
+
+    if (result) {
+      console.log(result);
+      this.post.content = result;
+      this.postService.updatePost(this.post, this.post._id).subscribe(
+        res => {
+          Swal.fire(
+            {
+              title: this.translate.instant('update_post'),
+              icon: 'success'
+            });
+
+        },
+        err => {
+          Swal.fire({
+            title: this.translate.instant('update_post_error'),
+            icon: 'error'
+          });
+        }
+      );
+
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      return;
+    }
+  }
+
+
+  reportPost() {
+
+  }
+  // delete comentaire
+  deleteComment(id, index) {
+    Swal.fire({
+      title: this.translate.instant('delete_comment') + '?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: this.translate.instant('delete_comment'),
+      cancelButtonText: this.translate.instant('discard')
     }).then((result) => {
       if (result.value) {
-        console.log("updated ");
+        this.postService.deleteComment(id).subscribe(
+          res => {
+            Swal.fire(
+              {
+                title: this.translate.instant('deleted_comment'),
+                icon: 'success'
+              });
+            this.post.comments--;
+            this.comments.splice(index, 1);
+          },
+          err => {
+            Swal.fire({
+              title: this.translate.instant('delete_comment_error'),
+              icon: 'error'
+            });
+          }
+        )
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         return;
       }
     })
   }
+  //update commentaire
+  async updateComment() {
+    const { value: result } = await Swal.fire({
+      input: 'textarea',
+      inputLabel: 'Message',
+      inputPlaceholder: 'Type your message here...',
+      inputAttributes: {
+        'aria-label': 'Type your message here'
+      },
+      inputValue: this.comment.content,
+      showCancelButton: true
+    })
 
-  reportPost() {
+    if (result) {
+      console.log(result);
+      this.comment.content = result;
+      this.postService.updateComment(this.comment, this.comment._id).subscribe(
+        res => {
+          Swal.fire(
+            {
+              title: this.translate.instant('update_comment'),
+              icon: 'success'
+            });
+
+        },
+        err => {
+          Swal.fire({
+            title: this.translate.instant('update_comment_error'),
+            icon: 'error'
+          });
+        }
+      );
+
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      return;
+    }
 
   }
-
 }

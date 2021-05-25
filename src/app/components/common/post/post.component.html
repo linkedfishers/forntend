@@ -1,4 +1,4 @@
-<ng-container>
+
     <!-- WIDGET BOX -->
     <div class="widget-box no-padding">
         <!-- WIDGET BOX SETTINGS -->
@@ -24,10 +24,14 @@
                     <!-- /SIMPLE DROPDOWN LINK -->
 
                     <!-- SIMPLE DROPDOWN LINK -->
-                    <p (click)="deletePost()" *ngIf="currentUser?._id==post?.author?._id" class="simple-dropdown-link">
-                        {{'delete_post' |
+                    <p (click)="deletePost()" *ngIf="currentUser?._id==post?.author?._id" class="simple-dropdown-link">{{'delete_post' |
                         translate}}</p>
+
                     <!-- /SIMPLE DROPDOWN LINK -->
+                  <!-- <p (click)="openVerticallyCentered(content)" *ngIf="currentUser?._id==post?.author?._id" class="simple-dropdown-link">{{'modifier publication' |
+                        translate}}</p>-->
+                        <p (click)="updatePost()" *ngIf="currentUser?._id==post?.author?._id" class="simple-dropdown-link">{{'update_post' |
+                          translate}}</p>
                 </div>
                 <!-- /SIMPLE DROPDOWN -->
             </div>
@@ -82,7 +86,7 @@
 
             <a *ngIf="post?.attachmentType==='image'" class="video-status" [routerLink]="">
                 <!-- STATUS IMAGE -->
-                <img class="video-status-image" [src]="API + post.attachment" alt="attatchement">
+                <img class="video-status-image" [src]="post.attachment | picture" alt="attatchement">
                 <!-- STATUS IMAGE -->
             </a>
 
@@ -142,6 +146,7 @@
                             <p *ngIf="post?.reacts" class="meta-line-text">{{post?.reacts.length}}</p>
                             <!-- /META LINE TEXT -->
                         </div>
+
                         <!-- /META LINE -->
                     </div>
                     <!-- /CONTENT ACTION -->
@@ -157,6 +162,10 @@
                         <!-- /META LINE -->
                     </div>
                     <!-- /CONTENT ACTION -->
+                    <!-- SIMPLE DROPDOWN LINK -->
+
+
+                    <!-- /SIMPLE DROPDOWN LINK -->
                 </div>
                 <!-- /CONTENT ACTIONS -->
             </div>
@@ -180,6 +189,7 @@
                     <p class="post-option-text" [ngClass]="{'post-option-text-active': reacted}">{{ reacted? 'Unlike' :
                         'Like!'}}</p>
                     <!-- /POST OPTION TEXT -->
+
                 </div>
                 <!-- /POST OPTION -->
 
@@ -223,7 +233,142 @@
             <!-- /POST OPTION -->
         </div>
         <!-- /POST OPTIONS -->
-        <app-comment *ngIf="commentsVisible" [post]="post" [comments]="comments"></app-comment>
+        <div *ngIf="commentsVisible" class="post-comment-list">
+            <!-- POST COMMENT -->
+            <div *ngFor="let comment of comments ;let i = index" class="post-comment">
+                <!-- USER AVATAR -->
+                <a class="user-avatar small no-outline" [routerLink]="['/profile',comment.author._id]">
+                    <!-- USER AVATAR CONTENT -->
+                    <figure class="picture round liquid small">
+                        <img class="round" [src]="API+comment?.author?.profilePicture" alt="profile picture">
+                    </figure>
+                </a>
+                <!-- /USER AVATAR -->
+
+                <!-- POST COMMENT TEXT -->
+                <p class="post-comment-text"><a class="post-comment-text-author"
+                        [routerLink]="['/profile',comment.author._id]">
+                        {{comment?.author?.fullName}}
+                    </a>{{comment?.content}}</p>
+                <!-- /POST COMMENT TEXT -->
+
+                <!-- CONTENT ACTIONS -->
+                <div class="content-actions">
+                    <!-- CONTENT ACTION -->
+                    <div class="content-action">
+                        <!-- META LINE -->
+                        <div class="meta-line">
+                            <!-- META LINE TIMESTAMP -->
+                            <p [owlTooltip]="comment.createdAt | date : ' MMMM, d, y,  h:mm a'"
+                                [owlTooltipPosition]="'left'" class="meta-line-timestamp">{{ comment?.createdAt |
+                                timeAgo :language}}</p>
+                            <!-- /META LINE TIMESTAMP -->
+
+                        </div>
+                        <!-- /META LINE -->
+
+                        <!-- META LINE -->
+                        <div class="meta-line settings">
+                            <!-- POST SETTINGS WRAP -->
+                            <div class="post-settings-wrap" style="position: relative;">
+                                <!-- POST SETTINGS -->
+                                <div class="post-settings post-settings-dropdown-trigger">
+                                    <!-- POST SETTINGS ICON -->
+
+                                    <svg class="post-settings-icon icon-more-dots">
+
+                                        <use xlink:href="#svg-more-dots"> </use>
+                                    </svg>
+
+                                    <!-- /POST SETTINGS ICON -->
+                                </div>
+                                <!-- /POST SETTINGS -->
+
+                                <!-- SIMPLE DROPDOWN -->
+                                <div class="simple-dropdown widget-box-comment-settings-dropdown">
+                                <!--<div class="simple-dropdown post-settings-dropdown"
+                                    style="position: absolute; z-index: 9999; bottom: 30px; right: 0px; opacity: 0; visibility: hidden; transform: translate(0px, 16px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;"> -->
+                                    <!-- SIMPLE DROPDOWN LINK -->
+                                    <p  *ngIf="currentUser?._id!=comment?.author?._id" class="simple-dropdown-link">Report Post</p>
+
+                                    <!-- /SIMPLE DROPDOWN LINK -->
+
+                                </div>
+                                <!-- /SIMPLE DROPDOWN -->
+                                <p (click)="deleteComment(comment._id,i)" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'delete_comment' |
+                                    translate}}</p>
+
+                                <!-- /SIMPLE DROPDOWN LINK -->
+                               <!-- <p (click)="openVerticallyCenteredv1(commentaire)" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'modifier comment' |
+                                    translate}}</p> -->
+                                    <p (click)="updateComment()" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'update_comment' |
+                                      translate}}</p>
+                            </div>
+                            <!-- /POST SETTINGS WRAP -->
+                        </div>
+                        <!-- /META LINE -->
+                    </div>
+                    <!-- /CONTENT ACTION -->
+                </div>
+                <!-- /CONTENT ACTIONS -->
+            </div>
+            <!-- /POST COMMENT -->
+
+            <!-- POST COMMENT FORM -->
+            <div class="post-comment-form">
+
+                <!-- FORM -->
+                <form class="form" (submit)="submitComment()">
+                    <!-- FORM ROW -->
+                    <div class="form-row">
+
+
+
+                        <!-- FORM ITEM -->
+                        <div class="form-item">
+                            <!-- FORM INPUT -->
+                            <div class="form-input small">
+                                <input [(ngModel)]="newComment" placeholder="Your comment" type="text" id="post-comment"
+                                    name="post_comment" autocomplete="off">
+                                <button type="submit" style="display:none">hidden submit</button>
+
+
+                            </div>
+                            <!-- /FORM INPUT -->
+                        </div>
+                        <!-- /FORM ITEM -->
+                    </div>
+                    <!-- /FORM ROW -->
+                </form>
+                <!-- /FORM -->
+
+            </div>
+            <!-- /POST COMMENT FORM -->
+        </div>
     </div>
     <!-- /WIDGET BOX -->
-</ng-container>
+
+<!--<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">publication </h4>
+    </div>
+    <div class="modal-body">
+        <input type="text" [(ngModel)]="post.content">
+    </div>
+      <div class="modal-footer">
+      <button type="button" (click)="onUpdatePost()" class="btn btn-primary">Save changes</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+  </ng-template>-->
+  <!-- <ng-template #commentaire let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title">commentaire </h4>
+    </div> -->
+   <!-- <div class="modal-body">
+        <input type="text" [(ngModel)]="comment.content">
+    </div>-->
+      <!-- <div class="modal-footer">
+      <button type="button" (click)="onUpdateComment()" class="btn btn-primary">Save changes</button>
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+      </div>
+   </ng-template> -->

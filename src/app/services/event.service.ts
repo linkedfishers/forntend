@@ -14,6 +14,12 @@ export class EventService {
   createEvent(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/events/new`, formData);
   }
+  updateEvent(formData: FormData, id: string) {
+    return this.httpClient.put<any>(`${this.API}/events/${id}`, formData);
+  }
+  deleteEvent(id: string) {
+    return this.httpClient.delete<any>(`${this.API}/events/${id}`);
+  }
 
   getEventByMonth(month: number) {
     return this.httpClient.get<any>(`${this.API}/events/month/${month}`);

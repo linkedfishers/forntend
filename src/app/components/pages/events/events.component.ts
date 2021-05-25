@@ -2,14 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { Event } from 'src/app/interfaces/event.interface';
 import { EventService } from 'src/app/services/event.service';
 import { ToastrService } from 'ngx-toastr';
+import * as moment from 'moment';
+import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { TranslateService } from '@ngx-translate/core';
+import { CalendarEvent, } from 'angular-calendar';
+import { Subject } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/environments/environment';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
-import * as moment from 'moment';
-import {
-  CalendarEvent,
-} from 'angular-calendar';
-import { Subject } from 'rxjs';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-events',
@@ -19,8 +23,13 @@ import { environment } from 'src/environments/environment';
 export class EventsComponent implements OnInit {
 
   constructor(
+    private authService: AuthService,
     private eventService: EventService,
     private toastr: ToastrService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private translate: TranslateService,
+    private modalService: NgbModal
   ) { }
 
   newEvent: Event;
@@ -37,7 +46,8 @@ export class EventsComponent implements OnInit {
   imageSrc: any;
   selectedEvent: Event;
   readonly API: string = environment.apiUrl + '/';
-
+  events: Event[];
+  selectedEvents = -1;
 
   ngOnInit(): void {
     this.today = new Date();
@@ -136,7 +146,6 @@ export class EventsComponent implements OnInit {
     )
   }
 
-
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     let dayClicked = moment(date);
     if ((moment(this.viewDate).isSame(dayClicked, 'day') && this.activeDayIsOpen === true) || this.calendarEvents.length == 0) {
@@ -163,5 +172,65 @@ export class EventsComponent implements OnInit {
       this.viewDate.getDate());
     this.showCalendarEvents(this.viewDate);
 
+  }
+
+  onDeleteEvent(i) {
+    Swal.fire({
+      title: this.translate.instant('delete_equipment') + '?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: this.translate.instant('delete_equipment'),
+      cancelButtonText: this.translate.instant('discard')
+    }).then((result) => {
+      if (result.value) {
+        console.log(this.upcomingEvents[i]._id);
+
+        this.eventService.deleteEvent(this.upcomingEvents[i]._id).subscribe(
+          res => {
+            Swal.fire(
+              {
+                title: this.translate.instant('deleted_equipment'),
+                icon: 'success'
+              });
+            this.upcomingEvents.splice(i, 1);
+          },
+          err => {
+            Swal.fire({
+              title: this.translate.instant('delete_error'),
+              icon: 'error'
+            });
+          }
+        )
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        return;
+      }
+    })
+  }
+  onUpdateEvent() {
+    this.formData = this.formData || new FormData();
+    for (const key in this.events[this.selectedEvents]) {
+      if (this.events[this.selectedEvents].hasOwnProperty(key)) {
+        this.formData.append(key, this.events[this.selectedEvents][key]);
+      }
+    }
+    this.eventService.updateEvent(this.formData, this.events[this.selectedEvents]._id).subscribe(
+      res => {
+        this.toastr.success(res.message);
+        this.formData = new FormData();
+        this.imageSrc = "";
+        this.modalService.dismissAll();
+      },
+      err => {
+        this.imageSrc = "";
+        console.log(err);
+        this.toastr.error(err.error.message);
+      },
+      () => {
+      }
+    )
+  }
+  openVerticallyCentered(content, i) {
+    this.modalService.open(content, { centered: true });
+    this.selectedEvents = i;
   }
 }

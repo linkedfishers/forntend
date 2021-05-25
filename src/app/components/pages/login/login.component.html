@@ -117,7 +117,8 @@
                     <!-- FORM ITEM -->
                     <div class="form-item">
                         <!-- FORM LINK -->
-                        <a class="form-link" [routerLink]="['/password-reset-request']">{{'forgot_password' | translate}}</a>
+                        <a class="form-link" [routerLink]="['/password-reset-request']">{{'forgot_password' |
+                            translate}}</a>
                         <!-- /FORM LINK -->
                     </div>
                     <!-- /FORM ITEM -->
@@ -155,7 +156,7 @@
                 <!-- /SOCIAL LINK -->
 
                 <!-- SOCIAL LINK -->
-                <a (click)="loginWithGoogle()" class="social-link google" [routerLink]="">
+                <a class="social-link google" href="#">
                     <!-- ICON google -->
                     <svg class="icon-google">
                         <use xlink:href="#svg-google"></use>
@@ -180,119 +181,189 @@
 
             <!-- FORM -->
             <form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="register-email">Your Email</label>
-                            <input formControlName="email" type="text" id="register-email" name="register_email">
-                            <p *ngIf="signUpForm?.controls?.email?.errors?.email" class="form-text error">invalid email!
-                            </p>
-                            <p *ngIf="signUpForm?.controls?.email?.errors?.required && signUpForm?.touched"
-                                class="form-text error">Email is
-                                required!</p>
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="register-username">{{'fullname' | translate}}</label>
-                            <input formControlName="fullName" type="text" id="register-username"
-                                name="register_username">
-                            <p *ngIf="signUpForm?.controls?.fullName?.errors?.required && signUpForm?.touched"
-                                class="form-text error">Full name is required!</p>
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="register-password">{{'password' | translate}} </label>
-                            <input formControlName="password" type="password" id="register-password"
-                                name="register_password">
-                            <p *ngIf="signUpForm?.controls?.password?.errors?.required && signUpForm?.touched"
-                                class="form-text error">password
-                                is required!</p>
-
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="register-password-repeat">{{'repeat_password' | translate}}</label>
-                            <input formControlName="checkPassword" type="password" id="register-password-repeat"
-                                name="register_password_repeat">
-                            <p *ngIf="signUpForm?.controls?.checkPassword?.errors?.required && signUpForm?.touched"
-                                class="form-text error">Confirm your password!</p>
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap">
-                            <input type="checkbox" id="register-newsletter" name="register_newsletter" checked>
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box">
-                                <!-- ICON CROSS -->
-                                <svg class="icon-cross">
-                                    <use xlink:href="#svg-cross"></use>
-                                </svg>
-                                <!-- /ICON CROSS -->
+                <div>
+                    <div style="max-width: 600px; max-height: 400px;overflow: auto;">
+                        <div class="force-overflow">
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="register-email">Votre Email</label>
+                                        <input formControlName="email" type="text" id="register-email"
+                                            name="register_email">
+                                        <p *ngIf="signUpForm?.controls?.email?.errors?.email" class="form-text error">
+                                            invalid email!
+                                        </p>
+                                        <p *ngIf="signUpForm?.controls?.email?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">Email is
+                                            required!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
                             </div>
-                            <!-- /CHECKBOX BOX -->
-                            <label for="register-newsletter">Send me news and updates via email</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
+                            <!-- /FORM ROW -->
 
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- BUTTON -->
-                        <button class="button medium primary">Register Now!</button>
-                        <!-- /BUTTON -->
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="register-us ername">{{'nom' | translate}}</label>
+                                        <input formControlName="nom" type="text" id="register-username"
+                                            name="register_username">
+                                        <p *ngIf="signUpForm?.controls?.nom?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">nom is required!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="exampleInputprenom">prenom</label>
+                                        <input formControlName="prenom" type="text" id="register-username"
+                                            name="register_username">
+                                        <p *ngIf="signUpForm?.controls?.prenon?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">prenon is required!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="register-us ername">{{'date de naissance' | translate}}</label>
+                                        <!--<input formControlName="nom" type="date" id="register-username"
+                                            name="register_username">-->
+                                        <input formControlName="birthDate" type="date" id="bday" name="bday">
+                                        <p *ngIf="signUpForm?.controls?.date de naissance?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">date de naissance is required!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+
+                                        <div class="form-group">
+                                            <label for="register-us ername">{{'Pays' | translate}}</label>
+                                            <!-- <label for="exampleFormControlpays">pays</label>-->
+
+                                            <select formControlName="pays" class="form-control"
+                                                id="exampleFormControlSelect1">
+                                                <option *ngFor="let country of countries" value="{{country.code}}">
+                                                    {{country.name}}
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <p *ngIf="signUpForm?.controls?.pays?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">country is required!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="register-password">{{'password' | translate}} </label>
+                                        <input formControlName="password" type="password" id="register-password"
+                                            name="register_password" minlength="8" maxlength="32">
+                                        <p *ngIf="signUpForm?.controls?.password?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">password
+                                            is required!</p>
+
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- FORM INPUT -->
+                                    <div class="form-input">
+                                        <label for="register-password-repeat">{{'repeat_password' | translate}}</label>
+                                        <input formControlName="checkPassword" type="password"
+                                            id="register-password-repeat" name="register_password_repeat" minlength="8"
+                                            maxlength="32">
+                                        <p *ngIf="signUpForm?.controls?.checkPassword?.errors?.required && signUpForm?.touched"
+                                            class="form-text error">Confirm your password!</p>
+                                    </div>
+                                    <!-- /FORM INPUT -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- CHECKBOX WRAP -->
+                                    <div class="checkbox-wrap">
+                                        <input type="checkbox" id="register-newsletter" name="register_newsletter"
+                                            checked>
+                                        <!-- CHECKBOX BOX -->
+                                        <div class="checkbox-box">
+                                            <!-- ICON CROSS -->
+                                            <svg class="icon-cross">
+                                                <use xlink:href="#svg-cross"></use>
+                                            </svg>
+                                            <!-- /ICON CROSS -->
+                                        </div>
+                                        <!-- /CHECKBOX BOX -->
+                                        <label for="register-newsletter">Send me news and updates via email</label>
+                                    </div>
+                                    <!-- /CHECKBOX WRAP -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+
+                            <!-- FORM ROW -->
+                            <div class="form-row">
+                                <!-- FORM ITEM -->
+                                <div class="form-item">
+                                    <!-- BUTTON -->
+                                    <button class="button medium primary">Register Now!</button>
+                                    <!-- /BUTTON -->
+                                </div>
+                                <!-- /FORM ITEM -->
+                            </div>
+                            <!-- /FORM ROW -->
+                        </div>
+
                     </div>
-                    <!-- /FORM ITEM -->
                 </div>
-                <!-- /FORM ROW -->
             </form>
             <!-- /FORM -->
+
 
             <!-- FORM TEXT -->
             <p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account.

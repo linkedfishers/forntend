@@ -5,8 +5,10 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
-import { SocialLoginModule, GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import { User } from 'src/app/interfaces/users.interface';
+import { DatePipe } from '@angular/common';
+import * as data from "../../../../interfaces/countries.json";
 
 declare var initForm: any;
 declare var initLoginTabs: any;
@@ -19,6 +21,7 @@ declare var loadSvg: any;
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   signUpForm: FormGroup;
+  countries = (<any>data).default || [];
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private translate: TranslateService,
     private socialAuthService: SocialAuthService,
+    public datepipe: DatePipe,
   ) { }
 
   ngOnInit(): void {
@@ -44,9 +48,11 @@ export class LoginComponent implements OnInit {
       //Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      fullName: [null, [Validators.required]],
+      nom: [null, [Validators.required]],
+      prenom: [null, [Validators.required]],
+      birthDate: [null, [Validators.required]],
+      pays: [null, [Validators.required]],
     }, { updateOn: 'blur' });
-    console.log(this.signUpForm);
   }
 
 
@@ -91,7 +97,10 @@ export class LoginComponent implements OnInit {
     this.authService.signUp({
       'email': this.signUpForm.controls.email.value,
       'password': this.signUpForm.controls.password.value,
-      'fullName': this.signUpForm.controls.fullName.value,
+      'nom': this.signUpForm.controls.nom.value,
+      'prenom': this.signUpForm.controls.prenom.value,
+      'birthDate': this.formatDate(this.signUpForm.controls.birthDate.value),
+      'pays': this.signUpForm.controls.pays.value
     })
       .subscribe(
         response => {
@@ -105,6 +114,10 @@ export class LoginComponent implements OnInit {
           this.toastr.error(err.error.message);
         }
       )
+  }
+
+  formatDate(date) {
+    return this.datepipe.transform(date, 'yyyy-MM-dd');
   }
 
   confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
