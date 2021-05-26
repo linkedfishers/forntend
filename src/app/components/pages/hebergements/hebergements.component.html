@@ -80,7 +80,7 @@
                 <!-- PRODUCT PREVIEW -->
                 <div *ngFor="let home of userHomes ; let i=index" class="product-preview fixed-height">
                     <!-- PRODUCT PREVIEW IMAGE -->
-                    <a [routerLink]="" routerLinkActive="router-link-active">
+                    <a [routerLink]="['/details-home',home._id]" routerLinkActive="router-link-active">
                         <figure class="product-preview-image liquid">
                             <img [src]="home.image? API + home.image : '../../../../assets/img/fishing-home-header.png'"
                                 alt="item-01">
@@ -95,12 +95,13 @@
                         <!-- /TEXT STICKER -->
 
                         <!-- PRODUCT PREVIEW TITLE -->
-                        <p class="product-preview-title"><a [routerLink]="">{{home?.name}}</a>
+                        <p class="product-preview-title"><a [routerLink]="['/details-home',home._id]">{{home?.name}}</a>
                         </p>
                         <!-- /PRODUCT PREVIEW TITLE -->
 
                         <!-- PRODUCT PREVIEW CATEGORY -->
-                        <p class="product-preview-category digital"><a [routerLink]="">{{home?.description}}u</a>
+                        <p class="product-preview-category digital"><a
+                                [routerLink]="['/details-home',home._id]">{{home?.description}}u</a>
                         </p>
                         <!-- /PRODUCT PREVIEW CATEGORY -->
                         <!-- BUTTON -->
@@ -229,6 +230,29 @@
                         <div class="form-row">
                             <!-- FORM ITEM -->
                             <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="item-description">Hebergement type</label>
+                                    <select [(ngModel)]="newHome.type" name="hebergement-name">
+                                        <option value="" selected>Select Hebergement type</option>
+                                        <option *ngFor="let type of hebergementTypes" value="{{type._id}}">{{type.name}}
+                                        </option>
+                                    </select>
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
+                        <!-- /FORM ROW -->
+
+                        <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-description">Hebergement description</label>
@@ -344,7 +368,8 @@
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-name">Hebergement Name</label>
-                                    <input *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].name" type="text" id="item-name" name="item_name">
+                                    <input *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].name"
+                                        type="text" id="item-name" name="item_name">
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
@@ -358,10 +383,33 @@
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-name">Hebergement Price</label>
-                                    <input min="0" *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].price" type="number" id="item-name"
-                                        name="item_price">
+                                    <input min="0" *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].price"
+                                        type="number" id="item-name" name="item_price">
                                 </div>
                                 <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
+                        <!-- /FORM ROW -->
+
+                        <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="item-description">Hebergement type</label>
+                                    <select *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].type" name="hebergement-name">
+                                        <option value="" selected>Select Hebergement type</option>
+                                        <option *ngFor="let type of hebergementTypes" value="{{type._id}}">{{type.name}}
+                                        </option>
+                                    </select>
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
                             </div>
                             <!-- /FORM ITEM -->
                         </div>
@@ -373,8 +421,8 @@
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-description">Hebergement description</label>
-                                    <input *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].description" type="text" id="item-description"
-                                        name="item_description">
+                                    <input *ngIf="selectedHome>=0" [(ngModel)]="userHomes[selectedHome].description"
+                                        type="text" id="item-description" name="item_description">
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
@@ -387,7 +435,8 @@
                             <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small mid-textarea">
-                                    <app-map-box *ngIf="selectedHome>=0" [(position)]="userHomes[selectedHome].position"></app-map-box>
+                                    <app-map-box *ngIf="selectedHome>=0"
+                                        [(position)]="userHomes[selectedHome].position"></app-map-box>
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>

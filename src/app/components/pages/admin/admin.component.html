@@ -345,12 +345,12 @@
                                         <div (click)="toggleUserStatus(i)" class="switch-option">
                                             <!-- FORM SWITCH -->
                                             <div [ngClass]="{'active': user?.activated}" class="form-switch">
-                                              <!-- FORM SWITCH BUTTON -->
-                                              <div class="form-switch-button"></div>
-                                              <!-- /FORM SWITCH BUTTON -->
+                                                <!-- FORM SWITCH BUTTON -->
+                                                <div class="form-switch-button"></div>
+                                                <!-- /FORM SWITCH BUTTON -->
                                             </div>
                                             <!-- /FORM SWITCH -->
-                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- /TABLE ROW -->
@@ -501,7 +501,7 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <p (click)="addCategory('equipment')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
                         <!-- /BUTTON -->
 
                     </div>
@@ -531,7 +531,202 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p (click)="deleteCategory(i)" style="margin-top: 10px"
+                        <p (click)="deleteCategory(equipmnentType,'equipment')" style="margin-top: 10px"
+                            class="button red-background full popup-manage-item-trigger">
+                            {{'delete_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                        <!-- BUTTON -->
+                        <p id="updateBtn" style="margin-top: 10px;" class="button full popup-edit-hosting-trigger">
+                            {{'update_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+            </div>
+            <!-- /GRID -->
+        </div>
+        <!-- /GRID COLUMN -->
+    </div>
+    <!-- /GRID -->
+
+    <div class="grid medium-space">
+        <!-- GRID COLUMN -->
+        <div class="account-hub-content">
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+                <!-- SECTION HEADER INFO -->
+                <div class="section-header-info">
+                    <!-- SECTION PRETITLE -->
+                    <p class="section-pretitle">Boats</p>
+                    <!-- /SECTION PRETITLE -->
+
+                    <!-- SECTION TITLE -->
+                    <h2 class="section-title">Boat categories</h2>
+                    <!-- /SECTION TITLE -->
+                </div>
+                <!-- /SECTION HEADER INFO -->
+            </div>
+            <!-- /SECTION HEADER -->
+
+            <!-- GRID -->
+            <div class="grid grid-3-3-3 centered-on-mobile">
+                <!-- CREATE ENTITY BOX -->
+                <div class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- CREATE ENTITY BOX AVATAR ICON -->
+                        <svg class="create-entity-box-avatar-icon icon-item">
+                            <use xlink:href="#svg-plus"></use>
+                        </svg>
+                        <!-- /CREATE ENTITY BOX AVATAR ICON -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{'category' | translate}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="addCategory('boat')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+                <!-- CREATE ENTITY BOX -->
+                <div *ngFor="let boatType of boatTypes ; let i = index" class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- PRODUCT PREVIEW IMAGE -->
+                        <figure class="product-preview-image liquid">
+                            <img [src]="API + boatType.icon" alt="equipment">
+                        </figure>
+                        <!-- /PRODUCT PREVIEW IMAGE -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{boatType?.name}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="deleteCategory(boatType,'boat')" style="margin-top: 10px"
+                            class="button red-background full popup-manage-item-trigger">
+                            {{'delete_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                        <!-- BUTTON -->
+                        <p id="updateBtn" style="margin-top: 10px;" class="button full popup-edit-hosting-trigger">
+                            {{'update_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+            </div>
+            <!-- /GRID -->
+        </div>
+        <!-- /GRID COLUMN -->
+    </div>
+    <!-- /GRID -->
+
+
+    <div class="grid medium-space">
+        <!-- GRID COLUMN -->
+        <div class="account-hub-content">
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+                <!-- SECTION HEADER INFO -->
+                <div class="section-header-info">
+                    <!-- SECTION PRETITLE -->
+                    <p class="section-pretitle">Hebergements</p>
+                    <!-- /SECTION PRETITLE -->
+
+                    <!-- SECTION TITLE -->
+                    <h2 class="section-title">Hebergement categories</h2>
+                    <!-- /SECTION TITLE -->
+                </div>
+                <!-- /SECTION HEADER INFO -->
+            </div>
+            <!-- /SECTION HEADER -->
+
+            <!-- GRID -->
+            <div class="grid grid-3-3-3 centered-on-mobile">
+                <!-- CREATE ENTITY BOX -->
+                <div class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- CREATE ENTITY BOX AVATAR ICON -->
+                        <svg class="create-entity-box-avatar-icon icon-item">
+                            <use xlink:href="#svg-plus"></use>
+                        </svg>
+                        <!-- /CREATE ENTITY BOX AVATAR ICON -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{'category' | translate}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="addCategory('hebergement')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+                <!-- CREATE ENTITY BOX -->
+                <div *ngFor="let hebergementType of hebergementTypes ; let i = index" class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- PRODUCT PREVIEW IMAGE -->
+                        <figure class="product-preview-image liquid">
+                            <img [src]="API + hebergementType.icon" alt="equipment">
+                        </figure>
+                        <!-- /PRODUCT PREVIEW IMAGE -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{hebergementType?.name}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="deleteCategory(hebergementType,'hebergement')" style="margin-top: 10px"
                             class="button red-background full popup-manage-item-trigger">
                             {{'delete_category' | translate}}
                         </p>
@@ -618,7 +813,7 @@
             <!-- WIDGET BOX -->
             <div class="widget-box">
                 <!-- WIDGET BOX TITLE -->
-                <p class="widget-box-title">Hebergement Details</p>
+                <p class="widget-box-title">Category Details</p>
                 <!-- /WIDGET BOX TITLE -->
 
                 <!-- WIDGET BOX CONTENT -->
@@ -631,9 +826,20 @@
                             <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
-                                    <label for="item-name">Equipment Type name</label>
+                                    <label for="item-name">Type name</label>
                                     <input [(ngModel)]="newEquipmentType.name" type="text" id="item-name"
                                         name="item_name">
+                                </div>
+                                <!-- /FORM INPUT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                            <!-- FORM ITEM -->
+                            <div style="padding-top: 20px;" class="form-item">
+                                <!-- FORM INPUT -->
+                                <div class="form-input small active">
+                                    <label for="item-name">Type description</label>
+                                    <textarea [(ngModel)]="newEquipmentType.description" id="item-files" name="item_files"
+                                        placeholder=""></textarea>
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>

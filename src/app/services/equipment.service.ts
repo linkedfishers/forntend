@@ -35,6 +35,14 @@ export class EquipmentService {
     return this.httpClient.get<any>(`${this.API}/types`);
   }
 
+  getBoatTypes() {
+    return this.httpClient.get<any>(`${this.API}/boat/types`);
+  }
+
+  getHebergementTypes() {
+    return this.httpClient.get<any>(`${this.API}/hebergement/types`);
+  }
+
   getEquipmentsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/user/${userId}`);
   }
@@ -54,7 +62,7 @@ export class EquipmentService {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
   }
 
-   getBoats() {
+  getBoats() {
     return this.httpClient.get<any>(`${this.API}/boats/all/`);
   }
 

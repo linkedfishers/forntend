@@ -80,7 +80,7 @@
                 <!-- PRODUCT PREVIEW -->
                 <div *ngFor="let boat of userBoats ; let i = index" class="product-preview fixed-height">
                     <!-- PRODUCT PREVIEW IMAGE -->
-                    <a [routerLink]="">
+                    <a [routerLink]="['/details-boat',boat._id]" >
                         <figure class="product-preview-image liquid">
                             <img [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-boat-header.png'"
                                 alt="item-01">
@@ -92,15 +92,15 @@
                     <div class="product-preview-info">
 
                         <!-- PRODUCT PREVIEW TITLE -->
-                        <p class="product-preview-title"><a [routerLink]="">{{boat?.name}}</a>
+                        <p class="product-preview-title"><a [routerLink]="['/details-boat',boat._id]" >{{boat?.name}}</a>
                         </p>
 
-                         <p class="product-preview-title"><a [routerLink]="">{{boat?.price}}</a>
+                        <p class="product-preview-title"><a [routerLink]="['/details-boat',boat._id]" >{{boat?.price}}</a>
                         </p>
                         <!-- /PRODUCT PREVIEW TITLE -->
 
                         <!-- PRODUCT PREVIEW CATEGORY -->
-                        <p class="product-preview-category digital"><a>{{boat?.description}}</a>
+                        <p class="product-preview-category digital"><a [routerLink]="['/details-boat',boat._id]">{{boat?.description}}</a>
                         </p>
                         <!-- /PRODUCT PREVIEW CATEGORY -->
                         <p (click)="openUpdatePopup(i)" class="button white full">
@@ -205,13 +205,37 @@
                             <!-- /FORM ITEM -->
                         </div>
 
-                          <div class="form-row">
+                        <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="item-description">Boat type</label>
+                                    <select [(ngModel)]="newBoat.type" name="boat-name">
+                                        <option value="" selected>Select Boat type</option>
+                                        <option *ngFor="let type of boatTypes" value="{{type._id}}">{{type.name}}
+                                        </option>
+                                    </select>
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
+                        <!-- /FORM ROW -->
+
+                        <div class="form-row">
                             <!-- FORM ITEM -->
                             <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
-                                    <label for="item-name">Boat Name</label>
-                                    <input min="0"[(ngModel)]="newBoat.price" type="number" id="item-name" name="item_name">
+                                    <label for="item-price">Boat price</label>
+                                    <input min="0" [(ngModel)]="newBoat.price" type="number" id="item-price"
+                                        name="item_price">
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
@@ -234,7 +258,7 @@
                             <!-- /FORM ITEM -->
                         </div>
 
-                         <div class="form-row">
+                        <div class="form-row">
                             <!-- FORM ITEM -->
                             <div class="form-item">
                                 <!-- FORM INPUT -->
@@ -289,7 +313,7 @@
                 <!-- PRODUCT PREVIEW INFO -->
                 <div class="product-preview-info">
                     <!-- PRODUCT PREVIEW TITLE -->
-                  <p class="text-sticker"><span class="highlighted">$</span> {{userBoats[selectedBoat]?.price}}</p>
+                    <p class="text-sticker"><span class="highlighted">$</span> {{userBoats[selectedBoat]?.price}}</p>
 
                     <p class="product-preview-title"><a (click)="openFileInput()" [routerLink]="">update
                             picture</a></p>
@@ -341,13 +365,37 @@
                             </div>
                             <!-- /FORM ITEM -->
                         </div>
-                          <div class="form-row split">
+
+                        <div class="form-row">
+                            <!-- FORM ITEM -->
+                            <div class="form-item">
+                                <!-- FORM SELECT -->
+                                <div class="form-select">
+                                    <label for="item-description">Boat type</label>
+                                    <select *ngIf="selectedBoat>=0" [(ngModel)]="userBoats[selectedBoat].type" name="boat-name">
+                                        <option value="" selected>Select Boat type</option>
+                                        <option *ngFor="let type of boatTypes" value="{{type._id}}">{{type.name}}
+                                        </option>
+                                    </select>
+                                    <!-- FORM SELECT ICON -->
+                                    <svg class="form-select-icon icon-small-arrow">
+                                        <use xlink:href="#svg-small-arrow"></use>
+                                    </svg>
+                                    <!-- /FORM SELECT ICON -->
+                                </div>
+                                <!-- /FORM SELECT -->
+                            </div>
+                            <!-- /FORM ITEM -->
+                        </div>
+                        <!-- /FORM ROW -->
+
+                        <div class="form-row split">
                             <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-name">Boat Price</label>
-                                    <input min="0" *ngIf="selectedBoat>=0" [(ngModel)]="userBoats[selectedBoat].price" type="number" id="item-name"
-                                        name="item_price">
+                                    <input min="0" *ngIf="selectedBoat>=0" [(ngModel)]="userBoats[selectedBoat].price"
+                                        type="number" id="item-name" name="item_price">
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
@@ -360,7 +408,7 @@
                             <!-- FORM ITEM -->
                             <div class="form-item">
                                 <!-- FORM INPUT -->
-                                <div class="form-input small mid-textarea">
+                                <div class="form-input small mid-textarea active">
                                     <label for="item-files" class="active">Description</label>
                                     <textarea *ngIf="selectedBoat>=0" [(ngModel)]="userBoats[selectedBoat].description"
                                         id="item-files" name="item_files" placeholder=""></textarea>
@@ -370,12 +418,13 @@
                             <!-- /FORM ITEM -->
                         </div>
                         <!-- /FORM ROW -->
-                         <div class="form-row">
+                        <div class="form-row">
                             <!-- FORM ITEM -->
                             <div class="form-item">
                                 <!-- FORM INPUT -->
                                 <div class="form-input small mid-textarea">
-                                    <app-map-box *ngIf="selectedBoat>=0" [(position)]="userBoats[selectedBoat].position"></app-map-box>
+                                    <app-map-box *ngIf="selectedBoat>=0"
+                                        [(position)]="userBoats[selectedBoat].position"></app-map-box>
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>
