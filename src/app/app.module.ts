@@ -67,10 +67,6 @@ import { CarouselComponent } from './components/pages/carousel/carousel.componen
 import { SocialLoginModule, GoogleLoginProvider } from 'angularx-social-login';
 import { PicturePipe } from './pipes/picture.pipe';
 import { DatePipe } from '@angular/common';
-import { MonitorComponent } from './components/pages/monitor/monitor.component';
-import { MonitorListComponent } from './components/pages/monitor/monitor-list/monitor-list.component';
-import { CategoriesMonitComponent } from './components/pages/monitor/categories-monit/categories-monit.component';
-import { ExperienceComponent } from './components/pages/experience/experience.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -127,10 +123,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsEquipmentComponent,
     CarouselComponent,
     PicturePipe,
-    MonitorComponent,
-    MonitorListComponent,
-    CategoriesMonitComponent,
-    ExperienceComponent,
 
   ],
   imports: [

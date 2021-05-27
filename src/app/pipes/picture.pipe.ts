@@ -9,7 +9,6 @@ export class PicturePipe implements PipeTransform {
 
   transform(value: string, ...args: unknown[]): unknown {
     if (this.isValidHttpUrl(value)) {
-      console.log(value);
       return value;
     }
     return this.API + '/' + value

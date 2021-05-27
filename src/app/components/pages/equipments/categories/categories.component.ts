@@ -23,9 +23,8 @@ export class CategoriesComponent implements OnInit {
   currentUser: User
   readonly API: string = environment.apiUrl + '/';
 
-    equipmentTypes: EquipmentType[];
-    
-    ngOnInit(): void {
+  equipmentTypes: EquipmentType[];
+  ngOnInit(): void {
 
     this.currentUser = this.authService.getCurrentUser();
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipmentType,MonitorType } from 'src/app/interfaces/equipments.interface';
+import { EquipmentType, HebergementType, BoatType } from 'src/app/interfaces/equipments.interface';
 import { Report, User } from 'src/app/interfaces/users.interface';
 import { AdminService } from 'src/app/services/admin.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
@@ -8,7 +8,6 @@ import { ToastrService } from 'ngx-toastr';
 import * as data from "../../../interfaces/countries.json";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
-import { icon } from 'leaflet';
 
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
@@ -30,14 +29,14 @@ export class AdminComponent implements OnInit {
 
   usersList: User[] = [];
   equipmentTypes: EquipmentType[];
-  monitorTRypes :MonitorType[];
+  boatTypes: BoatType[];
+  hebergementTypes: HebergementType[];
   newEquipmentType: EquipmentType;
-  newMonitorType:MonitorType
   formData: FormData;
   imageSrc: any;
   skip = 0;
   count = 5;
-
+  selectedCategory = "equipment";
   activeUsersCount = 0;
   newUsers = 0;
 
@@ -48,7 +47,6 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
-    this.newMonitorType = new MonitorType();
     initSidebar();
     initPopups();
     initForm();
@@ -63,20 +61,29 @@ export class AdminComponent implements OnInit {
         console.log(error);
       }
     );
+
     this.equipmentService.getEquipmentTypes().subscribe(
       res => {
         this.equipmentTypes = res.data;
       },
       err => {
-        this.toastr.error('Error while loading homes');
+        this.toastr.error('Error while loading equipment types');
       }
     );
-    this.equipmentService.getMonitorTypes().subscribe(
+    this.equipmentService.getBoatTypes().subscribe(
       res => {
-        this.monitorTRypes = res.data;
+        this.boatTypes = res.data;
       },
       err => {
-        this.toastr.error('Error while loading homes');
+        this.toastr.error('Error while loading boat types');
+      }
+    );
+    this.equipmentService.getHebergementTypes().subscribe(
+      res => {
+        this.hebergementTypes = res.data;
+      },
+      err => {
+        this.toastr.error('Error while loading hebergement types');
       }
     );
     this.language = this.translate.currentLang;
@@ -106,33 +113,9 @@ export class AdminComponent implements OnInit {
     }
   }
 
-createMonitorType(){
-  if(!this.newMonitorType.name){
-    return ;
+  addCategory(categoryName: string) {
+    this.selectedCategory = categoryName;
   }
-this.formData = this.formData || new FormData();
-  this.formData.append("name",this.newMonitorType["name"]);
-  this.adminService.createMonitoType(this.formData).subscribe(
-
-//logic admin component
-      res=>{
-        this.monitorTRypes.unshift(res.data);
-        this.toastr.success(res.message);
-        this.formData = new FormData();
-      this.newMonitorType = new MonitorType();
-        this.imageSrc="";
-    },
-    err=>{
-      this.imageSrc=""
-      console.log(err);
-      this.toastr.error(err.error.message)
-
-    },
-    ()=>{
-
-    }
-  )
-}
 
   createEquipmentType() {
     if (!this.newEquipmentType.name) {
@@ -140,9 +123,16 @@ this.formData = this.formData || new FormData();
     }
     this.formData = this.formData || new FormData();
     this.formData.append("name", this.newEquipmentType["name"]);
-    this.adminService.createEquipmentType(this.formData).subscribe(
+    this.formData.append("description", this.newEquipmentType["description"]);
+    this.adminService.createCategoryType(this.formData, this.selectedCategory).subscribe(
       res => {
-        this.equipmentTypes.unshift(res.data);
+        if (this.selectedCategory == 'equipment') {
+          this.equipmentTypes.unshift(res.data);
+        } else if (this.selectedCategory == 'boat') {
+          this.boatTypes.unshift(res.data);
+        } else if (this.selectedCategory == 'hebergement') {
+          this.hebergementTypes.unshift(res.data);
+        }
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newEquipmentType = new EquipmentType();
@@ -223,58 +213,36 @@ this.formData = this.formData || new FormData();
     });
   }
 
-
-deleteCategories(i:number){
-  Swal.fire({
-    title:this.translate.instant("delete_category") + ' ' + this.monitorTRypes,
-    icon:"warning",
-    showCancelButton:true,
-    confirmButtonText:this.translate.instant('delete_category'),
-    cancelButtonText:this.translate.instant("discard")
-  }).then(result=>{
-    if(result.value){
-      this.adminService.deleteMonitorType(this.monitorTRypes[i]._id).subscribe(
-res=>{
-  Swal.fire({
-    title:this.translate.instant('delete_category'),
-    icon:'success',
-
-  });
-  this.monitorTRypes.splice(i,1);
-
-},
-  err=>{
+  deleteCategory(type: EquipmentType, categoryName: string) {
     Swal.fire({
-      title:this.translate.instant('delete_post_error'),
-      icon:'error'
-    });
-  }
-      )
-    }else if(result.dismiss== Swal.DismissReason.cancel){
-          return ;
-    }
-  })
-}
-
-
-
-  deleteCategory(i: number) {
-    Swal.fire({
-      title: this.translate.instant('delete_category') + ' ' + this.equipmentTypes[i].name + '?',
+      title: this.translate.instant('delete_category') + ' ' + type.name + '?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: this.translate.instant('delete_category'),
       cancelButtonText: this.translate.instant('discard')
     }).then((result) => {
       if (result.value) {
-        this.adminService.deleteEquipmentType(this.equipmentTypes[i]._id).subscribe(
+        this.adminService.deleteCategoryType(type._id, categoryName).subscribe(
           res => {
             Swal.fire(
               {
                 title: this.translate.instant('delete_category'),
                 icon: 'success'
               });
-            this.equipmentTypes.splice(i, 1);
+
+            if (categoryName == 'equipment') {
+              let i = this.equipmentTypes.findIndex((t) => t._id == type._id);
+              this.equipmentTypes.splice(i, 1);
+
+            } else if (categoryName == 'boat') {
+              let i = this.boatTypes.findIndex((t) => t._id == type._id);
+              this.boatTypes.splice(i, 1);
+
+            } else if (categoryName == 'hebergement') {
+              let i = this.hebergementTypes.findIndex((t) => t._id == type._id);
+              this.equipmentTypes.splice(i, 1);
+            }
+
           },
           err => {
             Swal.fire({

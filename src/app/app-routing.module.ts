@@ -9,16 +9,14 @@ import { BoatsComponent } from './components/pages/boats/boats.component';
 import { DetailsBoatComponent } from './components/pages/details-boat/details-boat.component';
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
-import { CategoriesComponent } from './components/pages/equipments/categories/categories.component';import { EquipmentListComponent } from './components/pages/equipments/equipment-list/equipment-list.component';
+import { CategoriesComponent } from './components/pages/equipments/categories/categories.component';
+import { EquipmentListComponent } from './components/pages/equipments/equipment-list/equipment-list.component';
 import { EquipmentsComponent } from './components/pages/equipments/equipments.component';
 import { EventsComponent } from './components/pages/events/events.component';
 import { HebergementsComponent } from './components/pages/hebergements/hebergements.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { MapComponent } from './components/pages/map/map.component';
-import { CategoriesMonitComponent } from './components/pages/monitor/categories-monit/categories-monit.component';
-import { MonitorListComponent } from './components/pages/monitor/monitor-list/monitor-list.component';
-import { MonitorComponent } from './components/pages/monitor/monitor.component';
 import { PasswordResetRequestComponent } from './components/pages/password-reset-request/password-reset-request.component';
 import { PasswordResetComponent } from './components/pages/password-reset/password-reset.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
@@ -47,24 +45,6 @@ const routes: Routes = [
       {
         path: 'map',
         component: MapComponent
-      },
-      {
-        path:"monitor",
-        component:MonitorComponent,
-          children: [
-          {
-            path: '',
-            component: CategoriesMonitComponent
-          },
-          {
-            path: ':typeId',
-            component: MonitorListComponent
-          },
-          {
-            path: '**',
-            redirectTo: ''
-          }
-        ]
       },
       {
         path: 'weather',
