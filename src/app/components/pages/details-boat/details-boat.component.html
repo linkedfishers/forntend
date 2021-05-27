@@ -39,7 +39,9 @@
                         <div id="product-box-slider-items"
                             class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal">
                             <!-- SLIDER PANEL SLIDE -->
-                            <img style="border-radius: 2%" [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-home-header.png'" alt="item-10">
+                            <img style="border-radius: 2%"
+                                [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-home-header.png'"
+                                alt="item-10">
                             <!-- /SLIDER PANEL SLIDE -->
                         </div>
                     </div>
@@ -2169,7 +2171,8 @@
 
 
                     <!-- BUTTON -->
-                    <a class="button small white" [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]" >View Owner's Store</a>
+                    <a class="button small white"
+                        [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]">View Owner's Store</a>
                     <!-- /BUTTON -->
                 </div>
                 <!-- /SIDEBAR BOX ITEMS -->
@@ -2186,11 +2189,24 @@
                         <!-- INFORMATION LINE -->
                         <div class="information-line">
                             <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Type</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">{{boat?.type?.name }}</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
                             <p class="information-line-title">Created</p>
                             <!-- /INFORMATION LINE TITLE -->
 
                             <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.createdAt | date : ' MMMM, d, y,  h:mm a'    }}</span></p>
+                            <p class="information-line-text"><span class="bold">{{boat?.createdAt | date : ' MMMM, d, y,
+                                    h:mm a' }}</span></p>
                             <!-- /INFORMATION LINE TEXT -->
                         </div>
                         <!-- /INFORMATION LINE -->

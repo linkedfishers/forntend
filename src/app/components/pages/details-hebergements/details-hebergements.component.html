@@ -39,7 +39,9 @@
                         <div id="product-box-slider-items"
                             class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal">
                             <!-- SLIDER PANEL SLIDE -->
-                            <img style="border-radius: 2%" [src]="hebergement.image? API + hebergement.image : '../../../../assets/img/fishing-home-header.png'" alt="item-10">
+                            <img style="border-radius: 2%"
+                                [src]="hebergement.image? API + hebergement.image : '../../../../assets/img/fishing-home-header.png'"
+                                alt="item-10">
                             <!-- /SLIDER PANEL SLIDE -->
                         </div>
                     </div>
@@ -2169,7 +2171,9 @@
 
 
                     <!-- BUTTON -->
-                    <a class="button small white" [routerLink]="['/profile/',(hebergement?.owner?.slug || hebergement?.owner?._id)]" >View Owner's Store</a>
+                    <a class="button small white"
+                        [routerLink]="['/profile/',(hebergement?.owner?.slug || hebergement?.owner?._id)]">View Owner's
+                        Store</a>
                     <!-- /BUTTON -->
                 </div>
                 <!-- /SIDEBAR BOX ITEMS -->
@@ -2182,6 +2186,18 @@
                 <div class="sidebar-box-items">
                     <!-- INFORMATION LINE LIST -->
                     <div class="information-line-list">
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">Type</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">{{hebergement?.type?.name }}</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
 
                         <!-- INFORMATION LINE -->
                         <div class="information-line">
@@ -2190,7 +2206,8 @@
                             <!-- /INFORMATION LINE TITLE -->
 
                             <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{hebergement?.createdAt | date : ' MMMM, d, y,  h:mm a'    }}</span></p>
+                            <p class="information-line-text"><span class="bold">{{hebergement?.createdAt | date : '
+                                    MMMM, d, y, h:mm a' }}</span></p>
                             <!-- /INFORMATION LINE TEXT -->
                         </div>
                         <!-- /INFORMATION LINE -->

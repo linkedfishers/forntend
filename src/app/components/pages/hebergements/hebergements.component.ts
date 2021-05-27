@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Boat, Hebergement ,Equipment} from 'src/app/interfaces/equipments.interface';
+import { Boat, Hebergement, HebergementType, Equipment } from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -33,6 +33,7 @@ export class HebergementsComponent implements OnInit {
   imageSrc: any;
   newHome: Hebergement;
   userHomes: Hebergement[] = [];
+  hebergementTypes: HebergementType[] = [];
   selectedHome = -1;
 
   ngOnInit(): void {
@@ -49,6 +50,14 @@ export class HebergementsComponent implements OnInit {
       },
       err => {
         this.toastr.error('Error while loading homes');
+      }
+    );
+    this.equipmentService.getHebergementTypes().subscribe(
+      res => {
+        this.hebergementTypes = res.data;
+      },
+      err => {
+        this.toastr.error('Error while loading hebergement types');
       }
     );
   }
@@ -71,6 +80,7 @@ export class HebergementsComponent implements OnInit {
     if (!this.newHome.name) {
       return;
     }
+    console.log(this.newHome.type);
     this.formData = this.formData || new FormData();
     for (const key in this.newHome) {
       if (this.newHome.hasOwnProperty(key)) {

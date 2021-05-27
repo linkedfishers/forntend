@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Boat } from 'src/app/interfaces/equipments.interface';
+import { Boat, BoatType } from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/users.interface';
@@ -9,7 +9,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
 
 
-declare var initSidebar, initPopups: any , loadSvg: any;
+declare var initSidebar, initPopups: any, loadSvg: any;
 declare var initForm, $: any;
 @Component({
   selector: 'app-boats',
@@ -34,7 +34,7 @@ export class BoatsComponent implements OnInit {
   newBoat: Boat;
   userBoats: Boat[] = [];
   selectedBoat = -1;
-
+  boatTypes: BoatType[] = [];
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
@@ -51,7 +51,15 @@ export class BoatsComponent implements OnInit {
       err => {
         this.toastr.error('Error while loading boats');
       }
-    )
+    );
+    this.equipmentService.getBoatTypes().subscribe(
+      res => {
+        this.boatTypes = res.data;
+      },
+      err => {
+        this.toastr.error('Error while loading boat types');
+      }
+    );
   }
 
   fileChange(event) {
@@ -79,19 +87,19 @@ export class BoatsComponent implements OnInit {
         this.formData.append(key, this.newBoat[key]);
       }
     }
-if(this.newBoat.position){
-  this.formData.append("lat",this.newBoat.position["lat"]);
-    this.formData.append("lng",this.newBoat.position["lng"]);
+    if (this.newBoat.position) {
+      this.formData.append("lat", this.newBoat.position["lat"]);
+      this.formData.append("lng", this.newBoat.position["lng"]);
 
-}
+    }
 
     this.equipmentService.createBoat(this.formData).subscribe(
       res => {
         this.userBoats.unshift(res.data);
         this.toastr.success(res.message);
-        this.formData=new FormData();
+        this.formData = new FormData();
         this.newBoat = new Boat();
-        this.imageSrc="";
+        this.imageSrc = "";
       },
       err => {
         console.log(err);
@@ -142,12 +150,11 @@ if(this.newBoat.position){
       if (this.userBoats[this.selectedBoat].hasOwnProperty(key)) {
         this.formData.append(key, this.userBoats[this.selectedBoat][key]);
       }
-        if (this.userBoats[this.selectedBoat].position) {
+    }
+    if (this.userBoats[this.selectedBoat].position) {
       this.formData.append('lat', this.userBoats[this.selectedBoat].position['lat']);
       this.formData.append('lng', this.userBoats[this.selectedBoat].position['lng']);
     }
-    }
-
     this.equipmentService.updateBoat(this.formData, this.userBoats[this.selectedBoat]._id).subscribe(
       res => {
         this.toastr.success(res.message);

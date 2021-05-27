@@ -19,6 +19,7 @@ export class AdminService {
     return this.httpClient.get<any>(`${this.API}/overview`);
   }
 
+<<<<<<< HEAD
    createMonitoType(formData:FormData){
      return this.httpClient.post<any>(`${this.API}/monitor/addType`,formData)
    }
@@ -26,13 +27,22 @@ export class AdminService {
    deleteMonitorType(id:string){
       return this.httpClient.delete<any>(`${this.API}/monitor/${id}`)
    }
+=======
+  createCategoryType(formData: FormData, categoryName: string) {
+    return this.httpClient.post<any>(`${this.API}/${categoryName}/addType`, formData);
+  }
+>>>>>>> d3df9c09083a762d1bbc75389ea832b5c56334b9
 
   createEquipmentType(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/equipment/addType`, formData);
   }
 
+  deleteCategoryType(id: string, categoryName: string) {
+    return this.httpClient.delete<any>(`${this.API}/${categoryName}/${id}`);
+  }
+
   deleteEquipmentType(id: string) {
-    return this.httpClient.delete<any>(`${this.API}/equipment/${id}`,);
+    return this.httpClient.delete<any>(`${this.API}/equipment/${id}`);
   }
 
   getReports(userId: string) {
