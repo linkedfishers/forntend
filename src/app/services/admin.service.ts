@@ -19,6 +19,14 @@ export class AdminService {
     return this.httpClient.get<any>(`${this.API}/overview`);
   }
 
+   createMonitoType(formData:FormData){
+     return this.httpClient.post<any>(`${this.API}/monitor/addType`,formData)
+   }
+
+   deleteMonitorType(id:string){
+      return this.httpClient.delete<any>(`${this.API}/monitor/${id}`)
+   }
+
   createEquipmentType(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/equipment/addType`, formData);
   }

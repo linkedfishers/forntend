@@ -39,7 +39,7 @@ export class EquipmentListComponent implements OnInit {
   imageSrc: any;
   newEquipment: Equipment;
 
-  
+
   userEquipements: Equipment[] = [];
   selectedEquipment = -1;
 
@@ -100,6 +100,7 @@ export class EquipmentListComponent implements OnInit {
     }
     this.equipmentService.createEquipment(this.formData).subscribe(
       res => {
+        this.formData =new FormData()
         this.equipments.unshift(res.data);
         this.toastr.success(res.message);
         this.newEquipment = new Equipment();

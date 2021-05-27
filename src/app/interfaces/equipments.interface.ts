@@ -49,3 +49,24 @@ export class Reservation {
     dateStart: Date
     dateEnd: Date
 }
+
+export class MonitorType {
+    _id: string;
+    name: string;
+    icon: string;
+    items: any[];
+}
+export class Monitor{
+    _id:string;
+    name:string;
+    speciality:string
+    description:string;
+    isAvailable:string;
+    createdAt:any;
+    position:any;
+    price:number;
+    type:string
+    image:string;
+    adresse:string
+
+}

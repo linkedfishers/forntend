@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipmentType } from 'src/app/interfaces/equipments.interface';
+import { EquipmentType,MonitorType } from 'src/app/interfaces/equipments.interface';
 import { Report, User } from 'src/app/interfaces/users.interface';
 import { AdminService } from 'src/app/services/admin.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import * as data from "../../../interfaces/countries.json";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { icon } from 'leaflet';
 
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
@@ -29,7 +30,9 @@ export class AdminComponent implements OnInit {
 
   usersList: User[] = [];
   equipmentTypes: EquipmentType[];
+  monitorTRypes :MonitorType[];
   newEquipmentType: EquipmentType;
+  newMonitorType:MonitorType
   formData: FormData;
   imageSrc: any;
   skip = 0;
@@ -45,6 +48,7 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
+    this.newMonitorType = new MonitorType();
     initSidebar();
     initPopups();
     initForm();
@@ -59,10 +63,17 @@ export class AdminComponent implements OnInit {
         console.log(error);
       }
     );
-
     this.equipmentService.getEquipmentTypes().subscribe(
       res => {
         this.equipmentTypes = res.data;
+      },
+      err => {
+        this.toastr.error('Error while loading homes');
+      }
+    );
+    this.equipmentService.getMonitorTypes().subscribe(
+      res => {
+        this.monitorTRypes = res.data;
       },
       err => {
         this.toastr.error('Error while loading homes');
@@ -94,6 +105,34 @@ export class AdminComponent implements OnInit {
       reader.readAsDataURL(fileList[0]);
     }
   }
+
+createMonitorType(){
+  if(!this.newMonitorType.name){
+    return ;
+  }
+this.formData = this.formData || new FormData();
+  this.formData.append("name",this.newMonitorType["name"]);
+  this.adminService.createMonitoType(this.formData).subscribe(
+
+//logic admin component
+      res=>{
+        this.monitorTRypes.unshift(res.data);
+        this.toastr.success(res.message);
+        this.formData = new FormData();
+      this.newMonitorType = new MonitorType();
+        this.imageSrc="";
+    },
+    err=>{
+      this.imageSrc=""
+      console.log(err);
+      this.toastr.error(err.error.message)
+
+    },
+    ()=>{
+
+    }
+  )
+}
 
   createEquipmentType() {
     if (!this.newEquipmentType.name) {
@@ -183,6 +222,41 @@ export class AdminComponent implements OnInit {
       }
     });
   }
+
+
+deleteCategories(i:number){
+  Swal.fire({
+    title:this.translate.instant("delete_category") + ' ' + this.monitorTRypes,
+    icon:"warning",
+    showCancelButton:true,
+    confirmButtonText:this.translate.instant('delete_category'),
+    cancelButtonText:this.translate.instant("discard")
+  }).then(result=>{
+    if(result.value){
+      this.adminService.deleteMonitorType(this.monitorTRypes[i]._id).subscribe(
+res=>{
+  Swal.fire({
+    title:this.translate.instant('delete_category'),
+    icon:'success',
+
+  });
+  this.monitorTRypes.splice(i,1);
+
+},
+  err=>{
+    Swal.fire({
+      title:this.translate.instant('delete_post_error'),
+      icon:'error'
+    });
+  }
+      )
+    }else if(result.dismiss== Swal.DismissReason.cancel){
+          return ;
+    }
+  })
+}
+
+
 
   deleteCategory(i: number) {
     Swal.fire({
