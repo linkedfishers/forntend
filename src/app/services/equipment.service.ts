@@ -36,23 +36,9 @@ export class EquipmentService {
         return this.httpClient.put<any>(`${this.API}/boat/${id}`, formData);
       }
 
-<<<<<<< HEAD
       updateEquipment(formData: FormData, id: string) {
         return this.httpClient.put<any>(`${this.API}/equipment/${id}`, formData);
       }
-=======
-  getBoatTypes() {
-    return this.httpClient.get<any>(`${this.API}/boat/types`);
-  }
-
-  getHebergementTypes() {
-    return this.httpClient.get<any>(`${this.API}/hebergement/types`);
-  }
-
-  getEquipmentsByUser(userId: string) {
-    return this.httpClient.get<any>(`${this.API}/user/${userId}`);
-  }
->>>>>>> d3df9c09083a762d1bbc75389ea832b5c56334b9
 
     //getEquipement by user and by type
 
@@ -63,13 +49,7 @@ export class EquipmentService {
       getMonitorsByUser(id:string){
       return this.httpClient.get<any>(`${this.API}/user/${id}`)
 
-<<<<<<< HEAD
     }
-=======
-  getBoats() {
-    return this.httpClient.get<any>(`${this.API}/boats/all/`);
-  }
->>>>>>> d3df9c09083a762d1bbc75389ea832b5c56334b9
 
     getMonitorByTypeAndUser(typeId:string,id:string){
       return this.httpClient.get<any>(`${this.API}/type/${typeId}/user/${id}`)

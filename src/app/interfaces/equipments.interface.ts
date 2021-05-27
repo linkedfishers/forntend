@@ -6,7 +6,7 @@ export class Equipment {
     type: any;
     image: string;
     description: string;
-    position: any;
+    position:any;
     isAvailable: boolean;
     createdAt: any;
 }
@@ -15,7 +15,6 @@ export class EquipmentType {
     name: string;
     icon: string;
     items: any[];
-    description: string;
 }
 
 export class Boat {
@@ -27,8 +26,7 @@ export class Boat {
     description: string;
     isAvailable: boolean;
     createdAt: any;
-    position: any;
-    type: any;
+    position:any;
 }
 
 export class Hebergement {
@@ -42,7 +40,6 @@ export class Hebergement {
     price: number;
     position: any;
     createdAt: any;
-    type: any;
 }
 
 export class Reservation {
@@ -53,7 +50,6 @@ export class Reservation {
     dateEnd: Date
 }
 
-<<<<<<< HEAD
 export class MonitorType {
     _id: string;
     name: string;
@@ -74,21 +70,3 @@ export class Monitor{
     adresse:string
 
 }
-=======
-export class HebergementType {
-    _id: string;
-    name: string;
-    icon: string;
-    description: string;
-    items: any[];
-}
-
-export class BoatType {
-    _id: string;
-    name: string;
-    icon: string;
-    description: string;
-    items: any[];
-}
-
->>>>>>> d3df9c09083a762d1bbc75389ea832b5c56334b9
