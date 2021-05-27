@@ -240,7 +240,7 @@
                 <a class="user-avatar small no-outline" [routerLink]="['/profile',comment.author._id]">
                     <!-- USER AVATAR CONTENT -->
                     <figure class="picture round liquid small">
-                        <img class="round" [src]="API+comment?.author?.profilePicture" alt="profile picture">
+                        <img class="round" [src]="comment?.author?.profilePicture | picture" alt="profile picture">
                     </figure>
                 </a>
                 <!-- /USER AVATAR -->
