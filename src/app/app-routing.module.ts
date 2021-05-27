@@ -10,6 +10,8 @@ import { DetailsBoatComponent } from './components/pages/details-boat/details-bo
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
 import { CategoriesComponent } from './components/pages/equipments/categories/categories.component';
+import { CategoriesServiceComponent } from './components/pages/services/categoriesService/categories.component';
+
 import { EquipmentListComponent } from './components/pages/equipments/equipment-list/equipment-list.component';
 import { EquipmentsComponent } from './components/pages/equipments/equipments.component';
 import { EventsComponent } from './components/pages/events/events.component';
@@ -20,8 +22,10 @@ import { MapComponent } from './components/pages/map/map.component';
 import { PasswordResetRequestComponent } from './components/pages/password-reset-request/password-reset-request.component';
 import { PasswordResetComponent } from './components/pages/password-reset/password-reset.component';
 import { ProfileComponent } from './components/pages/profile/profile.component';
+import { ServicesComponent } from './components/pages/services/services.component';
 import { WindyComponent } from './components/pages/windy/windy.component';
 import { AuthGuard } from './guards/auth.guard';
+import { ServiceListComponent } from './components/pages/services/service-list/service-list.component';
 
 
 const routes: Routes = [
@@ -57,6 +61,24 @@ const routes: Routes = [
       {
         path: 'homes',
         component: HebergementsComponent
+      },
+       {
+        path: 'services',
+        component: ServicesComponent,
+        children: [
+          {
+            path: '',
+            component: CategoriesServiceComponent
+          },
+          {
+            path: ':typeId',
+            component: ServiceListComponent
+          },
+          {
+            path: '**',
+            redirectTo: ''
+          }
+        ]
       },
       {
         path: 'equipments',

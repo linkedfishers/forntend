@@ -43,6 +43,17 @@
             </a>
             <!-- /MENU ITEM LINK -->
         </li>
+               <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link text-tooltip-tfr" [routerLink]="['/service']" data-title="Service">
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-newsfeed">
+                    <use xlink:href="#svg-group"></use>
+                </svg>
+                <!-- /MENU ITEM LINK ICON -->
+            </a>
+            <!-- /MENU ITEM LINK -->
+        </li>
         <!-- /MENU ITEM -->
 
         <!-- MENU ITEM -->
@@ -78,6 +89,16 @@
         <li class="menu-item" routerLinkActive="active">
             <!-- MENU ITEM LINK -->
             <a class="menu-item-link text-tooltip-tfr" [routerLink]="['/map']" data-title="Map">
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-members">
+                    <use xlink:href="#svg-globe"></use>
+                </svg> <!-- /MENU ITEM LINK ICON -->
+            </a>
+            <!-- /MENU ITEM LINK -->
+        </li>
+              <li class="menu-item" routerLinkActive="active">
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link text-tooltip-tfr" [routerLink]="['/service']" data-title="Service">
                 <!-- MENU ITEM LINK ICON -->
                 <svg class="menu-item-link-icon icon-members">
                     <use xlink:href="#svg-globe"></use>
@@ -270,6 +291,17 @@
                     <use xlink:href="#svg-weather"></use>
                 </svg> <!-- /MENU ITEM LINK ICON -->
                 Weather
+            </a>
+            <!-- /MENU ITEM LINK -->
+        </li>
+            <li class="menu-item" routerLinkActive="active">
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link" [routerLink]="['/service']">
+                <!-- MENU ITEM LINK ICON -->
+                <svg class="menu-item-link-icon icon-members">
+                    <use xlink:href="##svg-group"></use>
+                </svg> <!-- /MENU ITEM LINK ICON -->
+                Service
             </a>
             <!-- /MENU ITEM LINK -->
         </li>
