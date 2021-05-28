@@ -10,7 +10,7 @@ declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
 
 @Component({
-  selector: 'app-categories',
+  selector: 'app-services-categories',
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.scss']
 })

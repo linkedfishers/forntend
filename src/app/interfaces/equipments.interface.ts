@@ -9,6 +9,8 @@ export class Equipment {
     position: any;
     isAvailable: boolean;
     createdAt: any;
+    reviews: any[];
+    rating: number;
 }
 export class EquipmentType {
     _id: string;
@@ -28,6 +30,8 @@ export class Service {
     position: any;
     isAvailable: boolean;
     createdAt: any;
+    reviews: any[];
+    rating: number;
 }
 export class ServiceType {
     _id: string;
@@ -47,6 +51,8 @@ export class Boat {
     createdAt: any;
     position: any;
     type: any;
+    reviews: any[];
+    rating: number;
 }
 
 export class Hebergement {
@@ -61,6 +67,8 @@ export class Hebergement {
     position: any;
     createdAt: any;
     type: any;
+    reviews: any[];
+    rating: number;
 }
 
 export class Reservation {
