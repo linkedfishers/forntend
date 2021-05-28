@@ -29,8 +29,8 @@ export class ServiceListComponent implements OnInit {
     private translate: TranslateService,
     private modalService: NgbModal
   ) { }
-readonly API: string = environment.apiUrl + '/';
-currentUser: User
+  readonly API: string = environment.apiUrl + '/';
+  currentUser: User
   services: Service[];
   serviceType: ServiceType;
   formData: FormData;
@@ -41,7 +41,7 @@ currentUser: User
   userServices: Service[] = [];
   selectedService = -1;
   ngOnInit(): void {
-      initForm();
+    initForm();
     initSidebar();
     initPopups();
     this.currentUser = this.authService.getCurrentUser();
@@ -49,19 +49,19 @@ currentUser: User
     this.route.params.subscribe(params => {
       let typeId = params.typeId;
       if (!typeId) {
-        this.router.navigate(['/equipments']);
+        this.router.navigate(['/services']);
       }
       this.initServices(typeId);
     })
   }
-    initServices(typeId: string) {
+  initServices(typeId: string) {
     this.newService = new Service();
-    this.equipmentService.getEquipmentsByTypeAndUser(typeId, this.currentUser._id).subscribe(
+    this.equipmentService.getServicesByTypeAndUser(typeId, this.currentUser._id).subscribe(
       res => {
         console.log(res);
 
         this.serviceType = res.data.type;
-        this.services = res.data.equipments
+        this.services = res.data.services
       }
     )
   }
@@ -102,10 +102,10 @@ currentUser: User
       }
     )
   }
-   openFileInput() {
+  openFileInput() {
     $("#postPhoto").click();
   }
-   deleteService(i) {
+  deleteService(i) {
     Swal.fire({
       title: this.translate.instant('delete_service') + '?',
       icon: 'warning',
@@ -158,14 +158,14 @@ currentUser: User
       }
     )
   }
-    openUpdatePopup(i) {
+  openUpdatePopup(i) {
     initForm();
     this.imageSrc = "";
     this.selectedService = i;
     $("#updateBtn").click();
   }
 
-  openVerticallyCentered(content,i) {
+  openVerticallyCentered(content, i) {
     this.modalService.open(content, { centered: true });
     this.selectedService = i;
   }

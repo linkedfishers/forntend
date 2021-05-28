@@ -87,6 +87,14 @@ export class AdminComponent implements OnInit {
         this.toastr.error('Error while loading hebergement types');
       }
     );
+    this.equipmentService.getServiceTypes().subscribe(
+      res => {
+        this.serviceTypes = res.data;
+      },
+      err => {
+        this.toastr.error('Error while loading services types');
+      }
+    );
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
@@ -243,10 +251,10 @@ export class AdminComponent implements OnInit {
 
             } else if (categoryName == 'hebergement') {
               let i = this.hebergementTypes.findIndex((t) => t._id == type._id);
-              this.equipmentTypes.splice(i, 1);
+              this.hebergementTypes.splice(i, 1);
             }else if (categoryName == 'service') {
               let i = this.serviceTypes.findIndex((t) => t._id == type._id);
-              this.equipmentTypes.splice(i, 1);
+              this.serviceTypes.splice(i, 1);
             }
 
           },

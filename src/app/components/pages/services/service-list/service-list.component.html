@@ -3,7 +3,7 @@
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info">
         <!-- SECTION PRETITLE -->
-        <p class="section-pretitle">Manage Services</p>
+        <p class="section-pretitle">Manage your Services</p>
         <!-- /SECTION PRETITLE -->
 
         <!-- SECTION TITLE -->
@@ -125,20 +125,20 @@
         <!-- PROMO LINE -->
         <div class="promo-line">
             <!-- PROMO LINE TEXT -->
-            <p class="promo-line-text">Add new equipment!</p>
+            <p class="promo-line-text">Add a new service!</p>
             <!-- /PROMO LINE TEXT -->
 
             <!-- PROMO LINE ACTIONS -->
             <div class="promo-line-actions">
                 <!-- FORM INPUT -->
                 <div class="form-input small">
-                    <label for="promo-code">Equipment name</label>
+                    <label for="promo-code">Service name</label>
                     <input [(ngModel)]="newService.name" type="text" id="equipment-name" name="promo_code">
                 </div>
                 <!-- /FORM INPUT -->
                 <!-- FORM INPUT -->
                 <div class="form-input small">
-                    <label for="promo-code">Equipment description</label>
+                    <label for="promo-code">Service description</label>
                     <input [(ngModel)]="newService.description" type="text" id="equipment-description"
                         name="promo_code">
                 </div>
@@ -149,7 +149,7 @@
                         <!-- ICON DELETE -->
                         <label *ngIf="!imageSrc" for="promo-code">photo</label>
                         <svg class="icon-delete">
-                            <use xlink:href="#svg-equipment"></use>
+                            <use xlink:href="#svg-group"></use>
                         </svg>
                         <!-- /ICON DELETE -->
                         <img style="max-height: 80px; max-width: 80px;" *ngIf="imageSrc" [src]="imageSrc" alt="item-10">
@@ -158,7 +158,7 @@
                 <input (change)="fileChange($event)" id="postPhoto" type="file" style="display:none">
 
                 <!-- BUTTON -->
-                <p (click)="createService()" class="button secondary">Add equipment</p>
+                <p (click)="createService()" class="button secondary">Add Service</p>
                 <!-- /BUTTON -->
             </div>
             <!-- /PROMO LINE ACTIONS -->

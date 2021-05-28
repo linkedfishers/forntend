@@ -62,7 +62,7 @@ const routes: Routes = [
         path: 'homes',
         component: HebergementsComponent
       },
-       {
+      {
         path: 'services',
         component: ServicesComponent,
         children: [
