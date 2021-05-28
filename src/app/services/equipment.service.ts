@@ -9,7 +9,9 @@ export class EquipmentService {
   readonly API: string = environment.apiUrl + '/equipments';
 
   constructor(private httpClient: HttpClient) { }
-
+  createService(FormData:FormData){
+    return this.httpClient.post<any>(`${this.API}/service/new`, FormData)
+  }
   createBoat(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/boat/new`, formData);
   }
@@ -24,6 +26,9 @@ export class EquipmentService {
   updateHebergement(formData: FormData, id: string) {
     return this.httpClient.put<any>(`${this.API}/hebergement/${id}`, formData);
   }
+    updateService(formData: FormData, id: string) {
+    return this.httpClient.put<any>(`${this.API}/service/${id}`, formData);
+  }
   updateBoat(formData: FormData, id: string) {
     return this.httpClient.put<any>(`${this.API}/boat/${id}`, formData);
   }
@@ -34,7 +39,9 @@ export class EquipmentService {
   getEquipmentTypes() {
     return this.httpClient.get<any>(`${this.API}/types`);
   }
-
+   getServiceTypes() {
+    return this.httpClient.get<any>(`${this.API}/service/types`);
+  }
   getBoatTypes() {
     return this.httpClient.get<any>(`${this.API}/boat/types`);
   }
@@ -46,9 +53,15 @@ export class EquipmentService {
   getEquipmentsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/user/${userId}`);
   }
+    getServicesByUser(userId: string) {
+    return this.httpClient.get<any>(`${this.API}/service/user/${userId}`);
+  }
 
   getEquipmentsByTypeAndUser(typeId: string, userId: string) {
     return this.httpClient.get<any>(`${this.API}/type/${typeId}/user/${userId}`);
+  }
+    getServicesByTypeAndUser(typeId: string, userId: string) {
+    return this.httpClient.get<any>(`${this.API}/service/type/${typeId}/user/${userId}`);
   }
 
   getBoatsByUser(userId: string) {
@@ -57,7 +70,9 @@ export class EquipmentService {
   getHebergementsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/hebergements/user/${userId}`);
   }
-
+  getServices(){
+    return this.httpClient.get<any>(`${this.API}/services/all/`)
+  }
   getHebergements() {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
   }
@@ -65,7 +80,9 @@ export class EquipmentService {
   getBoats() {
     return this.httpClient.get<any>(`${this.API}/boats/all/`);
   }
-
+  deleteService(id:string){
+    return this.httpClient.delete<any>(`${this.API}/service/${id}`)
+  }
   deleteEquipment(id: string) {
     return this.httpClient.delete<any>(`${this.API}/equipment/${id}`);
   }
@@ -80,6 +97,9 @@ export class EquipmentService {
 
   getEquipment(id: string) {
     return this.httpClient.get<any>(`${this.API}/equipment/${id}`);
+  }
+    getServie(id: string) {
+    return this.httpClient.get<any>(`${this.API}/service/${id}`);
   }
 
   getBoat(id: string) {

@@ -17,7 +17,25 @@ export class EquipmentType {
     items: any[];
     description: string;
 }
-
+export class Service {
+    _id: string;
+    name: string;
+    price: number;
+    owner: any;
+    type: any;
+    image: string;
+    description: string;
+    position: any;
+    isAvailable: boolean;
+    createdAt: any;
+}
+export class ServiceType {
+    _id: string;
+    name: string;
+    icon: string;
+    items: any[];
+    description: string;
+}
 export class Boat {
     _id: string;
     name: string;
