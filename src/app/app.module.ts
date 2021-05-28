@@ -67,6 +67,9 @@ import { CarouselComponent } from './components/pages/carousel/carousel.componen
 import { SocialLoginModule, GoogleLoginProvider } from 'angularx-social-login';
 import { PicturePipe } from './pipes/picture.pipe';
 import { DatePipe } from '@angular/common';
+import { ServicesComponent } from './components/pages/services/services.component';
+import { ServiceListComponent } from './components/pages/services/service-list/service-list.component';
+import {CategoriesServiceComponent} from './components/pages/services/categoriesService/categories.component'
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -79,6 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 @NgModule({
   declarations: [
+    CategoriesServiceComponent,
     AppComponent,
     LoginComponent,
     HomeComponent,
@@ -123,6 +127,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsEquipmentComponent,
     CarouselComponent,
     PicturePipe,
+    ServicesComponent,
+    ServiceListComponent,
+
 
   ],
   imports: [

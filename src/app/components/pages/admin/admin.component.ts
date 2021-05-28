@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EquipmentType, HebergementType, BoatType } from 'src/app/interfaces/equipments.interface';
+import { EquipmentType, HebergementType, BoatType, ServiceType } from 'src/app/interfaces/equipments.interface';
 import { Report, User } from 'src/app/interfaces/users.interface';
 import { AdminService } from 'src/app/services/admin.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
@@ -31,6 +31,7 @@ export class AdminComponent implements OnInit {
   equipmentTypes: EquipmentType[];
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
+  serviceTypes:ServiceType[];
   newEquipmentType: EquipmentType;
   formData: FormData;
   imageSrc: any;
@@ -132,6 +133,8 @@ export class AdminComponent implements OnInit {
           this.boatTypes.unshift(res.data);
         } else if (this.selectedCategory == 'hebergement') {
           this.hebergementTypes.unshift(res.data);
+        }else if(this.selectedCategory == "service"){
+        this.serviceTypes.unshift(res.data);
         }
         this.toastr.success(res.message);
         this.formData = new FormData();
@@ -240,6 +243,9 @@ export class AdminComponent implements OnInit {
 
             } else if (categoryName == 'hebergement') {
               let i = this.hebergementTypes.findIndex((t) => t._id == type._id);
+              this.equipmentTypes.splice(i, 1);
+            }else if (categoryName == 'service') {
+              let i = this.serviceTypes.findIndex((t) => t._id == type._id);
               this.equipmentTypes.splice(i, 1);
             }
 
