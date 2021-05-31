@@ -91,35 +91,35 @@ input[type="date"] {
 input[type="password"]::-webkit-input-placeholder,
 input[type="text"],
 input[type="date"]::-webkit-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-size: 0.875rem;
     font-weight: 500;
 }
 input[type="password"]::-moz-placeholder,
 input[type="text"],
 input[type="date"]::-moz-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-size: 0.875rem;
     font-weight: 500;
 }
 input[type="password"]:-ms-input-placeholder,
 input[type="text"],
 input[type="date"]:-ms-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-size: 0.875rem;
     font-weight: 500;
 }
 input[type="password"]::-ms-input-placeholder,
 input[type="text"],
 input[type="date"]::-ms-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-size: 0.875rem;
     font-weight: 500;
 }
 input[type="password"]::placeholder,
 input[type="text"],
 input[type="date"]::placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-size: 0.875rem;
     font-weight: 500;
 }
@@ -128,23 +128,23 @@ textarea {
     resize: none;
 }
 textarea::-webkit-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-weight: 600;
 }
 textarea::-moz-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-weight: 600;
 }
 textarea:-ms-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-weight: 600;
 }
 textarea::-ms-input-placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-weight: 600;
 }
 textarea::placeholder {
-    color: #adafca;
+    color: #3e3f5e;
     font-weight: 600;
 }
 .form {
@@ -12239,4 +12239,9 @@ figure > img {
 .picsum-img-wrapper {
     text-align: center;
     border-radius: 11px;
+}
+.cdk-overlay-container {
+    /* Do you changes here */
+    position: fixed; 
+    z-index: 10000000 !important;
 }

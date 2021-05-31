@@ -41,6 +41,8 @@
 	"followers": "Abonnés",
 	"following": "Abonnements",
 	"fullname": "Nom et prénom",
+	"firstname": "Prénom",
+	"lastname": "Nom",
 	"home": "Accueil",
 	"about_us": "À propos",
 	"rules": "Règlements",

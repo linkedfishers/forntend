@@ -212,10 +212,10 @@
                                 <div class="form-item">
                                     <!-- FORM INPUT -->
                                     <div class="form-input">
-                                        <label for="register-us ername">{{'nom' | translate}}</label>
-                                        <input formControlName="nom" type="text" id="register-username"
-                                            name="register_username">
-                                        <p *ngIf="signUpForm?.controls?.nom?.errors?.required && signUpForm?.touched"
+                                        <label for="register-lastName">{{'lastname' | translate}}</label>
+                                        <input formControlName="lastName" type="text" id="register-lastName"
+                                            name="register_lastName">
+                                        <p *ngIf="signUpForm?.controls?.lastName?.errors?.required && signUpForm?.touched"
                                             class="form-text error">nom is required!</p>
                                     </div>
                                     <!-- /FORM INPUT -->
@@ -229,10 +229,10 @@
                                 <div class="form-item">
                                     <!-- FORM INPUT -->
                                     <div class="form-input">
-                                        <label for="exampleInputprenom">prenom</label>
-                                        <input formControlName="prenom" type="text" id="register-username"
-                                            name="register_username">
-                                        <p *ngIf="signUpForm?.controls?.prenon?.errors?.required && signUpForm?.touched"
+                                        <label for="register-firstName">prenom</label>
+                                        <input formControlName="firstName" type="text" id="register-firstName"
+                                            name="register_firstName">
+                                        <p *ngIf="signUpForm?.controls?.firstName?.errors?.required && signUpForm?.touched"
                                             class="form-text error">prenon is required!</p>
                                     </div>
                                     <!-- /FORM INPUT -->
@@ -245,11 +245,11 @@
                                 <div class="form-item">
                                     <!-- FORM INPUT -->
                                     <div class="form-input active">
-                                        <label for="register-us ername">{{'date de naissance' | translate}}</label>
+                                        <label for="bday">{{'date de naissance' | translate}}</label>
                                         <!--<input formControlName="nom" type="date" id="register-username"
                                             name="register_username">-->
                                         <input formControlName="birthDate" type="date" id="bday" name="bday">
-                                        <p *ngIf="signUpForm?.controls?.date de naissance?.errors?.required && signUpForm?.touched"
+                                        <p *ngIf="signUpForm?.controls?.birthDate?.required && signUpForm?.touched"
                                             class="form-text error">date de naissance is required!</p>
                                     </div>
                                     <!-- /FORM INPUT -->
@@ -261,13 +261,12 @@
                                 <!-- FORM ITEM -->
                                 <div class="form-item">
                                     <!-- FORM INPUT -->
-                                    <div class="form-input">
+                                    <div class="form-input active">
 
                                         <div class="form-group">
-                                            <label for="register-us ername">{{'Pays' | translate}}</label>
-                                            <!-- <label for="exampleFormControlpays">pays</label>-->
+                                            <label for="register-username">{{'country' | translate}}</label>
 
-                                            <select formControlName="pays" class="form-control"
+                                            <select formControlName="country" class="form-control"
                                                 id="exampleFormControlSelect1">
                                                 <option *ngFor="let country of countries" value="{{country.code}}">
                                                     {{country.name}}
@@ -275,7 +274,7 @@
                                             </select>
                                         </div>
 
-                                        <p *ngIf="signUpForm?.controls?.pays?.errors?.required && signUpForm?.touched"
+                                        <p *ngIf="signUpForm?.controls?.country?.errors?.required && signUpForm?.touched"
                                             class="form-text error">country is required!</p>
                                     </div>
                                     <!-- /FORM INPUT -->

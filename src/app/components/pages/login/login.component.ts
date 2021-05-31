@@ -48,10 +48,10 @@ export class LoginComponent implements OnInit {
       //Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      nom: [null, [Validators.required]],
-      prenom: [null, [Validators.required]],
+      lastName: [null, [Validators.required]],
+      firstName : [null, [Validators.required]],
       birthDate: [null, [Validators.required]],
-      pays: [null, [Validators.required]],
+      country: [null, [Validators.required]],
     }, { updateOn: 'blur' });
   }
 
@@ -97,10 +97,10 @@ export class LoginComponent implements OnInit {
     this.authService.signUp({
       'email': this.signUpForm.controls.email.value,
       'password': this.signUpForm.controls.password.value,
-      'nom': this.signUpForm.controls.nom.value,
-      'prenom': this.signUpForm.controls.prenom.value,
+      'firstName': this.signUpForm.controls.firstName.value,
+      'lastName': this.signUpForm.controls.lastName.value,
       'birthDate': this.formatDate(this.signUpForm.controls.birthDate.value),
-      'pays': this.signUpForm.controls.pays.value
+      'country': this.signUpForm.controls.country.value
     })
       .subscribe(
         response => {
