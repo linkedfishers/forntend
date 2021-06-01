@@ -1,7 +1,7 @@
 import { Hebergement, Boat, Equipment, Service } from "./equipments.interface";
 import { User } from "./users.interface";
 
-export class Reservations {
+export class Reservation {
   _id: string;
   reservedBy: User;
   dateStart: Date;

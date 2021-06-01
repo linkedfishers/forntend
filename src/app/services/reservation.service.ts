@@ -2,7 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {Reservations } from '../interfaces/reservation.interface'
+import { Reservation } from '../interfaces/reservation.interface'
 
 @Injectable({
   providedIn: 'root',
@@ -10,14 +10,14 @@ import {Reservations } from '../interfaces/reservation.interface'
 export class ReservationService {
   readonly API: string = environment.apiUrl + '/reservations';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
 
-  createReservation(reservation: Reservations) {
+  createReservation(reservation: Reservation) {
     return this.httpClient.post<any>(`${this.API}/new`, reservation);
   }
 
-  updateReservation(reservation: Reservations, id: string) {
+  updateReservation(reservation: Reservation, id: string) {
     return this.httpClient.put<any>(`${this.API}/reservation/${id}`, reservation);
   }
   getReservationsByUser(userId: string) {
@@ -33,4 +33,13 @@ export class ReservationService {
   getReservation(id: string) {
     return this.httpClient.get<any>(`${this.API}/reservation/${id}`);
   }
+
+  getReservationsByCategory(id: string, category: string) {
+    return this.httpClient.get<any>(`${this.API}/${category}/${id}`);
+  }
+
+  getMyPendingReservations(id: string, category: string) {
+    return this.httpClient.get<any>(`${this.API}/my-pending/${category}/${id}`);
+  }
+
 }

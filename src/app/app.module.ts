@@ -69,7 +69,11 @@ import { PicturePipe } from './pipes/picture.pipe';
 import { DatePipe } from '@angular/common';
 import { ServicesComponent } from './components/pages/services/services.component';
 import { ServiceListComponent } from './components/pages/services/service-list/service-list.component';
-import {CategoriesServiceComponent} from './components/pages/services/categoriesService/categories.component'
+import { CategoriesServiceComponent } from './components/pages/services/categoriesService/categories.component';
+import { MyReservationsComponent } from './components/pages/my-reservations/my-reservations.component'
+import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component'
+import { FlatpickrModule } from 'angularx-flatpickr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -129,8 +133,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     PicturePipe,
     ServicesComponent,
     ServiceListComponent,
-
-
+    MyReservationsComponent,
+    ReservationsRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -162,6 +166,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
+    NgbModalModule,
+    FlatpickrModule.forRoot(),
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     OwlTooltipModule,
