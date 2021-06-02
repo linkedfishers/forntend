@@ -1,5 +1,5 @@
 <!-- CONTENT GRID -->
-<div class="content-grid">
+<div class="content-grid" style="transform: translate(360.5px, 0px); transition: transform 0.4s ease-in-out 0s;">
     <!-- GRID -->
     <div class="grid medium-space">
         <!-- GRID COLUMN -->
@@ -46,105 +46,75 @@
                     </mwl-calendar-month-view>
                 </div>
 
-                <!-- Everything you see below is just for the demo, you don't need to include it in your app -->
+                <!-- Calendar end -->
 
                 <br /><br /><br />
+                <div *ngIf="item && item?.owner!=currentUser?._id">
+                    <h3>
+                        Choose dates
+                        <div class="clearfix"></div>
+                    </h3>
 
-                <h3>
-                    Choose dates
-                    <div class="clearfix"></div>
-                </h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Starts at</th>
+                                    <th>Ends at</th>
+                                </tr>
+                            </thead>
 
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Starts at</th>
-                                <th>Ends at</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <input (change)="updatePrice()" class="form-control" type="date" [(ngModel)]="newReservation.dateStart"
-                                        (ngModelChange)="refresh.next()" />
-                                </td>
-                                <td>
-                                    <input (change)="updatePrice()" class="form-control" type="date" [(ngModel)]="newReservation.dateEnd"
-                                        (ngModelChange)="refresh.next()" />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="_7efq7j" style="margin-bottom: 100px;">
-                    <div class="_1gw6tte">
-                        <div style="--gp-section-max-width:1128px;">
-                            <div data-plugin-in-point-id="LISTING_CARD_DESKTOP" data-section-id="LISTING_CARD_DESKTOP"
-                                style="padding-bottom: 24px;">
-                                <div class="_i77e3d">
-                                    <div class="_8kqo1s">
-                                        <div class="_1h6n1zu"
-                                            style="display: inline-block; vertical-align: bottom; height: 100%; width: 100%; min-height: 1px;">
-                                            <img class="_9ofhsl" aria-hidden="true" alt="" id="FMP-target"
-                                                src="{{item?.image | picture}}"
-                                                style="object-fit: cover; vertical-align: bottom;">
-                                        </div>
-                                    </div>
-                                    <div class="_ooekcv">
-                                        <div class="_1ssrgzh">{{item?.name}}</div>
-                                        <div class="_3hmsj">
-                                            <div id="LISTING_CARD_DESKTOP-title" class="_1tn13uh">{{item?.type?.name}}</div>
-                                            <div class="_1hunydg">{{item?.description}}</div>
-                                        </div>
-                                        <div class="_1joc06t">
-                                            <div class="_uwozh7"><span class="_60hvkx2" role="img"
-                                                    aria-label="Évaluation de Aucun commentaire sur 5"><span
-                                                        class="_1lzlk52"><svg viewBox="0 0 32 32"
-                                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                                            role="presentation" focusable="false"
-                                                            style="display: block; height: 12px; width: 12px; fill: currentcolor;">
-                                                            <path
-                                                                d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"
-                                                                fill-rule="evenodd"></path>
-                                                        </svg></span><span class="_2a6au1i" aria-hidden="true">Aucun
-                                                        commentaire</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <input (change)="updatePrice()" class="form-control" type="date"
+                                            [(ngModel)]="newReservation.dateStart" (ngModelChange)="refresh.next()" />
+                                    </td>
+                                    <td>
+                                        <input (change)="updatePrice()" class="form-control" type="date"
+                                            [(ngModel)]="newReservation.dateEnd" (ngModelChange)="refresh.next()" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="_1gw6tte">
-                        <div style="--gp-section-max-width:1128px;">
-                            <div class="_npr0qi" style="border-top-color: rgb(221, 221, 221);"></div>
-                            <div data-plugin-in-point-id="PRICE_DETAIL_TITLE" data-section-id="PRICE_DETAIL_TITLE"
-                                style="padding-top: 24px; padding-bottom: 24px;">
-                                <section>
-                                    <div class="_zaj690">
-                                        <h2 tabindex="-1" class="_14i3z6h">Détails du prix</h2>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="_1gw6tte">
-                        <div style="--gp-section-max-width:1128px;">
-                            <div data-plugin-in-point-id="PRICE_DETAIL" data-section-id="PRICE_DETAIL">
-                                <div id="FMP-target">
-                                    <div class="_gmaj6l">
-                                        <div>
-                                            <div style="margin-top: 0px;">
-                                                <div class="_hgs47m">
-                                                    <div class="_10ejfg4u"><button type="button" class="_ebe4pze">
-                                                            <div class="_x3c6nv">Prix par jour</div>
-                                                        </button></div>
-                                                    <div class="_ni9axhe">
-                                                        <div class="_4afltz"><span
-                                                                class="_17j792vp"><span>{{item?.price}} €</span></span></div>
+                    <div class="sidebar-box margin-top">
+                        <div class="_7efq7j" style="margin-bottom: 20px;">
+                            <div class="_1gw6tte">
+                                <div style="--gp-section-max-width:1128px;">
+                                    <div data-plugin-in-point-id="LISTING_CARD_DESKTOP"
+                                        data-section-id="LISTING_CARD_DESKTOP" style="padding-bottom: 24px;">
+                                        <div class="_i77e3d">
+                                            <div class="_8kqo1s">
+                                                <div class="_1h6n1zu"
+                                                    style="display: inline-block; vertical-align: bottom; height: 100%; width: 100%; min-height: 1px;">
+                                                    <img class="_9ofhsl" aria-hidden="true" alt="" id="FMP-target"
+                                                        src="{{item?.image | picture}}"
+                                                        style="object-fit: cover; vertical-align: bottom;">
+                                                </div>
+                                            </div>
+                                            <div class="_ooekcv">
+                                                <div class="_1ssrgzh">{{item?.name}}</div>
+                                                <div class="_3hmsj">
+                                                    <div id="LISTING_CARD_DESKTOP-title" class="_1tn13uh">
+                                                        {{item?.type?.name}}
                                                     </div>
+                                                    <div class="_1hunydg">{{item?.description}}</div>
+                                                </div>
+                                                <div class="_1joc06t">
+                                                    <div class="_uwozh7"><span class="_60hvkx2" role="img"
+                                                            aria-label="Évaluation sur 5"><span class="_1lzlk52"><svg
+                                                                    viewBox="0 0 32 32"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    aria-hidden="true" role="presentation"
+                                                                    focusable="false"
+                                                                    style="display: block; height: 12px; width: 12px; fill: currentcolor;">
+                                                                    <path
+                                                                        d="M15.094 1.579l-4.124 8.885-9.86 1.27a1 1 0 0 0-.542 1.736l7.293 6.565-1.965 9.852a1 1 0 0 0 1.483 1.061L16 25.951l8.625 4.997a1 1 0 0 0 1.482-1.06l-1.965-9.853 7.293-6.565a1 1 0 0 0-.541-1.735l-9.86-1.271-4.127-8.885a1 1 0 0 0-1.814 0z"
+                                                                        fill-rule="evenodd"></path>
+                                                                </svg></span><span class="_2a6au1i"
+                                                                aria-hidden="true">{{item?.rating| number :
+                                                                '1.0-2'}}/5</span></span></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -152,59 +122,101 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="_1gw6tte">
-                        <div style="--gp-section-max-width:1128px;">
-                            <div style="margin-top: 24px;">
-                                <div class="_npr0qi" style="border-top-color: rgb(221, 221, 221);"></div>
-                                <div data-plugin-in-point-id="PAYMENT_PLAN_SCHEDULE"
-                                    data-section-id="PAYMENT_PLAN_SCHEDULE" style="padding-top: 24px;">
-                                    <div>
-                                        <div class="_ayzg38">
-                                            <div class="_hgs47m">
-                                                <div class="_10ejfg4u">
-                                                    <div class="_1k04cz3c">Total</div>
-                                                </div>
-                                                <div class="_ni9axhe">
-                                                    <div class="_4afltz"><span
-                                                            class="_ba3mo2p"><span>{{totalPrice}}€</span></span></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- SIDEBAR BOX TITLE -->
+                        <section>
+                            <div class="_zaj690">
+                                <h2 tabindex="-1" class="_14i3z6h">Détails du prix</h2>
                             </div>
+                        </section> <!-- /SIDEBAR BOX TITLE -->
+
+                        <!-- SIDEBAR BOX ITEMS -->
+                        <div class="sidebar-box-items">
+                            <!-- TOTALS LINE LIST -->
+                            <div class="totals-line-list">
+                                <!-- TOTALS LINE -->
+                                <div class="totals-line">
+                                    <!-- TOTALS LINE TITLE -->
+                                    <p class="totals-line-title">Prix par jour</p>
+                                    <!-- /TOTALS LINE TITLE -->
+
+                                    <!-- PRICE TITLE -->
+                                    <p class="price-title"><span class="currency">$</span> {{item?.price}}</p>
+                                    <!-- /PRICE TITLE -->
+                                </div>
+                                <!-- /TOTALS LINE -->
+
+                                <!-- TOTALS LINE -->
+                                <div class="totals-line">
+                                    <!-- TOTALS LINE TITLE -->
+                                    <p class="totals-line-title">Commision</p>
+                                    <!-- /TOTALS LINE TITLE -->
+
+                                    <!-- PRICE TITLE -->
+                                    <p class="price-title">+<span class="currency">$</span> 0.00</p>
+                                    <!-- /PRICE TITLE -->
+                                </div>
+                                <!-- /TOTALS LINE -->
+                            </div>
+                            <!-- /TOTALS LINE LIST -->
+                            <!-- PRICE TITLE -->
+                            <p class="price-title big"><span class="currency">$</span> {{totalPrice}}</p>
+                            <!-- /PRICE TITLE -->
+                            <!-- BUTTON -->
+                            <a class="button primary" *ngIf="totalPrice>0" [routerLink]=""
+                                (click)="createReservationRequest()">Demander reservation</a>
+                            <!-- /BUTTON -->
+                            <p class="button" style="background-color: gray;" *ngIf="totalPrice<=0">Demander reservation
+                            </p>
+
                         </div>
+                        <!-- /SIDEBAR BOX ITEMS -->
                     </div>
                 </div>
+                <div *ngIf="item?.owner==currentUser?._id && requestedReservations">
+                    <br /><br /><br />
 
-                <button class="btn btn-primary float-right" (click)="createReservationRequest()">
-                    Demander reservation
-                </button>
-                <ng-template #modalContent let-close="close">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Event action occurred</h5>
-                        <button type="button" class="close" (click)="close()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div>
-                            Action:
-                            <pre>{{ modalData?.action }}</pre>
-                        </div>
-                        <div>
-                            Event:
-                            <pre>{{ modalData?.event | json }}</pre>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-secondary" (click)="close()">
-                            OK
-                        </button>
-                    </div>
-                </ng-template>
+                    <h3>
+                        Manage requests
+                        <div class="clearfix"></div>
+                    </h3>
 
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Starts at</th>
+                                    <th>Ends at</th>
+                                    <th>Total price</th>
+                                    <th colspan="2" style="text-align: center;">Decision</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let reservation of requestedReservations; let i = index">
+                                    <td>
+                                        {{reservation?.dateStart | date : 'MMMM d, y'}}
+                                    </td>
+                                    <td>
+                                        {{reservation?.dateEnd | date : 'MMMM d, y'}}
+                                    </td>
+                                    <td>
+                                        {{reservation?.totalPrice}} $
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-success" (click)="updateReservation(i,'CONFIRMED')">
+                                            Accept
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-danger" (click)="updateReservation(i,'DECLINED')">
+                                            Reject
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <!-- /GRID -->
         </div>
@@ -213,3 +225,27 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
+
+<ng-template #modalContent let-close="close">
+    <div class="modal-header">
+        <h5 class="modal-title">Event action occurred</h5>
+        <button type="button" class="close" (click)="close()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div>
+            Action:
+            <pre>{{ modalData?.action }}</pre>
+        </div>
+        <div>
+            Event:
+            <pre>{{ modalData?.event | json }}</pre>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" (click)="close()">
+            OK
+        </button>
+    </div>
+</ng-template>

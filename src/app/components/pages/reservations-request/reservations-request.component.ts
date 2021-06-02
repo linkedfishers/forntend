@@ -15,21 +15,11 @@ import {
 import { Reservation } from 'src/app/interfaces/reservation.interface';
 import { ReservationService } from 'src/app/services/reservation.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { colors } from 'src/app/services/utils';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/interfaces/users.interface';
+import { ToastrService } from 'ngx-toastr';
 
-const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
 @Component({
   selector: 'app-reservations-request',
   templateUrl: './reservations-request.component.html',
@@ -40,7 +30,7 @@ export class ReservationsRequestComponent implements OnInit {
 
   reservations: Reservation[] = [];
   pendingReservations: Reservation[] = [];
-
+  requestedReservations: Reservation[] = [];
   @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
@@ -69,6 +59,8 @@ export class ReservationsRequestComponent implements OnInit {
     private reservationService: ReservationService,
     private route: ActivatedRoute,
     private router: Router,
+    private authService: AuthService,
+    private toastr: ToastrService,
   ) { }
 
   id: string;
@@ -76,8 +68,9 @@ export class ReservationsRequestComponent implements OnInit {
   categoriesList: string[] = ['boat', 'home', 'equipment', 'service'];
   totalPrice = 0;
   item: any;
-
+  currentUser: User;
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.category = params.type;
@@ -86,18 +79,24 @@ export class ReservationsRequestComponent implements OnInit {
         this.router.navigateByUrl('404');
       }
       this.newReservation[this.category] = this.id;
-      this.newReservation.dateStart = new Date();
       this.reservationService.getReservationsByCategory(this.id, this.category).subscribe(
         (response) => {
           this.reservations = response.data.reservations;
+          this.requestedReservations = response.data.pendingReservations;
           this.item = response.data.item;
           for (let i = 0; i < this.reservations.length; i++) {
+            let color = colors.red;
+            let title = 'Booked';
+            if (this.reservations[i].reservedBy as unknown as string == this.currentUser._id) {
+              color = colors.green;
+              title += ' by you';
+            }
             this.displayedReservations.push(
               {
                 start: new Date(this.reservations[i].dateStart),
                 end: new Date(this.reservations[i].dateEnd),
-                title: 'Booked',
-                color: colors.red,
+                title: title,
+                color: color,
                 allDay: true,
               }
             )
@@ -121,7 +120,7 @@ export class ReservationsRequestComponent implements OnInit {
           }
           this.refresh.next();
         }
-      )
+      );
     });
   }
 
@@ -171,15 +170,49 @@ export class ReservationsRequestComponent implements OnInit {
           }
         );
         this.refresh.next();
+        this.newReservation = new Reservation();
+        this.totalPrice = 0;
+        this.toastr.success("Request a reservation");
       }
     )
   }
 
   updatePrice() {
+    if (!this.newReservation.dateStart || !this.newReservation.dateEnd) {
+      this.totalPrice = 0;
+      return;
+    }
     let start = moment(this.newReservation.dateStart);
     let end = moment(this.newReservation.dateEnd);
-    let numberOfdays = Math.abs(end.diff(start, 'days'));
+    let numberOfdays = end.diff(start, 'days');
+    if (numberOfdays <= 0) {
+      this.totalPrice = 0;
+      return;
+    }
     this.totalPrice = numberOfdays * this.item.price;
+  }
+
+  updateReservation(i: number, status: string) {
+    let reservation = this.requestedReservations[i];
+    reservation.status = status;
+    this.reservationService.updateReservation(reservation).subscribe(
+      (response) => {
+        console.log(response);
+        this.requestedReservations.splice(i, 1);
+        reservation = response.data;
+        if (reservation.status == "CONFIRMED") {
+          this.displayedReservations.push({
+            start: new Date(reservation.dateStart),
+            end: new Date(reservation.dateEnd),
+            title: "Booked",
+            color: colors.red,
+            allDay: true,
+          });
+          this.refresh.next();
+        }
+        this.toastr.success("updated reservation");
+      }
+    )
   }
 
 }

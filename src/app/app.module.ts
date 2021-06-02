@@ -74,6 +74,7 @@ import { MyReservationsComponent } from './components/pages/my-reservations/my-r
 import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component'
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -135,6 +136,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ServiceListComponent,
     MyReservationsComponent,
     ReservationsRequestComponent,
+    ListReservationsComponent,
   ],
   imports: [
     BrowserModule,

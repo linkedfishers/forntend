@@ -8,8 +8,11 @@ export class Reservation {
   dateEnd: Date;
   home: Hebergement;
   boat: Boat;
-  ownedBy:User;
+  ownedBy: User;
   equipment: Equipment;
   service: Service;
   status: any;
+  item: any;
+  numberOfDays: number;
+  totalPrice: number;
 }

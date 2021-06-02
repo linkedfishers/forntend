@@ -28,6 +28,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ServiceListComponent } from './components/pages/services/service-list/service-list.component';
 import { MyReservationsComponent } from './components/pages/my-reservations/my-reservations.component';
 import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component';
+import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
 
 
 const routes: Routes = [
@@ -129,12 +130,16 @@ const routes: Routes = [
         component: DetailsEquipmentComponent,
       },
       {
-        path: 'my-reservations',
+        path: 'my-booking-requests',
         component: MyReservationsComponent,
       },
       {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,
+      },
+      {
+        path: 'booking-requests',
+        component: ListReservationsComponent,
       },
     ]
   },

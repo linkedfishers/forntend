@@ -17,8 +17,8 @@ export class ReservationService {
     return this.httpClient.post<any>(`${this.API}/new`, reservation);
   }
 
-  updateReservation(reservation: Reservation, id: string) {
-    return this.httpClient.put<any>(`${this.API}/reservation/${id}`, reservation);
+  updateReservation(reservation: Reservation) {
+    return this.httpClient.put<any>(`${this.API}/reservation/`, reservation);
   }
   getReservationsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/user/${userId}`);
@@ -40,6 +40,10 @@ export class ReservationService {
 
   getMyPendingReservations(id: string, category: string) {
     return this.httpClient.get<any>(`${this.API}/my-pending/${category}/${id}`);
+  }
+
+  getOwnerReservations() {
+    return this.httpClient.get<any>(`${this.API}/owner-requests`);
   }
 
 }

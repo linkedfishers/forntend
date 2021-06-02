@@ -1,0 +1,187 @@
+<!-- CONTENT GRID -->
+<div class="content-grid" style="transform: translate(360.5px, 0px); transition: transform 0.4s ease-in-out 0s;">
+    <!-- GRID -->
+    <div class="grid medium-space">
+        <!-- GRID COLUMN -->
+        <div class="account-hub-content">
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+                <!-- SECTION HEADER INFO -->
+                <div class="section-header-info">
+                    <!-- SECTION TITLE -->
+                    <h2 class="section-title">Gérer les demandes de réservations</h2>
+                    <!-- /SECTION TITLE -->
+                </div>
+                <!-- /SECTION HEADER INFO -->
+            </div>
+            <!-- /SECTION HEADER -->
+
+            <!-- GRID -->
+            <div class="grid centered-on-mobile">
+                <div class="grid-column">
+                    <!-- TABLE WRAP -->
+                    <div class="table-wrap" data-simplebar="init">
+                        <div class="simplebar-wrapper" style="margin: 0px;">
+                            <div class="simplebar-height-auto-observer-wrapper">
+                                <div class="simplebar-height-auto-observer"></div>
+                            </div>
+                            <div class="simplebar-mask">
+                                <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                    <div class="simplebar-content-wrapper" style="height: auto; overflow: hidden;">
+                                        <div class="simplebar-content" style="padding: 0px;">
+                                            <!-- TABLE -->
+                                            <div class="table table-cart split-rows">
+                                                <!-- TABLE HEADER -->
+                                                <div class="table-header">
+                                                    <!-- TABLE HEADER COLUMN -->
+                                                    <div class="table-header-column">
+                                                        <!-- TABLE HEADER TITLE -->
+                                                        <p class="table-header-title">Item</p>
+                                                        <!-- /TABLE HEADER TITLE -->
+                                                    </div>
+                                                    <!-- /TABLE HEADER COLUMN -->
+
+                                                    <!-- TABLE HEADER COLUMN -->
+                                                    <div class="table-header-column padded-left">
+                                                        <!-- TABLE HEADER TITLE -->
+                                                        <p class="table-header-title">Periode</p>
+                                                        <!-- /TABLE HEADER TITLE -->
+                                                    </div>
+                                                    <!-- /TABLE HEADER COLUMN -->
+
+                                                    <!-- TABLE HEADER COLUMN -->
+                                                    <div class="table-header-column padded-left">
+                                                        <!-- TABLE HEADER TITLE -->
+                                                        <p class="table-header-title">Number of days</p>
+                                                        <!-- /TABLE HEADER TITLE -->
+                                                    </div>
+                                                    <!-- /TABLE HEADER COLUMN -->
+
+                                                    <!-- TABLE HEADER COLUMN -->
+                                                    <div class="table-header-column centered padded-left">
+                                                        <!-- TABLE HEADER TITLE -->
+                                                        <p class="table-header-title">Total price</p>
+                                                        <!-- /TABLE HEADER TITLE -->
+                                                    </div>
+                                                    <!-- /TABLE HEADER COLUMN -->
+
+                                                    <!-- TABLE HEADER COLUMN -->
+                                                    <div class="table-header-column padded-big-left"></div>
+                                                    <!-- /TABLE HEADER COLUMN -->
+                                                </div>
+                                                <!-- /TABLE HEADER -->
+
+                                                <!-- TABLE BODY -->
+                                                <div class="table-body same-color-rows">
+                                                    <!-- TABLE ROW -->
+                                                    <div *ngFor="let reservation of reservationRequests"
+                                                        class="table-row medium">
+                                                        <!-- TABLE COLUMN -->
+                                                        <div class="table-column">
+                                                            <!-- PRODUCT PREVIEW -->
+                                                            <div class="product-preview tiny" style="width: auto!important;;">
+                                                                <!-- PRODUCT PREVIEW IMAGE -->
+                                                                <a href="marketplace-product.html">
+                                                                    <figure class="product-preview-image liquid">
+                                                                        <img style="width: auto;"
+                                                                            src="{{reservation?.item?.image | picture}}">
+                                                                    </figure>
+                                                                </a>
+                                                                <!-- /PRODUCT PREVIEW IMAGE -->
+
+                                                                <!-- PRODUCT PREVIEW INFO -->
+                                                                <div class="product-preview-info">
+                                                                    <!-- PRODUCT PREVIEW TITLE -->
+                                                                    <p class="product-preview-title"><a
+                                                                            href="marketplace-product.html">{{reservation?.item?.name}}</a>
+                                                                    </p>
+                                                                    <!-- /PRODUCT PREVIEW TITLE -->
+
+                                                                    <!-- PRODUCT PREVIEW CATEGORY -->
+                                                                    <p class="product-preview-category digital"><a
+                                                                            href="marketplace-category.html">Stream
+                                                                            Packs</a></p>
+                                                                    <!-- /PRODUCT PREVIEW CATEGORY -->
+
+                                                                    <!-- PRODUCT PREVIEW CREATOR -->
+                                                                    <p class="product-preview-creator"><a
+                                                                            href="profile-timeline.html">Marina
+                                                                            Valentine</a></p>
+                                                                    <!-- /PRODUCT PREVIEW CREATOR -->
+                                                                </div>
+                                                                <!-- /PRODUCT PREVIEW INFO -->
+                                                            </div>
+                                                            <!-- /PRODUCT PREVIEW -->
+                                                        </div>
+                                                        <!-- /TABLE COLUMN -->
+
+                                                        <!-- TABLE COLUMN -->
+                                                        <div class="table-column padded-left centered">
+                                                            <!-- PRICE TITLE -->
+                                                            <p class="price-title">
+                                                                {{reservation?.dateStart | date : 'MMMM d, y'}}
+                                                                <br>
+                                                                {{reservation?.dateEnd | date : 'MMMM d, y'}}
+                                                                <!-- /PRICE TITLE -->
+                                                        </div>
+                                                        <!-- /TABLE COLUMN -->
+
+                                                        <!-- TABLE COLUMN -->
+                                                        <div class="table-column padded-left">
+                                                            <!-- PRICE TITLE -->
+                                                            <p class="price-title">{{reservation?.numberOfDays}}</p>
+                                                            <!-- /PRICE TITLE -->
+                                                        </div>
+                                                        <!-- /TABLE COLUMN -->
+
+                                                        <!-- TABLE COLUMN -->
+                                                        <div class="table-column centered padded-left">
+                                                            <!-- PRICE TITLE -->
+                                                            <p class="price-title"><span
+                                                                    class="currency">$</span>{{reservation?.totalPrice}}
+                                                            </p>
+                                                            <!-- /PRICE TITLE -->
+                                                        </div>
+                                                        <!-- /TABLE COLUMN -->
+                                                        <!-- TABLE COLUMN -->
+                                                        <div class="table-column padded-left centered">
+                                                            <!-- TABLE ACTION -->
+                                                            <p style="width: 100%;" class="button primary">Confirm</p>
+                                                            <!-- /TABLE ACTION -->
+                                                        </div>
+                                                        <div class="table-column padded-left centered">
+                                                            <!-- TABLE ACTION -->
+                                                            <p style="width: 120%;" class="button tertiary">Decline</p>
+
+                                                            <!-- /TABLE ACTION -->
+                                                        </div>
+                                                        <!-- /TABLE COLUMN -->
+                                                    </div>
+                                                    <!-- /TABLE ROW -->
+                                                </div>
+                                                <!-- /TABLE BODY -->
+                                            </div>
+                                            <!-- /TABLE -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="simplebar-placeholder" style="width: auto; height: 416px;"></div>
+                        </div>
+                        <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                            <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                        </div>
+                        <div class="simplebar-track simplebar-vertical" style="visibility: hidden;">
+                            <div class="simplebar-scrollbar" style="height: 0px; display: none;"></div>
+                        </div>
+                    </div>
+                    <!-- /TABLE WRAP -->
+                </div>
+            </div>
+            <!-- /GRID -->
+        </div>
+
+    </div>
+    <!-- /GRID -->
+</div>
+<!-- /CONTENT GRID -->
