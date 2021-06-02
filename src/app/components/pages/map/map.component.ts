@@ -192,13 +192,13 @@ export class MapComponent implements AfterViewInit {
         this.boat = res.data;
         let i = 0;
         this.boat.forEach(boat => {
+          console.log('boat : ',boat);
           if (!boat.position) return;
           this.boatMarker.push(L.marker(boat.position.coordinates, {
             icon: boatIcon,
             draggable: false,
             autoPan: true
-          }).bindPopup(`<a target="_blank" href="/details-boat/${boat?._id}" ><h1>${boat.name}</h1><a> by <a target="_blank" href="/profile/${boat?.owner?.slug}">
-                      ${boat?.owner?.fullName}</a>`));
+          }).bindPopup(`<a target="_blank" href="/details-boat/${boat?._id}"><h1>${boat.name}</h1><a><h4>${boat?.type.name || ''}</h4>`));
           this.boatMarker[i].addTo(this.map);
           i++
         });

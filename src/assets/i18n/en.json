@@ -41,6 +41,8 @@
 	"followers": "followers",
 	"following": "following",
 	"fullname": "Full name",
+	"firstname": "Prénom",
+	"lastname": "Nom",
 	"home": "home",
 	"about_us": "About us",
 	"rules": "Rules",
