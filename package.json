@@ -44,9 +44,7 @@
     "sweetalert2": "^10.12.7",
     "timeago.js": "^4.0.2",
     "tslib": "^1.14.1",
-    "zone.js": "~0.10.2",
-    "flatpickr": "4.6.6",
-    "angularx-flatpickr": "6.5.1"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.1",
