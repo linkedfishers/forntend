@@ -71,14 +71,6 @@ export class Hebergement {
     rating: number;
 }
 
-export class Reservation {
-    _id: string;
-    reservedBy: any
-    home: any
-    dateStart: Date
-    dateEnd: Date
-}
-
 export class HebergementType {
     _id: string;
     name: string;

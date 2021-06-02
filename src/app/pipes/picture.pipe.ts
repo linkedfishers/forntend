@@ -11,7 +11,7 @@ export class PicturePipe implements PipeTransform {
     if (this.isValidHttpUrl(value)) {
       return value;
     }
-    return this.API + '/' + value
+    return this.API + value
   }
 
   isValidHttpUrl(string: string) {
