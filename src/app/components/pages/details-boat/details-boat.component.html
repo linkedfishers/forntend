@@ -258,7 +258,8 @@
                     <!-- /PRICE TITLE -->
 
                     <!-- BUTTON -->
-                    <p [routerLink]="['/book/','boat',boat?._id]" class="button primary">Reserver</p>
+                    <p [routerLink]="['/book/','boat',boat?._id]" class="button primary">{{isOwner ? 'Détails
+                        reservations' : 'Réserver'}}</p>
                     <!-- /BUTTON -->
 
                     <!-- USER STATS -->
@@ -313,36 +314,75 @@
                 <!-- /SIDEBAR BOX ITEMS -->
 
                 <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">Hosted by</p>
+                <p class="sidebar-box-title medium-space">Owner</p>
                 <!-- /SIDEBAR BOX TITLE -->
 
                 <!-- SIDEBAR BOX ITEMS -->
                 <div class="sidebar-box-items">
                     <!-- USER STATUS -->
-                    <div class="user-status">
+                    <div class="user-status" style="padding-left: 0px !important;">
                         <!-- USER AVATAR -->
                         <img class="round" [src]="boat?.owner?.profilePicture | picture" alt="avatar-01">
                         <!-- /USER AVATAR -->
 
                         <!-- USER STATUS TITLE -->
                         <p class="user-status-title">
-                            <a *ngIf="boat" class="bold" [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]">
-                                {{boat?.owner?.fullName}}
+                            <a *ngIf="boat" class="bold" [routerLink]="">
+                                {{boat?.owner?.firstName}}
                             </a>
                         </p>
                         <!-- /USER STATUS TITLE -->
+                    <!-- USER STATS -->
+                    <div class="user-stats" style="padding-top: 20px;">
+                        <!-- USER STAT -->
+                        <div class="user-stat big">
+                            <!-- USER STAT TITLE -->
+                            <p class="user-stat-title">{{boat?.owner?.reviews.length}}</p>
+                            <!-- /USER STAT TITLE -->
 
-                        <!-- USER STATUS TEXT -->
-                        <!-- <p class="user-status-text small">5 items published</p> -->
-                        <!-- /USER STATUS TEXT -->
+                            <!-- USER STAT TEXT -->
+                            <p class="user-stat-text">Reviews</p>
+                            <!-- /USER STAT TEXT -->
+                        </div>
+                        <!-- /USER STAT -->
+                        <br>
+                        <!-- USER STAT -->
+                        <div class="user-stat big">
+                            <!-- USER STAT TITLE -->
+                            <p class="user-stat-title">{{boat?.owner?.rating | number : '1.0-2'}}/5</p>
+                            <!-- /USER STAT TITLE -->
+
+                            <!-- RATING LIST -->
+                            <div class="rating-list">
+                                <!-- RATING -->
+                                <!-- RATING -->
+                                <div *ngFor="let i of range(boat?.owner?.rating)" class="rating medium filled">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon medium icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+
+                                <!-- RATING -->
+                                <div *ngFor="let i of range(5 - boat?.owner?.rating)" class="rating medium">
+                                    <!-- RATING ICON -->
+                                    <svg class="rating-icon medium icon-star">
+                                        <use xlink:href="#svg-star"></use>
+                                    </svg>
+                                    <!-- /RATING ICON -->
+                                </div>
+                                <!-- /RATING -->
+                            </div>
+                            <!-- /RATING LIST -->
+                        </div>
+                        <!-- /USER STAT -->
+                    </div>
+                    <!-- /USER STATS -->
                     </div>
                     <!-- /USER STATUS -->
 
-
-                    <!-- BUTTON -->
-                    <a *ngIf="boat" class="button small white"
-                        [routerLink]="['/profile/',(boat?.owner?.slug || boat?.owner?._id)]">View Owner's Profile</a>
-                    <!-- /BUTTON -->
                 </div>
                 <!-- /SIDEBAR BOX ITEMS -->
 

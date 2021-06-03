@@ -159,10 +159,6 @@ export class ReservationsRequestComponent implements OnInit {
   }
 
   createReservationRequest() {
-    let a = areIntervalsOverlapping(
-      { start: new Date(2014, 0, 10), end: new Date(2014, 0, 20) },
-      { start: new Date(2014, 0, 17), end: new Date(2014, 0, 21) }
-    )
     for (let i = 0; i < this.reservations.length; i++) {
       const reservation = this.reservations[i];
       if (areIntervalsOverlapping(
@@ -174,6 +170,7 @@ export class ReservationsRequestComponent implements OnInit {
     }
     this.reservationService.createReservation(this.newReservation).subscribe(
       (response) => {
+        console.log(response);
         const reservation: Reservation = response.data;
         this.displayedReservations.push(
           {

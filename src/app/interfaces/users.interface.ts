@@ -1,3 +1,5 @@
+import { Review } from "./reviews.interface";
+
 export class User {
   _id: string;
   fullName: string;
@@ -32,6 +34,8 @@ export class User {
   createdAt: any;
   reports: Report[];
   activated: boolean;
+  reviews: Review[];
+  rating: number;
 }
 
 export class Report {

@@ -35,16 +35,19 @@ export class DetailsBoatComponent implements OnInit {
   currentUser: User;
   reviews: Review[] = [];
   newReview: Review = new Review();
-  isOwner = true;
+  isOwner = false;
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.route.params.subscribe(params => {
       let id = params.id;
       this.equipmentService.getBoat(id).subscribe((response) => {
-        this.boat = response.data;
+        console.log(response);
+        this.boat = response.data.boat;
+        this.isOwner = response.data.isOwner
         this.boat.reviews = this.boat.reviews || [];
-        this.isOwner = this.boat.owner._id === this.currentUser._id;
+        this.boat.owner.reviews = this.boat.owner.reviews || [];
+        this.boat.owner.rating = this.boat.owner.rating || 0;
       })
     });
     initContent();
