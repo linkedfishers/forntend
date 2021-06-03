@@ -3,8 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Reservation } from 'src/app/interfaces/reservation.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { ReservationService } from 'src/app/services/reservation.service';
-import * as moment from 'moment';
-
+import { differenceInDays } from 'date-fns';
 @Component({
   selector: 'app-list-reservations',
   templateUrl: './list-reservations.component.html',
@@ -26,9 +25,7 @@ export class ListReservationsComponent implements OnInit {
         this.reservationRequests.forEach(
           (reservation) => {
             reservation.item = reservation.boat || reservation.home || reservation.service || reservation.equipment;
-            let start = moment(reservation.dateStart);
-            let end = moment(reservation.dateEnd);
-            reservation.numberOfDays = end.diff(start, 'days');
+            reservation.numberOfDays = differenceInDays(new Date(reservation.dateEnd), new Date(reservation.dateStart));
           }
         );
       }

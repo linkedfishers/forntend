@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, } from '@angular/core';
 import {
   isSameDay,
-  isSameMonth
+  isSameMonth,
+  areIntervalsOverlapping,
+  differenceInDays,
+  isPast
 } from 'date-fns';
-import * as moment from 'moment';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
@@ -157,6 +159,19 @@ export class ReservationsRequestComponent implements OnInit {
   }
 
   createReservationRequest() {
+    let a = areIntervalsOverlapping(
+      { start: new Date(2014, 0, 10), end: new Date(2014, 0, 20) },
+      { start: new Date(2014, 0, 17), end: new Date(2014, 0, 21) }
+    )
+    for (let i = 0; i < this.reservations.length; i++) {
+      const reservation = this.reservations[i];
+      if (areIntervalsOverlapping(
+        { start: new Date(this.newReservation.dateStart), end: new Date(this.newReservation.dateEnd) },
+        { start: new Date(reservation.dateStart), end: new Date(reservation.dateEnd) })) {
+        this.toastr.warning("Ces dates ne sont pas disponibles", "Those dates are not available");
+        return;
+      }
+    }
     this.reservationService.createReservation(this.newReservation).subscribe(
       (response) => {
         const reservation: Reservation = response.data;
@@ -173,6 +188,8 @@ export class ReservationsRequestComponent implements OnInit {
         this.newReservation = new Reservation();
         this.totalPrice = 0;
         this.toastr.success("Request a reservation");
+      }, (error) => {
+        this.toastr.error(error.error.message);
       }
     )
   }
@@ -182,11 +199,17 @@ export class ReservationsRequestComponent implements OnInit {
       this.totalPrice = 0;
       return;
     }
-    let start = moment(this.newReservation.dateStart);
-    let end = moment(this.newReservation.dateEnd);
-    let numberOfdays = end.diff(start, 'days');
+    const endDate = new Date(this.newReservation.dateEnd);
+    const startDate = new Date(this.newReservation.dateStart);
+    if (isPast(startDate) || isPast(startDate)) {
+      this.totalPrice = 0;
+      this.toastr.warning('Please choose a valid date range');
+      return;
+    }
+    let numberOfdays = differenceInDays(endDate, startDate);
     if (numberOfdays <= 0) {
       this.totalPrice = 0;
+      this.toastr.warning('Please choose a valid date range');
       return;
     }
     this.totalPrice = numberOfdays * this.item.price;
