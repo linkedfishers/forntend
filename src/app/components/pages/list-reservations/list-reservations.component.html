@@ -79,9 +79,11 @@
                                                         <!-- TABLE COLUMN -->
                                                         <div class="table-column">
                                                             <!-- PRODUCT PREVIEW -->
-                                                            <div class="product-preview tiny" style="width: auto!important;;">
+                                                            <div class="product-preview tiny"
+                                                                style="width: auto!important;;">
                                                                 <!-- PRODUCT PREVIEW IMAGE -->
-                                                                <a href="marketplace-product.html">
+                                                                <a
+                                                                    [routerLink]="['/book',reservation?.item?.category,reservation?.item?._id]">
                                                                     <figure class="product-preview-image liquid">
                                                                         <img style="width: auto;"
                                                                             src="{{reservation?.item?.image | picture}}">
@@ -93,20 +95,22 @@
                                                                 <div class="product-preview-info">
                                                                     <!-- PRODUCT PREVIEW TITLE -->
                                                                     <p class="product-preview-title"><a
-                                                                            href="marketplace-product.html">{{reservation?.item?.name}}</a>
+                                                                            [routerLink]="['/book',reservation?.item?.category,reservation?.item?._id]">
+                                                                            {{reservation?.item?.name}}
+                                                                        </a>
                                                                     </p>
                                                                     <!-- /PRODUCT PREVIEW TITLE -->
 
                                                                     <!-- PRODUCT PREVIEW CATEGORY -->
-                                                                    <p class="product-preview-category digital"><a
-                                                                            href="marketplace-category.html">Stream
-                                                                            Packs</a></p>
+                                                                    <p class="product-preview-category digital">
+                                                                        <a>{{reservation?.item?.type?.name}}</a>
+                                                                    </p>
                                                                     <!-- /PRODUCT PREVIEW CATEGORY -->
 
                                                                     <!-- PRODUCT PREVIEW CREATOR -->
                                                                     <p class="product-preview-creator"><a
-                                                                            href="profile-timeline.html">Marina
-                                                                            Valentine</a></p>
+                                                                            [routerLink]="">{{reservation?.item?.owner?.firstName}}</a>
+                                                                    </p>
                                                                     <!-- /PRODUCT PREVIEW CREATOR -->
                                                                 </div>
                                                                 <!-- /PRODUCT PREVIEW INFO -->
@@ -141,19 +145,6 @@
                                                                     class="currency">$</span>{{reservation?.totalPrice}}
                                                             </p>
                                                             <!-- /PRICE TITLE -->
-                                                        </div>
-                                                        <!-- /TABLE COLUMN -->
-                                                        <!-- TABLE COLUMN -->
-                                                        <div class="table-column padded-left centered">
-                                                            <!-- TABLE ACTION -->
-                                                            <p style="width: 100%;" class="button primary">Confirm</p>
-                                                            <!-- /TABLE ACTION -->
-                                                        </div>
-                                                        <div class="table-column padded-left centered">
-                                                            <!-- TABLE ACTION -->
-                                                            <p style="width: 120%;" class="button tertiary">Decline</p>
-
-                                                            <!-- /TABLE ACTION -->
                                                         </div>
                                                         <!-- /TABLE COLUMN -->
                                                     </div>

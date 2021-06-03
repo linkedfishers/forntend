@@ -22,9 +22,22 @@ export class ListReservationsComponent implements OnInit {
     this.reservationService.getOwnerReservations().subscribe(
       (response) => {
         this.reservationRequests = response.data;
+        console.log(this.reservationRequests);
         this.reservationRequests.forEach(
           (reservation) => {
-            reservation.item = reservation.boat || reservation.home || reservation.service || reservation.equipment;
+            if (reservation.boat) {
+              reservation.item = reservation.boat
+              reservation.item.category = 'boat';
+            } else if (reservation.home) {
+              reservation.item = reservation.home
+              reservation.item.category = 'home';
+            } if (reservation.service) {
+              reservation.item = reservation.service
+              reservation.item.category = 'service';
+            } if (reservation.equipment) {
+              reservation.item = reservation.equipment
+              reservation.item.category = 'equipment';
+            }
             reservation.numberOfDays = differenceInDays(new Date(reservation.dateEnd), new Date(reservation.dateStart));
           }
         );
