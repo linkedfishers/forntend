@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AccountComponent } from './components/pages/account/account.component';
-import { DemoComponent } from './components/pages/account/demo/demo.component';
 import { ActivateAccountComponent } from './components/pages/activate-account/activate-account.component';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { BoatsComponent } from './components/pages/boats/boats.component';
@@ -148,11 +147,7 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuard],
   },
-  {
-    path: 'demo',
-    component: DemoComponent,
-    canActivate: [AuthGuard],
-  },
+
   {
     path: 'activate/:token',
     component: ActivateAccountComponent,
