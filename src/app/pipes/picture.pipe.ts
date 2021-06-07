@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 export class PicturePipe implements PipeTransform {
   readonly API: string = environment.apiUrl + '/';
 
-  transform(value: string, ...args: unknown[]): unknown {
+  transform(value: string, ...args: unknown[]): string {
     if (this.isValidHttpUrl(value)) {
       return value;
     }

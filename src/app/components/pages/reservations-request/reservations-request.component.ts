@@ -7,7 +7,6 @@ import {
   isPast
 } from 'date-fns';
 import { Subject } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {
   CalendarEvent,
   CalendarEventAction,
@@ -33,18 +32,12 @@ export class ReservationsRequestComponent implements OnInit {
   reservations: Reservation[] = [];
   pendingReservations: Reservation[] = [];
   requestedReservations: Reservation[] = [];
-  @ViewChild('modalContent', { static: true }) modalContent: TemplateRef<any>;
 
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
 
   viewDate: Date = new Date();
-
-  modalData: {
-    action: string;
-    event: CalendarEvent;
-  };
 
   actions: CalendarEventAction[] = [];
 
@@ -58,7 +51,6 @@ export class ReservationsRequestComponent implements OnInit {
 
   showSpinner = false;
   constructor(
-    private modal: NgbModal,
     private reservationService: ReservationService,
     private route: ActivatedRoute,
     private router: Router,
@@ -141,16 +133,6 @@ export class ReservationsRequestComponent implements OnInit {
       this.viewDate = date;
     }
   }
-
-  handleEvent(action: string, event: CalendarEvent): void {
-    this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
-  }
-
-  deleteEvent(eventToDelete: CalendarEvent) {
-    //this.events = this.events.filter((event) => event !== eventToDelete);
-  }
-
   setView(view: CalendarView) {
     this.view = view;
   }

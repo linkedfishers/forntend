@@ -41,8 +41,7 @@
                 <br />
                 <div [ngSwitch]="view">
                     <mwl-calendar-month-view [viewDate]="viewDate" [events]="displayedReservations" [refresh]="refresh"
-                        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-                        (eventClicked)="handleEvent('Clicked', $event.event)">
+                        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)">
                     </mwl-calendar-month-view>
                 </div>
 
@@ -251,27 +250,3 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
-
-<ng-template #modalContent let-close="close">
-    <div class="modal-header">
-        <h5 class="modal-title">Event action occurred</h5>
-        <button type="button" class="close" (click)="close()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-        </div>
-        <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" (click)="close()">
-            OK
-        </button>
-    </div>
-</ng-template>

@@ -1,10 +1,12 @@
 img.round {
     border-radius: 50%;
     height: 64px;
+    width: 64px;
 }
 img.round-small {
     border-radius: 50%;
     height: 32px;
+    width: 32px;
 }
 
 .star {
@@ -12,5 +14,5 @@ img.round-small {
     color: #b0c4de;
 }
 .filled {
-    color: #FFD700;
+    color: #ffd700;
 }
