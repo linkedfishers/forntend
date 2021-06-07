@@ -56,6 +56,7 @@ export class ReservationsRequestComponent implements OnInit {
 
   activeDayIsOpen: boolean = false;
 
+  showSpinner = false;
   constructor(
     private modal: NgbModal,
     private reservationService: ReservationService,
@@ -168,9 +169,9 @@ export class ReservationsRequestComponent implements OnInit {
         return;
       }
     }
+    this.showSpinner = true;
     this.reservationService.createReservation(this.newReservation).subscribe(
       (response) => {
-        console.log(response);
         const reservation: Reservation = response.data;
         this.displayedReservations.push(
           {
@@ -184,9 +185,11 @@ export class ReservationsRequestComponent implements OnInit {
         this.refresh.next();
         this.newReservation = new Reservation();
         this.totalPrice = 0;
+        this.showSpinner = false;
         this.toastr.success("Request a reservation");
       }, (error) => {
         this.toastr.error(error.error.message);
+        this.showSpinner = false;
       }
     )
   }
