@@ -9,6 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { ToastrService } from 'ngx-toastr';
+import { PicturePipe } from 'src/app/pipes/picture.pipe';
 
 declare var initSidebar, initHexagons: any;
 @Component({
@@ -65,10 +66,10 @@ export class ProfileComponent implements OnInit {
   }
 
   initProfile(userId: string) {
+    const picturePipe = new PicturePipe();
     this.userService.getUser(userId).subscribe(
       res => {
         this.user = res.data;
-        console.log(this.user);
         this.user.coverPictures.reverse();
         if (this.user.coverPictures.length) {
           this.user.coverPicture = this.API + '/' + this.user.coverPictures[0];
@@ -80,7 +81,7 @@ export class ProfileComponent implements OnInit {
             };
           });
         }
-        this.profilePicture.setAttribute('data-src', this.API + '/' + this.user.profilePicture);
+        this.profilePicture.setAttribute('data-src', picturePipe.transform(this.user.profilePicture));
         this.isFollowing = this.user.followers.includes(this.currentUser._id);
         initHexagons();
         this.equipmentService.getHebergementsByUser(this.user._id).subscribe(

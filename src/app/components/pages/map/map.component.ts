@@ -11,7 +11,7 @@ import { Hebergement } from "src/app/interfaces/equipments.interface";
 import { Event } from "src/app/interfaces/event.interface";
 import { environment } from 'src/environments/environment';
 import { Equipment } from "src/app/interfaces/equipments.interface";
-import {Boat} from "src/app/interfaces/equipments.interface"
+import { Boat } from "src/app/interfaces/equipments.interface"
 
 
 declare var initContent, initSidebar: any;
@@ -97,21 +97,21 @@ export class MapComponent implements AfterViewInit {
   position: any;
   posts: Post[];
   homes: Hebergement[];
-  boat:Boat[];
-  equipments:Equipment[]
+  boat: Boat[];
+  equipments: Equipment[]
   events: Event[];
   showFilters = true;
   showPosts = true;
   showEvents = true;
   showHomes = true;
-  showEquipment=true;
-  showBoat=true;
+  showEquipment = true;
+  showBoat = true;
 
   eventsMarker: Marker[] = [];
   postsMarker: Marker[] = [];
   homesMarker: Marker[] = [];
-  boatMarker:Marker[] = [];
-  equipmenetMarker:Marker[]=[];
+  boatMarker: Marker[] = [];
+  equipmenetMarker: Marker[] = [];
   currentPositionMarker: Marker;
   circleRadius: number = 20;
   showCircle: false;
@@ -126,7 +126,7 @@ export class MapComponent implements AfterViewInit {
   readonly API: string = environment.apiUrl + '/';
 
   selectedEvent: Event;
-  selectedEquipment:Equipment;
+  selectedEquipment: Equipment;
 
 
   async ngAfterViewInit() {
@@ -187,44 +187,42 @@ export class MapComponent implements AfterViewInit {
       },
       error => console.log(error)
     );
- this.equipmentService.getBoats().subscribe(
+    this.equipmentService.getBoats().subscribe(
       (res) => {
         this.boat = res.data;
         let i = 0;
         this.boat.forEach(boat => {
-          console.log('boat : ',boat);
+          console.log('boat : ', boat);
           if (!boat.position) return;
           this.boatMarker.push(L.marker(boat.position.coordinates, {
             icon: boatIcon,
             draggable: false,
             autoPan: true
-          }).bindPopup(`<a target="_blank" href="/details-boat/${boat?._id}"><h1>${boat.name}</h1><a><h4>${boat?.type.name || ''}</h4>`));
+          }).bindPopup(`<a target="_blank" href="/details-boat/${boat?._id}"><h1>${boat?.name}</h1><a><h4>${boat?.type?.name || ''}</h4>`));
           this.boatMarker[i].addTo(this.map);
           i++
         });
       },
       error => console.log(error)
     );
-     /*  this.equipmentService.getEquipment().subscribe(
-      (res) => {
-        this.equipments = res.data;
-        let i = 0;
-        this.equipments.forEach(equipment => {
-          if (!equipment.position) return;
-          this.equipmenetMarker.push(L.marker(equipment.position.coordinates, {
-            icon: homeIcon,
-            draggable: false,
-            autoPan: true
-          }).bindPopup(`<a target="_blank" href="/details-home/${equipment?._id}" ><h1>${equipment.name}</h1><a> by <a target="_blank" href="/profile/${hebergement?.owner?.slug}">
-                      ${equipment?.owner?.fullName}</a>`));
-          this.equipmenetMarker[i].addTo(this.map);
-          i++
-        });
-      },
-      error => console.log(error)
-    ); */
-
-
+    /*  this.equipmentService.getEquipment().subscribe(
+     (res) => {
+       this.equipments = res.data;
+       let i = 0;
+       this.equipments.forEach(equipment => {
+         if (!equipment.position) return;
+         this.equipmenetMarker.push(L.marker(equipment.position.coordinates, {
+           icon: homeIcon,
+           draggable: false,
+           autoPan: true
+         }).bindPopup(`<a target="_blank" href="/details-home/${equipment?._id}" ><h1>${equipment.name}</h1><a> by <a target="_blank" href="/profile/${hebergement?.owner?.slug}">
+                     ${equipment?.owner?.fullName}</a>`));
+         this.equipmenetMarker[i].addTo(this.map);
+         i++
+       });
+     },
+     error => console.log(error)
+   ); */
 
     this.eventService.getAll().subscribe(
       res => {
@@ -297,7 +295,7 @@ export class MapComponent implements AfterViewInit {
       this.homesMarker.forEach(marker => this.map.removeLayer(marker));
     }
   }
- toggleBoats() {
+  toggleBoats() {
     if (this.showBoat) {
       this.boatMarker.forEach(marker => {
         console.log(marker.getLatLng());
@@ -307,7 +305,7 @@ export class MapComponent implements AfterViewInit {
       this.boatMarker.forEach(marker => this.map.removeLayer(marker));
     }
   }
-   toggleEquipment() {
+  toggleEquipment() {
     if (this.showEquipment) {
       this.equipmenetMarker.forEach(marker => {
         console.log(marker.getLatLng());
@@ -353,7 +351,7 @@ export class MapComponent implements AfterViewInit {
           }
         });
     }
-     if (this.showBoat) {
+    if (this.showBoat) {
       this.boatMarker.forEach(
         marker => {
           let distance = this.getDistanceFromLatLonInKm(this.currentPositionMarker, marker);

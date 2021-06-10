@@ -41,8 +41,7 @@
                 <br />
                 <div [ngSwitch]="view">
                     <mwl-calendar-month-view [viewDate]="viewDate" [events]="displayedReservations" [refresh]="refresh"
-                        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-                        (eventClicked)="handleEvent('Clicked', $event.event)">
+                        [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)">
                     </mwl-calendar-month-view>
                 </div>
 
@@ -161,13 +160,18 @@
                             <!-- PRICE TITLE -->
                             <p class="price-title big"><span class="currency">$</span> {{totalPrice}}</p>
                             <!-- /PRICE TITLE -->
+                            <br>
                             <!-- BUTTON -->
-                            <a class="button primary" *ngIf="totalPrice>0" [routerLink]=""
-                                (click)="createReservationRequest()">Demander reservation</a>
+                            <button class="btn" [ngClass]="(totalPrice>0) ? 'btn-primary' : 'btn-dark'"
+                                (click)="createReservationRequest()" type="button" [disabled]="totalPrice<=0">
+                                <div *ngIf="showSpinner">
+                                    <span class="spinner-border spinner-border-sm" role="status"
+                                        aria-hidden="true"></span>
+                                    <span class="sr-only"></span>
+                                </div>
+                                {{showSpinner ? '' : 'Demander reservation'}}
+                            </button>
                             <!-- /BUTTON -->
-                            <p class="button" style="background-color: gray;" *ngIf="totalPrice<=0">Demander reservation
-                            </p>
-
                         </div>
                         <!-- /SIDEBAR BOX ITEMS -->
                     </div>
@@ -196,8 +200,8 @@
                                 <tr *ngFor="let reservation of requestedReservations; let i = index">
 
                                     <td>
-                                        <img class="round-small" [src]="reservation?.reservedBy?.profilePicture | picture"
-                                            alt="avatar-01">
+                                        <img class="round-small"
+                                            [src]="reservation?.reservedBy?.profilePicture | picture" alt="avatar-01">
                                         {{reservation?.reservedBy?.firstName}}
                                         <div class="_1joc06t">
                                             <div class="_uwozh7"><span class="_60hvkx2" role="img"
@@ -246,27 +250,3 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
-
-<ng-template #modalContent let-close="close">
-    <div class="modal-header">
-        <h5 class="modal-title">Event action occurred</h5>
-        <button type="button" class="close" (click)="close()">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    <div class="modal-body">
-        <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-        </div>
-        <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
-        </div>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" (click)="close()">
-            OK
-        </button>
-    </div>
-</ng-template>

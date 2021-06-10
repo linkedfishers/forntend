@@ -1,376 +1,518 @@
 <!-- LANDING -->
 <div class="landing">
-    <!-- LANDING DECORATION -->
-    <div class="landing-decoration"></div>
-    <!-- /LANDING DECORATION -->
+  <!-- LANDING DECORATION -->
+  <div class="landing-decoration"></div>
+  <!-- /LANDING DECORATION -->
 
-    <!-- LANDING INFO -->
-    <div class="landing-info">
-        <!-- LOGO -->
-        <div class="logo">
-            <img style="height: 132px; width: auto;" class="icon-logo-vikinger"
-                src="../../../../assets/img/logo-white-big.png">
-        </div>
-        <!-- /LOGO -->
-
-        <!-- LANDING INFO PRETITLE -->
-        <h2 class="landing-info-pretitle">{{'welcome_to' | translate}}</h2>
-        <!-- /LANDING INFO PRETITLE -->
-
-        <!-- LANDING INFO TITLE -->
-        <h1 class="landing-info-title">{{'linkedfishers' | translate}}</h1>
-        <!-- /LANDING INFO TITLE -->
-
-        <!-- TAB SWITCH -->
-        <div class="tab-switch">
-            <!-- TAB SWITCH BUTTON -->
-            <p class="tab-switch-button login-register-form-trigger">{{'login' | translate}}</p>
-            <!-- /TAB SWITCH BUTTON -->
-
-            <!-- TAB SWITCH BUTTON -->
-            <p class="tab-switch-button login-register-form-trigger">{{'register' | translate}}</p>
-            <!-- /TAB SWITCH BUTTON -->
-        </div>
-        <div class="tab-switch">
-            <a [routerLink]="['/demo']" style="border:0;" class="tab-switch-button button warning">Demo</a>
-
-        </div>
-        <!-- /TAB SWITCH -->
-
+  <!-- LANDING INFO -->
+  <div class="landing-info">
+    <!-- LOGO -->
+    <div class="logo">
+      <img
+        style="height: 132px; width: auto"
+        class="icon-logo-vikinger"
+        src="../../../../assets/img/logo-white-big.png"
+      />
     </div>
-    <!-- /LANDING INFO -->
+    <!-- /LOGO -->
 
-    <!-- LANDING FORM -->
-    <div class="landing-form">
-        <!-- FORM BOX -->
-        <div class="form-box login-register-form-element">
-            <!-- FORM BOX DECORATION -->
-            <!-- <img class="form-box-decoration overflowing" src="../../../../assets/img/landing/rocket.png" alt="rocket"> -->
-            <!-- /FORM BOX DECORATION -->
+    <!-- LANDING INFO PRETITLE -->
+    <h2 class="landing-info-pretitle">{{ "welcome_to" | translate }}</h2>
+    <!-- /LANDING INFO PRETITLE -->
 
-            <!-- FORM BOX TITLE -->
-            <h2 class="form-box-title">Account Login</h2>
-            <!-- /FORM BOX TITLE -->
+    <!-- LANDING INFO TITLE -->
+    <h1 class="landing-info-title">{{ "linkedfishers" | translate }}</h1>
+    <!-- /LANDING INFO TITLE -->
 
-            <!-- FORM -->
-            <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="login-email">Email</label>
-                            <input formControlName="email" type="text" id="login-email" name="login_email">
-                            <p *ngIf="loginForm?.controls?.email?.errors?.email" class="form-text error">invalid email!
-                            </p>
-                            <p *ngIf="loginForm?.controls?.email?.errors?.required && loginForm?.touched"
-                                class="form-text error">Email is
-                                required!</p>
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
+    <!-- TAB SWITCH -->
+    <div class="tab-switch">
+      <!-- TAB SWITCH BUTTON -->
+      <p class="tab-switch-button login-register-form-trigger">
+        {{ "login" | translate }}
+      </p>
+      <!-- /TAB SWITCH BUTTON -->
 
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM INPUT -->
-                        <div class="form-input">
-                            <label for="login-password">{{'password' | translate}}</label>
-                            <input formControlName="password" type="password" id="login-password" name="login_password">
-                            <p *ngIf="loginForm?.controls?.password?.errors?.required && loginForm?.touched"
-                                class="form-text error">Password is required!</p>
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
+      <!-- TAB SWITCH BUTTON -->
+      <p class="tab-switch-button login-register-form-trigger">
+        {{ "register" | translate }}
+      </p>
+      <!-- /TAB SWITCH BUTTON -->
+    </div>
+    <!-- /TAB SWITCH -->
+  </div>
+  <!-- /LANDING INFO -->
 
-                <!-- FORM ROW -->
-                <div class="form-row space-between">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap">
-                            <input formControlName="remember" type="checkbox" id="login-remember" name="login_remember"
-                                checked>
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box">
-                                <!-- ICON CROSS -->
-                                <svg class="icon-cross">
-                                    <use xlink:href="#svg-cross"></use>
-                                </svg>
-                                <!-- /ICON CROSS -->
-                            </div>
-                            <!-- /CHECKBOX BOX -->
-                            <label for="login-remember">{{'remember_me' | translate}}</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-                    </div>
-                    <!-- /FORM ITEM -->
+  <!-- LANDING FORM -->
+  <div class="landing-form">
+    <!-- FORM BOX -->
+    <div class="form-box login-register-form-element">
+      <!-- FORM BOX DECORATION -->
+      <!-- <img class="form-box-decoration overflowing" src="../../../../assets/img/landing/rocket.png" alt="rocket"> -->
+      <!-- /FORM BOX DECORATION -->
 
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- FORM LINK -->
-                        <a class="form-link" [routerLink]="['/password-reset-request']">{{'forgot_password' |
-                            translate}}</a>
-                        <!-- /FORM LINK -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
+      <!-- FORM BOX TITLE -->
+      <h2 class="form-box-title">Account Login</h2>
+      <!-- /FORM BOX TITLE -->
 
-                <!-- FORM ROW -->
-                <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                        <!-- BUTTON -->
-                        <button class="button medium secondary">{{'login' | translate}}</button>
-                        <!-- /BUTTON -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /FORM ROW -->
-            </form>
-            <!-- /FORM -->
-
-            <!-- LINED TEXT -->
-            <p class="lined-text">{{'login_social_account' | translate }}</p>
-            <!-- /LINED TEXT -->
-
-            <!-- SOCIAL LINKS -->
-            <div class="social-links">
-                <!-- SOCIAL LINK -->
-                <a class="social-link facebook" href="#">
-                    <!-- ICON FACEBOOK -->
-                    <svg class="icon-facebook">
-                        <use xlink:href="#svg-facebook"></use>
-                    </svg>
-                    <!-- /ICON FACEBOOK -->
-                </a>
-                <!-- /SOCIAL LINK -->
-
-                <!-- SOCIAL LINK -->
-                <a (click)="loginWithGoogle()" class="social-link google" [routerLink]="">
-                    <!-- ICON google -->
-                    <svg class="icon-google">
-                        <use xlink:href="#svg-google"></use>
-                    </svg>
-                    <!-- /ICON google -->
-                </a>
-                <!-- /SOCIAL LINK -->
+      <!-- FORM -->
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <!-- FORM ROW -->
+        <div class="form-row">
+          <!-- FORM ITEM -->
+          <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+              <label for="login-email">Email</label>
+              <input
+                formControlName="email"
+                type="text"
+                id="login-email"
+                name="login_email"
+              />
+              <p
+                *ngIf="loginForm?.controls?.email?.errors?.email"
+                class="form-text error"
+              >
+                invalid email!
+              </p>
+              <p
+                *ngIf="
+                  loginForm?.controls?.email?.errors?.required &&
+                  loginForm?.touched
+                "
+                class="form-text error"
+              >
+                Email is required!
+              </p>
             </div>
-            <!-- /SOCIAL LINKS -->
+            <!-- /FORM INPUT -->
+          </div>
+          <!-- /FORM ITEM -->
         </div>
-        <!-- /FORM BOX -->
+        <!-- /FORM ROW -->
 
-        <!-- FORM BOX -->
-        <div class="form-box login-register-form-element">
-            <!-- FORM BOX DECORATION -->
-            <!-- <img class="form-box-decoration" src="../../../../assets/img/landing/rocket.png" alt="rocket"> -->
-            <!-- /FORM BOX DECORATION -->
-
-            <!-- FORM BOX TITLE -->
-            <h2 class="form-box-title">Create your Account!</h2>
-            <!-- /FORM BOX TITLE -->
-
-            <!-- FORM -->
-            <form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
-                <div>
-                    <div style="max-width: 600px; max-height: 400px;overflow: auto;">
-                        <div class="force-overflow">
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input">
-                                        <label for="register-email">Votre Email</label>
-                                        <input formControlName="email" type="text" id="register-email"
-                                            name="register_email">
-                                        <p *ngIf="signUpForm?.controls?.email?.errors?.email" class="form-text error">
-                                            invalid email!
-                                        </p>
-                                        <p *ngIf="signUpForm?.controls?.email?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">Email is
-                                            required!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input">
-                                        <label for="register-lastName">{{'lastname' | translate}}</label>
-                                        <input formControlName="lastName" type="text" id="register-lastName"
-                                            name="register_lastName">
-                                        <p *ngIf="signUpForm?.controls?.lastName?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">nom is required!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input">
-                                        <label for="register-firstName">prenom</label>
-                                        <input formControlName="firstName" type="text" id="register-firstName"
-                                            name="register_firstName">
-                                        <p *ngIf="signUpForm?.controls?.firstName?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">prenon is required!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input active">
-                                        <label for="bday">{{'date de naissance' | translate}}</label>
-                                        <!--<input formControlName="nom" type="date" id="register-username"
-                                            name="register_username">-->
-                                        <input formControlName="birthDate" type="date" id="bday" name="bday">
-                                        <p *ngIf="signUpForm?.controls?.birthDate?.required && signUpForm?.touched"
-                                            class="form-text error">date de naissance is required!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input active">
-
-                                        <div class="form-group">
-                                            <label for="register-username">{{'country' | translate}}</label>
-
-                                            <select formControlName="country" class="form-control"
-                                                id="exampleFormControlSelect1">
-                                                <option *ngFor="let country of countries" value="{{country.code}}">
-                                                    {{country.name}}
-                                                </option>
-                                            </select>
-                                        </div>
-
-                                        <p *ngIf="signUpForm?.controls?.country?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">country is required!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input">
-                                        <label for="register-password">{{'password' | translate}} </label>
-                                        <input formControlName="password" type="password" id="register-password"
-                                            name="register_password" minlength="8" maxlength="32">
-                                        <p *ngIf="signUpForm?.controls?.password?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">password
-                                            is required!</p>
-
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- FORM INPUT -->
-                                    <div class="form-input">
-                                        <label for="register-password-repeat">{{'repeat_password' | translate}}</label>
-                                        <input formControlName="checkPassword" type="password"
-                                            id="register-password-repeat" name="register_password_repeat" minlength="8"
-                                            maxlength="32">
-                                        <p *ngIf="signUpForm?.controls?.checkPassword?.errors?.required && signUpForm?.touched"
-                                            class="form-text error">Confirm your password!</p>
-                                    </div>
-                                    <!-- /FORM INPUT -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- CHECKBOX WRAP -->
-                                    <div class="checkbox-wrap">
-                                        <input type="checkbox" id="register-newsletter" name="register_newsletter"
-                                            checked>
-                                        <!-- CHECKBOX BOX -->
-                                        <div class="checkbox-box">
-                                            <!-- ICON CROSS -->
-                                            <svg class="icon-cross">
-                                                <use xlink:href="#svg-cross"></use>
-                                            </svg>
-                                            <!-- /ICON CROSS -->
-                                        </div>
-                                        <!-- /CHECKBOX BOX -->
-                                        <label for="register-newsletter">Send me news and updates via email</label>
-                                    </div>
-                                    <!-- /CHECKBOX WRAP -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-
-                            <!-- FORM ROW -->
-                            <div class="form-row">
-                                <!-- FORM ITEM -->
-                                <div class="form-item">
-                                    <!-- BUTTON -->
-                                    <button class="button medium primary">Register Now!</button>
-                                    <!-- /BUTTON -->
-                                </div>
-                                <!-- /FORM ITEM -->
-                            </div>
-                            <!-- /FORM ROW -->
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-            <!-- /FORM -->
-
-
-            <!-- FORM TEXT -->
-            <p class="form-text">You'll receive a confirmation email in your inbox with a link to activate your account.
-                If you have any problems, <a href="#">contact us</a>!</p>
-            <!-- /FORM TEXT -->
+        <!-- FORM ROW -->
+        <div class="form-row">
+          <!-- FORM ITEM -->
+          <div class="form-item">
+            <!-- FORM INPUT -->
+            <div class="form-input">
+              <label for="login-password">{{ "password" | translate }}</label>
+              <input
+                formControlName="password"
+                type="password"
+                id="login-password"
+                name="login_password"
+              />
+              <p
+                *ngIf="
+                  loginForm?.controls?.password?.errors?.required &&
+                  loginForm?.touched
+                "
+                class="form-text error"
+              >
+                Password is required!
+              </p>
+            </div>
+            <!-- /FORM INPUT -->
+          </div>
+          <!-- /FORM ITEM -->
         </div>
-        <!-- /FORM BOX -->
+        <!-- /FORM ROW -->
+
+        <!-- FORM ROW -->
+        <div class="form-row space-between">
+          <!-- FORM ITEM -->
+          <div class="form-item">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap">
+              <input
+                formControlName="remember"
+                type="checkbox"
+                id="login-remember"
+                name="login_remember"
+                checked
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box">
+                <!-- ICON CROSS -->
+                <svg class="icon-cross">
+                  <use xlink:href="#svg-cross"></use>
+                </svg>
+                <!-- /ICON CROSS -->
+              </div>
+              <!-- /CHECKBOX BOX -->
+              <label for="login-remember">{{
+                "remember_me" | translate
+              }}</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+          </div>
+          <!-- /FORM ITEM -->
+
+          <!-- FORM ITEM -->
+          <div class="form-item">
+            <!-- FORM LINK -->
+            <a class="form-link" [routerLink]="['/password-reset-request']">{{
+              "forgot_password" | translate
+            }}</a>
+            <!-- /FORM LINK -->
+          </div>
+          <!-- /FORM ITEM -->
+        </div>
+        <!-- /FORM ROW -->
+
+        <!-- FORM ROW -->
+        <div class="form-row">
+          <!-- FORM ITEM -->
+          <div class="form-item">
+            <!-- BUTTON -->
+            <button class="button medium secondary">
+              {{ "login" | translate }}
+            </button>
+            <!-- /BUTTON -->
+          </div>
+          <!-- /FORM ITEM -->
+        </div>
+        <!-- /FORM ROW -->
+      </form>
+      <!-- /FORM -->
+
+      <!-- LINED TEXT -->
+      <p class="lined-text">{{ "login_social_account" | translate }}</p>
+      <!-- /LINED TEXT -->
+
+      <!-- SOCIAL LINKS -->
+      <div class="social-links">
+        <!-- SOCIAL LINK -->
+        <a class="social-link facebook" href="#">
+          <!-- ICON FACEBOOK -->
+          <svg class="icon-facebook">
+            <use xlink:href="#svg-facebook"></use>
+          </svg>
+          <!-- /ICON FACEBOOK -->
+        </a>
+        <!-- /SOCIAL LINK -->
+
+        <!-- SOCIAL LINK -->
+        <a
+          (click)="loginWithGoogle()"
+          class="social-link google"
+          [routerLink]=""
+        >
+          <!-- ICON google -->
+          <svg class="icon-google">
+            <use xlink:href="#svg-google"></use>
+          </svg>
+          <!-- /ICON google -->
+        </a>
+        <!-- /SOCIAL LINK -->
+      </div>
+      <!-- /SOCIAL LINKS -->
     </div>
-    <!-- /LANDING FORM -->
+    <!-- /FORM BOX -->
+
+    <!-- FORM BOX -->
+    <div class="form-box login-register-form-element">
+      <!-- FORM BOX DECORATION -->
+      <!-- <img class="form-box-decoration" src="../../../../assets/img/landing/rocket.png" alt="rocket"> -->
+      <!-- /FORM BOX DECORATION -->
+
+      <!-- FORM BOX TITLE -->
+      <h2 class="form-box-title">Create your Account!</h2>
+      <!-- /FORM BOX TITLE -->
+
+      <!-- FORM -->
+      <form class="form" [formGroup]="signUpForm" (ngSubmit)="signUp()">
+        <div>
+          <div style="max-width: 600px; max-height: 400px; overflow: auto">
+            <div class="force-overflow">
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input">
+                    <label for="register-email">Votre Email</label>
+                    <input
+                      formControlName="email"
+                      type="text"
+                      id="register-email"
+                      name="register_email"
+                    />
+                    <p
+                      *ngIf="signUpForm?.controls?.email?.errors?.email"
+                      class="form-text error"
+                    >
+                      invalid email!
+                    </p>
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.email?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      Email is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input">
+                    <label for="register-lastName">{{
+                      "lastname" | translate
+                    }}</label>
+                    <input
+                      formControlName="lastName"
+                      type="text"
+                      id="register-lastName"
+                      name="register_lastName"
+                    />
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.lastName?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      nom is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input">
+                    <label for="register-firstName">prenom</label>
+                    <input
+                      formControlName="firstName"
+                      type="text"
+                      id="register-firstName"
+                      name="register_firstName"
+                    />
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.firstName?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      prenon is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input active">
+                    <label for="bday">{{
+                      "date de naissance" | translate
+                    }}</label>
+                    <!--<input formControlName="nom" type="date" id="register-username"
+                                            name="register_username">-->
+                    <input
+                      formControlName="birthDate"
+                      type="date"
+                      id="bday"
+                      name="bday"
+                    />
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.birthDate?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      date de naissance is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input active">
+                    <div class="form-group">
+                      <label for="register-username">{{
+                        "country" | translate
+                      }}</label>
+
+                      <select
+                        formControlName="country"
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option
+                          *ngFor="let country of countries"
+                          value="{{ country.code }}"
+                        >
+                          {{ country.name }}
+                        </option>
+                      </select>
+                    </div>
+
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.country?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      country is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input">
+                    <label for="register-password"
+                      >{{ "password" | translate }}
+                    </label>
+                    <input
+                      formControlName="password"
+                      type="password"
+                      id="register-password"
+                      name="register_password"
+                      minlength="8"
+                      maxlength="32"
+                    />
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.password?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      password is required!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- FORM INPUT -->
+                  <div class="form-input">
+                    <label for="register-password-repeat">{{
+                      "repeat_password" | translate
+                    }}</label>
+                    <input
+                      formControlName="checkPassword"
+                      type="password"
+                      id="register-password-repeat"
+                      name="register_password_repeat"
+                      minlength="8"
+                      maxlength="32"
+                    />
+                    <p
+                      *ngIf="
+                        signUpForm?.controls?.checkPassword?.errors?.required &&
+                        signUpForm?.touched
+                      "
+                      class="form-text error"
+                    >
+                      Confirm your password!
+                    </p>
+                  </div>
+                  <!-- /FORM INPUT -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- CHECKBOX WRAP -->
+                  <div class="checkbox-wrap">
+                    <input
+                      type="checkbox"
+                      id="register-newsletter"
+                      name="register_newsletter"
+                      checked
+                    />
+                    <!-- CHECKBOX BOX -->
+                    <div class="checkbox-box">
+                      <!-- ICON CROSS -->
+                      <svg class="icon-cross">
+                        <use xlink:href="#svg-cross"></use>
+                      </svg>
+                      <!-- /ICON CROSS -->
+                    </div>
+                    <!-- /CHECKBOX BOX -->
+                    <label for="register-newsletter"
+                      >Send me news and updates via email</label
+                    >
+                  </div>
+                  <!-- /CHECKBOX WRAP -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+
+              <!-- FORM ROW -->
+              <div class="form-row">
+                <!-- FORM ITEM -->
+                <div class="form-item">
+                  <!-- BUTTON -->
+                  <button class="button medium primary">Register Now!</button>
+                  <!-- /BUTTON -->
+                </div>
+                <!-- /FORM ITEM -->
+              </div>
+              <!-- /FORM ROW -->
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- /FORM -->
+
+      <!-- FORM TEXT -->
+      <p class="form-text">
+        You'll receive a confirmation email in your inbox with a link to
+        activate your account. If you have any problems,
+        <a href="#">contact us</a>!
+      </p>
+      <!-- /FORM TEXT -->
+    </div>
+    <!-- /FORM BOX -->
+  </div>
+  <!-- /LANDING FORM -->
 </div>
 <!-- /LANDING -->

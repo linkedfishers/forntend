@@ -29,7 +29,6 @@ import { ChangePasswordComponent } from './components/pages/account/change-passw
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DemoComponent } from './components/pages/account/demo/demo.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
 import * as moment from 'moment';
@@ -107,7 +106,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProfileInfoComponent,
     ProfileSocialComponent,
     ChangePasswordComponent,
-    DemoComponent,
     PostComponent,
     TimeAgoPipe,
     WindyComponent,
