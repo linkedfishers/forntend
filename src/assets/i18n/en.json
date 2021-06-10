@@ -33,6 +33,7 @@
 	"discard": "Discard",
 	"edit_post": "Edit post",
 	"report_post": "Report post",
+  "report_comment":"Report comment",
 	"event": "Event",
 	"events": "Events",
 	"forgot_password": "Forgot password?",
@@ -86,5 +87,7 @@
 	"report": "Report",
 	"reported": "You reported",
 	"report_reason": "Why do you want to report this person?",
+  "report_reason1":"Why do you want to report this post?",
+  "report_reason2":"Why do you want to report this comment?",
 	"report_reason_unvalid": "You should mention the report reason!"
 }

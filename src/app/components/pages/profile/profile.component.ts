@@ -31,12 +31,12 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   readonly API: string = environment.apiUrl;
-
+ profil:ProfileComponent;
   user: User
   currentUser: User
   profilePicture: HTMLInputElement;
   isFollowing = false;
-
+  reportBody:any ;
   activeTab = 0;
 
   hebergements: Hebergement[];
@@ -132,7 +132,7 @@ export class ProfileComponent implements OnInit {
 
   async OpenReportSwal() {
     const swal: { isConfirmed: Boolean, value: string } = await Swal.fire({
-      title: this.translate.instant('report') + ' ' + this.user.fullName + '?',
+      title: this.translate.instant('report') ,
       input: 'text',
       icon: 'question',
       inputLabel: this.translate.instant('report_reason'),
@@ -146,9 +146,9 @@ export class ProfileComponent implements OnInit {
     });
     if (swal.isConfirmed) {
       let report = new Report();
-      report.author = this.currentUser;
-      report.content = swal.value;
-      report.receiver = this.user;
+      report.author = this.currentUser._id;
+      report.cause = swal.value;
+      report.type = "profile";
       this.userService.reportUser(report).subscribe(
         res => {
           this.toastr.success(res.content, this.translate.instant('reported') + ' ' + this.user.fullName);
@@ -159,5 +159,58 @@ export class ProfileComponent implements OnInit {
       )
     }
   }
-
 }
+
+  // async OpenReportSwal() {
+  //   const { value: result } = await Swal.fire({
+  //     input: 'text',
+  //     icon: 'question',
+  //     inputLabel: this.translate.instant('report_reason'),
+  //     inputPlaceholder: 'Type your message here...',
+  //     inputAttributes: {
+  //       'aria-label': 'Type your message here'
+  //     },
+  //     cancelButtonText: this.translate.instant('discard'),
+  //     inputValue: "",
+  //     showCancelButton: true,
+  //     inputValidator: (value) => {
+  //             if (!value) {
+  //               return this.translate.instant('report_reason_unvalid');
+  //             }
+  //           }
+  //   })
+
+  //   if (result) {
+  //     console.log(result);
+  //     const reportt : Report = new Report();
+  //     reportt.author= this.currentUser._id;
+  //     reportt.cause=result;
+  //     reportt.type="profile";
+  //     reportt.target_id=this.user._id;
+  //      console.log(this.reportBody);
+  //     this.userService. reportUser(reportt).subscribe(
+  //       res => {
+  //         Swal.fire(
+  //           {
+  //             title: this.translate.instant('reported'),
+  //             icon: 'success'
+  //           });
+
+  //       },
+  //       err => {
+  //         Swal.fire({
+  //           title: this.translate.instant('update_post_error'),
+  //           icon: 'error'
+  //         });
+  //       }
+  //     );
+
+  //   } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //     return;
+  //   }
+
+  // }
+
+
+
+

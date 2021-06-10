@@ -29,6 +29,7 @@ import { ServiceListComponent } from './components/pages/services/service-list/s
 import { MyReservationsComponent } from './components/pages/my-reservations/my-reservations.component';
 import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component';
 import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
+import { DetailsEventsComponent } from './components/pages/details-events/details-events.component';
 
 
 const routes: Routes = [
@@ -124,6 +125,10 @@ const routes: Routes = [
       {
         path: 'details-boat/:id',
         component: DetailsBoatComponent,
+      },
+      {
+        path: 'details-event/:id',
+        component: DetailsEventsComponent,
       },
       {
         path: 'details-equipment/:id',

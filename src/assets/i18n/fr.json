@@ -33,6 +33,7 @@
 	"discard": "Annuler",
 	"edit_post": "Modifier publication",
 	"report_post": "Sinagler publication",
+  "report_comment":"Signaler commentaire",
 	"event": "Événement",
 	"events": "Événements",
 	"forgot_password": "Mot de passe oublié?",
@@ -86,5 +87,7 @@
 	"report": "Signaler",
 	"reported": "Vous avez signalé",
 	"report_reason": "Pourquoi voulez vous signaler cette personne?",
+  "report_reason1":"Pourquoi voulez vous signaler cette publication?",
+  "report_reason2":"Pourquoi voulez vous signaler ce commentaire?",
 	"report_reason_unvalid": "Vous devez mentionner la raison du signal!"
 }

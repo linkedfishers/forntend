@@ -18,7 +18,7 @@
                 <!-- SIMPLE DROPDOWN -->
                 <div class="simple-dropdown widget-box-post-settings-dropdown">
                     <!-- SIMPLE DROPDOWN LINK -->
-                    <p *ngIf="currentUser?._id!=post?.author?._id" class="simple-dropdown-link">{{'report_post' |
+                    <p (click)="reportPost()" *ngIf="currentUser?._id!=post?.author?._id" class="simple-dropdown-link">{{'report_post' |
                         translate}}
                     </p>
                     <!-- /SIMPLE DROPDOWN LINK -->
@@ -289,8 +289,9 @@
                                 <!--<div class="simple-dropdown post-settings-dropdown"
                                     style="position: absolute; z-index: 9999; bottom: 30px; right: 0px; opacity: 0; visibility: hidden; transform: translate(0px, 16px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;"> -->
                                     <!-- SIMPLE DROPDOWN LINK -->
-                                    <p  *ngIf="currentUser?._id!=comment?.author?._id" class="simple-dropdown-link">Report Post</p>
-
+                                    <p (click)="reportCommentaire()" *ngIf="currentUser?._id!=comment?.author?._id" class="simple-dropdown-link">{{'report_comment' |
+                                      translate}}
+                                  </p>
                                     <!-- /SIMPLE DROPDOWN LINK -->
 
                                 </div>
@@ -301,7 +302,7 @@
                                 <!-- /SIMPLE DROPDOWN LINK -->
                                <!-- <p (click)="openVerticallyCenteredv1(commentaire)" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'modifier comment' |
                                     translate}}</p> -->
-                                    <p (click)="updateComment()" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'update_comment' |
+                                    <p (click)="updateComment(comment)" *ngIf="currentUser?._id==comment?.author?._id" class="simple-dropdown-link">{{'update_comment' |
                                       translate}}</p>
                             </div>
                             <!-- /POST SETTINGS WRAP -->

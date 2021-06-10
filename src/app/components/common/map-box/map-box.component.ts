@@ -37,6 +37,12 @@ export class MapBoxComponent implements AfterViewInit {
 
   async ngAfterViewInit() {
     if (this.map != undefined) this.map.remove();
+    if(this.position.hasOwnProperty('coordinates')){
+      this.position = {
+        lat : this.position['coordinates'][0],
+        lng : this.position['coordinates'][1],
+      }
+    }
     if (!this.position || !this.position.hasOwnProperty('lat') || !this.position.hasOwnProperty('lng')) {
       this.position = await this.getPosition();
     }

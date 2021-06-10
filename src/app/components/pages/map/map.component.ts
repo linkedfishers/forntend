@@ -237,10 +237,8 @@ export class MapComponent implements AfterViewInit {
             icon: eventIcon,
             draggable: false,
             autoPan: true
-          }));
-          this.eventsMarker[i].addTo(this.map).on("click",()=>{
-            this.showEvent(event);
-          })
+          }).bindPopup(`<a target="_blank" href="/details-event/${event?._id}"><h1>${event.name}</h1><a>`));
+          this.eventsMarker[i].addTo(this.map);
           i++;
         });
       },
@@ -404,8 +402,4 @@ export class MapComponent implements AfterViewInit {
 
   }
 
-  showEvent(event: Event) {
-    this.selectedEvent = event;
-    $("#eventInformationTrigger").click();
-  }
 }

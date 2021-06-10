@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Review } from '../interfaces/reviews.interface';
 import { Event } from '../interfaces/event.interface';
 
 @Injectable({
@@ -35,5 +36,18 @@ export class EventService {
   getAll() {
     return this.httpClient.get<any>(`${this.API}/events/all/`);
   }
+  addReview(review: Review, categoryName: string) {
+    return this.httpClient.post<any>(`${this.API}/${categoryName}/review`, review);
+  }
 
+  getEventById(id : string) {
+    return this.httpClient.get<any>(`${this.API}/events/event/${id}`);
+  }
+  addGoing(id : string,going : boolean) {
+    let path = going ? 'going' : 'remove-going';
+    return this.httpClient.put<any>(`${this.API}/events/${path}/${id}`,{});
+  }
+  addInterested(id : string) {
+    return this.httpClient.put<any>(`${this.API}/events/interested/${id}`,{});
+  }
 }

@@ -12,4 +12,7 @@ export class Event {
     interested: any[];
     tags: string[];
     image: string;
+    reviews: any[];
+
+    createdAt: any;
 }

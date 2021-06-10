@@ -194,35 +194,35 @@ export class AdminComponent implements OnInit {
     );
   }
 
-  deleteReport(report: Report) {
-    Swal.fire({
-      title: this.translate.instant('delete_report') + ' ' + report.content + '?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: this.translate.instant('delete_report'),
-      cancelButtonText: this.translate.instant('discard')
-    }).then((result) => {
-      if (result.value) {
-        this.adminService.deleteReport(report._id).subscribe(
-          res => {
-            Swal.fire(
-              {
-                title: this.translate.instant('delete_report'),
-                icon: 'success'
-              });
-          },
-          err => {
-            Swal.fire({
-              title: this.translate.instant('delete_post_error'),
-              icon: 'error'
-            });
-          }
-        )
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        return;
-      }
-    });
-  }
+  // deleteReport(report: Report) {
+  //   Swal.fire({
+  //     title: this.translate.instant('delete_report') + ' ' + report.content + '?',
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonText: this.translate.instant('delete_report'),
+  //     cancelButtonText: this.translate.instant('discard')
+  //   }).then((result) => {
+  //     if (result.value) {
+  //       this.adminService.deleteReport(report._id).subscribe(
+  //         res => {
+  //           Swal.fire(
+  //             {
+  //               title: this.translate.instant('delete_report'),
+  //               icon: 'success'
+  //             });
+  //         },
+  //         err => {
+  //           Swal.fire({
+  //             title: this.translate.instant('delete_post_error'),
+  //             icon: 'error'
+  //           });
+  //         }
+  //       )
+  //     } else if (result.dismiss === Swal.DismissReason.cancel) {
+  //       return;
+  //     }
+  //   });
+  // }
 
   deleteCategory(type: EquipmentType, categoryName: string) {
     Swal.fire({

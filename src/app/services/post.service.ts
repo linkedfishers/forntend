@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Report } from '../interfaces/users.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +53,14 @@ export class PostService {
   }
 
   updateComment(formData, id: string) {
-    return this.httpClient.put<any>(`${this.API}/posts/comments/${id}`, formData);
+    return this.httpClient.put<any>(`${this.API}/posts/comment/${id}`, formData);
   }
-  
+getReports(){
+  return this.httpClient.get<any>(`${this.API}/users/reports`);
+}
+createReport(report:Report){
+  return this.httpClient.post<any>(`${this.API}/users/report`, report,
+      { headers: new HttpHeaders({ enctype: 'multipart/form-data' }) }
+    );
+}
 }
