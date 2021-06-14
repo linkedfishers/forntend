@@ -31,9 +31,9 @@
         <!-- /SECTION HEADER INFO -->
     </div>
     <!-- /SECTION HEADER -->
-   
+
     <!-- SECTION FILTERS BAR -->
-    <div class="section-filters-bar v6">
+    <div *ngIf="!isGuest" class="section-filters-bar v6">
 
         <!-- SECTION FILTERS BAR ACTIONS -->
         <div class="section-filters-bar-actions">
@@ -238,7 +238,10 @@
                     <!-- EVENT PREVIEW TEXT -->
                     <p class="event-preview-text">{{event?.description}}</p>
                     <!-- /EVENT PREVIEW TEXT (click)="openVerticallyCentered(content,i)" -->
-                    <button (click)="openVerticallyCentered(content,i)" class="btn btn-success">modifier Event</button> <button (click)="onDeleteEvent(i)" class="btn btn-danger">supprimer Event</button>
+                    <button *ngIf="currentUser && event?.host==currentUser?._id"
+                        (click)="openVerticallyCentered(content,i)" class="btn btn-success">modifier Event</button>
+                    <button *ngIf="currentUser && event?.host==currentUser?._id" (click)="onDeleteEvent(i)"
+                        class="btn btn-danger">supprimer Event</button>
                 </div>
                 <!-- /EVENT PREVIEW INFO TOP -->
             </div>
@@ -249,7 +252,7 @@
     <!-- /GRID -->
 </div>
 <!-- /CONTENT GRID -->
-       
+
 <!-- POPUP BOX -->
 <div class="popup-box popup-event-creation">
     <!-- POPUP CLOSE BUTTON -->
@@ -261,9 +264,9 @@
         <!-- /POPUP CLOSE BUTTON ICON -->
     </div>
     <!-- /POPUP CLOSE BUTTON -->
-    
-    
-    
+
+
+
     <!-- POPUP BOX TITLE -->
     <p class="popup-box-title">+ Add New Event</p>
     <!-- /POPUP BOX TITLE -->
@@ -485,21 +488,19 @@
 </div>
 <!-- /POPUP EVENT -->
 
- <ng-template #content let-modal>
-      <div class="modal-header">
+<ng-template #content let-modal>
+    <div class="modal-header">
         <h4 class="modal-title">Evenement </h4>
-      </div>
-      <div class="modal-body">
+    </div>
+    <div class="modal-body">
         <input type="text" [(ngModel)]="upcomingEvents[selectedEvents].startDate">
         <input type="text" [(ngModel)]="upcomingEvents[selectedEvents].endDate">
         <input type="text" [(ngModel)]="upcomingEvents[selectedEvents].description">
         <input type="text" [(ngModel)]="upcomingEvents[selectedEvents].name">
     </div>
-      <div class="modal-footer">
-       
+    <div class="modal-footer">
+
         <button type="button" (click)="onUpdateEvent()" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-      </div>
-    </ng-template> 
-
-      
+    </div>
+</ng-template>

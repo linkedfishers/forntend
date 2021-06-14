@@ -57,7 +57,7 @@
 
     <!-- USER SHORT DESCRIPTION TITLE -->
     <p class="user-short-description-title">
-      <a [routerLink]="['/profile']">{{ currentUser?.fullName }}</a>
+      <a [routerLink]="['/profile']">{{ fullName }}</a>
     </p>
     <!-- /USER SHORT DESCRIPTION TITLE -->
   </div>
@@ -194,7 +194,7 @@
     <!-- MENU ITEM -->
     <li class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
-      <a class="menu-item-link" [routerLink]="['homes']">
+      <a class="menu-item-link" [routerLink]="['/homes']">
         <!-- MENU ITEM LINK ICON -->
         <svg class="menu-item-link-icon icon-streams">
           <use xlink:href="#svg-home"></use>
@@ -264,7 +264,7 @@
 
       <!-- NAVIGATION WIDGET INFO TITLE -->
       <p class="navigation-widget-info-title">
-        <a [routerLink]="['/profile']">{{ currentUser?.fullName }}</a>
+        <a [routerLink]="['/profile']">{{ fullName }}</a>
       </p>
       <!-- /NAVIGATION WIDGET INFO TITLE -->
 
@@ -383,7 +383,7 @@
     <!-- MENU ITEM -->
     <li class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
-      <a class="menu-item-link" [routerLink]="['homes']">
+      <a class="menu-item-link" [routerLink]="['/homes']">
         <!-- MENU ITEM LINK ICON -->
         <svg class="menu-item-link-icon icon-streams">
           <use xlink:href="#svg-home"></use>

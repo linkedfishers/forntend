@@ -170,8 +170,25 @@
     </div>
     <!-- /HEADER ACTIONS -->
 
+    <div *ngIf="isGuest" class="header-actions">
+        <!-- LOGIN FORM -->
+        <form class="login-form">
+            <!-- FORM ROW -->
+            <div class="form-row split">
+                <!-- BUTTON -->
+                <button [routerLink]="['/login']" style="width: 200px; margin-right: 52px;"
+                    class="button medium secondary">
+                    {{ "login" | translate }}
+                </button>
+                <!-- /BUTTON -->
+            </div>
+            <!-- /FORM ROW -->
+        </form>
+        <!-- /LOGIN FORM -->
+    </div>
+
     <!-- HEADER ACTIONS -->
-    <div class="header-actions">
+    <div [hidden]="isGuest" class="header-actions">
         <!-- ACTION LIST -->
         <div class="action-list dark">
 
@@ -206,27 +223,13 @@
                                 <div class="user-status request">
                                     <!-- USER STATUS AVATAR -->
                                     <a class="user-status-avatar" href="profile-timeline.html">
-
                                         <!-- USER AVATAR -->
                                         <div class="user-avatar small no-outline">
-                                            <!-- USER AVATAR CONTENT -->
-                                            <div class="user-avatar-content">
-                                                <!-- HEXAGON -->
-                                                <div class="flag" data-src="./assets/img/flag/GB.png">
-                                                </div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR CONTENT -->
-                                            <!-- USER AVATAR PROGRESS -->
-                                            <div [hidden]="currentUser?.language!='en'" class="user-avatar-progress">
-                                                <!-- HEXAGON -->
-                                                <div class="flag-selected"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR PROGRESS -->
+                                            <figure>
+                                                <img src="./assets/img/flag/GB.png" alt="avatar-01">
+                                            </figure>
                                         </div>
                                         <!-- /USER AVATAR -->
-
                                     </a>
                                     <!-- /USER STATUS AVATAR -->
 
@@ -249,21 +252,11 @@
 
                                         <!-- USER AVATAR -->
                                         <div class="user-avatar small no-outline">
-                                            <!-- USER AVATAR CONTENT -->
-                                            <div class="user-avatar-content">
-                                                <!-- HEXAGON -->
-                                                <div class="flag" data-src="./assets/img/flag/FR.png">
-                                                </div>
-                                                <!-- /HEXAGON -->
+                                            <div class="user-avatar small no-outline">
+                                                <figure>
+                                                    <img src="./assets/img/flag/FR.png" alt="avatar-01">
+                                                </figure>
                                             </div>
-                                            <!-- /USER AVATAR CONTENT -->
-                                            <!-- USER AVATAR PROGRESS -->
-                                            <div [hidden]="currentUser?.language!='fr'" class="user-avatar-progress">
-                                                <!-- HEXAGON -->
-                                                <div class="flag-selected"></div>
-                                                <!-- /HEXAGON -->
-                                            </div>
-                                            <!-- /USER AVATAR PROGRESS -->
                                         </div>
                                         <!-- /USER AVATAR -->
                                     </a>
@@ -444,7 +437,8 @@
                 <p class="dropdown-navigation-category">Reservations</p>
                 <!-- /DROPDOWN NAVIGATION CATEGORY -->
                 <!-- DROPDOWN NAVIGATION LINK -->
-                <a class="dropdown-navigation-link" [routerLink]="['/booking-requests']">Manage reservations requests</a>
+                <a class="dropdown-navigation-link" [routerLink]="['/booking-requests']">Manage reservations
+                    requests</a>
                 <!-- /DROPDOWN NAVIGATION LINK -->
 
                 <!-- DROPDOWN NAVIGATION BUTTON -->

@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
-declare var initHeader: any;
+declare var initHeader, initHexagons: any;
 
 @Component({
   selector: 'app-header',
@@ -35,6 +35,8 @@ export class HeaderComponent implements OnInit {
 
   searchedUsers: User[] = [];
 
+  isGuest = true;
+
   ngOnInit(): void {
     initHeader();
     this.language = this.translate.currentLang;
@@ -42,16 +44,20 @@ export class HeaderComponent implements OnInit {
       this.language = event.lang;
     });
     this.currentUser = this.authService.getCurrentUser();
-    this.firstname = this.currentUser.firstName || this.currentUser.fullName.split(' ')[0];
-    this.userService.getNotifications().subscribe(
-      res => {
-        this.notifications = res.data;
-        console.log(res);
-      },
-      err => {
-        console.log(err);
-      }
-    );
+    if (this.currentUser) {
+      this.isGuest = false;
+      initHeader();
+      initHexagons();
+      this.firstname = this.currentUser.firstName || this.currentUser.fullName.split(' ')[0];
+      this.userService.getNotifications().subscribe(
+        res => {
+          this.notifications = res.data;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+    }
   }
 
   setLanguage(language: string) {

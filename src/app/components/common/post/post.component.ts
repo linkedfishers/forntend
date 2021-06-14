@@ -54,18 +54,22 @@ export class PostComponent implements OnInit {
   language: string;
   imageSrc: any;
   selectedPost = -1;
-  reportBody:any ;
+  reportBody: any;
+  isGuest = true;
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+    if (this.currentUser) {
+      this.isGuest = false;
+      this.reacted = this.post.reacts.some(
+        reaction => {
+          return reaction.author._id == this.currentUser._id
+        });
 
+    }
     if (this.post.attachmentType == 'youtube') {
       this.post.attachment = this.sanitizer
         .bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.post.attachment}`) as string;
     }
-    this.reacted = this.post.reacts.some(
-      reaction => {
-        return reaction.author._id == this.currentUser._id
-      });
 
     loadSvg();
     initTooltips();
@@ -229,7 +233,7 @@ export class PostComponent implements OnInit {
     })
   }
   //update commentaire
-  async updateComment(com:Comment) {
+  async updateComment(com: Comment) {
     const { value: result } = await Swal.fire({
       input: 'textarea',
       inputLabel: 'Message',
@@ -266,7 +270,7 @@ export class PostComponent implements OnInit {
     }
 
   }
-  async reportCommentaire(){
+  async reportCommentaire() {
     const { value: result } = await Swal.fire({
       input: 'text',
       icon: 'question',
@@ -279,18 +283,18 @@ export class PostComponent implements OnInit {
       inputValue: "",
       showCancelButton: true,
       inputValidator: (value) => {
-              if (!value) {
-                return this.translate.instant('report_reason_unvalid');
-              }
-            }
+        if (!value) {
+          return this.translate.instant('report_reason_unvalid');
+        }
+      }
     })
     if (result) {
       console.log(result);
-      const reportt : Report = new Report();
-      reportt.author=this.currentUser._id;
-      reportt.cause=result;
-      reportt.type="commentaire";
-      reportt.target_id=this.post._id;
+      const reportt: Report = new Report();
+      reportt.author = this.currentUser._id;
+      reportt.cause = result;
+      reportt.type = "commentaire";
+      reportt.target_id = this.post._id;
       console.log(this.reportBody);
       this.postService.createReport(reportt).subscribe(
         res => {
@@ -314,7 +318,7 @@ export class PostComponent implements OnInit {
     }
 
   }
-//  const swal: { isConfirmed: Boolean, value: string } = await Swal.fire({
+  //  const swal: { isConfirmed: Boolean, value: string } = await Swal.fire({
   //     title: this.translate.instant('report') + ' ' + this.user.fullName + '?',
   //     input: 'text',
   //     icon: 'question',
@@ -329,7 +333,7 @@ export class PostComponent implements OnInit {
   //   });
 
 
-  async reportPost(){
+  async reportPost() {
     const { value: result } = await Swal.fire({
       input: 'text',
       icon: 'question',
@@ -342,19 +346,19 @@ export class PostComponent implements OnInit {
       inputValue: "",
       showCancelButton: true,
       inputValidator: (value) => {
-              if (!value) {
-                return this.translate.instant('report_reason_unvalid');
-              }
-            }
+        if (!value) {
+          return this.translate.instant('report_reason_unvalid');
+        }
+      }
     })
 
     if (result) {
       console.log(result);
-      const reportt : Report = new Report();
-      reportt.author= this.currentUser._id;
-      reportt.cause=result;
-      reportt.type="publication";
-      reportt.target_id=this.post._id;
+      const reportt: Report = new Report();
+      reportt.author = this.currentUser._id;
+      reportt.cause = result;
+      reportt.type = "publication";
+      reportt.target_id = this.post._id;
       console.log(this.reportBody);
       this.postService.createReport(reportt).subscribe(
         res => {

@@ -9,7 +9,8 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 declare var initContent, initSidebar, initHexagons, $: any;
-import {OwlOptions} from "ngx-owl-carousel-o"
+import { OwlOptions } from "ngx-owl-carousel-o"
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit {
     private eventService: EventService,
     private userService: UserService,
     private translate: TranslateService,
+    private authService: AuthService,
 
   ) { }
 
@@ -36,15 +38,17 @@ export class HomeComponent implements OnInit {
   formData: FormData;
   upcomingEvents: {} = {};
   feedTab = 0;
-
-
   popularUsers: User[];
   newestUsers: User[];
   activeUsers: User[];
   language: string;
   usersActiveTab = 1;
 
+  isGuest = true;
+
   ngOnInit(): void {
+    const currentUser = this.authService.getCurrentUser();
+    if (currentUser) this.isGuest = false;
     this.language = this.translate.currentLang;
 
     this.newPost = new Post();
@@ -81,30 +85,7 @@ export class HomeComponent implements OnInit {
       }
     )
   }
- customOptions: any = {
-    loop: true,
-    mouseDrag: true,
-    touchDrag: true,
-    pullDrag: true,
-    dots: true,
-    navSpeed: 700,
-    navText: ['', ''],
-    responsive: {
-      0: {
-        items: 1
-      },
-      400: {
-        items: 2
-      },
-      740: {
-        items: 3
-      },
-      940: {
-        items: 4
-      }
-    },
-    nav: true
-  }
+
   createPost() {
     if (!this.formData && !this.newPost.content) {
       return;

@@ -32,12 +32,13 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   readonly API: string = environment.apiUrl;
- profil:ProfileComponent;
+  profil: ProfileComponent;
   user: User
   currentUser: User
   profilePicture: HTMLInputElement;
   isFollowing = false;
-  reportBody:any ;
+  isGuest = true;
+  reportBody: any;
   activeTab = 0;
 
   hebergements: Hebergement[];
@@ -55,9 +56,10 @@ export class ProfileComponent implements OnInit {
     initHexagons();
     initSidebar();
     this.currentUser = this.authService.getCurrentUser();
+    if (this.currentUser) this.isGuest = false;
     this.route.params.subscribe(params => {
       let id = params.id;
-      if (!id) {
+      if (!id && !this.isGuest) {
         let profileUrl = '/profile/' + (this.currentUser.slug || this.currentUser._id);
         this.router.navigate([profileUrl]);
       }
@@ -82,7 +84,7 @@ export class ProfileComponent implements OnInit {
           });
         }
         this.profilePicture.setAttribute('data-src', picturePipe.transform(this.user.profilePicture));
-        this.isFollowing = this.user.followers.includes(this.currentUser._id);
+        this.isFollowing = !this.isGuest && this.user.followers.includes(this.currentUser._id);
         initHexagons();
         this.equipmentService.getHebergementsByUser(this.user._id).subscribe(
           response => {
@@ -105,6 +107,9 @@ export class ProfileComponent implements OnInit {
   }
 
   follow() {
+    if(this.isGuest){
+      this.router.navigate(['/login']);
+    }
     this.userService.follow(this.user._id, !this.isFollowing).subscribe(
       res => {
         this.isFollowing = !this.isFollowing;
@@ -133,7 +138,7 @@ export class ProfileComponent implements OnInit {
 
   async OpenReportSwal() {
     const swal: { isConfirmed: Boolean, value: string } = await Swal.fire({
-      title: this.translate.instant('report') ,
+      title: this.translate.instant('report'),
       input: 'text',
       icon: 'question',
       inputLabel: this.translate.instant('report_reason'),

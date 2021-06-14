@@ -35,7 +35,6 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -44,6 +43,7 @@ const routes: Routes = [
       {
         path: 'admin',
         component: AdminComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'events',
@@ -59,15 +59,18 @@ const routes: Routes = [
       },
       {
         path: 'boats',
-        component: BoatsComponent
+        component: BoatsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'homes',
-        component: HebergementsComponent
+        component: HebergementsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'services',
         component: ServicesComponent,
+        canActivate: [AuthGuard],
         children: [
           {
             path: '',
@@ -86,6 +89,7 @@ const routes: Routes = [
       {
         path: 'equipments',
         component: EquipmentsComponent,
+        canActivate: [AuthGuard],
         children: [
           {
             path: '',
@@ -103,11 +107,13 @@ const routes: Routes = [
       },
       {
         path: 'settings',
-        component: AccountComponent
+        component: AccountComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'settings/:page',
-        component: AccountComponent
+        component: AccountComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'profile/:id',
@@ -116,6 +122,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'details-home/:id',
@@ -136,14 +143,17 @@ const routes: Routes = [
       {
         path: 'my-booking-requests',
         component: MyReservationsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'booking-requests',
         component: ListReservationsComponent,
+        canActivate: [AuthGuard]
       },
     ]
   },
@@ -167,7 +177,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'login'
+    redirectTo: ''
   }
 ];
 

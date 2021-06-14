@@ -177,7 +177,7 @@
     <!-- GRID COLUMN -->
     <div class="grid-column">
       <!-- QUICK POST -->
-      <div class="quick-post">
+      <div *ngIf="!isGuest" class="quick-post">
         <!-- QUICK POST HEADER -->
         <div class="quick-post-header">
           <!-- OPTION ITEMS -->
@@ -314,7 +314,7 @@
         <!-- /SIMPLE TAB ITEM -->
 
         <!-- SIMPLE TAB ITEM -->
-        <p
+        <p *ngIf="!isGuest"
           (click)="changeTab(1)"
           class="simple-tab-item"
           [ngClass]="{ active: feedTab == 1 }"

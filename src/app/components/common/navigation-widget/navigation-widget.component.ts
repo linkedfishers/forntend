@@ -19,26 +19,26 @@ export class NavigationWidgetComponent implements OnInit {
   ) { }
   currentUser: User
   isAdmin = false;
+  fullName: string = '';
   ngOnInit(): void {
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
-    let profilePicture1, profilePicture2, profilePicture3;
-    profilePicture1 = this.el.nativeElement.querySelector(
-      '#profilePicture1'
-    );
-    profilePicture2 = this.el.nativeElement.querySelector(
-      '#profilePicture2'
-    );
-    profilePicture3 = this.el.nativeElement.querySelector(
-      '#profilePicture3'
-    );
-    profilePicture1.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
-    profilePicture2.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
-    profilePicture3.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
+    if (this.currentUser) {
+      this.fullName = this.currentUser.fullName;
+      let profilePicture1, profilePicture2;
+      profilePicture1 = this.el.nativeElement.querySelector(
+        '#profilePicture1'
+      );
+      profilePicture2 = this.el.nativeElement.querySelector(
+        '#profilePicture2'
+      );
+      profilePicture1.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
+      profilePicture2.setAttribute('data-src', picturePipe.transform(this.currentUser.profilePicture));
+    } else {
+      this.fullName = 'Guest';
+    }
     initHexagons();
     this.isAdmin = this.authService.isAdmin();
   }
-
-
 
 }

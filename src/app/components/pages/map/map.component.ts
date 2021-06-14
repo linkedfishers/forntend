@@ -192,7 +192,6 @@ export class MapComponent implements AfterViewInit {
         this.boat = res.data;
         let i = 0;
         this.boat.forEach(boat => {
-          console.log('boat : ', boat);
           if (!boat.position) return;
           this.boatMarker.push(L.marker(boat.position.coordinates, {
             icon: boatIcon,
@@ -288,7 +287,6 @@ export class MapComponent implements AfterViewInit {
   toggleHomes() {
     if (this.showHomes) {
       this.homesMarker.forEach(marker => {
-        console.log(marker.getLatLng());
         marker.addTo(this.map)
       });
     } else {
@@ -298,7 +296,6 @@ export class MapComponent implements AfterViewInit {
   toggleBoats() {
     if (this.showBoat) {
       this.boatMarker.forEach(marker => {
-        console.log(marker.getLatLng());
         marker.addTo(this.map)
       });
     } else {
@@ -308,7 +305,6 @@ export class MapComponent implements AfterViewInit {
   toggleEquipment() {
     if (this.showEquipment) {
       this.equipmenetMarker.forEach(marker => {
-        console.log(marker.getLatLng());
         marker.addTo(this.map)
       });
     } else {

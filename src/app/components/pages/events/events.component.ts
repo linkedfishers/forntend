@@ -11,6 +11,7 @@ import { Subject } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { User } from 'src/app/interfaces/users.interface';
 
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
@@ -48,9 +49,13 @@ export class EventsComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
   events: Event[];
   selectedEvents = -1;
+  isGuest = true;
+  currentUser: User;
 
   ngOnInit(): void {
     this.today = new Date();
+    this.currentUser = this.authService.getCurrentUser();
+    if (this.currentUser) this.isGuest = false;
     initSidebar();
     initPopups();
     initForm();
@@ -59,6 +64,7 @@ export class EventsComponent implements OnInit {
     this.eventService.getUpcoming().subscribe(
       res => {
         this.upcomingEvents = res.data;
+        console.log(this.upcomingEvents);
       },
       err => {
         this.toastr.error(err.error.message);

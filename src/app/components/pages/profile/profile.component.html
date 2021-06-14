@@ -184,7 +184,7 @@
         <!-- /PROFILE HEADER INFO ACTION -->
 
         <!-- PROFILE HEADER INFO ACTION -->
-        <p *ngIf="currentUser?._id!=user?._id" (click)="OpenReportSwal()" class="profile-header-info-action button"><span class="hide-text-mobile">{{'report' | translate}}</span></p>
+        <p *ngIf="!isGuest && currentUser?._id!=user?._id" (click)="OpenReportSwal()" class="profile-header-info-action button"><span class="hide-text-mobile">{{'report' | translate}}</span></p>
         <!-- /PROFILE HEADER INFO ACTION -->
       </div>
       <!-- /PROFILE HEADER INFO ACTIONS -->

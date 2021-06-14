@@ -7535,6 +7535,9 @@ figure > img {
 .dropdown-box-list .dropdown-box-list-item:hover {
   background-color: #eaeaf5;
 }
+.dropdown-box-list .dropdown-box-list-item.active {
+  background-color: #eaeaf5;
+}
 .dropdown-box-actions {
   display: -ms-flexbox;
   display: flex;
