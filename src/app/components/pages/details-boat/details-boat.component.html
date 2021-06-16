@@ -26,7 +26,7 @@
     <!-- /SECTION HEADER -->
 
     <!-- GRID -->
-    <div class="grid grid-9-3">
+    <div class="grid grid-8-4">
         <!-- MARKETPLACE CONTENT -->
         <div class="marketplace-content grid-column">
             <!-- SLIDER PANEL -->
@@ -332,54 +332,54 @@
                             </a>
                         </p>
                         <!-- /USER STATUS TITLE -->
-                    <!-- USER STATS -->
-                    <div class="user-stats" style="padding-top: 20px;">
-                        <!-- USER STAT -->
-                        <div class="user-stat big">
-                            <!-- USER STAT TITLE -->
-                            <p class="user-stat-title">{{boat?.owner?.reviews.length}}</p>
-                            <!-- /USER STAT TITLE -->
+                        <!-- USER STATS -->
+                        <div class="user-stats" style="padding-top: 20px;">
+                            <!-- USER STAT -->
+                            <div class="user-stat big">
+                                <!-- USER STAT TITLE -->
+                                <p class="user-stat-title">{{boat?.owner?.reviews.length}}</p>
+                                <!-- /USER STAT TITLE -->
 
-                            <!-- USER STAT TEXT -->
-                            <p class="user-stat-text">Reviews</p>
-                            <!-- /USER STAT TEXT -->
-                        </div>
-                        <!-- /USER STAT -->
-                        <br>
-                        <!-- USER STAT -->
-                        <div class="user-stat big">
-                            <!-- USER STAT TITLE -->
-                            <p class="user-stat-title">{{boat?.owner?.rating | number : '1.0-2'}}/5</p>
-                            <!-- /USER STAT TITLE -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <!-- RATING -->
-                                <div *ngFor="let i of range(boat?.owner?.rating)" class="rating medium filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon medium icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div *ngFor="let i of range(5 - boat?.owner?.rating)" class="rating medium">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon medium icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
+                                <!-- USER STAT TEXT -->
+                                <p class="user-stat-text">Reviews</p>
+                                <!-- /USER STAT TEXT -->
                             </div>
-                            <!-- /RATING LIST -->
+                            <!-- /USER STAT -->
+                            <br>
+                            <!-- USER STAT -->
+                            <div class="user-stat big">
+                                <!-- USER STAT TITLE -->
+                                <p class="user-stat-title">{{boat?.owner?.rating | number : '1.0-2'}}/5</p>
+                                <!-- /USER STAT TITLE -->
+
+                                <!-- RATING LIST -->
+                                <div class="rating-list">
+                                    <!-- RATING -->
+                                    <!-- RATING -->
+                                    <div *ngFor="let i of range(boat?.owner?.rating)" class="rating medium filled">
+                                        <!-- RATING ICON -->
+                                        <svg class="rating-icon medium icon-star">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                        <!-- /RATING ICON -->
+                                    </div>
+                                    <!-- /RATING -->
+
+                                    <!-- RATING -->
+                                    <div *ngFor="let i of range(5 - boat?.owner?.rating)" class="rating medium">
+                                        <!-- RATING ICON -->
+                                        <svg class="rating-icon medium icon-star">
+                                            <use xlink:href="#svg-star"></use>
+                                        </svg>
+                                        <!-- /RATING ICON -->
+                                    </div>
+                                    <!-- /RATING -->
+                                </div>
+                                <!-- /RATING LIST -->
+                            </div>
+                            <!-- /USER STAT -->
                         </div>
-                        <!-- /USER STAT -->
-                    </div>
-                    <!-- /USER STATS -->
+                        <!-- /USER STATS -->
                     </div>
                     <!-- /USER STATUS -->
 
@@ -387,7 +387,7 @@
                 <!-- /SIDEBAR BOX ITEMS -->
 
                 <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">boat Details</p>
+                <p class="sidebar-box-title medium-space">{{'boat_details' | translate}}</p>
                 <!-- /SIDEBAR BOX TITLE -->
 
                 <!-- SIDEBAR BOX ITEMS -->
@@ -403,6 +403,41 @@
 
                             <!-- INFORMATION LINE TEXT -->
                             <p class="information-line-text"><span class="bold">{{boat?.type?.name }}</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">{{'boat_size' | translate}}</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">{{boat?.details?.size }}</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">{{'capacity_excluding_crew' | translate}}</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">{{boat?.details?.capacity }}</span></p>
+                            <!-- /INFORMATION LINE TEXT -->
+                        </div>
+                        <!-- /INFORMATION LINE -->
+
+                        <!-- INFORMATION LINE -->
+                        <div class="information-line">
+                            <!-- INFORMATION LINE TITLE -->
+                            <p class="information-line-title">{{'port_address' | translate}}</p>
+                            <!-- /INFORMATION LINE TITLE -->
+
+                            <!-- INFORMATION LINE TEXT -->
+                            <p class="information-line-text"><span class="bold">{{boat?.details?.port }}</span></p>
                             <!-- /INFORMATION LINE TEXT -->
                         </div>
                         <!-- /INFORMATION LINE -->

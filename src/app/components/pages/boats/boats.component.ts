@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Boat, BoatType } from 'src/app/interfaces/equipments.interface';
+import { Boat, BoatDetails, BoatType } from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/users.interface';
@@ -39,7 +39,6 @@ export class BoatsComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.newBoat = new Boat();
-    this.newBoat.price = 0;
     initSidebar();
     initPopups();
     initForm();
@@ -83,16 +82,15 @@ export class BoatsComponent implements OnInit {
     }
     this.formData = this.formData || new FormData();
     for (const key in this.newBoat) {
-      if (this.newBoat.hasOwnProperty(key)) {
+      if (this.newBoat.hasOwnProperty(key) && key != 'details') {
         this.formData.append(key, this.newBoat[key]);
       }
     }
     if (this.newBoat.position) {
       this.formData.append("lat", this.newBoat.position["lat"]);
       this.formData.append("lng", this.newBoat.position["lng"]);
-
     }
-
+    this.formData.append("details", JSON.stringify(this.newBoat.details));
     this.equipmentService.createBoat(this.formData).subscribe(
       res => {
         this.userBoats.unshift(res.data);
