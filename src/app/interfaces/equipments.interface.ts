@@ -1,7 +1,7 @@
 export class Equipment {
     _id: string;
     name: string;
-    price: number;
+    price: number = 0;
     owner: any;
     type: any;
     image: string;
@@ -22,7 +22,7 @@ export class EquipmentType {
 export class Service {
     _id: string;
     name: string;
-    price: number;
+    price: number = 0;
     owner: any;
     type: any;
     image: string;
@@ -44,7 +44,7 @@ export class Boat {
     _id: string;
     name: string;
     owner: any;
-    price: number;
+    price: number = 0;
     image: string;
     description: string;
     isAvailable: boolean;
@@ -53,6 +53,7 @@ export class Boat {
     type: any;
     reviews: any[];
     rating: number;
+    details: BoatDetails = new BoatDetails();
 }
 
 export class Hebergement {
@@ -63,7 +64,7 @@ export class Hebergement {
     description: string;
     isAvailable: boolean;
     adress: string;
-    price: number;
+    price: number = 0;
     position: any;
     createdAt: any;
     type: any;
@@ -87,3 +88,12 @@ export class BoatType {
     items: any[];
 }
 
+export class BoatDetails {
+    capacity: number = 0;
+    size: number = 0;
+    port: any;
+    smokingAllowed: boolean = false;
+    alcoholAllowed: boolean = false;
+    partyAllowed: boolean = false;
+    equipmentIncluded: boolean = false;
+}
