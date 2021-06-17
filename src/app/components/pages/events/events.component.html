@@ -33,7 +33,7 @@
     <!-- /SECTION HEADER -->
 
     <!-- SECTION FILTERS BAR -->
-    <div *ngIf="!isGuest" class="section-filters-bar v6">
+    <div [hidden]="isGuest" class="section-filters-bar v6">
 
         <!-- SECTION FILTERS BAR ACTIONS -->
         <div class="section-filters-bar-actions">
