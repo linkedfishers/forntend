@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { AuthProviderService } from 'src/app/services/authProvider.serices';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -16,7 +17,8 @@ export class ActivateAccountComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private authService: AuthService,
-    private translate: TranslateService,
+    private authProviderService :AuthProviderService,
+    public translate: TranslateService,
   ) { }
 
   verifying = true;

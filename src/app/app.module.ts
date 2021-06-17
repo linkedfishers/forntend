@@ -74,6 +74,9 @@ import { ReservationsRequestComponent } from './components/pages/reservations-re
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
 import { DetailsEventsComponent } from './components/pages/details-events/details-events.component';
+import { ProductsComponent } from './components/pages/products/products.component';
+import { DetailsProductComponent } from './components/pages/details-product/details-product.component';
+import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -136,6 +139,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReservationsRequestComponent,
     ListReservationsComponent,
     DetailsEventsComponent,
+    ProductsComponent,
+    DetailsProductComponent,
+    ProductListComponent,
   ],
   imports: [
     BrowserModule,
