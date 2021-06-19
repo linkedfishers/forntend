@@ -1,9 +1,5 @@
 <!-- NAVIGATION WIDGET -->
-<nav
-  id="navigation-widget"
-  class="navigation-widget navigation-widget-desktop sidebar left"
-  data-simplebar
->
+<nav id="navigation-widget" class="navigation-widget navigation-widget-desktop sidebar left" data-simplebar>
   <!-- NAVIGATION WIDGET COVER -->
   <figure class="navigation-widget-cover liquid">
     <img src="./assets/img/cover/01.jpg" alt="cover-01" />
@@ -13,10 +9,7 @@
   <!-- USER SHORT DESCRIPTION -->
   <div class="user-short-description">
     <!-- USER SHORT DESCRIPTION AVATAR -->
-    <a
-      class="user-short-description-avatar user-avatar medium"
-      [routerLink]="['/profile']"
-    >
+    <a class="user-short-description-avatar user-avatar medium" [routerLink]="['/profile']">
       <!-- USER AVATAR BORDER -->
       <div class="user-avatar-border">
         <!-- HEXAGON -->
@@ -28,11 +21,8 @@
       <!-- USER AVATAR CONTENT -->
       <div class="user-avatar-content">
         <!-- HEXAGON -->
-        <div
-          class="hexagon-image-82-90"
-          id="profilePicture1"
-          data-src="../../../../assets/img/default-profile.png"
-        ></div>
+        <div class="hexagon-image-82-90" id="profilePicture1" data-src="../../../../assets/img/default-profile.png">
+        </div>
         <!-- /HEXAGON -->
       </div>
       <!-- /USER AVATAR CONTENT -->
@@ -66,11 +56,7 @@
   <!-- MENU -->
   <ul class="menu">
     <!-- MENU ITEM -->
-    <li
-      class="menu-item"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/']">
         <!-- MENU ITEM LINK ICON -->
@@ -85,12 +71,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li
-      *ngIf="isAdmin"
-      class="menu-item"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <li *ngIf="isAdmin" class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/admin']">
         <!-- MENU ITEM LINK ICON -->
@@ -104,8 +85,22 @@
     </li>
     <!-- /MENU ITEM -->
 
+    <li *ngIf="isProvider" class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <!-- MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/provider/add-product']">
+        <!-- MENU ITEM LINK ICON -->
+        <svg class="menu-item-link-icon icon-marketplace">
+          <use xlink:href="#svg-marketplace"></use>
+        </svg>
+        <!-- /MENU ITEM LINK ICON -->
+        products
+      </a>
+      <!-- /MENU ITEM LINK -->
+    </li>
+    <!-- /MENU ITEM -->
+
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/events']">
         <!-- MENU ITEM LINK ICON -->
@@ -120,7 +115,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/map']">
         <!-- MENU ITEM LINK ICON -->
@@ -135,7 +130,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/weather']">
         <!-- MENU ITEM LINK ICON -->
@@ -147,7 +142,7 @@
       </a>
       <!-- /MENU ITEM LINK -->
     </li>
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/services']">
         <!-- MENU ITEM LINK ICON -->
@@ -162,7 +157,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/equipments']">
         <!-- MENU ITEM LINK ICON -->
@@ -177,7 +172,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/boats']">
         <!-- MENU ITEM LINK ICON -->
@@ -192,7 +187,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/homes']">
         <!-- MENU ITEM LINK ICON -->
@@ -211,11 +206,8 @@
 <!-- /NAVIGATION WIDGET -->
 
 <!-- NAVIGATION WIDGET -->
-<nav
-  id="navigation-widget-mobile"
-  class="navigation-widget navigation-widget-mobile sidebar left hidden"
-  data-simplebar
->
+<nav id="navigation-widget-mobile" class="navigation-widget navigation-widget-mobile sidebar left hidden"
+  data-simplebar>
   <!-- NAVIGATION WIDGET CLOSE BUTTON -->
   <div class="navigation-widget-close-button">
     <!-- NAVIGATION WIDGET CLOSE BUTTON ICON -->
@@ -235,11 +227,8 @@
         <!-- USER AVATAR CONTENT -->
         <div class="user-avatar-content">
           <!-- HEXAGON -->
-          <div
-            class="hexagon-image-30-32"
-            id="profilePicture2"
-            data-src="../../../../assets/img/default-profile.png"
-          ></div>
+          <div class="hexagon-image-30-32" id="profilePicture2" data-src="../../../../assets/img/default-profile.png">
+          </div>
           <!-- /HEXAGON -->
         </div>
         <!-- /USER AVATAR CONTENT -->
@@ -287,11 +276,7 @@
   <!-- MENU -->
   <ul class="menu">
     <!-- MENU ITEM -->
-    <li
-      class="menu-item"
-      routerLinkActive="active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/']">
         <!-- MENU ITEM LINK ICON -->
@@ -305,8 +290,22 @@
     </li>
     <!-- /MENU ITEM -->
 
+    <li *ngIf="isProvider" class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <!-- MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/provider/add-product']">
+        <!-- MENU ITEM LINK ICON -->
+        <svg class="menu-item-link-icon icon-marketplace">
+          <use xlink:href="#svg-marketplace"></use>
+        </svg>
+        <!-- /MENU ITEM LINK ICON -->
+        products
+      </a>
+      <!-- /MENU ITEM LINK -->
+    </li>
+    <!-- /MENU ITEM -->
+
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/events']">
         <!-- MENU ITEM LINK ICON -->
@@ -321,7 +320,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/map']">
         <!-- MENU ITEM LINK ICON -->
@@ -336,7 +335,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/weather']">
         <!-- MENU ITEM LINK ICON -->
@@ -351,7 +350,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/equipments']">
         <!-- MENU ITEM LINK ICON -->
@@ -366,7 +365,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/boats']">
         <!-- MENU ITEM LINK ICON -->
@@ -381,7 +380,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/homes']">
         <!-- MENU ITEM LINK ICON -->
@@ -402,15 +401,11 @@
   <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
   <!-- NAVIGATION WIDGET SECTION LINK -->
-  <a class="navigation-widget-section-link" [routerLink]="['/profile']"
-    >Profile</a
-  >
+  <a class="navigation-widget-section-link" [routerLink]="['/profile']">Profile</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 
   <!-- NAVIGATION WIDGET SECTION LINK -->
-  <a class="navigation-widget-section-link" [routerLink]="['/notifications']"
-    >Notifications</a
-  >
+  <a class="navigation-widget-section-link" [routerLink]="['/notifications']">Notifications</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 
   <!-- NAVIGATION WIDGET SECTION TITLE -->
@@ -418,23 +413,15 @@
   <!-- /NAVIGATION WIDGET SECTION TITLE -->
 
   <!-- NAVIGATION WIDGET SECTION LINK -->
-  <a class="navigation-widget-section-link" [routerLink]="['/settings']"
-    >Account Info</a
-  >
+  <a class="navigation-widget-section-link" [routerLink]="['/settings']">Account Info</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 
   <!-- NAVIGATION WIDGET SECTION LINK -->
-  <a
-    class="navigation-widget-section-link"
-    [routerLink]="['/settings/change-password']"
-    >Change Password</a
-  >
+  <a class="navigation-widget-section-link" [routerLink]="['/settings/change-password']">Change Password</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 
   <!-- NAVIGATION WIDGET SECTION LINK -->
-  <a class="navigation-widget-section-link" [routerLink]="['/settings/social']"
-    >Social links</a
-  >
+  <a class="navigation-widget-section-link" [routerLink]="['/settings/social']">Social links</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 </nav>
 <!-- /NAVIGATION WIDGET -->

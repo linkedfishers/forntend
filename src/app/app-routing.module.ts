@@ -29,6 +29,9 @@ import { MyReservationsComponent } from './components/pages/my-reservations/my-r
 import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component';
 import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
 import { DetailsEventsComponent } from './components/pages/details-events/details-events.component';
+import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
+import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
+import { AddProductComponent } from './components/pages/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -155,6 +158,15 @@ const routes: Routes = [
         component: ListReservationsComponent,
         canActivate: [AuthGuard]
       },
+      {
+        path: 'marketplace/products-list',
+        component: ProductListComponent
+      },
+      {
+        path: 'provider/add-product',
+        component: AddProductComponent,
+        canActivate: [AuthGuard],
+      },
     ]
   },
   {
@@ -162,7 +174,10 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AuthGuard],
   },
-
+  {
+    path: 'provider/login',
+    component: ProviderLoginComponent,
+  },
   {
     path: 'activate/:token',
     component: ActivateAccountComponent,

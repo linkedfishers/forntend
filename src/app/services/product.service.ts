@@ -6,11 +6,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ProductService {
-  readonly API: string = environment.apiUrl + 'products';
+  readonly API: string = environment.apiUrl + '/products';
 
-  constructor(private httpClient: HttpClient) {}
-  createProduct(Formdata: FormData) {
-    return this.httpClient.post<any>(`${this.API}/product/new`, FormData);
+  constructor(private httpClient: HttpClient) { }
+  createProduct(formData: FormData) {
+    return this.httpClient.post<any>(`${this.API}/product/new`, formData);
   }
   getProductByProvider(providerId: string) {
     return this.httpClient.get<any>(`${this.API}/provider/${providerId}`);
@@ -33,5 +33,10 @@ export class ProductService {
   getProduct(id: string) {
     return this.httpClient.get<any>(`${this.API}/product/${id}`);
   }
+
+  getCategories() {
+    return this.httpClient.get<any>(`${this.API}/categories`);
+  }
+
 }
 export default ProductService;

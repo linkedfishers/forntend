@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Notification } from 'src/app/interfaces/posts.interface';
+import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
@@ -48,7 +49,11 @@ export class HeaderComponent implements OnInit {
       this.isGuest = false;
       initHeader();
       initHexagons();
-      this.firstname = this.currentUser.firstName || this.currentUser.fullName.split(' ')[0];
+      if (this.currentUser.role == 'provider') {
+        this.firstname = (this.currentUser as Provider).companyName;
+      } else {
+        this.firstname = this.currentUser.firstName || this.currentUser.fullName.split(' ')[0];
+      }
       this.userService.getNotifications().subscribe(
         res => {
           this.notifications = res.data;

@@ -8,11 +8,8 @@
   <div class="landing-info">
     <!-- LOGO -->
     <div class="logo">
-      <img
-        style="height: 132px; width: auto"
-        class="icon-logo-vikinger"
-        src="../../../../assets/img/logo-white-big.png"
-      />
+      <img style="height: 132px; width: auto" class="icon-logo-vikinger"
+        src="../../../../assets/img/logo-white-big.png" />
     </div>
     <!-- /LOGO -->
 
@@ -63,25 +60,14 @@
             <!-- FORM INPUT -->
             <div class="form-input">
               <label for="login-email">Email</label>
-              <input
-                formControlName="email"
-                type="text"
-                id="login-email"
-                name="login_email"
-              />
-              <p
-                *ngIf="loginForm?.controls?.email?.errors?.email"
-                class="form-text error"
-              >
+              <input formControlName="email" type="text" id="login-email" name="login_email" />
+              <p *ngIf="loginForm?.controls?.email?.errors?.email" class="form-text error">
                 invalid email!
               </p>
-              <p
-                *ngIf="
+              <p *ngIf="
                   loginForm?.controls?.email?.errors?.required &&
                   loginForm?.touched
-                "
-                class="form-text error"
-              >
+                " class="form-text error">
                 Email is required!
               </p>
             </div>
@@ -98,19 +84,11 @@
             <!-- FORM INPUT -->
             <div class="form-input">
               <label for="login-password">{{ "password" | translate }}</label>
-              <input
-                formControlName="password"
-                type="password"
-                id="login-password"
-                name="login_password"
-              />
-              <p
-                *ngIf="
+              <input formControlName="password" type="password" id="login-password" name="login_password" />
+              <p *ngIf="
                   loginForm?.controls?.password?.errors?.required &&
                   loginForm?.touched
-                "
-                class="form-text error"
-              >
+                " class="form-text error">
                 Password is required!
               </p>
             </div>
@@ -126,13 +104,7 @@
           <div class="form-item">
             <!-- CHECKBOX WRAP -->
             <div class="checkbox-wrap">
-              <input
-                formControlName="remember"
-                type="checkbox"
-                id="login-remember"
-                name="login_remember"
-                checked
-              />
+              <input formControlName="remember" type="checkbox" id="login-remember" name="login_remember" checked />
               <!-- CHECKBOX BOX -->
               <div class="checkbox-box">
                 <!-- ICON CROSS -->
@@ -144,7 +116,7 @@
               <!-- /CHECKBOX BOX -->
               <label for="login-remember">{{
                 "remember_me" | translate
-              }}</label>
+                }}</label>
             </div>
             <!-- /CHECKBOX WRAP -->
           </div>
@@ -155,7 +127,7 @@
             <!-- FORM LINK -->
             <a class="form-link" [routerLink]="['/password-reset-request']">{{
               "forgot_password" | translate
-            }}</a>
+              }}</a>
             <!-- /FORM LINK -->
           </div>
           <!-- /FORM ITEM -->
@@ -181,7 +153,6 @@
       <!-- LINED TEXT -->
       <p class="lined-text">{{ "login_social_account" | translate }}</p>
       <!-- /LINED TEXT -->
-
       <!-- SOCIAL LINKS -->
       <div class="social-links">
         <!-- SOCIAL LINK -->
@@ -195,11 +166,7 @@
         <!-- /SOCIAL LINK -->
 
         <!-- SOCIAL LINK -->
-        <a
-          (click)="loginWithGoogle()"
-          class="social-link google"
-          [routerLink]=""
-        >
+        <a (click)="loginWithGoogle()" class="social-link google" [routerLink]="">
           <!-- ICON google -->
           <svg class="icon-google">
             <use xlink:href="#svg-google"></use>
@@ -209,9 +176,13 @@
         <!-- /SOCIAL LINK -->
       </div>
       <!-- /SOCIAL LINKS -->
+      <!-- LINED TEXT -->
+      <a [routerLink]="['/provider/login']">
+        <p class="lined-text">{{ "login_as_provider" | translate }}</p>
+      </a>
+      <!-- /LINED TEXT -->
     </div>
     <!-- /FORM BOX -->
-
     <!-- FORM BOX -->
     <div class="form-box login-register-form-element">
       <!-- FORM BOX DECORATION -->
@@ -234,25 +205,14 @@
                   <!-- FORM INPUT -->
                   <div class="form-input">
                     <label for="register-email">Votre Email</label>
-                    <input
-                      formControlName="email"
-                      type="text"
-                      id="register-email"
-                      name="register_email"
-                    />
-                    <p
-                      *ngIf="signUpForm?.controls?.email?.errors?.email"
-                      class="form-text error"
-                    >
+                    <input formControlName="email" type="text" id="register-email" name="register_email" />
+                    <p *ngIf="signUpForm?.controls?.email?.errors?.email" class="form-text error">
                       invalid email!
                     </p>
-                    <p
-                      *ngIf="
+                    <p *ngIf="
                         signUpForm?.controls?.email?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       Email is required!
                     </p>
                   </div>
@@ -270,20 +230,12 @@
                   <div class="form-input">
                     <label for="register-lastName">{{
                       "lastname" | translate
-                    }}</label>
-                    <input
-                      formControlName="lastName"
-                      type="text"
-                      id="register-lastName"
-                      name="register_lastName"
-                    />
-                    <p
-                      *ngIf="
+                      }}</label>
+                    <input formControlName="lastName" type="text" id="register-lastName" name="register_lastName" />
+                    <p *ngIf="
                         signUpForm?.controls?.lastName?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       nom is required!
                     </p>
                   </div>
@@ -299,19 +251,11 @@
                   <!-- FORM INPUT -->
                   <div class="form-input">
                     <label for="register-firstName">prenom</label>
-                    <input
-                      formControlName="firstName"
-                      type="text"
-                      id="register-firstName"
-                      name="register_firstName"
-                    />
-                    <p
-                      *ngIf="
+                    <input formControlName="firstName" type="text" id="register-firstName" name="register_firstName" />
+                    <p *ngIf="
                         signUpForm?.controls?.firstName?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       prenon is required!
                     </p>
                   </div>
@@ -327,22 +271,14 @@
                   <div class="form-input active">
                     <label for="bday">{{
                       "date de naissance" | translate
-                    }}</label>
+                      }}</label>
                     <!--<input formControlName="nom" type="date" id="register-username"
                                             name="register_username">-->
-                    <input
-                      formControlName="birthDate"
-                      type="date"
-                      id="bday"
-                      name="bday"
-                    />
-                    <p
-                      *ngIf="
+                    <input formControlName="birthDate" type="date" id="bday" name="bday" />
+                    <p *ngIf="
                         signUpForm?.controls?.birthDate?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       date de naissance is required!
                     </p>
                   </div>
@@ -359,29 +295,19 @@
                     <div class="form-group">
                       <label for="register-username">{{
                         "country" | translate
-                      }}</label>
+                        }}</label>
 
-                      <select
-                        formControlName="country"
-                        class="form-control"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option
-                          *ngFor="let country of countries"
-                          value="{{ country.code }}"
-                        >
+                      <select formControlName="country" class="form-control" id="exampleFormControlSelect1">
+                        <option *ngFor="let country of countries" value="{{ country.code }}">
                           {{ country.name }}
                         </option>
                       </select>
                     </div>
 
-                    <p
-                      *ngIf="
+                    <p *ngIf="
                         signUpForm?.controls?.country?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       country is required!
                     </p>
                   </div>
@@ -395,24 +321,14 @@
                 <div class="form-item">
                   <!-- FORM INPUT -->
                   <div class="form-input">
-                    <label for="register-password"
-                      >{{ "password" | translate }}
+                    <label for="register-password">{{ "password" | translate }}
                     </label>
-                    <input
-                      formControlName="password"
-                      type="password"
-                      id="register-password"
-                      name="register_password"
-                      minlength="8"
-                      maxlength="32"
-                    />
-                    <p
-                      *ngIf="
+                    <input formControlName="password" type="password" id="register-password" name="register_password"
+                      minlength="8" maxlength="32" />
+                    <p *ngIf="
                         signUpForm?.controls?.password?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       password is required!
                     </p>
                   </div>
@@ -430,22 +346,13 @@
                   <div class="form-input">
                     <label for="register-password-repeat">{{
                       "repeat_password" | translate
-                    }}</label>
-                    <input
-                      formControlName="checkPassword"
-                      type="password"
-                      id="register-password-repeat"
-                      name="register_password_repeat"
-                      minlength="8"
-                      maxlength="32"
-                    />
-                    <p
-                      *ngIf="
+                      }}</label>
+                    <input formControlName="checkPassword" type="password" id="register-password-repeat"
+                      name="register_password_repeat" minlength="8" maxlength="32" />
+                    <p *ngIf="
                         signUpForm?.controls?.checkPassword?.errors?.required &&
                         signUpForm?.touched
-                      "
-                      class="form-text error"
-                    >
+                      " class="form-text error">
                       Confirm your password!
                     </p>
                   </div>
@@ -461,12 +368,7 @@
                 <div class="form-item">
                   <!-- CHECKBOX WRAP -->
                   <div class="checkbox-wrap">
-                    <input
-                      type="checkbox"
-                      id="register-newsletter"
-                      name="register_newsletter"
-                      checked
-                    />
+                    <input type="checkbox" id="register-newsletter" name="register_newsletter" checked />
                     <!-- CHECKBOX BOX -->
                     <div class="checkbox-box">
                       <!-- ICON CROSS -->
@@ -476,9 +378,7 @@
                       <!-- /ICON CROSS -->
                     </div>
                     <!-- /CHECKBOX BOX -->
-                    <label for="register-newsletter"
-                      >Send me news and updates via email</label
-                    >
+                    <label for="register-newsletter">Send me news and updates via email</label>
                   </div>
                   <!-- /CHECKBOX WRAP -->
                 </div>

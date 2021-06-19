@@ -1,0 +1,45 @@
+<div class="body">
+    <div class="wrapper">
+        <form *ngIf="showLogin" class="login" [ngClass]="{'loading': loading , 'ok' : loggedIn}">
+            <p class="title">Log in as provider</p>
+            <input [(ngModel)]="email" type="text" name="email" placeholder="email" autofocus />
+            <i class="fa fa-at"></i>
+            <input [(ngModel)]="password" type="password" name="Password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <a href="#">Forgot your password?</a>
+            <br>
+            <a (click)="showLogin=false" [routerLink]="">Become a provider</a>
+            <button (click)="login()">
+                <i class="spinner"></i>
+                <span class="state">Log in</span>
+            </button>
+        </form>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()" *ngIf="!showLogin" class="login" style="max-width: 600px;"
+            [ngClass]="{'loading': loading , 'ok' : loggedIn}">
+            <p class="title">Join Linkedfishers as a provider!</p>
+            <input formControlName="companyName" type="text" name="name" placeholder="Company name" autofocus />
+            <i class="fa fa-briefcase"></i>
+            <input formControlName="email" type="text" name="email" placeholder="Professional email" />
+            <i class="fa fa-at"></i>
+            <input formControlName="phone" type="number" name="phone" placeholder="Company phone" />
+            <i class="fa fa-phone"></i>
+            <input formControlName="companyAdress" type="text" name="address" placeholder="Company address" />
+            <i class="fa fa-building"></i>
+            <select formControlName="country">
+                <option *ngFor="let country of countries" value="{{ country.code }}">
+                    {{ country.name }}
+                </option>
+            </select>
+            <i class="fa fa-globe"></i>
+            <input formControlName="password" type="password" name="Password" placeholder="Password" />
+            <i class="fa fa-key"></i>
+            <a href="#">Forgot your password?</a>
+            <br>
+            <a (click)="showLogin=true" [routerLink]="">Login as a provider</a>
+            <button>
+                <i class="spinner"></i>
+                <span class="state">Register</span>
+            </button>
+        </form>
+    </div>
+</div>

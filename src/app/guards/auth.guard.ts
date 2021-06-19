@@ -25,6 +25,14 @@ export class AuthGuard implements CanActivate {
             return false;
 
         }
+        if (state.url.startsWith("/provider")) {
+            if (this.authService.isProvider()) {
+                return true;
+            }
+            this.router.navigate(['/']);
+            return false;
+
+        }
         return this.checkLogin();
     }
 

@@ -77,6 +77,8 @@ import { DetailsEventsComponent } from './components/pages/details-events/detail
 import { ProductsComponent } from './components/pages/products/products.component';
 import { DetailsProductComponent } from './components/pages/details-product/details-product.component';
 import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
+import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
+import { AddProductComponent } from './components/pages/add-product/add-product.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -142,6 +144,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductsComponent,
     DetailsProductComponent,
     ProductListComponent,
+    ProviderLoginComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

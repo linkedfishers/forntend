@@ -1,15 +1,8 @@
-export class Provider {
-  _id: string;
+import { User } from "./users.interface";
+
+export class Provider extends User {
   companyName: string;
-  slug: string;
-  email: string;
-  phone: string;
-  adress: string;
-  password: string;
-  token: string;
-  logo: string;
-  description: string;
-  role: string;
-  createdAt: any;
-  activated: boolean;
+  companyEmail: string;
+  companyPhone: number;
+  companyAdress: string;
 }

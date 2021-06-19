@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
 import { PicturePipe } from 'src/app/pipes/picture.pipe';
 import { AuthService } from 'src/app/services/auth.service';
@@ -19,12 +20,19 @@ export class NavigationWidgetComponent implements OnInit {
   ) { }
   currentUser: User
   isAdmin = false;
+  isProvider = false;
   fullName: string = '';
   ngOnInit(): void {
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
     if (this.currentUser) {
-      this.fullName = this.currentUser.fullName;
+      if (this.currentUser.role == 'provider') {
+        const currentProvider = this.currentUser as Provider;
+        this.fullName = currentProvider.companyName;
+        this.isProvider = true;
+      } else {
+        this.fullName = this.currentUser.fullName;
+      }
       let profilePicture1, profilePicture2;
       profilePicture1 = this.el.nativeElement.querySelector(
         '#profilePicture1'

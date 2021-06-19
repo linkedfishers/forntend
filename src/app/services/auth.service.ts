@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Provider } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/users.interface';
+import { Provider as Seller } from '../interfaces/provider.interface';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -29,6 +30,15 @@ export class AuthService {
 
   public signUp(user: any) {
     return this.httpClient.post<any>(this.API + "/auth/signup", user)
+  }
+
+  public authenticateAsProvider(email: string, password: string) {
+    return this.httpClient.post<any>(this.API + "/auth/provider/signin", { email, password })
+      .pipe(tap(res => this.setProviderSession(res.data)));
+  }
+
+  public signUpAsProvider(provider: any) {
+    return this.httpClient.post<any>(this.API + "/auth/provider/signup", provider)
   }
 
   verifyActivationToken(token: string) {
@@ -57,6 +67,16 @@ export class AuthService {
     this.translate.use(user.language);
   }
 
+  private setProviderSession(authResponse) {
+    const token = authResponse.token;
+    localStorage.setItem(this.ID_TOKEN, token);
+    let provider: Seller = new JwtHelperService().decodeToken(token) as Seller;
+    localStorage.setItem('companyName', provider.companyName);
+    localStorage.setItem('profilePicture', provider.profilePicture);
+    localStorage.setItem('language', provider.language);
+    this.translate.use(provider.language);
+  }
+
   public logout() {
     localStorage.clear();
   }
@@ -78,12 +98,18 @@ export class AuthService {
     return user;
   }
 
-
   public isAdmin() {
     if (!this.isAuthenticated()) return false;
     let token = localStorage.getItem(this.ID_TOKEN);
     let role = new JwtHelperService().decodeToken(token)['role'] as string;
     return role === "admin"
+  }
+
+  public isProvider() {
+    if (!this.isAuthenticated()) return false;
+    let token = localStorage.getItem(this.ID_TOKEN);
+    let role = new JwtHelperService().decodeToken(token)['role'] as string;
+    return role === "provider"
   }
 
   public verifyRestPasswordToken(passwordToken: string) {
