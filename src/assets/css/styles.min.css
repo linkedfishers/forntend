@@ -11805,7 +11805,7 @@ figure > img {
 }
 .header .sidemenu-trigger.active .icon-grid,
 .header .sidemenu-trigger:hover .icon-grid {
-  fill: #fff;
+  fill: #23d2e2;
 }
 .header .sidemenu-trigger .icon-grid {
   pointer-events: none;
