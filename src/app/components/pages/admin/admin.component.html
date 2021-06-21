@@ -16,7 +16,6 @@
     </div>
     <!-- /SECTION BANNER -->
 
-
     <!-- SECTION HEADER -->
     <div class="section-header">
         <!-- SECTION HEADER INFO -->
@@ -295,12 +294,12 @@
                                     <!-- /TABLE COLUMN -->
 
                                     <!-- TABLE COLUMN -->
-                                 <!--  <div class="table-column centered padded">
+                                    <div class="table-column centered padded">
                                         <img style="height: 30px; width:auto"
                                             [owlTooltip]="getCountryName(user?.country)" *ngIf="user?.country"
                                             class="user-stat-image"
                                             src="../../../../assets/img/flag/{{user?.country}}.png" alt="flag">
-                                    </div> -->
+                                    </div>
                                     <!-- /TABLE COLUMN -->
 
                                     <!-- TABLE COLUMN -->
@@ -403,8 +402,260 @@
                                             <!-- EXP LINE -->
                                             <div *ngFor="let report of reports" class="exp-line">
                                                 <!-- EXP LINE ICON -->
-                                                <a [routerLink]=""
-                                                    routerLinkActive="router-link-active">
+                                                <a [routerLink]="" routerLinkActive="router-link-active">
+                                                    <svg class="exp-line-icon icon-badges">
+                                                        <use xlink:href="#svg-delete"></use>
+                                                    </svg>
+                                                </a>
+                                                <!-- /EXP LINE ICON -->
+
+                                                <!-- TEXT STICKER -->
+                                                <p class="text-sticker small-text">
+                                                    <!-- TEXT STICKER ICON -->
+                                                    <svg class="text-sticker-icon icon-plus-small">
+                                                        <use xlink:href="#svg-plus-small"></use>
+                                                    </svg>
+                                                    <!-- TEXT STICKER ICON -->
+                                                    {{report?.author?.fullName}}
+                                                </p>
+                                                <!-- /TEXT STICKER -->
+
+                                                <!-- EXP LINE TEXT -->
+                                                <p class="exp-line-text">{{report?.content}}</p>
+                                                <!-- /EXP LINE TEXT -->
+
+                                                <!-- EXP LINE TIMESTAMP -->
+                                                <p class="exp-line-timestamp">{{report?.createdAt
+                                                    | timeAgo : language}}</p>
+                                                <!-- /EXP LINE TIMESTAMP -->
+                                            </div>
+                                            <!-- /EXP LINE -->
+                                        </div>
+                                        <!-- /EXP LINE LIST -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="simplebar-placeholder" style="width: auto; height: 392px;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-horizontal" style="visibility: hidden;">
+                        <div class="simplebar-scrollbar" style="width: 0px; display: none;"></div>
+                    </div>
+                    <div class="simplebar-track simplebar-vertical" style="visibility: visible;">
+                        <div class="simplebar-scrollbar"
+                            style="height: 261px; transform: translate3d(0px, 0px, 0px); display: block;"></div>
+                    </div>
+                </div>
+                <!-- WIDGET BOX CONTENT -->
+            </div>
+        </div>
+        <!-- /GRID -->
+
+    </div>
+    <!-- /GRID -->
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+            <!-- SECTION PRETITLE -->
+            <p class="section-pretitle">Manage Providers</p>
+            <!-- /SECTION PRETITLE -->
+
+            <!-- SECTION TITLE -->
+            <h2 class="section-title">Providers</h2>
+            <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+    </div>
+    <!-- /SECTION HEADER -->
+    <!-- GRID -->
+    <div class="grid">
+
+        <!-- GRID -->
+        <div class="grid grid-12 stretched">
+            <!-- GRID COLUMN -->
+            <div class="grid-column">
+                <!-- WIDGET BOX -->
+                <div class="widget-box">
+                    <!-- WIDGET BOX TITLE -->
+                    <p class="widget-box-title">Providers</p>
+                    <!-- /WIDGET BOX TITLE -->
+
+                    <!-- WIDGET BOX CONTENT -->
+                    <div class="widget-box-content no-margin-top">
+                        <!-- TABLE -->
+                        <div class="table table-top-friends join-rows">
+                            <!-- TABLE HEADER -->
+                            <div class="table-header">
+                                <!-- TABLE HEADER COLUMN -->
+                                <div class="table-header-column">
+                                    <!-- TABLE HEADER TITLE -->
+                                    <p class="table-header-title">Provider</p>
+                                    <!-- /TABLE HEADER TITLE -->
+                                </div>
+                                <!-- /TABLE HEADER COLUMN -->
+
+                                <!-- TABLE HEADER COLUMN -->
+                                <div class="table-header-column centered padded">
+                                    <!-- TABLE HEADER TITLE -->
+                                    <p class="table-header-title">Country</p>
+                                    <!-- /TABLE HEADER TITLE -->
+                                </div>
+                                <!-- TABLE HEADER COLUMN -->
+                                <div class="table-header-column centered padded">
+                                    <!-- TABLE HEADER TITLE -->
+                                    <p class="table-header-title">company address</p>
+                                    <!-- /TABLE HEADER TITLE -->
+                                </div>
+                                <!-- /TABLE HEADER COLUMN -->
+                                <!-- TABLE HEADER COLUMN -->
+                                <div class="table-header-column centered padded">
+                                    <!-- TABLE HEADER TITLE -->
+                                    <p class="table-header-title">Products</p>
+                                    <!-- /TABLE HEADER TITLE -->
+                                </div>
+                                <!-- /TABLE HEADER COLUMN -->
+                                <!-- TABLE HEADER COLUMN -->
+                                <div class="table-header-column centered padded">
+                                    <!-- TABLE HEADER TITLE -->
+                                    <p class="table-header-title">Status</p>
+                                    <!-- /TABLE HEADER TITLE -->
+                                </div>
+                                <!-- /TABLE HEADER COLUMN -->
+                            </div>
+                            <!-- /TABLE HEADER -->
+
+                            <!-- TABLE BODY -->
+                            <div class="table-body">
+                                <!-- TABLE ROW -->
+                                <div *ngFor="let provider of providersList ; let i = index;" class="table-row tiny">
+                                    <!-- TABLE COLUMN -->
+                                    <div class="table-column">
+                                        <!-- USER STATUS -->
+                                        <div class="user-status">
+                                            <!-- USER STATUS AVATAR -->
+                                            <a class="user-status-avatar"
+                                                [routerLink]="['/profile/',(provider?.slug || provider?._id)]">
+                                                <!-- USER AVATAR -->
+                                                <div class="user-avatar small no-outline">
+                                                    <!-- USER AVATAR CONTENT -->
+                                                    <figure class="picture round liquid small">
+                                                        <img class="round" [src]="provider?.profilePicture | picture"
+                                                            alt="avatar-01">
+                                                    </figure>
+                                                </div>
+                                                <!-- /USER AVATAR -->
+                                            </a>
+                                            <!-- /USER STATUS AVATAR -->
+
+                                            <!-- USER STATUS TITLE -->
+                                            <p class="user-status-title">
+                                                <a class="bold"
+                                                    [routerLink]="['/profile/',(provider?.slug || provider?._id)]">
+                                                    {{provider?.companyName}}
+                                                </a>
+                                            </p>
+                                            <!-- /USER STATUS TITLE -->
+
+                                            <!-- USER STATUS TEXT -->
+                                            <p class="user-status-text small">Joined: {{provider?.createdAt | date : '
+                                                MMMM,d, yyyy'}}</p>
+                                            <!-- /USER STATUS TEXT -->
+                                        </div>
+                                        <!-- /USER STATUS -->
+                                    </div>
+                                    <!-- /TABLE COLUMN -->
+
+                                    <!-- TABLE COLUMN -->
+                                    <div class="table-column centered padded">
+                                        <img style="height: 30px; width:auto"
+                                            [owlTooltip]="getCountryName(provider?.country)" *ngIf="provider?.country"
+                                            class="user-stat-image"
+                                            src="../../../../assets/img/flag/{{provider?.country}}.png" alt="flag">
+                                    </div>
+                                    <!-- /TABLE COLUMN -->
+
+                                    <!-- TABLE COLUMN -->
+                                    <div class="table-column centered padded">
+                                        <!-- TABLE TITLE -->
+                                        <p class="table-title">{{provider?.companyAdress}}</p>
+                                        <!-- /TABLE TITLE -->
+                                    </div>
+                                    <!-- /TABLE COLUMN -->
+
+                                    <!-- TABLE COLUMN -->
+                                    <div class="table-column centered padded">
+                                        <!-- TABLE TITLE -->
+                                        <p class="table-title">0</p>
+                                        <!-- /TABLE TITLE -->
+                                    </div>
+                                    <!-- /TABLE COLUMN -->
+                                    <!-- /TABLE COLUMN -->
+                                    <div class="table-column centered padded">
+                                        <div (click)="toggleProviderStatus(i)" class="switch-option">
+                                            <!-- FORM SWITCH -->
+                                            <div [ngClass]="{'active': provider?.activated}" class="form-switch">
+                                                <!-- FORM SWITCH BUTTON -->
+                                                <div class="form-switch-button"></div>
+                                                <!-- /FORM SWITCH BUTTON -->
+                                            </div>
+                                            <!-- /FORM SWITCH -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /TABLE ROW -->
+
+                                <!-- TABLE ROW -->
+                                <div class="table-row tiny">
+                                    <!-- TABLE COLUMN -->
+                                    <div class="table-column">
+                                        <!-- USER STATUS -->
+                                        <div class="user-status">
+                                            <!-- USER STATUS AVATAR -->
+
+                                            <!-- USER STATUS TEXT -->
+                                            <a (click)="loadUsers()" [routerLink]="">
+                                                <p style="color: #23d2e2; font-size: medium;" class="user-status-text">
+                                                    See more >></p>
+                                            </a>
+                                            <!-- /USER STATUS TEXT -->
+                                        </div>
+                                        <!-- /USER STATUS -->
+                                    </div>
+                                    <!-- /TABLE COLUMN -->
+                                </div>
+                                <!-- /TABLE ROW -->
+                            </div>
+                            <!-- /TABLE BODY -->
+                        </div>
+                        <!-- /TABLE -->
+                    </div>
+                    <!-- WIDGET BOX CONTENT -->
+                </div>
+                <!-- /WIDGET BOX -->
+            </div>
+            <!-- /GRID COLUMN -->
+            <div *ngIf="showReportsPannel && reports.length>0" class="widget-box no-padding">
+                <!-- WIDGET BOX TITLE -->
+                <p class="widget-box-title">Reports</p>
+                <!-- /WIDGET BOX TITLE -->
+
+                <!-- WIDGET BOX CONTENT -->
+                <div class="widget-box-content small-margin-top padded-for-scroll small" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: 0px 0px -28px;">
+                        <div class="simplebar-height-auto-observer-wrapper">
+                            <div class="simplebar-height-auto-observer"></div>
+                        </div>
+                        <div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll;">
+                                    <div class="simplebar-content" style="padding: 0px 0px 28px;">
+                                        <!-- EXP LINE LIST -->
+                                        <div class="exp-line-list scroll-content">
+                                            <!-- EXP LINE -->
+                                            <div *ngFor="let report of reports" class="exp-line">
+                                                <!-- EXP LINE ICON -->
+                                                <a [routerLink]="" routerLinkActive="router-link-active">
                                                     <svg class="exp-line-icon icon-badges">
                                                         <use xlink:href="#svg-delete"></use>
                                                     </svg>
@@ -499,7 +750,8 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p (click)="addCategory('equipment')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <p (click)="addCategory('equipment')" class="button primary full popup-manage-item-trigger">Add
+                            new Category!</p>
                         <!-- /BUTTON -->
 
                     </div>
@@ -596,7 +848,8 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p (click)="addCategory('boat')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <p (click)="addCategory('boat')" class="button primary full popup-manage-item-trigger">Add new
+                            Category!</p>
                         <!-- /BUTTON -->
 
                     </div>
@@ -694,7 +947,8 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p (click)="addCategory('hebergement')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <p (click)="addCategory('hebergement')" class="button primary full popup-manage-item-trigger">
+                            Add new Category!</p>
                         <!-- /BUTTON -->
 
                     </div>
@@ -791,7 +1045,8 @@
                         <!-- /CREATE ENTITY BOX TITLE -->
 
                         <!-- BUTTON -->
-                        <p (click)="addCategory('service')" class="button primary full popup-manage-item-trigger">Add new Category!</p>
+                        <p (click)="addCategory('service')" class="button primary full popup-manage-item-trigger">Add
+                            new Category!</p>
                         <!-- /BUTTON -->
 
                     </div>
@@ -933,8 +1188,8 @@
                                 <!-- FORM INPUT -->
                                 <div class="form-input small active">
                                     <label for="item-name">Type description</label>
-                                    <textarea [(ngModel)]="newEquipmentType.description" id="item-files" name="item_files"
-                                        placeholder=""></textarea>
+                                    <textarea [(ngModel)]="newEquipmentType.description" id="item-files"
+                                        name="item_files" placeholder=""></textarea>
                                 </div>
                                 <!-- /FORM INPUT -->
                             </div>

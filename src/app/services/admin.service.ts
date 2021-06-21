@@ -47,4 +47,8 @@ export class AdminService {
     return this.httpClient.put<any>(`${this.API}/users/${userId}`, { activated });
   }
 
+  getAllProviders(){
+    return this.httpClient.get<any>(`${this.API}/providers/`);
+  }
+
 }

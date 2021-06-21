@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 import * as data from "../../../interfaces/countries.json";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Provider } from 'src/app/interfaces/provider.interface';
 
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
@@ -28,10 +29,11 @@ export class AdminComponent implements OnInit {
   countries = (<any>data).default;
 
   usersList: User[] = [];
+  providersList: Provider[] = [];
   equipmentTypes: EquipmentType[];
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
-  serviceTypes:ServiceType[];
+  serviceTypes: ServiceType[];
   newEquipmentType: EquipmentType;
   formData: FormData;
   imageSrc: any;
@@ -62,6 +64,12 @@ export class AdminComponent implements OnInit {
         console.log(error);
       }
     );
+
+    this.adminService.getAllProviders().subscribe(
+      response => {
+        this.providersList = response.data;
+      }
+    )
 
     this.equipmentService.getEquipmentTypes().subscribe(
       res => {
@@ -141,8 +149,8 @@ export class AdminComponent implements OnInit {
           this.boatTypes.unshift(res.data);
         } else if (this.selectedCategory == 'hebergement') {
           this.hebergementTypes.unshift(res.data);
-        }else if(this.selectedCategory == "service"){
-        this.serviceTypes.unshift(res.data);
+        } else if (this.selectedCategory == "service") {
+          this.serviceTypes.unshift(res.data);
         }
         this.toastr.success(res.message);
         this.formData = new FormData();
@@ -252,7 +260,7 @@ export class AdminComponent implements OnInit {
             } else if (categoryName == 'hebergement') {
               let i = this.hebergementTypes.findIndex((t) => t._id == type._id);
               this.hebergementTypes.splice(i, 1);
-            }else if (categoryName == 'service') {
+            } else if (categoryName == 'service') {
               let i = this.serviceTypes.findIndex((t) => t._id == type._id);
               this.serviceTypes.splice(i, 1);
             }
@@ -272,11 +280,22 @@ export class AdminComponent implements OnInit {
   }
 
   toggleUserStatus(i: number) {
-    console.log(this.usersList[i]);
     this.adminService.updateUserStatus(this.usersList[i]._id, !this.usersList[i].activated).subscribe(
       response => {
         console.log(response);
         this.usersList[i].activated = response.data.activated;
+        this.toastr.success("updated status");
+      },
+      error => {
+        this.toastr.error("error");
+        console.log(error);
+      }
+    )
+  }
+  toggleProviderStatus(i: number) {
+    this.adminService.updateUserStatus(this.providersList[i]._id, !this.providersList[i].activated).subscribe(
+      response => {
+        this.providersList[i].activated = response.data.activated;
         this.toastr.success("updated status");
       },
       error => {
