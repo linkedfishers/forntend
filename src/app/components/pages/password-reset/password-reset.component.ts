@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import Swal from 'sweetalert2/dist/sweetalert2.js';
+import Swal from 'sweetalert2';
 
 declare var initForm: any;
 
@@ -33,7 +33,6 @@ export class PasswordResetComponent implements OnInit {
       title: 'Verifying token!',
       timer: 1000,
       timerProgressBar: true,
-      showConfirmationButton: false,
       showCancelButton: false,
       showLoaderOnConfirm: true,
     })

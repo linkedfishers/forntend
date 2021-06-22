@@ -456,7 +456,7 @@
                 <!-- PRODUCT PREVIEW -->
                 <div *ngFor="let product of products" class="product-preview">
                     <!-- PRODUCT PREVIEW IMAGE -->
-                    <a [routerLink]="" routerLinkActive="router-link-active" >
+                    <a [routerLink]="['/marketplace/details-product',product?._id]">
                         <figure class="product-preview-image liquid"
                             style="border-radius: 2%; background: url(&quot;img/marketplace/items/01.jpg&quot;) center center / cover no-repeat;">
                             <img src="{{product?.picture | picture}}" alt="item-01">
@@ -471,12 +471,14 @@
                         <!-- /TEXT STICKER -->
 
                         <!-- PRODUCT PREVIEW TITLE -->
-                        <p class="product-preview-title"><a [routerLink]="" routerLinkActive="router-link-active" >{{product?.name}}</a>
+                        <p class="product-preview-title"><a
+                                [routerLink]="['/marketplace/details-product',product?._id]">{{product?.name}}</a>
                         </p>
                         <!-- /PRODUCT PREVIEW TITLE -->
 
                         <!-- PRODUCT PREVIEW CATEGORY -->
-                        <p class="product-preview-category digital"><a [routerLink]="" routerLinkActive="router-link-active" >Stream Packs</a>
+                        <p class="product-preview-category digital"><a [routerLink]=""
+                                routerLinkActive="router-link-active">{{product?.type?.name}}</a>
                         </p>
                         <!-- /PRODUCT PREVIEW CATEGORY -->
 
@@ -491,7 +493,8 @@
                         <!-- PRODUCT PREVIEW AUTHOR -->
                         <div class="product-preview-author">
                             <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
-                            <a class="product-preview-author-image user-avatar micro no-border" [routerLink]="" routerLinkActive="router-link-active"  >
+                            <a class="product-preview-author-image user-avatar micro no-border"
+                                [routerLink]="['/marketplace/details-product',product?._id]">
                                 <!-- USER AVATAR CONTENT -->
                                 <div class="user-avatar-content">
                                     <!-- HEXAGON -->
@@ -509,7 +512,8 @@
                             <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
 
                             <!-- PRODUCT PREVIEW AUTHOR TEXT -->
-                            <p class="product-preview-author-text"><a [routerLink]="" routerLinkActive="router-link-active" >{{product?.owner?.companyName}}</a>
+                            <p class="product-preview-author-text"><a
+                                    [routerLink]="">{{product?.owner?.companyName}}</a>
                             </p>
                             <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
                         </div>

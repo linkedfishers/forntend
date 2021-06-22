@@ -1,6 +1,6 @@
 <!-- CONTENT GRID -->
 <div class="content-grid">
-  <app-carousel></app-carousel>
+  <app-carousel [pictures]="carousselPictures"></app-carousel>
   <!-- SECTION BANNER -->
   <!-- <div class="section-banner">
 
@@ -24,9 +24,7 @@
           <!-- POST SETTINGS WRAP -->
           <div class="post-settings-wrap">
             <!-- POST SETTINGS -->
-            <div
-              class="post-settings widget-box-post-settings-dropdown-trigger"
-            >
+            <div class="post-settings widget-box-post-settings-dropdown-trigger">
               <!-- POST SETTINGS ICON -->
               <svg class="post-settings-icon icon-more-dots">
                 <use xlink:href="#svg-more-dots"></use>
@@ -56,21 +54,13 @@
           <!-- FILTERS -->
           <div class="filters">
             <!-- FILTER -->
-            <p
-              class="filter"
-              (click)="changeUsersTab(0)"
-              [ngClass]="{ active: usersActiveTab == 0 }"
-            >
+            <p class="filter" (click)="changeUsersTab(0)" [ngClass]="{ active: usersActiveTab == 0 }">
               Newest
             </p>
             <!-- /FILTER -->
 
             <!-- FILTER -->
-            <p
-              class="filter"
-              (click)="changeUsersTab(1)"
-              [ngClass]="{ active: usersActiveTab == 1 }"
-            >
+            <p class="filter" (click)="changeUsersTab(1)" [ngClass]="{ active: usersActiveTab == 1 }">
               Popular
             </p>
             <!-- /FILTER -->
@@ -83,19 +73,12 @@
               <!-- USER STATUS -->
               <div class="user-status request-small">
                 <!-- USER STATUS AVATAR -->
-                <a
-                  [routerLink]="['/profile', user.slug]"
-                  routerLinkActive="router-link-active"
-                  class="user-status-avatar"
-                >
+                <a [routerLink]="['/profile', user.slug]" routerLinkActive="router-link-active"
+                  class="user-status-avatar">
                   <!-- USER AVATAR -->
                   <div class="user-avatar small no-outline">
                     <figure class="picture round liquid small">
-                      <img
-                        class="round"
-                        [src]="user?.profilePicture | picture"
-                        alt="avatar-01"
-                      />
+                      <img class="round" [src]="user?.profilePicture | picture" alt="avatar-01" />
                     </figure>
                   </div>
                   <!-- /USER AVATAR -->
@@ -106,7 +89,7 @@
                 <p style="width: 200px" class="user-status-title">
                   <a class="bold" [routerLink]="['/profile', user.slug]">{{
                     user?.fullName
-                  }}</a>
+                    }}</a>
                 </p>
                 <!-- /USER STATUS TITLE -->
 
@@ -127,18 +110,11 @@
               <!-- USER STATUS -->
               <div class="user-status request-small">
                 <!-- USER STATUS AVATAR -->
-                <a
-                  [routerLink]="['/profile', user.slug]"
-                  class="user-status-avatar"
-                >
+                <a [routerLink]="['/profile', user.slug]" class="user-status-avatar">
                   <!-- USER AVATAR -->
                   <div class="user-avatar small no-outline">
                     <figure class="picture round liquid small">
-                      <img
-                        class="round"
-                        [src]="user?.profilePicture | picture"
-                        alt="avatar-01"
-                      />
+                      <img class="round" [src]="user?.profilePicture | picture" alt="avatar-01" />
                     </figure>
                   </div>
                   <!-- /USER AVATAR -->
@@ -149,7 +125,7 @@
                 <p style="width: 200px" class="user-status-title">
                   <a class="bold" [routerLink]="['/profile', user.slug]">{{
                     user?.fullName
-                  }}</a>
+                    }}</a>
                 </p>
                 <!-- /USER STATUS TITLE -->
 
@@ -210,19 +186,11 @@
               <div class="form-item">
                 <!-- FORM TEXTAREA -->
                 <div class="form-textarea">
-                  <textarea
-                    [(ngModel)]="newPost.content"
-                    id="quick-post-text"
-                    name="quick-post-text"
-                    placeholder="{{ 'create_post_msg' | translate }}"
-                  ></textarea>
+                  <textarea [(ngModel)]="newPost.content" id="quick-post-text" name="quick-post-text"
+                    placeholder="{{ 'create_post_msg' | translate }}"></textarea>
                   <!-- FORM TEXTAREA LIMIT TEXT -->
-                  <img
-                    style="max-height: 50px; width: auto; margin-left: 10px"
-                    *ngIf="imageSrc"
-                    [src]="imageSrc"
-                    id="image"
-                  />
+                  <img style="max-height: 50px; width: auto; margin-left: 10px" *ngIf="imageSrc" [src]="imageSrc"
+                    id="image" />
                   <p class="form-textarea-limit-text">
                     {{ 1000 - newPost.content?.length }}/1000
                   </p>
@@ -243,17 +211,9 @@
           <!-- QUICK POST FOOTER ACTIONS -->
           <div class="quick-post-footer-actions">
             <!-- QUICK POST FOOTER ACTION -->
-            <div
-              (click)="openFileInput()"
-              class="quick-post-footer-action text-tooltip-tft-medium"
-              data-title="Insert Photo"
-            >
-              <input
-                id="postPhoto"
-                type="file"
-                style="display: none"
-                (change)="fileChange($event)"
-              />
+            <div (click)="openFileInput()" class="quick-post-footer-action text-tooltip-tft-medium"
+              data-title="Insert Photo">
+              <input id="postPhoto" type="file" style="display: none" (change)="fileChange($event)" />
               <!-- QUICK POST FOOTER ACTION ICON -->
               <svg class="quick-post-footer-action-icon icon-camera">
                 <use xlink:href="#svg-camera"></use>
@@ -263,10 +223,7 @@
             <!-- /QUICK POST FOOTER ACTION -->
 
             <!-- QUICK POST FOOTER ACTION -->
-            <div
-              class="quick-post-footer-action text-tooltip-tft-medium"
-              data-title="Insert Tag"
-            >
+            <div class="quick-post-footer-action text-tooltip-tft-medium" data-title="Insert Tag">
               <!-- QUICK POST FOOTER ACTION ICON -->
               <svg class="quick-post-footer-action-icon icon-tags">
                 <use xlink:href="#svg-tags"></use>
@@ -286,11 +243,8 @@
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              (click)="createPost()"
-              [ngClass]="{ disabled: !newPost.content && !formData }"
-              class="button small secondary"
-            >
+            <p (click)="createPost()" [ngClass]="{ disabled: !newPost.content && !formData }"
+              class="button small secondary">
               {{ "post" | translate }}
             </p>
             <!-- /BUTTON -->
@@ -304,31 +258,19 @@
       <!-- SIMPLE TAB ITEMS -->
       <div class="simple-tab-items">
         <!-- SIMPLE TAB ITEM -->
-        <p
-          (click)="changeTab(0)"
-          class="simple-tab-item"
-          [ngClass]="{ active: feedTab == 0 }"
-        >
+        <p (click)="changeTab(0)" class="simple-tab-item" [ngClass]="{ active: feedTab == 0 }">
           {{ "all_updates" | translate }}
         </p>
         <!-- /SIMPLE TAB ITEM -->
 
         <!-- SIMPLE TAB ITEM -->
-        <p *ngIf="!isGuest"
-          (click)="changeTab(1)"
-          class="simple-tab-item"
-          [ngClass]="{ active: feedTab == 1 }"
-        >
+        <p *ngIf="!isGuest" (click)="changeTab(1)" class="simple-tab-item" [ngClass]="{ active: feedTab == 1 }">
           {{ "following" | translate }}
         </p>
         <!-- /SIMPLE TAB ITEM -->
       </div>
       <!-- /SIMPLE TAB ITEMS -->
-      <app-post
-        *ngFor="let post of posts"
-        (postDeleted)="deletePost($event)"
-        [post]="post"
-      ></app-post>
+      <app-post *ngFor="let post of posts" (postDeleted)="deletePost($event)" [post]="post"></app-post>
 
       <!-- LOADER BARS -->
 
@@ -360,10 +302,7 @@
       <!-- WIDGET BOX -->
 
       <!-- WIDGET BOX -->
-      <div
-        *ngIf="(upcomingEvents | json) != '{}'"
-        class="widget-box no-padding"
-      >
+      <div *ngIf="(upcomingEvents | json) != '{}'" class="widget-box no-padding">
         <!-- WIDGET BOX TITLE -->
         <a [routerLink]="['/events']">
           <p class="widget-box-title">Upcoming events</p>
@@ -380,15 +319,9 @@
               </p>
 
               <!-- CALENDAR EVENT PREVIEW LIST -->
-              <div
-                style="margin-bottom: 20px"
-                class="calendar-event-preview-list"
-              >
+              <div style="margin-bottom: 20px" class="calendar-event-preview-list">
                 <!-- CALENDAR EVENT PREVIEW -->
-                <div
-                  *ngFor="let event of upcomingEvents[eventDay]"
-                  class="calendar-event-preview small primary"
-                >
+                <div *ngFor="let event of upcomingEvents[eventDay]" class="calendar-event-preview small primary">
                   <!-- CALENDAR EVENT PREVIEW START TIME -->
                   <div class="calendar-event-preview-start-time">
                     <!-- CALENDAR EVENT PREVIEW START TIME TITLE -->

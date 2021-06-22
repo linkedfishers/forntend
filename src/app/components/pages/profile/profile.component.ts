@@ -137,7 +137,7 @@ export class ProfileComponent implements OnInit {
   }
 
   async OpenReportSwal() {
-    const swal: { isConfirmed: Boolean, value: string } = await Swal.fire({
+    const swal: { isConfirmed: Boolean, value?: string } = await Swal.fire({
       title: this.translate.instant('report'),
       input: 'text',
       icon: 'question',

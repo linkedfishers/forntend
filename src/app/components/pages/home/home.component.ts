@@ -46,6 +46,10 @@ export class HomeComponent implements OnInit {
 
   isGuest = true;
 
+  carousselPictures = ["assets/img/banner/fishing-rod-wheel-close-up.jpg",
+    "assets/img/banner/angler-holds-trophy-fish-carp.jpg",
+    "assets/img/banner/group-unrecognizable-adult-men-fishing.jpg"]
+
   ngOnInit(): void {
     const currentUser = this.authService.getCurrentUser();
     if (currentUser) this.isGuest = false;

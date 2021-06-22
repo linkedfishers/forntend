@@ -8,6 +8,7 @@ import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import ProductService from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
+import { PicturePipe } from 'src/app/pipes/picture.pipe';
 
 declare var app,
   loadSvg,
@@ -32,20 +33,28 @@ export class DetailsProductComponent implements OnInit {
     private toastr: ToastrService,
     private auService: AuthService,
     private translate: TranslateService
-  ) {}
+  ) { }
 
   readonly API: string = environment.apiUrl + '/';
   product: Product;
   currentUser: User;
   isOwner = false;
   ngOnInit(): void {
+    const picturePipe = new PicturePipe();
     this.currentUser = this.auService.getCurrentUser();
     this.route.params.subscribe((params) => {
       let id = params.id;
       this.productService.getProduct(id).subscribe((response) => {
-        console.log(response);
         this.product = response.data.product;
-        this.isOwner = response.data.isOwner;
+        if (this.product.pictures.length == 0) {
+          this.product.pictures = [this.product.picture];
+        }
+        this.product.pictures = this.product.pictures.map(
+          picture => {
+            return picturePipe.transform(picture);
+          }
+        )
+        this.isOwner = response.data.isOwner || false;
       });
     });
     initContent();

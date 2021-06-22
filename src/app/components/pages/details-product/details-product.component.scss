@@ -1,0 +1,22 @@
+img.round {
+    border-radius: 50%;
+    height: 64px;
+    width: 64px;
+}
+img.round-small {
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+.star {
+    font-size: 1.5rem;
+    color: #b0c4de;
+}
+.filled {
+    color: #ffd700;
+}
+
+.information-line .information-line-title {
+    width: 150px !important;
+    padding-right: 30px !important;
+}

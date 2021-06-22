@@ -1,18 +1,11 @@
-<div
-  class="content-grid"
-  style="
+<div class="content-grid" style="
     transform: translate(360.5px, 0px);
     transition: transform 0.4s ease-in-out 0s;
-  "
->
+  ">
   <!-- SECTION BANNER -->
   <div class="section-banner">
     <!-- SECTION BANNER ICON -->
-    <img
-      class="section-banner-icon"
-      src="../../../../assets/img/banner/marketplace-icon.png"
-      alt="marketplace-icon"
-    />
+    <img class="section-banner-icon" src="../../../../assets/img/banner/marketplace-icon.png" alt="marketplace-icon" />
     <!-- /SECTION BANNER ICON -->
 
     <!-- SECTION BANNER TITLE -->
@@ -33,44 +26,12 @@
   </div>
   <!-- /SECTION HEADER -->
 
-  <!-- GRID -->
   <div class="grid grid-8-4">
     <!-- MARKETPLACE CONTENT -->
     <div class="marketplace-content grid-column">
       <!-- SLIDER PANEL -->
       <div class="slider-panel">
-        <!-- SLIDER PANEL SLIDES -->
-        <div class="tns-outer" id="product-box-slider-items-ow">
-          <div
-            class="tns-liveregion tns-visually-hidden"
-            aria-live="polite"
-            aria-atomic="true"
-          >
-            slide <span class="current">8</span> of 7
-          </div>
-          <div class="tns-inner" id="product-box-slider-items-iw">
-            <div
-              id="product-box-slider-items"
-              class="
-                slider-panel-slides
-                tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
-              "
-            >
-              <!-- SLIDER PANEL SLIDE -->
-              <img
-                style="border-radius: 2%"
-                src="{{
-                  product?.images
-                    ? API + product?.images
-                    : '../../../../assets/img/fishing-home-header.png'
-                }}"
-                alt="item-10"
-              />
-              <!-- /SLIDER PANEL SLIDE -->
-            </div>
-          </div>
-        </div>
-        <!-- /SLIDER PANEL SLIDES -->
+        <app-carousel [pictures]="product?.pictures"></app-carousel>
       </div>
       <!-- /SLIDER PANEL -->
 
@@ -85,22 +46,13 @@
             <!-- /TAB BOX OPTION TITLE -->
           </div>
           <!-- /TAB BOX OPTION -->
-
-          <!-- TAB BOX OPTION -->
-          <!--   <div class="tab-box-option">
-
-                        <p class="tab-box-option-title">Reviews : <span class="highlighted">{{product?.reviews?.length ||
-                                0}}</span></p>
-
-                    </div> -->
-          <!-- /TAB BOX OPTION -->
         </div>
         <!-- /TAB BOX OPTIONS -->
 
         <!-- TAB BOX ITEMS -->
         <div class="tab-box-items">
           <!-- TAB BOX ITEM -->
-          <div class="tab-box-item" style="display: block">
+          <div class="tab-box-item" style="display: block;">
             <!-- TAB BOX ITEM CONTENT -->
             <div class="tab-box-item-content">
               <!-- TAB BOX ITEM TITLE -->
@@ -109,55 +61,6 @@
               <p class="tab-box-item-paragraph">{{ product?.description }}</p>
             </div>
             <!-- /TAB BOX ITEM CONTENT -->
-          </div>
-          <!-- /TAB BOX ITEM -->
-
-          <!-- TAB BOX ITEM -->
-          <div class="tab-box-item" style="display: none">
-            <!-- POST COMMENT LIST -->
-            <div class="post-comment-list no-border-top">
-              <!-- POST COMMENT -->
-
-              <!-- /POST COMMENT -->
-              <div
-                *ngIf="!isOwner && currentUser"
-                class="post-comment-form with-title"
-              >
-                <!-- POST COMMENT FORM TITLE -->
-                <p class="post-comment-form-title">Leave a Review</p>
-                <!-- /POST COMMENT FORM TITLE -->
-
-                <!-- USER AVATAR -->
-                <div class="user-avatar small no-outline">
-                  <!-- USER AVATAR CONTENT -->
-                  <img
-                    class="round-small"
-                    [src]="currentUser?.profilePicture | picture"
-                    alt="avatar-01"
-                  />
-                </div>
-                <!-- /USER AVATAR -->
-
-                <!-- FORM -->
-                <form class="form">
-                  <!-- FORM ROW -->
-                  <div class="form-row">
-                    <!-- FORM ITEM -->
-                    <div class="form-item">
-                      <!-- FORM INPUT -->
-
-                      <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                  </div>
-                  <!-- /FORM ROW -->
-                </form>
-                <!-- /FORM -->
-
-                <!-- /BUTTON -->
-              </div>
-            </div>
-            <!-- /POST COMMENT LIST -->
           </div>
           <!-- /TAB BOX ITEM -->
         </div>
@@ -174,38 +77,85 @@
         <!-- SIDEBAR BOX ITEMS -->
         <div class="sidebar-box-items">
           <!-- PRICE TITLE -->
-          <p class="price-title big">
-            <span class="currency">$</span> {{ product?.price }}
-          </p>
+          <p class="price-title big">{{product?.price| number: "1.2"}}<span class="currency"> Dt</span> </p>
           <!-- /PRICE TITLE -->
 
           <!-- BUTTON -->
-          <p
-            [routerLink]="['/book/', 'product', product?._id]"
-            class="button primary"
-          >
-            {{
-              isOwner
-                ? "Détails
-                        reservations"
-                : "Réserver"
-            }}
-          </p>
+          <p class="button primary">Add to Your Cart!</p>
           <!-- /BUTTON -->
 
           <!-- USER STATS -->
-
+          <div class="user-stats">
             <!-- USER STAT -->
+            <div class="user-stat big">
+              <!-- USER STAT TITLE -->
+              <p class="user-stat-title">1.360</p>
+              <!-- /USER STAT TITLE -->
 
+              <!-- USER STAT TEXT -->
+              <p class="user-stat-text">sales</p>
+              <!-- /USER STAT TEXT -->
+            </div>
             <!-- /USER STAT -->
 
             <!-- USER STAT -->
-
-
+            <div class="user-stat big">
+              <!-- USER STAT TITLE -->
+              <p class="user-stat-title">4.2/5</p>
               <!-- /USER STAT TITLE -->
 
               <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
 
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
               <!-- /RATING LIST -->
             </div>
             <!-- /USER STAT -->
@@ -215,42 +165,40 @@
         <!-- /SIDEBAR BOX ITEMS -->
 
         <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">Owner</p>
+        <p class="sidebar-box-title medium-space">Item Author</p>
         <!-- /SIDEBAR BOX TITLE -->
 
         <!-- SIDEBAR BOX ITEMS -->
         <div class="sidebar-box-items">
           <!-- USER STATUS -->
-          <div class="user-status" style="padding-left: 0px !important">
-            <!-- USER AVATAR -->
-            <img
-              class="round"
-              [src]="product?.owner?.profilePicture | picture"
-              alt="avatar-01"
-            />
-            <!-- /USER AVATAR -->
+          <div class="user-status">
+            <!-- USER STATUS AVATAR -->
+            <a class="user-status-avatar" [routerLink]="">
+              <!-- USER AVATAR -->
+              <!-- USER AVATAR -->
+              <img class="round-small" [src]="product?.owner?.profilePicture | picture" alt="avatar-01" />
+              <!-- /USER AVATAR -->
+            </a>
+            <!-- /USER STATUS AVATAR -->
 
             <!-- USER STATUS TITLE -->
-            <p class="user-status-title">
-              <a *ngIf="product" class="bold" [routerLink]="">
-                {{ product?.owner?.firstName }}
-              </a>
-            </p>
+            <p class="user-status-title"><a class="bold" [routerLink]="[]">{{product?.owner?.companyName}}</a></p>
             <!-- /USER STATUS TITLE -->
-            <!-- USER STATS -->
 
-              <!-- /USER STAT -->
-            </div>
-            <!-- /USER STATS -->
+            <!-- USER STATUS TEXT -->
+            <p class="user-status-text small">5 items published</p>
+            <!-- /USER STATUS TEXT -->
           </div>
           <!-- /USER STATUS -->
+
+          <!-- BUTTON -->
+          <a class="button small white" [routerLink]="">View Provider's Store</a>
+          <!-- /BUTTON -->
         </div>
         <!-- /SIDEBAR BOX ITEMS -->
 
         <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">
-          {{ "product_details" | translate }}
-        </p>
+        <p class="sidebar-box-title medium-space">Item Details</p>
         <!-- /SIDEBAR BOX TITLE -->
 
         <!-- SIDEBAR BOX ITEMS -->
@@ -260,13 +208,11 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">Type</p>
+              <p class="information-line-title">Added</p>
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-              <p class="information-line-text">
-                <span class="bold">{{ product?.type?.name }}</span>
-              </p>
+              <span class="bold">{{product?.createdAt| date: " MMMM, d, y,h:mm a"}}</span>
               <!-- /INFORMATION LINE TEXT -->
             </div>
             <!-- /INFORMATION LINE -->
@@ -274,26 +220,11 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
-                {{ "product_size" | translate }}
-              </p>
+              <p class="information-line-title">Category</p>
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-
-              <!-- /INFORMATION LINE TEXT -->
-            </div>
-            <!-- /INFORMATION LINE -->
-            <!-- INFORMATION LINE -->
-            <div class="information-line">
-              <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
-                {{ "capacity_excluding_crew" | translate }}
-              </p>
-              <!-- /INFORMATION LINE TITLE -->
-
-              <!-- INFORMATION LINE TEXT -->
-
+              <p class="information-line-text"><a [routerLink]="[]">{{product?.type?.name}}</a></p>
               <!-- /INFORMATION LINE TEXT -->
             </div>
             <!-- /INFORMATION LINE -->
@@ -301,35 +232,13 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
-                {{ "port_address" | translate }}
-              </p>
+              <p class="information-line-title">Quantity</p>
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-
+              <p class="information-line-text">{{product?.quantity || 'out of stock'}}</p>
               <!-- /INFORMATION LINE TEXT -->
             </div>
-            <!-- /INFORMATION LINE -->
-
-            <!-- INFORMATION LINE -->
-            <div class="information-line">
-              <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">Created</p>
-              <!-- /INFORMATION LINE TITLE -->
-
-              <!-- INFORMATION LINE TEXT -->
-              <p class="information-line-text">
-                <span class="bold">{{
-                  product?.createdAt
-                    | date
-                      : " MMMM, d, y,
-                                    h:mm a"
-                }}</span>
-              </p>
-              <!-- /INFORMATION LINE TEXT -->
-            </div>
-            <!-- /INFORMATION LINE -->
           </div>
           <!-- /INFORMATION LINE LIST -->
         </div>
@@ -368,4 +277,7 @@
         <!-- /SIDEBAR BOX ITEMS -->
       </div>
       <!-- /SIDEBAR BOX -->
-
+    </div>
+    <!-- /MARKETPLACE SIDEBAR -->
+  </div>
+</div>

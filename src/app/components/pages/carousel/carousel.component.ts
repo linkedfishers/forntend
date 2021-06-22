@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-carousel',
@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CarouselComponent implements OnInit {
 
   constructor() { }
-
+  @Input() pictures: String[] = [];
   ngOnInit(): void {
   }
 
