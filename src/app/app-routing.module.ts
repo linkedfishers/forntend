@@ -32,7 +32,7 @@ import { DetailsEventsComponent } from './components/pages/details-events/detail
 import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
 import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
-
+import { DetailsProductComponent } from './components/pages/details-product/details-product.component';
 
 const routes: Routes = [
   {
@@ -41,7 +41,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: 'admin',
@@ -50,25 +50,25 @@ const routes: Routes = [
       },
       {
         path: 'events',
-        component: EventsComponent
+        component: EventsComponent,
       },
       {
         path: 'map',
-        component: MapComponent
+        component: MapComponent,
       },
       {
         path: 'weather',
-        component: WindyComponent
+        component: WindyComponent,
       },
       {
         path: 'boats',
         component: BoatsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'homes',
         component: HebergementsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'services',
@@ -77,17 +77,17 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: CategoriesServiceComponent
+            component: CategoriesServiceComponent,
           },
           {
             path: ':typeId',
-            component: ServiceListComponent
+            component: ServiceListComponent,
           },
           {
             path: '**',
-            redirectTo: ''
-          }
-        ]
+            redirectTo: '',
+          },
+        ],
       },
       {
         path: 'equipments',
@@ -96,27 +96,27 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: CategoriesComponent
+            component: CategoriesComponent,
           },
           {
             path: ':typeId',
-            component: EquipmentListComponent
+            component: EquipmentListComponent,
           },
           {
             path: '**',
-            redirectTo: ''
-          }
-        ]
+            redirectTo: '',
+          },
+        ],
       },
       {
         path: 'settings',
         component: AccountComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'settings/:page',
         component: AccountComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'profile/:id',
@@ -125,7 +125,7 @@ const routes: Routes = [
       {
         path: 'profile',
         component: ProfileComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'details-home/:id',
@@ -146,28 +146,32 @@ const routes: Routes = [
       {
         path: 'my-booking-requests',
         component: MyReservationsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'booking-requests',
         component: ListReservationsComponent,
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'marketplace/products-list',
-        component: ProductListComponent
+        component: ProductListComponent,
       },
       {
         path: 'provider/add-product',
         component: AddProductComponent,
         canActivate: [AuthGuard],
       },
-    ]
+      {
+        path: 'details-product/:id',
+        component: DetailsProductComponent,
+      },
+    ],
   },
   {
     path: 'login',
@@ -192,12 +196,12 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
-  }
+    redirectTo: '',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

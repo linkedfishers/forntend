@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
   readonly API: string = environment.apiUrl + '/products';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
   createProduct(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/product/new`, formData);
   }
@@ -30,6 +30,10 @@ export class ProductService {
     return this.httpClient.get<any>(`${this.API}/all/`);
   }
 
+  deleteProduct(id: string) {
+    return this.httpClient.delete<any>(`${this.API}/product/${id}`);
+  }
+
   getProduct(id: string) {
     return this.httpClient.get<any>(`${this.API}/product/${id}`);
   }
@@ -37,6 +41,5 @@ export class ProductService {
   getCategories() {
     return this.httpClient.get<any>(`${this.API}/categories`);
   }
-
 }
 export default ProductService;

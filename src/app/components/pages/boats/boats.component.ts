@@ -133,8 +133,7 @@ export class BoatsComponent implements OnInit {
               title: this.translate.instant('delete_error'),
               icon: 'error'
             });
-          }
-        )
+          })
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         return;
       }

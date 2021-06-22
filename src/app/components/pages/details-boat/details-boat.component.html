@@ -1,499 +1,640 @@
-<div class="content-grid" style="transform: translate(360.5px, 0px); transition: transform 0.4s ease-in-out 0s;">
-    <!-- SECTION BANNER -->
-    <div class="section-banner">
-        <!-- SECTION BANNER ICON -->
-        <img class="section-banner-icon" src="../../../../assets/img/banner/marketplace-icon.png"
-            alt="marketplace-icon">
-        <!-- /SECTION BANNER ICON -->
+<div
+  class="content-grid"
+  style="
+    transform: translate(360.5px, 0px);
+    transition: transform 0.4s ease-in-out 0s;
+  "
+>
+  <!-- SECTION BANNER -->
+  <div class="section-banner">
+    <!-- SECTION BANNER ICON -->
+    <img
+      class="section-banner-icon"
+      src="../../../../assets/img/banner/marketplace-icon.png"
+      alt="marketplace-icon"
+    />
+    <!-- /SECTION BANNER ICON -->
 
-        <!-- SECTION BANNER TITLE -->
-        <p class="section-banner-title">boat details!</p>
-        <!-- /SECTION BANNER TITLE -->
+    <!-- SECTION BANNER TITLE -->
+    <p class="section-banner-title">boat details!</p>
+    <!-- /SECTION BANNER TITLE -->
+  </div>
+  <!-- /SECTION BANNER -->
+
+  <!-- SECTION HEADER -->
+  <div class="section-header">
+    <!-- SECTION HEADER INFO -->
+    <div class="section-header-info">
+      <!-- SECTION TITLE -->
+      <h2 class="section-title">{{ boat?.name }}</h2>
+      <!-- /SECTION TITLE -->
     </div>
-    <!-- /SECTION BANNER -->
+    <!-- /SECTION HEADER INFO -->
+  </div>
+  <!-- /SECTION HEADER -->
 
-    <!-- SECTION HEADER -->
-    <div class="section-header">
-        <!-- SECTION HEADER INFO -->
-        <div class="section-header-info">
-            <!-- SECTION TITLE -->
-            <h2 class="section-title">{{boat?.name}}</h2>
-            <!-- /SECTION TITLE -->
-        </div>
-        <!-- /SECTION HEADER INFO -->
-
-    </div>
-    <!-- /SECTION HEADER -->
-
-    <!-- GRID -->
-    <div class="grid grid-8-4">
-        <!-- MARKETPLACE CONTENT -->
-        <div class="marketplace-content grid-column">
-            <!-- SLIDER PANEL -->
-            <div class="slider-panel">
-                <!-- SLIDER PANEL SLIDES -->
-                <div class="tns-outer" id="product-box-slider-items-ow">
-                    <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span
-                            class="current">8</span> of 7</div>
-                    <div class="tns-inner" id="product-box-slider-items-iw">
-                        <div id="product-box-slider-items"
-                            class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal">
-                            <!-- SLIDER PANEL SLIDE -->
-                            <img style="border-radius: 2%"
-                                src="{{boat?.image? API + boat?.image : '../../../../assets/img/fishing-home-header.png'}}"
-                                alt="item-10">
-                            <!-- /SLIDER PANEL SLIDE -->
-                        </div>
-                    </div>
-                </div>
-                <!-- /SLIDER PANEL SLIDES -->
+  <!-- GRID -->
+  <div class="grid grid-8-4">
+    <!-- MARKETPLACE CONTENT -->
+    <div class="marketplace-content grid-column">
+      <!-- SLIDER PANEL -->
+      <div class="slider-panel">
+        <!-- SLIDER PANEL SLIDES -->
+        <div class="tns-outer" id="product-box-slider-items-ow">
+          <div
+            class="tns-liveregion tns-visually-hidden"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            slide <span class="current">8</span> of 7
+          </div>
+          <div class="tns-inner" id="product-box-slider-items-iw">
+            <div
+              id="product-box-slider-items"
+              class="
+                slider-panel-slides
+                tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
+              "
+            >
+              <!-- SLIDER PANEL SLIDE -->
+              <img
+                style="border-radius: 2%"
+                src="{{
+                  boat?.image
+                    ? API + boat?.image
+                    : '../../../../assets/img/fishing-home-header.png'
+                }}"
+                alt="item-10"
+              />
+              <!-- /SLIDER PANEL SLIDE -->
             </div>
-            <!-- /SLIDER PANEL -->
-
-            <!-- TAB BOX -->
-            <div class="tab-box">
-                <!-- TAB BOX OPTIONS -->
-                <div class="tab-box-options">
-                    <!-- TAB BOX OPTION -->
-                    <div class="tab-box-option active">
-                        <!-- TAB BOX OPTION TITLE -->
-                        <p class="tab-box-option-title">Description</p>
-                        <!-- /TAB BOX OPTION TITLE -->
-                    </div>
-                    <!-- /TAB BOX OPTION -->
-
-                    <!-- TAB BOX OPTION -->
-                    <div class="tab-box-option">
-                        <!-- TAB BOX OPTION TITLE -->
-                        <p class="tab-box-option-title">Reviews : <span class="highlighted">{{boat?.reviews?.length ||
-                                0}}</span></p>
-                        <!-- /TAB BOX OPTION TITLE -->
-                    </div>
-                    <!-- /TAB BOX OPTION -->
-                </div>
-                <!-- /TAB BOX OPTIONS -->
-
-                <!-- TAB BOX ITEMS -->
-                <div class="tab-box-items">
-                    <!-- TAB BOX ITEM -->
-                    <div class="tab-box-item" style="display: block;">
-                        <!-- TAB BOX ITEM CONTENT -->
-                        <div class="tab-box-item-content">
-                            <!-- TAB BOX ITEM TITLE -->
-                            <p class="tab-box-item-title">{{boat?.name}}</p>
-                            <!-- /TAB BOX ITEM TITLE -->
-                            <p class="tab-box-item-paragraph">{{boat?.description}}</p>
-                        </div>
-                        <!-- /TAB BOX ITEM CONTENT -->
-                    </div>
-                    <!-- /TAB BOX ITEM -->
-
-                    <!-- TAB BOX ITEM -->
-                    <div class="tab-box-item" style="display: none;">
-                        <!-- POST COMMENT LIST -->
-                        <div class="post-comment-list no-border-top">
-                            <!-- POST COMMENT -->
-                            <div *ngFor="let review of boat?.reviews" class="post-comment">
-                                <!-- USER AVATAR -->
-                                <a class="user-avatar small no-outline"
-                                    [routerLink]="['/profile/',(review?.author?.slug || review?.author?._id)]">
-                                    <img class="round-small" [src]="review?.author?.profilePicture | picture"
-                                        alt="avatar-01">
-                                </a>
-                                <!-- /USER AVATAR -->
-
-                                <!-- POST COMMENT TEXT WRAP -->
-                                <div *ngIf="review?.rating" class="post-comment-text-wrap">
-                                    <!-- RATING LIST -->
-                                    <div class="rating-list medium">
-                                        <!-- RATING -->
-                                        <div *ngFor="let i of range(review?.rating)" class="rating medium filled">
-                                            <!-- RATING ICON -->
-                                            <svg class="rating-icon medium icon-star">
-                                                <use xlink:href="#svg-star"></use>
-                                            </svg>
-                                            <!-- /RATING ICON -->
-                                        </div>
-                                        <!-- /RATING -->
-
-                                        <!-- RATING -->
-                                        <div *ngFor="let i of range(5 - review?.rating)" class="rating medium">
-                                            <!-- RATING ICON -->
-                                            <svg class="rating-icon medium icon-star">
-                                                <use xlink:href="#svg-star"></use>
-                                            </svg>
-                                            <!-- /RATING ICON -->
-                                        </div>
-                                        <!-- /RATING -->
-                                    </div>
-                                    <!-- /RATING LIST -->
-
-                                    <!-- POST COMMENT TEXT -->
-                                    <p *ngIf="review?.rating" class="post-comment-text"><span class="bold"> Rating:
-                                        </span> <span class="highlighted">{{review?.rating}}/5</span></p>
-                                    <!-- /POST COMMENT TEXT -->
-                                </div>
-                                <!-- /POST COMMENT TEXT WRAP -->
-
-                                <!-- POST COMMENT TEXT -->
-                                <p class="post-comment-text">{{review?.content}}</p>
-                                <!-- /POST COMMENT TEXT -->
-
-                                <!-- CONTENT ACTIONS -->
-                                <div class="content-actions">
-                                    <!-- CONTENT ACTION -->
-                                    <div class="content-action">
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TEXT -->
-                                            <p class="meta-line-text">
-                                                <a
-                                                    [routerLink]="['/profile/',(review?.author?.slug || review?.author?._id)]">
-                                                    {{review?.author?.fullName}}
-                                                </a>
-                                            </p>
-                                            <!-- /META LINE TEXT -->
-                                        </div>
-                                        <!-- /META LINE -->
-
-                                        <!-- META LINE -->
-                                        <div class="meta-line">
-                                            <!-- META LINE TIMESTAMP -->
-                                            <p class="meta-line-timestamp">{{review?.createdAt | timeAgo}}</p>
-                                            <!-- /META LINE TIMESTAMP -->
-                                        </div>
-                                        <!-- /META LINE -->
-
-                                        <!-- META LINE -->
-                                        <div class="meta-line settings">
-                                            <!-- POST SETTINGS WRAP -->
-                                            <div class="post-settings-wrap" style="position: relative;">
-                                                <!-- POST SETTINGS -->
-                                                <div class="post-settings post-settings-dropdown-trigger">
-                                                    <!-- POST SETTINGS ICON -->
-                                                    <svg class="post-settings-icon icon-more-dots">
-                                                        <use xlink:href="#svg-more-dots"></use>
-                                                    </svg>
-                                                    <!-- /POST SETTINGS ICON -->
-                                                </div>
-                                                <!-- /POST SETTINGS -->
-
-                                                <!-- SIMPLE DROPDOWN -->
-                                                <div class="simple-dropdown post-settings-dropdown"
-                                                    style="position: absolute; z-index: 9999; bottom: 30px; right: 0px; opacity: 0; visibility: hidden; transform: translate(0px, 16px); transition: transform 0.3s ease-in-out 0s, opacity 0.3s ease-in-out 0s, visibility 0.3s ease-in-out 0s;">
-                                                    <!-- SIMPLE DROPDOWN LINK -->
-                                                    <p class="simple-dropdown-link">Report Review</p>
-                                                    <!-- /SIMPLE DROPDOWN LINK -->
-                                                </div>
-                                                <!-- /SIMPLE DROPDOWN -->
-                                            </div>
-                                            <!-- /POST SETTINGS WRAP -->
-                                        </div>
-                                        <!-- /META LINE -->
-                                    </div>
-                                    <!-- /CONTENT ACTION -->
-                                </div>
-                                <!-- /CONTENT ACTIONS -->
-                            </div>
-                            <!-- /POST COMMENT -->
-                            <div *ngIf="!isOwner && currentUser" class="post-comment-form with-title">
-                                <!-- POST COMMENT FORM TITLE -->
-                                <p class="post-comment-form-title">Leave a Review</p>
-                                <!-- /POST COMMENT FORM TITLE -->
-
-                                <!-- USER AVATAR -->
-                                <div class="user-avatar small no-outline">
-                                    <!-- USER AVATAR CONTENT -->
-                                    <img class="round-small" [src]="currentUser?.profilePicture | picture"
-                                        alt="avatar-01">
-                                </div>
-                                <!-- /USER AVATAR -->
-
-                                <!-- FORM -->
-                                <form class="form">
-                                    <!-- FORM ROW -->
-                                    <div class="form-row">
-                                        <!-- FORM ITEM -->
-                                        <div class="form-item">
-                                            <!-- FORM INPUT -->
-                                            <ngb-rating [resettable]="true" [max]="5" [(rate)]="newReview.rating">
-                                                <ng-template let-fill="fill" let-index="index">
-                                                    <span class="star" [class.filled]="fill === 100">&#9733;</span>
-                                                </ng-template>
-                                            </ngb-rating>
-                                            <div style="padding-top: 20px;" class="form-input small active">
-                                                <textarea placeholder="Your review" [(ngModel)]="newReview.content"
-                                                    id="post-reply-2" name="post_reply_2"></textarea>
-                                            </div>
-                                            <!-- /FORM INPUT -->
-                                        </div>
-                                        <!-- /FORM ITEM -->
-                                    </div>
-                                    <!-- /FORM ROW -->
-                                </form>
-                                <!-- /FORM -->
-                                <p (click)="addReview()" style="width: 100%;" class="button secondary">{{'Add review' |
-                                    translate }}</p>
-                                <!-- /BUTTON -->
-                            </div>
-                        </div>
-                        <!-- /POST COMMENT LIST -->
-                    </div>
-                    <!-- /TAB BOX ITEM -->
-                </div>
-                <!-- /TAB BOX ITEMS -->
-            </div>
-            <!-- /TAB BOX -->
+          </div>
         </div>
-        <!-- /MARKETPLACE CONTENT -->
+        <!-- /SLIDER PANEL SLIDES -->
+      </div>
+      <!-- /SLIDER PANEL -->
 
-        <!-- MARKETPLACE SIDEBAR -->
-        <div class="marketplace-sidebar">
-            <!-- SIDEBAR BOX -->
-            <div class="sidebar-box">
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items">
-                    <!-- PRICE TITLE -->
-                    <p class="price-title big"><span class="currency">$</span> {{boat?.price}}</p>
-                    <!-- /PRICE TITLE -->
+      <!-- TAB BOX -->
+      <div class="tab-box">
+        <!-- TAB BOX OPTIONS -->
+        <div class="tab-box-options">
+          <!-- TAB BOX OPTION -->
+          <div class="tab-box-option active">
+            <!-- TAB BOX OPTION TITLE -->
+            <p class="tab-box-option-title">Description</p>
+            <!-- /TAB BOX OPTION TITLE -->
+          </div>
+          <!-- /TAB BOX OPTION -->
 
-                    <!-- BUTTON -->
-                    <p [routerLink]="['/book/','boat',boat?._id]" class="button primary">{{isOwner ? 'Détails
-                        reservations' : 'Réserver'}}</p>
-                    <!-- /BUTTON -->
+          <!-- TAB BOX OPTION -->
+          <div class="tab-box-option">
+            <!-- TAB BOX OPTION TITLE -->
+            <p class="tab-box-option-title">
+              Reviews :
+              <span class="highlighted">{{ boat?.reviews?.length || 0 }}</span>
+            </p>
+            <!-- /TAB BOX OPTION TITLE -->
+          </div>
+          <!-- /TAB BOX OPTION -->
+        </div>
+        <!-- /TAB BOX OPTIONS -->
 
-                    <!-- USER STATS -->
-                    <div class="user-stats">
-                        <!-- USER STAT -->
-                        <div class="user-stat big">
-                            <!-- USER STAT TITLE -->
-                            <p class="user-stat-title">{{boat?.reviews.length}}</p>
-                            <!-- /USER STAT TITLE -->
+        <!-- TAB BOX ITEMS -->
+        <div class="tab-box-items">
+          <!-- TAB BOX ITEM -->
+          <div class="tab-box-item" style="display: block">
+            <!-- TAB BOX ITEM CONTENT -->
+            <div class="tab-box-item-content">
+              <!-- TAB BOX ITEM TITLE -->
+              <p class="tab-box-item-title">{{ boat?.name }}</p>
+              <!-- /TAB BOX ITEM TITLE -->
+              <p class="tab-box-item-paragraph">{{ boat?.description }}</p>
+            </div>
+            <!-- /TAB BOX ITEM CONTENT -->
+          </div>
+          <!-- /TAB BOX ITEM -->
 
-                            <!-- USER STAT TEXT -->
-                            <p class="user-stat-text">Reviews</p>
-                            <!-- /USER STAT TEXT -->
-                        </div>
-                        <!-- /USER STAT -->
+          <!-- TAB BOX ITEM -->
+          <div class="tab-box-item" style="display: none">
+            <!-- POST COMMENT LIST -->
+            <div class="post-comment-list no-border-top">
+              <!-- POST COMMENT -->
+              <div *ngFor="let review of boat?.reviews" class="post-comment">
+                <!-- USER AVATAR -->
+                <a
+                  class="user-avatar small no-outline"
+                  [routerLink]="[
+                    '/profile/',
+                    review?.author?.slug || review?.author?._id
+                  ]"
+                >
+                  <img
+                    class="round-small"
+                    [src]="review?.author?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
+                </a>
+                <!-- /USER AVATAR -->
 
-                        <!-- USER STAT -->
-                        <div class="user-stat big">
-                            <!-- USER STAT TITLE -->
-                            <p class="user-stat-title">{{boat?.rating | number : '1.0-2'}}/5</p>
-                            <!-- /USER STAT TITLE -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <!-- RATING -->
-                                <div *ngFor="let i of range(boat?.rating)" class="rating medium filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon medium icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div *ngFor="let i of range(5 - boat?.rating)" class="rating medium">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon medium icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-                            </div>
-                            <!-- /RATING LIST -->
-                        </div>
-                        <!-- /USER STAT -->
+                <!-- POST COMMENT TEXT WRAP -->
+                <div *ngIf="review?.rating" class="post-comment-text-wrap">
+                  <!-- RATING LIST -->
+                  <div class="rating-list medium">
+                    <!-- RATING -->
+                    <div
+                      *ngFor="let i of range(review?.rating)"
+                      class="rating medium filled"
+                    >
+                      <!-- RATING ICON -->
+                      <svg class="rating-icon medium icon-star">
+                        <use xlink:href="#svg-star"></use>
+                      </svg>
+                      <!-- /RATING ICON -->
                     </div>
-                    <!-- /USER STATS -->
-                </div>
-                <!-- /SIDEBAR BOX ITEMS -->
+                    <!-- /RATING -->
 
-                <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">Owner</p>
-                <!-- /SIDEBAR BOX TITLE -->
-
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items">
-                    <!-- USER STATUS -->
-                    <div class="user-status" style="padding-left: 0px !important;">
-                        <!-- USER AVATAR -->
-                        <img class="round" [src]="boat?.owner?.profilePicture | picture" alt="avatar-01">
-                        <!-- /USER AVATAR -->
-
-                        <!-- USER STATUS TITLE -->
-                        <p class="user-status-title">
-                            <a *ngIf="boat" class="bold" [routerLink]="">
-                                {{boat?.owner?.firstName}}
-                            </a>
-                        </p>
-                        <!-- /USER STATUS TITLE -->
-                        <!-- USER STATS -->
-                        <div class="user-stats" style="padding-top: 20px;">
-                            <!-- USER STAT -->
-                            <div class="user-stat big">
-                                <!-- USER STAT TITLE -->
-                                <p class="user-stat-title">{{boat?.owner?.reviews.length}}</p>
-                                <!-- /USER STAT TITLE -->
-
-                                <!-- USER STAT TEXT -->
-                                <p class="user-stat-text">Reviews</p>
-                                <!-- /USER STAT TEXT -->
-                            </div>
-                            <!-- /USER STAT -->
-                            <br>
-                            <!-- USER STAT -->
-                            <div class="user-stat big">
-                                <!-- USER STAT TITLE -->
-                                <p class="user-stat-title">{{boat?.owner?.rating | number : '1.0-2'}}/5</p>
-                                <!-- /USER STAT TITLE -->
-
-                                <!-- RATING LIST -->
-                                <div class="rating-list">
-                                    <!-- RATING -->
-                                    <!-- RATING -->
-                                    <div *ngFor="let i of range(boat?.owner?.rating)" class="rating medium filled">
-                                        <!-- RATING ICON -->
-                                        <svg class="rating-icon medium icon-star">
-                                            <use xlink:href="#svg-star"></use>
-                                        </svg>
-                                        <!-- /RATING ICON -->
-                                    </div>
-                                    <!-- /RATING -->
-
-                                    <!-- RATING -->
-                                    <div *ngFor="let i of range(5 - boat?.owner?.rating)" class="rating medium">
-                                        <!-- RATING ICON -->
-                                        <svg class="rating-icon medium icon-star">
-                                            <use xlink:href="#svg-star"></use>
-                                        </svg>
-                                        <!-- /RATING ICON -->
-                                    </div>
-                                    <!-- /RATING -->
-                                </div>
-                                <!-- /RATING LIST -->
-                            </div>
-                            <!-- /USER STAT -->
-                        </div>
-                        <!-- /USER STATS -->
+                    <!-- RATING -->
+                    <div
+                      *ngFor="let i of range(5 - review?.rating)"
+                      class="rating medium"
+                    >
+                      <!-- RATING ICON -->
+                      <svg class="rating-icon medium icon-star">
+                        <use xlink:href="#svg-star"></use>
+                      </svg>
+                      <!-- /RATING ICON -->
                     </div>
-                    <!-- /USER STATUS -->
+                    <!-- /RATING -->
+                  </div>
+                  <!-- /RATING LIST -->
 
+                  <!-- POST COMMENT TEXT -->
+                  <p *ngIf="review?.rating" class="post-comment-text">
+                    <span class="bold"> Rating: </span>
+                    <span class="highlighted">{{ review?.rating }}/5</span>
+                  </p>
+                  <!-- /POST COMMENT TEXT -->
                 </div>
-                <!-- /SIDEBAR BOX ITEMS -->
+                <!-- /POST COMMENT TEXT WRAP -->
 
-                <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">{{'boat_details' | translate}}</p>
-                <!-- /SIDEBAR BOX TITLE -->
+                <!-- POST COMMENT TEXT -->
+                <p class="post-comment-text">{{ review?.content }}</p>
+                <!-- /POST COMMENT TEXT -->
 
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items">
-                    <!-- INFORMATION LINE LIST -->
-                    <div class="information-line-list">
-
-                        <!-- INFORMATION LINE -->
-                        <div class="information-line">
-                            <!-- INFORMATION LINE TITLE -->
-                            <p class="information-line-title">Type</p>
-                            <!-- /INFORMATION LINE TITLE -->
-
-                            <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.type?.name }}</span></p>
-                            <!-- /INFORMATION LINE TEXT -->
-                        </div>
-                        <!-- /INFORMATION LINE -->
-
-                        <!-- INFORMATION LINE -->
-                        <div class="information-line">
-                            <!-- INFORMATION LINE TITLE -->
-                            <p class="information-line-title">{{'boat_size' | translate}}</p>
-                            <!-- /INFORMATION LINE TITLE -->
-
-                            <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.details?.size }}</span></p>
-                            <!-- /INFORMATION LINE TEXT -->
-                        </div>
-                        <!-- /INFORMATION LINE -->
-                        <!-- INFORMATION LINE -->
-                        <div class="information-line">
-                            <!-- INFORMATION LINE TITLE -->
-                            <p class="information-line-title">{{'capacity_excluding_crew' | translate}}</p>
-                            <!-- /INFORMATION LINE TITLE -->
-
-                            <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.details?.capacity }}</span></p>
-                            <!-- /INFORMATION LINE TEXT -->
-                        </div>
-                        <!-- /INFORMATION LINE -->
-
-                        <!-- INFORMATION LINE -->
-                        <div class="information-line">
-                            <!-- INFORMATION LINE TITLE -->
-                            <p class="information-line-title">{{'port_address' | translate}}</p>
-                            <!-- /INFORMATION LINE TITLE -->
-
-                            <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.details?.port }}</span></p>
-                            <!-- /INFORMATION LINE TEXT -->
-                        </div>
-                        <!-- /INFORMATION LINE -->
-
-                        <!-- INFORMATION LINE -->
-                        <div class="information-line">
-                            <!-- INFORMATION LINE TITLE -->
-                            <p class="information-line-title">Created</p>
-                            <!-- /INFORMATION LINE TITLE -->
-
-                            <!-- INFORMATION LINE TEXT -->
-                            <p class="information-line-text"><span class="bold">{{boat?.createdAt | date : ' MMMM, d, y,
-                                    h:mm a' }}</span></p>
-                            <!-- /INFORMATION LINE TEXT -->
-                        </div>
-                        <!-- /INFORMATION LINE -->
-                    </div>
-                    <!-- /INFORMATION LINE LIST -->
-                </div>
-                <!-- /SIDEBAR BOX ITEMS -->
-
-                <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title medium-space">Item Share</p>
-                <!-- /SIDEBAR BOX TITLE -->
-
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items">
-                    <!-- SOCIAL LINKS -->
-                    <div class="social-links small align-left">
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link small facebook" href="#">
-                            <!-- SOCIAL LINK ICON -->
-                            <svg class="social-link-icon icon-facebook">
-                                <use xlink:href="#svg-facebook"></use>
-                            </svg>
-                            <!-- /SOCIAL LINK ICON -->
+                <!-- CONTENT ACTIONS -->
+                <div class="content-actions">
+                  <!-- CONTENT ACTION -->
+                  <div class="content-action">
+                    <!-- META LINE -->
+                    <div class="meta-line">
+                      <!-- META LINE TEXT -->
+                      <p class="meta-line-text">
+                        <a
+                          [routerLink]="[
+                            '/profile/',
+                            review?.author?.slug || review?.author?._id
+                          ]"
+                        >
+                          {{ review?.author?.fullName }}
                         </a>
-                        <!-- /SOCIAL LINK -->
-
-                        <!-- SOCIAL LINK -->
-                        <a class="social-link small twitter" href="#">
-                            <!-- SOCIAL LINK ICON -->
-                            <svg class="social-link-icon icon-twitter">
-                                <use xlink:href="#svg-twitter"></use>
-                            </svg>
-                            <!-- /SOCIAL LINK ICON -->
-                        </a>
-                        <!-- /SOCIAL LINK -->
+                      </p>
+                      <!-- /META LINE TEXT -->
                     </div>
-                    <!-- /SOCIAL LINKS -->
+                    <!-- /META LINE -->
+
+                    <!-- META LINE -->
+                    <div class="meta-line">
+                      <!-- META LINE TIMESTAMP -->
+                      <p class="meta-line-timestamp">
+                        {{ review?.createdAt | timeAgo }}
+                      </p>
+                      <!-- /META LINE TIMESTAMP -->
+                    </div>
+                    <!-- /META LINE -->
+
+                    <!-- META LINE -->
+                    <div class="meta-line settings">
+                      <!-- POST SETTINGS WRAP -->
+                      <div
+                        class="post-settings-wrap"
+                        style="position: relative"
+                      >
+                        <!-- POST SETTINGS -->
+                        <div
+                          class="post-settings post-settings-dropdown-trigger"
+                        >
+                          <!-- POST SETTINGS ICON -->
+                          <svg class="post-settings-icon icon-more-dots">
+                            <use xlink:href="#svg-more-dots"></use>
+                          </svg>
+                          <!-- /POST SETTINGS ICON -->
+                        </div>
+                        <!-- /POST SETTINGS -->
+
+                        <!-- SIMPLE DROPDOWN -->
+                        <div
+                          class="simple-dropdown post-settings-dropdown"
+                          style="
+                            position: absolute;
+                            z-index: 9999;
+                            bottom: 30px;
+                            right: 0px;
+                            opacity: 0;
+                            visibility: hidden;
+                            transform: translate(0px, 16px);
+                            transition: transform 0.3s ease-in-out 0s,
+                              opacity 0.3s ease-in-out 0s,
+                              visibility 0.3s ease-in-out 0s;
+                          "
+                        >
+                          <!-- SIMPLE DROPDOWN LINK -->
+                          <p class="simple-dropdown-link">Report Review</p>
+                          <!-- /SIMPLE DROPDOWN LINK -->
+                        </div>
+                        <!-- /SIMPLE DROPDOWN -->
+                      </div>
+                      <!-- /POST SETTINGS WRAP -->
+                    </div>
+                    <!-- /META LINE -->
+                  </div>
+                  <!-- /CONTENT ACTION -->
                 </div>
-                <!-- /SIDEBAR BOX ITEMS -->
+                <!-- /CONTENT ACTIONS -->
+              </div>
+              <!-- /POST COMMENT -->
+              <div
+                *ngIf="!isOwner && currentUser"
+                class="post-comment-form with-title"
+              >
+                <!-- POST COMMENT FORM TITLE -->
+                <p class="post-comment-form-title">Leave a Review</p>
+                <!-- /POST COMMENT FORM TITLE -->
+
+                <!-- USER AVATAR -->
+                <div class="user-avatar small no-outline">
+                  <!-- USER AVATAR CONTENT -->
+                  <img
+                    class="round-small"
+                    [src]="currentUser?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
+                </div>
+                <!-- /USER AVATAR -->
+
+                <!-- FORM -->
+                <form class="form">
+                  <!-- FORM ROW -->
+                  <div class="form-row">
+                    <!-- FORM ITEM -->
+                    <div class="form-item">
+                      <!-- FORM INPUT -->
+                      <ngb-rating
+                        [resettable]="true"
+                        [max]="5"
+                        [(rate)]="newReview.rating"
+                      >
+                        <ng-template let-fill="fill" let-index="index">
+                          <span class="star" [class.filled]="fill === 100"
+                            >&#9733;</span
+                          >
+                        </ng-template>
+                      </ngb-rating>
+                      <div
+                        style="padding-top: 20px"
+                        class="form-input small active"
+                      >
+                        <textarea
+                          placeholder="Your review"
+                          [(ngModel)]="newReview.content"
+                          id="post-reply-2"
+                          name="post_reply_2"
+                        ></textarea>
+                      </div>
+                      <!-- /FORM INPUT -->
+                    </div>
+                    <!-- /FORM ITEM -->
+                  </div>
+                  <!-- /FORM ROW -->
+                </form>
+                <!-- /FORM -->
+                <p
+                  (click)="addReview()"
+                  style="width: 100%"
+                  class="button secondary"
+                >
+                  {{ "Add review" | translate }}
+                </p>
+                <!-- /BUTTON -->
+              </div>
             </div>
-            <!-- /SIDEBAR BOX -->
+            <!-- /POST COMMENT LIST -->
+          </div>
+          <!-- /TAB BOX ITEM -->
         </div>
-        <!-- /MARKETPLACE SIDEBAR -->
+        <!-- /TAB BOX ITEMS -->
+      </div>
+      <!-- /TAB BOX -->
     </div>
-    <!-- /GRID -->
+    <!-- /MARKETPLACE CONTENT -->
+
+    <!-- MARKETPLACE SIDEBAR -->
+    <div class="marketplace-sidebar">
+      <!-- SIDEBAR BOX -->
+      <div class="sidebar-box">
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items">
+          <!-- PRICE TITLE -->
+          <p class="price-title big">
+            <span class="currency">$</span> {{ boat?.price }}
+          </p>
+          <!-- /PRICE TITLE -->
+
+          <!-- BUTTON -->
+          <p
+            [routerLink]="['/book/', 'boat', boat?._id]"
+            class="button primary"
+          >
+            {{
+              isOwner
+                ? "Détails
+                        reservations"
+                : "Réserver"
+            }}
+          </p>
+          <!-- /BUTTON -->
+
+          <!-- USER STATS -->
+          <div class="user-stats">
+            <!-- USER STAT -->
+            <div class="user-stat big">
+              <!-- USER STAT TITLE -->
+              <p class="user-stat-title">{{ boat?.reviews.length }}</p>
+              <!-- /USER STAT TITLE -->
+
+              <!-- USER STAT TEXT -->
+              <p class="user-stat-text">Reviews</p>
+              <!-- /USER STAT TEXT -->
+            </div>
+            <!-- /USER STAT -->
+
+            <!-- USER STAT -->
+            <div class="user-stat big">
+              <!-- USER STAT TITLE -->
+              <p class="user-stat-title">
+                {{ boat?.rating | number: "1.0-2" }}/5
+              </p>
+              <!-- /USER STAT TITLE -->
+
+              <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <!-- RATING -->
+                <div
+                  *ngFor="let i of range(boat?.rating)"
+                  class="rating medium filled"
+                >
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon medium icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div
+                  *ngFor="let i of range(5 - boat?.rating)"
+                  class="rating medium"
+                >
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon medium icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
+              <!-- /RATING LIST -->
+            </div>
+            <!-- /USER STAT -->
+          </div>
+          <!-- /USER STATS -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+
+        <!-- SIDEBAR BOX TITLE -->
+        <p class="sidebar-box-title medium-space">Owner</p>
+        <!-- /SIDEBAR BOX TITLE -->
+
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items">
+          <!-- USER STATUS -->
+          <div class="user-status" style="padding-left: 0px !important">
+            <!-- USER AVATAR -->
+            <img
+              class="round"
+              [src]="boat?.owner?.profilePicture | picture"
+              alt="avatar-01"
+            />
+            <!-- /USER AVATAR -->
+
+            <!-- USER STATUS TITLE -->
+            <p class="user-status-title">
+              <a *ngIf="boat" class="bold" [routerLink]="">
+                {{ boat?.owner?.firstName }}
+              </a>
+            </p>
+            <!-- /USER STATUS TITLE -->
+            <!-- USER STATS -->
+            <div class="user-stats" style="padding-top: 20px">
+              <!-- USER STAT -->
+              <div class="user-stat big">
+                <!-- USER STAT TITLE -->
+                <p class="user-stat-title">{{ boat?.owner?.reviews.length }}</p>
+                <!-- /USER STAT TITLE -->
+
+                <!-- USER STAT TEXT -->
+                <p class="user-stat-text">Reviews</p>
+                <!-- /USER STAT TEXT -->
+              </div>
+              <!-- /USER STAT -->
+              <br />
+              <!-- USER STAT -->
+              <div class="user-stat big">
+                <!-- USER STAT TITLE -->
+                <p class="user-stat-title">
+                  {{ boat?.owner?.rating | number: "1.0-2" }}/5
+                </p>
+                <!-- /USER STAT TITLE -->
+
+                <!-- RATING LIST -->
+                <div class="rating-list">
+                  <!-- RATING -->
+                  <!-- RATING -->
+                  <div
+                    *ngFor="let i of range(boat?.owner?.rating)"
+                    class="rating medium filled"
+                  >
+                    <!-- RATING ICON -->
+                    <svg class="rating-icon medium icon-star">
+                      <use xlink:href="#svg-star"></use>
+                    </svg>
+                    <!-- /RATING ICON -->
+                  </div>
+                  <!-- /RATING -->
+
+                  <!-- RATING -->
+                  <div
+                    *ngFor="let i of range(5 - boat?.owner?.rating)"
+                    class="rating medium"
+                  >
+                    <!-- RATING ICON -->
+                    <svg class="rating-icon medium icon-star">
+                      <use xlink:href="#svg-star"></use>
+                    </svg>
+                    <!-- /RATING ICON -->
+                  </div>
+                  <!-- /RATING -->
+                </div>
+                <!-- /RATING LIST -->
+              </div>
+              <!-- /USER STAT -->
+            </div>
+            <!-- /USER STATS -->
+          </div>
+          <!-- /USER STATUS -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+
+        <!-- SIDEBAR BOX TITLE -->
+        <p class="sidebar-box-title medium-space">
+          {{ "boat_details" | translate }}
+        </p>
+        <!-- /SIDEBAR BOX TITLE -->
+
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items">
+          <!-- INFORMATION LINE LIST -->
+          <div class="information-line-list">
+            <!-- INFORMATION LINE -->
+            <div class="information-line">
+              <!-- INFORMATION LINE TITLE -->
+              <p class="information-line-title">Type</p>
+              <!-- /INFORMATION LINE TITLE -->
+
+              <!-- INFORMATION LINE TEXT -->
+              <p class="information-line-text">
+                <span class="bold">{{ boat?.type?.name }}</span>
+              </p>
+              <!-- /INFORMATION LINE TEXT -->
+            </div>
+            <!-- /INFORMATION LINE -->
+
+            <!-- INFORMATION LINE -->
+            <div class="information-line">
+              <!-- INFORMATION LINE TITLE -->
+              <p class="information-line-title">
+                {{ "boat_size" | translate }}
+              </p>
+              <!-- /INFORMATION LINE TITLE -->
+
+              <!-- INFORMATION LINE TEXT -->
+              <p class="information-line-text">
+                <span class="bold">{{ boat?.details?.size }}</span>
+              </p>
+              <!-- /INFORMATION LINE TEXT -->
+            </div>
+            <!-- /INFORMATION LINE -->
+            <!-- INFORMATION LINE -->
+            <div class="information-line">
+              <!-- INFORMATION LINE TITLE -->
+              <p class="information-line-title">
+                {{ "capacity_excluding_crew" | translate }}
+              </p>
+              <!-- /INFORMATION LINE TITLE -->
+
+              <!-- INFORMATION LINE TEXT -->
+              <p class="information-line-text">
+                <span class="bold">{{ boat?.details?.capacity }}</span>
+              </p>
+              <!-- /INFORMATION LINE TEXT -->
+            </div>
+            <!-- /INFORMATION LINE -->
+
+            <!-- INFORMATION LINE -->
+            <div class="information-line">
+              <!-- INFORMATION LINE TITLE -->
+              <p class="information-line-title">
+                {{ "port_address" | translate }}
+              </p>
+              <!-- /INFORMATION LINE TITLE -->
+
+              <!-- INFORMATION LINE TEXT -->
+              <p class="information-line-text">
+                <span class="bold">{{ boat?.details?.port }}</span>
+              </p>
+              <!-- /INFORMATION LINE TEXT -->
+            </div>
+            <!-- /INFORMATION LINE -->
+
+            <!-- INFORMATION LINE -->
+            <div class="information-line">
+              <!-- INFORMATION LINE TITLE -->
+              <p class="information-line-title">Created</p>
+              <!-- /INFORMATION LINE TITLE -->
+
+              <!-- INFORMATION LINE TEXT -->
+              <p class="information-line-text">
+                <span class="bold">{{
+                  boat?.createdAt
+                    | date
+                      : " MMMM, d, y,
+                                    h:mm a"
+                }}</span>
+              </p>
+              <!-- /INFORMATION LINE TEXT -->
+            </div>
+            <!-- /INFORMATION LINE -->
+          </div>
+          <!-- /INFORMATION LINE LIST -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+
+        <!-- SIDEBAR BOX TITLE -->
+        <p class="sidebar-box-title medium-space">Item Share</p>
+        <!-- /SIDEBAR BOX TITLE -->
+
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items">
+          <!-- SOCIAL LINKS -->
+          <div class="social-links small align-left">
+            <!-- SOCIAL LINK -->
+            <a class="social-link small facebook" href="#">
+              <!-- SOCIAL LINK ICON -->
+              <svg class="social-link-icon icon-facebook">
+                <use xlink:href="#svg-facebook"></use>
+              </svg>
+              <!-- /SOCIAL LINK ICON -->
+            </a>
+            <!-- /SOCIAL LINK -->
+
+            <!-- SOCIAL LINK -->
+            <a class="social-link small twitter" href="#">
+              <!-- SOCIAL LINK ICON -->
+              <svg class="social-link-icon icon-twitter">
+                <use xlink:href="#svg-twitter"></use>
+              </svg>
+              <!-- /SOCIAL LINK ICON -->
+            </a>
+            <!-- /SOCIAL LINK -->
+          </div>
+          <!-- /SOCIAL LINKS -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+      </div>
+      <!-- /SIDEBAR BOX -->
+    </div>
+    <!-- /MARKETPLACE SIDEBAR -->
+  </div>
+  <!-- /GRID -->
 </div>

@@ -9,6 +9,7 @@ export class Product {
   description: string;
   owner: Provider;
   type: Categorie;
+  createdAt: any;
 }
 
 export class Categorie {
