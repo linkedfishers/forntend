@@ -69,8 +69,8 @@ import { DatePipe } from '@angular/common';
 import { ServicesComponent } from './components/pages/services/services.component';
 import { ServiceListComponent } from './components/pages/services/service-list/service-list.component';
 import { CategoriesServiceComponent } from './components/pages/services/categoriesService/categories.component';
-import { MyReservationsComponent } from './components/pages/my-reservations/my-reservations.component'
-import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component'
+import { MyReservationsComponent } from './components/pages/my-reservations/my-reservations.component';
+import { ReservationsRequestComponent } from './components/pages/reservations-request/reservations-request.component';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListReservationsComponent } from './components/pages/list-reservations/list-reservations.component';
 import { DetailsEventsComponent } from './components/pages/details-events/details-events.component';
@@ -79,11 +79,12 @@ import { DetailsProductComponent } from './components/pages/details-product/deta
 import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
 import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterPipe } from './pipes/filter.pipe';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
-};
-
+}
 
 // required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
@@ -93,6 +94,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     CategoriesServiceComponent,
     AppComponent,
+    FilterPipe,
     LoginComponent,
     HomeComponent,
     HeaderComponent,
@@ -149,6 +151,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    Ng2SearchPipeModule,
     CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,
@@ -161,22 +164,25 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
-          let access_token = localStorage.getItem("acessToken");
+          let access_token = localStorage.getItem('acessToken');
           return access_token;
         },
         allowedDomains: [environment.apiDomain],
-        disallowedRoutes: ["http://localhost:3000/auth/signin"]
-      }
+        disallowedRoutes: ['http://localhost:3000/auth/signin'],
+      },
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: momentAdapterFactory }),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: momentAdapterFactory,
+    }),
     NgbModalModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
@@ -187,19 +193,23 @@ export function HttpLoaderFactory(http: HttpClient) {
     NgImageFullscreenViewModule,
     SocialLoginModule,
   ],
-  providers: [{
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: true, //keeps the user signed in
-      providers: [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider('108417378352-9o4n67jsc1rd3mqcmgoobr7b6ns2ep55.apps.googleusercontent.com') // your client id
-        }
-      ]
-    }
-  },
-    DatePipe],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '108417378352-9o4n67jsc1rd3mqcmgoobr7b6ns2ep55.apps.googleusercontent.com'
+            ), // your client id
+          },
+        ],
+      },
+    },
+    DatePipe,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

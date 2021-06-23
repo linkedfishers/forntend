@@ -1,669 +1,735 @@
-<div class="content-grid" style="transform: translate(360.5px, 0px); transition: transform 0.4s ease-in-out 0s;">
-
-    <!-- SECTION HEADER -->
-    <div class="section-header">
-        <!-- SECTION HEADER INFO -->
-        <div class="section-header-info">
-            <!-- SECTION PRETITLE -->
-            <p class="section-pretitle">Browse Products</p>
-            <!-- /SECTION PRETITLE -->
-        </div>
-        <!-- /SECTION HEADER INFO -->
+<div
+  class="content-grid"
+  style="
+    transform: translate(360.5px, 0px);
+    transition: transform 0.4s ease-in-out 0s;
+  "
+>
+  <!-- SECTION HEADER -->
+  <div class="section-header">
+    <!-- SECTION HEADER INFO -->
+    <div class="section-header-info">
+      <!-- SECTION PRETITLE -->
+      <p class="section-pretitle">Browse Products</p>
+      <!-- /SECTION PRETITLE -->
     </div>
-    <!-- /SECTION HEADER -->
+    <!-- /SECTION HEADER INFO -->
+  </div>
+  <!-- /SECTION HEADER -->
 
-    <!-- SECTION FILTERS BAR -->
-    <div class="section-filters-bar v4">
-        <!-- SECTION FILTERS BAR ACTIONS -->
-        <div class="section-filters-bar-actions">
-            <!-- FORM -->
-            <form class="form">
-                <!-- FORM ITEM -->
-                <div class="form-item split">
-                    <!-- FORM INPUT -->
-                    <div class="form-input small">
-                        <label for="items-search">Search Items</label>
-                        <input type="text" id="items-search" name="items_search">
-                    </div>
-                    <!-- /FORM INPUT -->
+  <!-- SECTION FILTERS BAR -->
+  <div class="section-filters-bar v4">
+    <!-- SECTION FILTERS BAR ACTIONS -->
+    <div class="section-filters-bar-actions">
+      <!-- FORM -->
+      <form class="form">
+        <!-- FORM ITEM -->
+        <div class="form-item split">
+          <!-- FORM INPUT -->
+          <div class="form-input small">
+            <label for="items-search">Search Items</label>
+            <input
+              [(ngModel)]="searchKeyword"
+              type="text"
+              id="search-main"
+              name="search_main"
+            />
+          </div>
+          <!-- /FORM INPUT -->
 
-                    <!-- BUTTON -->
-                    <button class="button primary">
-                        <!-- ICON MAGNIFYING GLASS -->
-                        <svg class="icon-magnifying-glass">
-                            <use xlink:href="#svg-magnifying-glass"></use>
-                        </svg>
-                        <!-- /ICON MAGNIFYING GLASS -->
-                    </button>
-                    <!-- /BUTTON -->
-                </div>
-                <!-- /FORM ITEM -->
-            </form>
-            <!-- /FORM -->
+          <!-- BUTTON -->
+          <button class="button primary">
+            <!-- ICON MAGNIFYING GLASS -->
+            <svg class="icon-magnifying-glass">
+              <use xlink:href="#svg-magnifying-glass"></use>
+            </svg>
+            <!-- /ICON MAGNIFYING GLASS -->
+          </button>
+          <!-- /BUTTON -->
         </div>
-        <!-- /SECTION FILTERS BAR ACTIONS -->
-
-        <!-- SECTION FILTERS BAR ACTIONS -->
-        <div class="section-filters-bar-actions">
-            <!-- FORM -->
-            <form class="form">
-                <!-- FORM ITEM -->
-                <div class="form-item split medium">
-                    <!-- FORM SELECT -->
-                    <div class="form-select small">
-                        <label for="items-filter-category">Filter By</label>
-                        <select id="items-filter-category" name="items_filter_category">
-                            <option value="0">Date Published</option>
-                            <option value="1">Price</option>
-                        </select>
-                        <!-- FORM SELECT ICON -->
-                        <svg class="form-select-icon icon-small-arrow">
-                            <use xlink:href="#svg-small-arrow"></use>
-                        </svg>
-                        <!-- /FORM SELECT ICON -->
-                    </div>
-                    <!-- /FORM SELECT -->
-
-                    <!-- FORM SELECT -->
-                    <div class="form-select small">
-                        <label for="items-filter-order">Order By</label>
-                        <select id="items-filter-order" name="items_filter_order">
-                            <option value="0">Descending</option>
-                            <option value="1">Ascending</option>
-                        </select>
-                        <!-- FORM SELECT ICON -->
-                        <svg class="form-select-icon icon-small-arrow">
-                            <use xlink:href="#svg-small-arrow"></use>
-                        </svg>
-                        <!-- /FORM SELECT ICON -->
-                    </div>
-                    <!-- /FORM SELECT -->
-
-                    <!-- BUTTON -->
-                    <button class="button secondary">Apply Filters</button>
-                    <!-- /BUTTON -->
-                </div>
-                <!-- /FORM ITEM -->
-            </form>
-            <!-- /FORM -->
-        </div>
-        <!-- /SECTION FILTERS BAR ACTIONS -->
+        <!-- /FORM ITEM -->
+      </form>
+      <!-- /FORM -->
     </div>
-    <!-- /SECTION FILTERS BAR -->
+    <!-- /SECTION FILTERS BAR ACTIONS -->
 
-    <!-- GRID -->
-    <div class="grid grid-3-9 small-space">
-        <!-- MARKETPLACE SIDEBAR -->
-        <div class="marketplace-sidebar">
-            <!-- SIDEBAR BOX -->
-            <div class="sidebar-box">
-                <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title">Price Range</p>
-                <!-- /SIDEBAR BOX TITLE -->
+    <!-- SECTION FILTERS BAR ACTIONS -->
+    <div class="section-filters-bar-actions">
+      <!-- FORM -->
+      <form class="form">
+        <!-- FORM ITEM -->
+        <div class="form-item split medium">
+          <!-- FORM SELECT -->
+          <div class="form-select small">
+            <label for="items-filter-category">Filter By</label>
+            <select id="items-filter-category" name="items_filter_category">
+              <option value="0">Date Published</option>
+              <option value="1">Price</option>
+            </select>
+            <!-- FORM SELECT ICON -->
+            <svg class="form-select-icon icon-small-arrow">
+              <use xlink:href="#svg-small-arrow"></use>
+            </svg>
+            <!-- /FORM SELECT ICON -->
+          </div>
+          <!-- /FORM SELECT -->
 
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items small-space">
-                    <!-- FORM ITEM -->
-                    <div class="form-item split">
-                        <!-- FORM INPUT -->
-                        <div class="form-input small active always-active currency-decorated">
-                            <label for="price-from">From</label>
-                            <input type="text" id="price-from" name="price_from">
-                        </div>
-                        <!-- /FORM INPUT -->
+          <!-- FORM SELECT -->
+          <div class="form-select small">
+            <label for="items-filter-order">Order By</label>
+            <select id="items-filter-order" name="items_filter_order">
+              <option value="0">Descending</option>
+              <option value="1">Ascending</option>
+            </select>
+            <!-- FORM SELECT ICON -->
+            <svg class="form-select-icon icon-small-arrow">
+              <use xlink:href="#svg-small-arrow"></use>
+            </svg>
+            <!-- /FORM SELECT ICON -->
+          </div>
+          <!-- /FORM SELECT -->
 
-                        <!-- FORM INPUT -->
-                        <div class="form-input small active always-active currency-decorated">
-                            <label for="price-to">To</label>
-                            <input type="text" id="price-to" name="price_to">
-                        </div>
-                        <!-- /FORM INPUT -->
-                    </div>
-                    <!-- /FORM ITEM -->
-                </div>
-                <!-- /SIDEBAR BOX ITEMS -->
-
-                <!-- BUTTON -->
-                <p class="button small primary">Apply Price Filter!</p>
-                <!-- /BUTTON -->
-
-                <!-- SIDEBAR BOX TITLE -->
-                <p class="sidebar-box-title">Reviews</p>
-                <!-- /SIDEBAR BOX TITLE -->
-
-                <!-- SIDEBAR BOX ITEMS -->
-                <div class="sidebar-box-items">
-                    <!-- CHECKBOX LINE -->
-                    <div class="checkbox-line">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap">
-                            <input type="radio" id="reviews-all" name="reviews-rating" value="reviews-all">
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box round"></div>
-                            <!-- /CHECKBOX BOX -->
-                            <label for="reviews-all">All Reviews</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-
-                        <!-- CHECKBOX LINE TEXT -->
-                        <p class="checkbox-line-text">1207</p>
-                        <!-- /CHECKBOX LINE TEXT -->
-                    </div>
-                    <!-- /CHECKBOX LINE -->
-
-                    <!-- CHECKBOX LINE -->
-                    <div class="checkbox-line">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap checkbox-rating">
-                            <input type="radio" id="reviews-4-up" name="reviews-rating" value="reviews-4-up" checked="">
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box round"></div>
-                            <!-- /CHECKBOX BOX -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-                            </div>
-                            <!-- /RATING LIST -->
-
-                            <label for="reviews-4-up">4 +</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-
-                        <!-- CHECKBOX LINE TEXT -->
-                        <p class="checkbox-line-text">964</p>
-                        <!-- /CHECKBOX LINE TEXT -->
-                    </div>
-                    <!-- /CHECKBOX LINE -->
-
-                    <!-- CHECKBOX LINE -->
-                    <div class="checkbox-line">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap checkbox-rating">
-                            <input type="radio" id="reviews-3-up" name="reviews-rating" value="reviews-3-up">
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box round"></div>
-                            <!-- /CHECKBOX BOX -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-                            </div>
-                            <!-- /RATING LIST -->
-
-                            <label for="reviews-3-up">3 +</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-
-                        <!-- CHECKBOX LINE TEXT -->
-                        <p class="checkbox-line-text">214</p>
-                        <!-- /CHECKBOX LINE TEXT -->
-                    </div>
-                    <!-- /CHECKBOX LINE -->
-
-                    <!-- CHECKBOX LINE -->
-                    <div class="checkbox-line">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap checkbox-rating">
-                            <input type="radio" id="reviews-2-up" name="reviews-rating" value="reviews-2-up">
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box round"></div>
-                            <!-- /CHECKBOX BOX -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-                            </div>
-                            <!-- /RATING LIST -->
-
-                            <label for="reviews-2-up">2 +</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-
-                        <!-- CHECKBOX LINE TEXT -->
-                        <p class="checkbox-line-text">102</p>
-                        <!-- /CHECKBOX LINE TEXT -->
-                    </div>
-                    <!-- /CHECKBOX LINE -->
-
-                    <!-- CHECKBOX LINE -->
-                    <div class="checkbox-line">
-                        <!-- CHECKBOX WRAP -->
-                        <div class="checkbox-wrap checkbox-rating">
-                            <input type="radio" id="reviews-1-up" name="reviews-rating" value="reviews-1-up">
-                            <!-- CHECKBOX BOX -->
-                            <div class="checkbox-box round"></div>
-                            <!-- /CHECKBOX BOX -->
-
-                            <!-- RATING LIST -->
-                            <div class="rating-list">
-                                <!-- RATING -->
-                                <div class="rating filled">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-
-                                <!-- RATING -->
-                                <div class="rating">
-                                    <!-- RATING ICON -->
-                                    <svg class="rating-icon icon-star">
-                                        <use xlink:href="#svg-star"></use>
-                                    </svg>
-                                    <!-- /RATING ICON -->
-                                </div>
-                                <!-- /RATING -->
-                            </div>
-                            <!-- /RATING LIST -->
-
-                            <label for="reviews-1-up">1 +</label>
-                        </div>
-                        <!-- /CHECKBOX WRAP -->
-
-                        <!-- CHECKBOX LINE TEXT -->
-                        <p class="checkbox-line-text">76</p>
-                        <!-- /CHECKBOX LINE TEXT -->
-                    </div>
-                    <!-- /CHECKBOX LINE -->
-                </div>
-                <!-- /SIDEBAR BOX ITEMS -->
-            </div>
-            <!-- /SIDEBAR BOX -->
+          <!-- BUTTON -->
+          <button class="button secondary">Apply Filters</button>
+          <!-- /BUTTON -->
         </div>
-        <!-- /MARKETPLACE SIDEBAR -->
-
-        <!-- MARKETPLACE CONTENT -->
-        <div class="marketplace-content">
-            <!-- GRID -->
-            <div class="grid grid-3-3-3 centered">
-                <!-- PRODUCT PREVIEW -->
-                <div *ngFor="let product of products" class="product-preview">
-                    <!-- PRODUCT PREVIEW IMAGE -->
-                    <a [routerLink]="['/marketplace/details-product',product?._id]">
-                        <figure class="product-preview-image liquid"
-                            style="border-radius: 2%; background: url(&quot;img/marketplace/items/01.jpg&quot;) center center / cover no-repeat;">
-                            <img src="{{product?.picture | picture}}" alt="item-01">
-                        </figure>
-                    </a>
-                    <!-- /PRODUCT PREVIEW IMAGE -->
-
-                    <!-- PRODUCT PREVIEW INFO -->
-                    <div class="product-preview-info">
-                        <!-- TEXT STICKER -->
-                        <p class="text-sticker"><span class="highlighted">DT</span> {{product?.price}}</p>
-                        <!-- /TEXT STICKER -->
-
-                        <!-- PRODUCT PREVIEW TITLE -->
-                        <p class="product-preview-title"><a
-                                [routerLink]="['/marketplace/details-product',product?._id]">{{product?.name}}</a>
-                        </p>
-                        <!-- /PRODUCT PREVIEW TITLE -->
-
-                        <!-- PRODUCT PREVIEW CATEGORY -->
-                        <p class="product-preview-category digital"><a [routerLink]=""
-                                routerLinkActive="router-link-active">{{product?.type?.name}}</a>
-                        </p>
-                        <!-- /PRODUCT PREVIEW CATEGORY -->
-
-                        <!-- PRODUCT PREVIEW TEXT -->
-                        <p class="product-preview-text">{{product?.description}}</p>
-                        <!-- /PRODUCT PREVIEW TEXT -->
-                    </div>
-                    <!-- /PRODUCT PREVIEW INFO -->
-
-                    <!-- PRODUCT PREVIEW META -->
-                    <div class="product-preview-meta">
-                        <!-- PRODUCT PREVIEW AUTHOR -->
-                        <div class="product-preview-author">
-                            <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
-                            <a class="product-preview-author-image user-avatar micro no-border"
-                                [routerLink]="['/marketplace/details-product',product?._id]">
-                                <!-- USER AVATAR CONTENT -->
-                                <div class="user-avatar-content">
-                                    <!-- HEXAGON -->
-                                    <div class="hexagon-image-18-20" data-src="../../../../../assets/img/avatar/01.jpg"
-                                        style="width: 18px; height: 20px; position: relative;"><canvas width="18"
-                                            height="20" style="position: absolute; top: 0px; left: 0px;"></canvas></div>
-                                    <!-- /HEXAGON -->
-                                </div>
-                                <!-- /USER AVATAR CONTENT -->
-                            </a>
-                            <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
-
-                            <!-- PRODUCT PREVIEW AUTHOR TITLE -->
-                            <p class="product-preview-author-title">Posted By</p>
-                            <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
-
-                            <!-- PRODUCT PREVIEW AUTHOR TEXT -->
-                            <p class="product-preview-author-text"><a
-                                    [routerLink]="">{{product?.owner?.companyName}}</a>
-                            </p>
-                            <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
-                        </div>
-                        <!-- /PRODUCT PREVIEW AUTHOR -->
-
-                        <!-- RATING LIST -->
-                        <div class="rating-list">
-                            <!-- RATING -->
-                            <div class="rating filled">
-                                <!-- RATING ICON -->
-                                <svg class="rating-icon icon-star">
-                                    <use xlink:href="#svg-star"></use>
-                                </svg>
-                                <!-- /RATING ICON -->
-                            </div>
-                            <!-- /RATING -->
-
-                            <!-- RATING -->
-                            <div class="rating filled">
-                                <!-- RATING ICON -->
-                                <svg class="rating-icon icon-star">
-                                    <use xlink:href="#svg-star"></use>
-                                </svg>
-                                <!-- /RATING ICON -->
-                            </div>
-                            <!-- /RATING -->
-
-                            <!-- RATING -->
-                            <div class="rating filled">
-                                <!-- RATING ICON -->
-                                <svg class="rating-icon icon-star">
-                                    <use xlink:href="#svg-star"></use>
-                                </svg>
-                                <!-- /RATING ICON -->
-                            </div>
-                            <!-- /RATING -->
-
-                            <!-- RATING -->
-                            <div class="rating filled">
-                                <!-- RATING ICON -->
-                                <svg class="rating-icon icon-star">
-                                    <use xlink:href="#svg-star"></use>
-                                </svg>
-                                <!-- /RATING ICON -->
-                            </div>
-                            <!-- /RATING -->
-
-                            <!-- RATING -->
-                            <div class="rating">
-                                <!-- RATING ICON -->
-                                <svg class="rating-icon icon-star">
-                                    <use xlink:href="#svg-star"></use>
-                                </svg>
-                                <!-- /RATING ICON -->
-                            </div>
-                            <!-- /RATING -->
-                        </div>
-                        <!-- /RATING LIST -->
-                    </div>
-                    <!-- /PRODUCT PREVIEW META -->
-                </div>
-                <!-- /PRODUCT PREVIEW -->
-            </div>
-            <!-- /GRID -->
-
-            <!-- SECTION PAGER BAR WRAP -->
-            <div class="section-pager-bar-wrap align-right">
-                <!-- SECTION PAGER BAR -->
-                <div class="section-pager-bar">
-                    <!-- SECTION PAGER -->
-                    <div class="section-pager">
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item active">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">01</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">02</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">03</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">04</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">05</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-
-                        <!-- SECTION PAGER ITEM -->
-                        <div class="section-pager-item">
-                            <!-- SECTION PAGER ITEM TEXT -->
-                            <p class="section-pager-item-text">06</p>
-                            <!-- /SECTION PAGER ITEM TEXT -->
-                        </div>
-                        <!-- /SECTION PAGER ITEM -->
-                    </div>
-                    <!-- /SECTION PAGER -->
-
-                    <!-- SECTION PAGER CONTROLS -->
-                    <div class="section-pager-controls">
-                        <!-- SLIDER CONTROL -->
-                        <div class="slider-control left disabled">
-                            <!-- SLIDER CONTROL ICON -->
-                            <svg class="slider-control-icon icon-small-arrow">
-                                <use xlink:href="#svg-small-arrow"></use>
-                            </svg>
-                            <!-- /SLIDER CONTROL ICON -->
-                        </div>
-                        <!-- /SLIDER CONTROL -->
-
-                        <!-- SLIDER CONTROL -->
-                        <div class="slider-control right">
-                            <!-- SLIDER CONTROL ICON -->
-                            <svg class="slider-control-icon icon-small-arrow">
-                                <use xlink:href="#svg-small-arrow"></use>
-                            </svg>
-                            <!-- /SLIDER CONTROL ICON -->
-                        </div>
-                        <!-- /SLIDER CONTROL -->
-                    </div>
-                    <!-- /SECTION PAGER CONTROLS -->
-                </div>
-                <!-- /SECTION PAGER BAR -->
-            </div>
-            <!-- /SECTION PAGER BAR WRAP -->
-        </div>
-        <!-- /MARKETPLACE CONTENT -->
+        <!-- /FORM ITEM -->
+      </form>
+      <!-- /FORM -->
     </div>
-    <!-- /GRID -->
+    <!-- /SECTION FILTERS BAR ACTIONS -->
+  </div>
+  <!-- /SECTION FILTERS BAR -->
+
+  <!-- GRID -->
+  <div class="grid grid-3-9 small-space">
+    <!-- MARKETPLACE SIDEBAR -->
+    <div class="marketplace-sidebar">
+      <!-- SIDEBAR BOX -->
+      <div class="sidebar-box">
+        <!-- SIDEBAR BOX TITLE -->
+        <p class="sidebar-box-title">Price Range</p>
+        <!-- /SIDEBAR BOX TITLE -->
+
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items small-space">
+          <!-- FORM ITEM -->
+          <div class="form-item split">
+            <!-- FORM INPUT -->
+            <div
+              class="form-input small active always-active currency-decorated"
+            >
+              <label for="price-from">From</label>
+              <input type="text" id="price-from" name="price_from" />
+            </div>
+            <!-- /FORM INPUT -->
+
+            <!-- FORM INPUT -->
+            <div
+              class="form-input small active always-active currency-decorated"
+            >
+              <label for="price-to">To</label>
+              <input type="text" id="price-to" name="price_to" />
+            </div>
+            <!-- /FORM INPUT -->
+          </div>
+          <!-- /FORM ITEM -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+
+        <!-- BUTTON -->
+        <p class="button small primary">Apply Price Filter!</p>
+        <!-- /BUTTON -->
+
+        <!-- SIDEBAR BOX TITLE -->
+        <p class="sidebar-box-title">Reviews</p>
+        <!-- /SIDEBAR BOX TITLE -->
+
+        <!-- SIDEBAR BOX ITEMS -->
+        <div class="sidebar-box-items">
+          <!-- CHECKBOX LINE -->
+          <div class="checkbox-line">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap">
+              <input
+                type="radio"
+                id="reviews-all"
+                name="reviews-rating"
+                value="reviews-all"
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box round"></div>
+              <!-- /CHECKBOX BOX -->
+              <label for="reviews-all">All Reviews</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+
+            <!-- CHECKBOX LINE TEXT -->
+            <p class="checkbox-line-text">1207</p>
+            <!-- /CHECKBOX LINE TEXT -->
+          </div>
+          <!-- /CHECKBOX LINE -->
+
+          <!-- CHECKBOX LINE -->
+          <div class="checkbox-line">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap checkbox-rating">
+              <input
+                type="radio"
+                id="reviews-4-up"
+                name="reviews-rating"
+                value="reviews-4-up"
+                checked=""
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box round"></div>
+              <!-- /CHECKBOX BOX -->
+
+              <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
+              <!-- /RATING LIST -->
+
+              <label for="reviews-4-up">4 +</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+
+            <!-- CHECKBOX LINE TEXT -->
+            <p class="checkbox-line-text">964</p>
+            <!-- /CHECKBOX LINE TEXT -->
+          </div>
+          <!-- /CHECKBOX LINE -->
+
+          <!-- CHECKBOX LINE -->
+          <div class="checkbox-line">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap checkbox-rating">
+              <input
+                type="radio"
+                id="reviews-3-up"
+                name="reviews-rating"
+                value="reviews-3-up"
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box round"></div>
+              <!-- /CHECKBOX BOX -->
+
+              <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
+              <!-- /RATING LIST -->
+
+              <label for="reviews-3-up">3 +</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+
+            <!-- CHECKBOX LINE TEXT -->
+            <p class="checkbox-line-text">214</p>
+            <!-- /CHECKBOX LINE TEXT -->
+          </div>
+          <!-- /CHECKBOX LINE -->
+
+          <!-- CHECKBOX LINE -->
+          <div class="checkbox-line">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap checkbox-rating">
+              <input
+                type="radio"
+                id="reviews-2-up"
+                name="reviews-rating"
+                value="reviews-2-up"
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box round"></div>
+              <!-- /CHECKBOX BOX -->
+
+              <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
+              <!-- /RATING LIST -->
+
+              <label for="reviews-2-up">2 +</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+
+            <!-- CHECKBOX LINE TEXT -->
+            <p class="checkbox-line-text">102</p>
+            <!-- /CHECKBOX LINE TEXT -->
+          </div>
+          <!-- /CHECKBOX LINE -->
+
+          <!-- CHECKBOX LINE -->
+          <div class="checkbox-line">
+            <!-- CHECKBOX WRAP -->
+            <div class="checkbox-wrap checkbox-rating">
+              <input
+                type="radio"
+                id="reviews-1-up"
+                name="reviews-rating"
+                value="reviews-1-up"
+              />
+              <!-- CHECKBOX BOX -->
+              <div class="checkbox-box round"></div>
+              <!-- /CHECKBOX BOX -->
+
+              <!-- RATING LIST -->
+              <div class="rating-list">
+                <!-- RATING -->
+                <div class="rating filled">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+
+                <!-- RATING -->
+                <div class="rating">
+                  <!-- RATING ICON -->
+                  <svg class="rating-icon icon-star">
+                    <use xlink:href="#svg-star"></use>
+                  </svg>
+                  <!-- /RATING ICON -->
+                </div>
+                <!-- /RATING -->
+              </div>
+              <!-- /RATING LIST -->
+
+              <label for="reviews-1-up">1 +</label>
+            </div>
+            <!-- /CHECKBOX WRAP -->
+
+            <!-- CHECKBOX LINE TEXT -->
+            <p class="checkbox-line-text">76</p>
+            <!-- /CHECKBOX LINE TEXT -->
+          </div>
+          <!-- /CHECKBOX LINE -->
+        </div>
+        <!-- /SIDEBAR BOX ITEMS -->
+      </div>
+      <!-- /SIDEBAR BOX -->
+    </div>
+    <!-- /MARKETPLACE SIDEBAR -->
+
+    <!-- MARKETPLACE CONTENT -->
+    <div class="marketplace-content">
+      <!-- GRID -->
+      <div class="grid grid-3-3-3 centered">
+        <!-- PRODUCT PREVIEW -->
+        <div
+          *ngFor="let product of products | filter: searchKeyword:'name'"
+          class="product-preview"
+        >
+          <!-- PRODUCT PREVIEW IMAGE -->
+          <a [routerLink]="['/marketplace/details-product', product?._id]">
+            <figure
+              class="product-preview-image liquid"
+              style="
+                border-radius: 2%;
+                background: url('img/marketplace/items/01.jpg') center center /
+                  cover no-repeat;
+              "
+            >
+              <img src="{{ product?.picture | picture }}" alt="item-01" />
+            </figure>
+          </a>
+          <!-- /PRODUCT PREVIEW IMAGE -->
+
+          <!-- PRODUCT PREVIEW INFO -->
+          <div class="product-preview-info">
+            <!-- TEXT STICKER -->
+            <p class="text-sticker">
+              <span class="highlighted">DT</span> {{ product?.price }}
+            </p>
+            <!-- /TEXT STICKER -->
+
+            <!-- PRODUCT PREVIEW TITLE -->
+            <p class="product-preview-title">
+              <a
+                [routerLink]="['/marketplace/details-product', product?._id]"
+                >{{ product?.name }}</a
+              >
+            </p>
+            <!-- /PRODUCT PREVIEW TITLE -->
+
+            <!-- PRODUCT PREVIEW CATEGORY -->
+            <p class="product-preview-category digital">
+              <a [routerLink]="" routerLinkActive="router-link-active">{{
+                product?.type?.name
+              }}</a>
+            </p>
+            <!-- /PRODUCT PREVIEW CATEGORY -->
+
+            <!-- PRODUCT PREVIEW TEXT -->
+            <p class="product-preview-text">{{ product?.description }}</p>
+            <!-- /PRODUCT PREVIEW TEXT -->
+          </div>
+          <!-- /PRODUCT PREVIEW INFO -->
+
+          <!-- PRODUCT PREVIEW META -->
+          <div class="product-preview-meta">
+            <!-- PRODUCT PREVIEW AUTHOR -->
+            <div class="product-preview-author">
+              <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
+              <a
+                class="product-preview-author-image user-avatar micro no-border"
+                [routerLink]="['/marketplace/details-product', product?._id]"
+              >
+                <!-- USER AVATAR CONTENT -->
+                <div class="user-avatar-content">
+                  <!-- HEXAGON -->
+                  <div
+                    class="hexagon-image-18-20"
+                    data-src="../../../../../assets/img/avatar/01.jpg"
+                    style="width: 18px; height: 20px; position: relative"
+                  >
+                    <canvas
+                      width="18"
+                      height="20"
+                      style="position: absolute; top: 0px; left: 0px"
+                    ></canvas>
+                  </div>
+                  <!-- /HEXAGON -->
+                </div>
+                <!-- /USER AVATAR CONTENT -->
+              </a>
+              <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
+
+              <!-- PRODUCT PREVIEW AUTHOR TITLE -->
+              <p class="product-preview-author-title">Posted By</p>
+              <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
+
+              <!-- PRODUCT PREVIEW AUTHOR TEXT -->
+              <p class="product-preview-author-text">
+                <a [routerLink]="">{{ product?.owner?.companyName }}</a>
+              </p>
+              <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
+            </div>
+            <!-- /PRODUCT PREVIEW AUTHOR -->
+
+            <!-- RATING LIST -->
+            <div class="rating-list">
+              <!-- RATING -->
+              <div class="rating filled">
+                <!-- RATING ICON -->
+                <svg class="rating-icon icon-star">
+                  <use xlink:href="#svg-star"></use>
+                </svg>
+                <!-- /RATING ICON -->
+              </div>
+              <!-- /RATING -->
+
+              <!-- RATING -->
+              <div class="rating filled">
+                <!-- RATING ICON -->
+                <svg class="rating-icon icon-star">
+                  <use xlink:href="#svg-star"></use>
+                </svg>
+                <!-- /RATING ICON -->
+              </div>
+              <!-- /RATING -->
+
+              <!-- RATING -->
+              <div class="rating filled">
+                <!-- RATING ICON -->
+                <svg class="rating-icon icon-star">
+                  <use xlink:href="#svg-star"></use>
+                </svg>
+                <!-- /RATING ICON -->
+              </div>
+              <!-- /RATING -->
+
+              <!-- RATING -->
+              <div class="rating filled">
+                <!-- RATING ICON -->
+                <svg class="rating-icon icon-star">
+                  <use xlink:href="#svg-star"></use>
+                </svg>
+                <!-- /RATING ICON -->
+              </div>
+              <!-- /RATING -->
+
+              <!-- RATING -->
+              <div class="rating">
+                <!-- RATING ICON -->
+                <svg class="rating-icon icon-star">
+                  <use xlink:href="#svg-star"></use>
+                </svg>
+                <!-- /RATING ICON -->
+              </div>
+              <!-- /RATING -->
+            </div>
+            <!-- /RATING LIST -->
+          </div>
+          <!-- /PRODUCT PREVIEW META -->
+        </div>
+        <!-- /PRODUCT PREVIEW -->
+      </div>
+      <!-- /GRID -->
+
+      <!-- SECTION PAGER BAR WRAP -->
+      <div class="section-pager-bar-wrap align-right">
+        <!-- SECTION PAGER BAR -->
+        <div class="section-pager-bar">
+          <!-- SECTION PAGER -->
+          <div class="section-pager">
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item active">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">01</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">02</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">03</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">04</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">05</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">06</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+          </div>
+          <!-- /SECTION PAGER -->
+
+          <!-- SECTION PAGER CONTROLS -->
+          <div class="section-pager-controls">
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control left disabled">
+              <!-- SLIDER CONTROL ICON -->
+              <svg class="slider-control-icon icon-small-arrow">
+                <use xlink:href="#svg-small-arrow"></use>
+              </svg>
+              <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control right">
+              <!-- SLIDER CONTROL ICON -->
+              <svg class="slider-control-icon icon-small-arrow">
+                <use xlink:href="#svg-small-arrow"></use>
+              </svg>
+              <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+          </div>
+          <!-- /SECTION PAGER CONTROLS -->
+        </div>
+        <!-- /SECTION PAGER BAR -->
+      </div>
+      <!-- /SECTION PAGER BAR WRAP -->
+    </div>
+    <!-- /MARKETPLACE CONTENT -->
+  </div>
+  <!-- /GRID -->
 </div>

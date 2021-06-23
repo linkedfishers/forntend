@@ -18,6 +18,9 @@ export class ProductService {
   updateProduct(formData: FormData, id: string) {
     return this.httpClient.put<any>(`${this.API}/product/${id}`, formData);
   }
+  searchProduct(keyword: string) {
+    return this.httpClient.get<any>(`${this.API}/product/search/${keyword}`);
+  }
   getProductCategories() {
     return this.httpClient.get<any>(`${this.API}/categories`);
   }
