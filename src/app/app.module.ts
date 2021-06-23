@@ -79,7 +79,6 @@ import { DetailsProductComponent } from './components/pages/details-product/deta
 import { ProductListComponent } from './components/pages/products/product-list/product-list.component';
 import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FilterPipe } from './pipes/filter.pipe';
 
 export function momentAdapterFactory() {
@@ -151,7 +150,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
-    Ng2SearchPipeModule,
     CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,
