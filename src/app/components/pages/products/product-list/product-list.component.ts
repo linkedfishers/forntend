@@ -3,6 +3,7 @@ import { Product, Categorie } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { environment } from 'src/environments/environment';
+import { Options, LabelType } from "@angular-slider/ngx-slider";
 
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
@@ -25,8 +26,24 @@ export class ProductListComponent implements OnInit {
   products: Product[];
   visibleProducts: Product[];
   content: Product[] = [];
-  minPrice = 0;
-  maxPrice = 0;
+
+  minPrice: number = 0;
+  maxPrice: number = 1000;
+  options: Options = {
+    floor: 0,
+    ceil: 500,
+    translate: (value: number, label: LabelType): string => {
+      switch (label) {
+        case LabelType.Low:
+          return value + " Dt";
+        case LabelType.High:
+          return value + " Dt";
+        default:
+          return value + " Dt";
+      }
+    }
+  };
+
   ngOnInit(): void {
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
@@ -44,19 +61,10 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  applyPriceFilter(applyFilters: boolean) {
-    if (!applyFilters) {
-      this.visibleProducts = this.products;
-      this.maxPrice = 0;
-      this.minPrice = 0;
-      return;
-    }
-    if (this.maxPrice >= this.minPrice && this.minPrice >= 0) {
-      this.visibleProducts = this.products.filter((product) => {
-        return (product.price <= this.maxPrice && product.price >= this.minPrice);
-      });
-      console.log(this.visibleProducts);
-    }
+  updatePriceFilter() {
+    this.visibleProducts = this.products.filter((product) => {
+      return (product.price <= this.maxPrice && product.price >= this.minPrice);
+    });
   }
 
 }

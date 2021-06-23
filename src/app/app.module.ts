@@ -51,7 +51,7 @@ import { HebergementListComponent } from './components/common/hebergement-list/h
 import { BoatsListComponent } from './components/common/boats-list/boats-list.component';
 import { NotificationsComponent } from './components/pages/notifications/notifications.component';
 import { MapBoxComponent } from './components/common/map-box/map-box.component';
-import { Ng5SliderModule } from 'ng5-slider';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { ActivateAccountComponent } from './components/pages/activate-account/activate-account.component';
 import { PasswordResetComponent } from './components/pages/password-reset/password-reset.component';
 import { PasswordResetRequestComponent } from './components/pages/password-reset-request/password-reset-request.component';
@@ -187,7 +187,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     OwlTooltipModule,
     ImageCropperModule,
     NgxLinkifyjsModule.forRoot(),
-    Ng5SliderModule,
+    NgxSliderModule,
     NgImageFullscreenViewModule,
     SocialLoginModule,
   ],
@@ -210,4 +210,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -41,8 +41,8 @@
                                     </li>
                                     <li>
                                         <p class="widget-box-title">Boats</p>
-                                        <input (change)="toggleBoats()" type="checkbox" [(ngModel)]="showBoat"
-                                            name="c3" id="c3">
+                                        <input (change)="toggleBoats()" type="checkbox" [(ngModel)]="showBoat" name="c3"
+                                            id="c3">
                                         <label for="c3">
                                         </label>
                                     </li>
@@ -61,9 +61,9 @@
                                 </ul>
                             </div>
                             <div *ngIf="showCircle" class="filter-dd">
-                                <ng5-slider (userChangeEnd)="updateCircle()" [(value)]="circleRadius"
+                                <ngx-slider (userChangeEnd)="updateCircle()" [(value)]="circleRadius"
                                     [options]="options">
-                                </ng5-slider>
+                                </ngx-slider>
                             </div>
                         </div>
                     </div>

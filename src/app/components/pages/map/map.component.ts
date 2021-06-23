@@ -3,7 +3,7 @@ import * as L from "leaflet";
 import { icon, Marker } from 'leaflet';
 import { GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 import { Coords, Post } from 'src/app/interfaces/posts.interface';
-import { Options, LabelType } from 'ng5-slider';
+import { Options, LabelType } from '@angular-slider/ngx-slider';
 import { PostService } from "src/app/services/post.service";
 import { EquipmentService } from "src/app/services/equipment.service";
 import { EventService } from "src/app/services/event.service";

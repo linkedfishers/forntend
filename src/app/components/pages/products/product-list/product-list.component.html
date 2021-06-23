@@ -107,33 +107,11 @@
         <div class="sidebar-box-items small-space">
           <!-- FORM ITEM -->
           <div class="form-item split">
-            <!-- FORM INPUT -->
-            <div class="form-input small active always-active currency-decorated">
-              <label for="price-from">From</label>
-              <input [(ngModel)]="minPrice" type="number" min="0" id="price-from" style="width: inherit"
-                name="price_from" />
-            </div>
-            <!-- /FORM INPUT -->
-
-            <!-- FORM INPUT -->
-            <div class="form-input small active always-active currency-decorated">
-              <label for="price-to">To</label>
-              <input [(ngModel)]="maxPrice" type="number" min="0" id="price-to" style="width: inherit"
-                name="price_to" />
-            </div>
-            <!-- /FORM INPUT -->
+            <ngx-slider (userChangeEnd)="updatePriceFilter()" [(value)]="minPrice" [(highValue)]="maxPrice" [options]="options"></ngx-slider>
           </div>
           <!-- /FORM ITEM -->
         </div>
         <!-- /SIDEBAR BOX ITEMS -->
-
-        <!-- BUTTON -->
-        <p (click)="applyPriceFilter(true)" class="button small primary">Apply Price Filter!</p>
-        <!-- /BUTTON -->
-
-        <!-- BUTTON -->
-        <p (click)="applyPriceFilter(false)" class="button small primary">Reset Price Filter!</p>
-        <!-- /BUTTON -->
 
         <!-- SIDEBAR BOX TITLE -->
         <p class="sidebar-box-title">Reviews</p>
