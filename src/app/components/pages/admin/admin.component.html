@@ -706,6 +706,106 @@
 
     </div>
     <!-- /GRID -->
+
+    <!-- GRID -->
+    <div class="grid medium-space">
+        <!-- GRID COLUMN -->
+        <div class="account-hub-content">
+            <!-- SECTION HEADER -->
+            <div class="section-header">
+                <!-- SECTION HEADER INFO -->
+                <div class="section-header-info">
+                    <!-- SECTION PRETITLE -->
+                    <p class="section-pretitle">MarketPlace</p>
+                    <!-- /SECTION PRETITLE -->
+
+                    <!-- SECTION TITLE -->
+                    <h2 class="section-title">MarketPlace categories</h2>
+                    <!-- /SECTION TITLE -->
+                </div>
+                <!-- /SECTION HEADER INFO -->
+            </div>
+            <!-- /SECTION HEADER -->
+
+            <!-- GRID -->
+            <div class="grid grid-3-3-3 centered-on-mobile">
+                <!-- CREATE ENTITY BOX -->
+                <div class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- CREATE ENTITY BOX AVATAR ICON -->
+                        <svg class="create-entity-box-avatar-icon icon-item">
+                            <use xlink:href="#svg-plus"></use>
+                        </svg>
+                        <!-- /CREATE ENTITY BOX AVATAR ICON -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{'product_category' | translate}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="addCategory('productCategory')" class="button primary full popup-manage-item-trigger">Add
+                            new Category!</p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+                <!-- CREATE ENTITY BOX -->
+                <div *ngFor="let productCategory of categories ; let i = index" class="create-entity-box v2">
+                    <!-- CREATE ENTITY BOX COVER -->
+                    <div class="create-entity-box-cover"></div>
+                    <!-- /CREATE ENTITY BOX COVER -->
+
+                    <!-- CREATE ENTITY BOX AVATAR -->
+                    <div class="create-entity-box-avatar primary">
+                        <!-- PRODUCT PREVIEW IMAGE -->
+                        <figure class="product-preview-image liquid">
+                            <img [src]="API + productCategory.icon" alt="equipment">
+                        </figure>
+                        <!-- /PRODUCT PREVIEW IMAGE -->
+                    </div>
+                    <!-- /CREATE ENTITY BOX AVATAR -->
+                    <!-- CREATE ENTITY BOX INFO -->
+                    <div class="create-entity-box-info">
+                        <!-- CREATE ENTITY BOX TITLE -->
+                        <p class="create-entity-box-title">{{productCategory?.name}}</p>
+                        <!-- /CREATE ENTITY BOX TITLE -->
+
+                        <!-- BUTTON -->
+                        <p (click)="deleteCategory(productCategory,'productCategory')" style="margin-top: 10px"
+                            class="button red-background full popup-manage-item-trigger">
+                            {{'delete_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                        <!-- BUTTON -->
+                        <p id="updateBtn" style="margin-top: 10px;" class="button full popup-edit-hosting-trigger">
+                            {{'update_category' | translate}}
+                        </p>
+                        <!-- /BUTTON -->
+
+                    </div>
+                    <!-- /CREATE ENTITY BOX INFO -->
+                </div>
+                <!-- /CREATE ENTITY BOX -->
+
+            </div>
+            <!-- /GRID -->
+        </div>
+        <!-- /GRID COLUMN -->
+    </div>
+    <!-- /GRID -->
+
     <!-- GRID -->
     <div class="grid medium-space">
         <!-- GRID COLUMN -->

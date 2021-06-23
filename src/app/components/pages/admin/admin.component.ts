@@ -9,6 +9,8 @@ import * as data from "../../../interfaces/countries.json";
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Provider } from 'src/app/interfaces/provider.interface';
+import { Categorie } from 'src/app/interfaces/product.interface';
+import ProductService from 'src/app/services/product.service';
 
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
@@ -24,6 +26,7 @@ export class AdminComponent implements OnInit {
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private translate: TranslateService,
+    private productService: ProductService,
   ) { }
   readonly API: string = environment.apiUrl + '/';
   countries = (<any>data).default;
@@ -47,6 +50,7 @@ export class AdminComponent implements OnInit {
   selectedUser: User;
   language: string;
   reports: Report[] = [];
+  categories: Categorie[];
 
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
@@ -70,7 +74,9 @@ export class AdminComponent implements OnInit {
         this.providersList = response.data;
       }
     )
-
+    this.productService.getCategories().subscribe((response) => {
+      this.categories = response.data;
+    });
     this.equipmentService.getEquipmentTypes().subscribe(
       res => {
         this.equipmentTypes = res.data;
@@ -151,6 +157,8 @@ export class AdminComponent implements OnInit {
           this.hebergementTypes.unshift(res.data);
         } else if (this.selectedCategory == "service") {
           this.serviceTypes.unshift(res.data);
+        } else if (this.selectedCategory == "productCategory") {
+          this.categories.unshift(res.data);
         }
         this.toastr.success(res.message);
         this.formData = new FormData();
@@ -263,6 +271,9 @@ export class AdminComponent implements OnInit {
             } else if (categoryName == 'service') {
               let i = this.serviceTypes.findIndex((t) => t._id == type._id);
               this.serviceTypes.splice(i, 1);
+            } else if (categoryName == 'productCategory') {
+              let i = this.categories.findIndex((t) => t._id == type._id);
+              this.categories.splice(i, 1);
             }
 
           },

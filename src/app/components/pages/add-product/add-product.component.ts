@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { Categorie, Product } from 'src/app/interfaces/product.interface';
 import { User } from 'src/app/interfaces/users.interface';
+import { AuthService } from 'src/app/services/auth.service';
 import ProductService from 'src/app/services/product.service';
 import Swal from 'sweetalert2';
 declare var initContent: any;
@@ -17,8 +18,9 @@ export class AddProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
-    private translate: TranslateService
-  ) {}
+    private translate: TranslateService,
+    private authService: AuthService,
+  ) { }
 
   categories: Categorie[] = [];
   newProduct: Product;
@@ -38,6 +40,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getCategories().subscribe((response) => {
       this.categories = response.data;
     });
+    this.currentUser = this.authService.getCurrentUser();
     this.productService.getProductByProvider(this.currentUser._id).subscribe(
       (res) => {
         this.providerProducts = res.data;
@@ -146,7 +149,7 @@ export class AddProductComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => {}
+        () => { }
       );
   }
   openUpdatePopup(i) {

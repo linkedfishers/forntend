@@ -56,7 +56,47 @@
                     <!-- /CREATE ENTITY BOX INFO -->
                 </div>
                 <!-- /CREATE ENTITY BOX -->
+                <!-- PRODUCT PREVIEW -->
+                <div *ngFor="let product of providerProducts ; let i = index" class="product-preview fixed-height">
+                    <!-- PRODUCT PREVIEW IMAGE -->
+                    <a [routerLink]="['/marketplace/details-product',product._id]">
+                        <figure class="product-preview-image liquid">
+                            <img src="{{ product?.picture | picture }}" alt="item-01" />
+                        </figure>
+                    </a>
+                    <!-- /PRODUCT PREVIEW IMAGE -->
 
+                    <!-- PRODUCT PREVIEW INFO -->
+                    <div class="product-preview-info">
+
+                        <!-- PRODUCT PREVIEW TITLE -->
+                        <p class="product-preview-title"><a
+                                [routerLink]="['/marketplace/details-product',product._id]">{{product?.name}}</a>
+                        </p>
+
+                        <p class="product-preview-title"><a
+                                [routerLink]="['/marketplace/details-product',product._id]">{{product?.price}}</a>
+                        </p>
+                        <!-- /PRODUCT PREVIEW TITLE -->
+
+                        <!-- PRODUCT PREVIEW CATEGORY -->
+                        <p class="product-preview-category digital"><a [routerLink]="['/marketplace/details-product',product._id]">
+                                {{product?.type?.name}}
+                            </a>
+                        </p>
+                        <!-- /PRODUCT PREVIEW CATEGORY -->
+                        <p (click)="openUpdatePopup(i)" class="button white full">
+                            {{'update_product' | translate}}</p>
+                        <!-- /BUTTON -->
+
+                        <!-- BUTTON -->
+                        <p class="button secondary full popup-manage-boat-trigger">
+                            {{'delete_product' | translate}}</p>
+                        <!-- /BUTTON -->
+                    </div>
+                    <!-- /PRODUCT PREVIEW INFO -->
+                </div>
+                <!-- /PRODUCT PREVIEW -->
             </div>
             <!-- /GRID -->
         </div>
