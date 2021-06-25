@@ -2,8 +2,8 @@ export class Event {
     _id: string;
     description: string;
     name: string;
-    endDate: Date
-    startDate: Date
+    endDate: Date = new Date();
+    startDate: Date = new Date();
     host: any;
     likes: any[];
     comments: any;
@@ -13,6 +13,8 @@ export class Event {
     tags: string[];
     image: string;
     reviews: any[];
-
+    maximumCapacity: number = 0;
     createdAt: any;
+    startTime: Date = new Date();
+    endTime: Date = new Date();
 }

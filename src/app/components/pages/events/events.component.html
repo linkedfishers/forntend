@@ -131,8 +131,8 @@
         <!-- CALENDAR -->
         <div class="calendar full">
             <!-- CALENDAR WEEK -->
-            <mwl-calendar-month-view [(viewDate)]="viewDate" [events]="calendarEvents" [refresh]="refresh"
-                [activeDayIsOpen]="false" (dayClicked)="dayClicked($event.day)">
+            <mwl-calendar-month-view [cellTemplate]="cellTemplate" [(viewDate)]="viewDate" [events]="calendarEvents"
+                [refresh]="refresh" [activeDayIsOpen]="false" (dayClicked)="dayClicked($event.day)">
             </mwl-calendar-month-view>
         </div>
         <!-- /CALENDAR -->
@@ -150,12 +150,8 @@
                 <div *ngFor="let event of todayEvents" class="calendar-event-preview secondary">
                     <!-- CALENDAR EVENT PREVIEW START TIME -->
                     <div class="calendar-event-preview-start-time">
-                        <!-- CALENDAR EVENT PREVIEW START TIME TITLE -->
-                        <p class="calendar-event-preview-start-time-title">{{event?.startDate | date : 'h:mm'}}</p>
-                        <!-- /CALENDAR EVENT PREVIEW START TIME TITLE -->
-
                         <!-- CALENDAR EVENT PREVIEW START TIME TEXT -->
-                        <p class="calendar-event-preview-start-time-text">{{event?.startDate | date : 'a'}}</p>
+                        <p class="calendar-event-preview-start-time-title">{{event?.startDate | date : 'dd/mm'}}</p>
                         <!-- /CALENDAR EVENT PREVIEW START TIME TEXT -->
                     </div>
                     <!-- /CALENDAR EVENT PREVIEW START TIME -->
@@ -163,7 +159,7 @@
                     <!-- CALENDAR EVENT PREVIEW INFO -->
                     <div class="calendar-event-preview-info">
                         <!-- CALENDAR EVENT PREVIEW TITLE -->
-                        <p (click)="showEvent(event)"
+                        <p [routerLink]="['/details-event/',event._id]"
                             class="calendar-event-preview-title popup-event-information-trigger">{{event?.name}}</p>
                         <!-- /CALENDAR EVENT PREVIEW TITLE -->
 
@@ -224,7 +220,8 @@
                     <!-- /DATE STICKER -->
 
                     <!-- EVENT PREVIEW TITLE -->
-                    <p (click)="showEvent(event)" class="event-preview-title popup-event-information-trigger">
+                    <p [routerLink]="['/details-event/',event._id]"
+                        class="event-preview-title popup-event-information-trigger">
                         {{event?.name}}</p>
                     <!-- /EVENT PREVIEW TITLE -->
 
@@ -290,32 +287,90 @@
         <!-- /FORM ROW -->
 
         <!-- FORM ROW -->
+        <div class="form-row space-between">
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                    <label for="item-price">Start date</label>
+                    <input [(ngModel)]="newEvent.startDate" name="startDate" [owlDateTime]="startDate"
+                        [owlDateTimeTrigger]="startDate">
+                    <owl-date-time #startDate [pickerType]="'calendar'"></owl-date-time>
+                </div>
+                <!-- /FORM INPUT -->
+            </div>
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                    <label for="item-price">Start Time</label>
+                    <input [(ngModel)]="newEvent.startTime" name="startTime" [owlDateTime]="startTime"
+                        [owlDateTimeTrigger]="startTime">
+                    <owl-date-time #startTime [pickerType]="'timer'"></owl-date-time>
+                </div>
+                <!-- /FORM INPUT -->
+            </div>
+        </div>
+        <!-- /FORM ROW -->
+        <!-- FORM ROW -->
+        <div class="form-row space-between">
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                    <label for="item-price">End date</label>
+                    <input [(ngModel)]="newEvent.endDate" name="endDate" [owlDateTime]="endDate"
+                        [owlDateTimeTrigger]="endDate">
+                    <owl-date-time #endDate [pickerType]="'calendar'"></owl-date-time>
+                </div>
+                <!-- /FORM INPUT -->
+            </div>
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                    <label for="item-price">End Time</label>
+                    <input name="newEvent.endTime" [owlDateTime]="endTime" [owlDateTimeTrigger]="endTime">
+                    <owl-date-time #endTime [pickerType]="'timer'"></owl-date-time>
+                </div>
+                <!-- /FORM INPUT -->
+            </div>
+        </div>
+        <!-- /FORM ROW -->
+        <!-- FORM ROW -->
         <div class="form-row">
             <!-- FORM ITEM -->
             <div class="form-item">
-                <!-- FORM INPUT DECORATED -->
-                <div class="form-input-decorated">
-                    <!-- FORM INPUT -->
-                    <div class="form-input small active">
-                        <label for="event-date active">Event Date</label>
-                        <input [(ngModel)]="dates" name="eventDates" [owlDateTime]="dateTime" [selectMode]="'range'"
-                            [owlDateTimeTrigger]="dateTime">
-                        <owl-date-time #dateTime></owl-date-time>
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                    <input [(ngModel)]="limitedEvent" type="checkbox" id="equipment_included" name="equipment_included"
+                        checked />
+                    <!-- CHECKBOX BOX -->
+                    <div class="checkbox-box">
+                        <!-- ICON CROSS -->
+                        <svg class="icon-cross">
+                            <use xlink:href="#svg-cross"></use>
+                        </svg>
+                        <!-- /ICON CROSS -->
                     </div>
-                    <!-- /FORM INPUT -->
-
-                    <!-- FORM INPUT ICON -->
-                    <svg class="form-input-icon icon-events">
-                        <use xlink:href="#svg-events"></use>
-                    </svg>
-                    <!-- /FORM INPUT ICON -->
+                    <!-- /CHECKBOX BOX -->
+                    <label for="equipment_included">Places limitées</label>
                 </div>
-                <!-- /FORM INPUT DECORATED -->
+                <!-- /CHECKBOX WRAP -->
             </div>
             <!-- /FORM ITEM -->
         </div>
-        <!-- /FORM ROW -->
-
+        <div *ngIf="limitedEvent" class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                    <label for="capacity_excluding_crew">
+                        Nombre de places
+                    </label>
+                    <input [(ngModel)]="newEvent.maximumCapacity" min="1" type="number" id="capacity_excluding_crew"
+                        name="capacity_excluding_crew">
+                </div>
+                <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+        </div>
         <!-- FORM ROW -->
         <div class="form-row">
             <!-- FORM ITEM -->
@@ -386,108 +441,6 @@
 </div>
 <!-- /POPUP BOX -->
 
-<!-- POPUP EVENT -->
-<div class="popup-event popup-event-information">
-    <!-- POPUP CLOSE BUTTON -->
-    <div class="popup-close-button popup-event-information-trigger">
-        <!-- POPUP CLOSE BUTTON ICON -->
-        <svg class="popup-close-button-icon icon-cross">
-            <use xlink:href="#svg-cross"></use>
-        </svg>
-        <!-- /POPUP CLOSE BUTTON ICON -->
-    </div>
-    <!-- /POPUP CLOSE BUTTON -->
-
-    <!-- POPUP EVENT COVER -->
-    <figure *ngIf="selectedEvent" class="popup-event-cover liquid">
-        <img [src]="selectedEvent?.image ? (API + selectedEvent?.image) : '../../../../assets/img/fishing-cover.jpg'"
-            alt="cover-33">
-    </figure>
-    <!-- /POPUP EVENT COVER -->
-
-    <!-- POPUP EVENT INFO -->
-    <div class="popup-event-info">
-        <!-- POPUP EVENT TITLE -->
-        <p class="popup-event-title">{{selectedEvent?.name}}</p>
-        <!-- /POPUP EVENT TITLE -->
-
-        <!-- DECORATED FEATURE LIST -->
-        <div class="decorated-feature-list">
-            <!-- DECORATED FEATURE -->
-            <div class="decorated-feature">
-                <!-- DECORATED FEATURE ICON -->
-                <svg class="decorated-feature-icon icon-events">
-                    <use xlink:href="#svg-events"></use>
-                </svg>
-                <!-- /DECORATED FEATURE ICON -->
-
-                <!-- DECORATED FEATURE INFO -->
-                <div class="decorated-feature-info">
-                    <!-- DECORATED FEATURE TITLE -->
-                    <p class="decorated-feature-title">
-                        {{selectedEvent?.startDate | date : 'EEEE' | translate}} , {{selectedEvent?.startDate | date :
-                        'mediumDate'}}
-                    </p>
-                    <!-- /DECORATED FEATURE TITLE -->
-
-                    <!-- DECORATED FEATURE TEXT -->
-                    <p class="decorated-feature-text">{{selectedEvent?.startDate | date : 'h:mm a'}}</p>
-                    <!-- /DECORATED FEATURE TEXT -->
-                </div>
-                <!-- /DECORATED FEATURE INFO -->
-            </div>
-            <!-- /DECORATED FEATURE -->
-
-            <!-- DECORATED FEATURE -->
-            <div *ngIf="selectedEvent?.endDate!=selectedEvent?.startDate" class="decorated-feature">
-                <!-- DECORATED FEATURE ICON -->
-                <svg class="decorated-feature-icon icon-ticket">
-                    <use xlink:href="#svg-events"></use>
-                </svg>
-                <!-- /DECORATED FEATURE ICON -->
-
-                <!-- DECORATED FEATURE INFO -->
-                <div class="decorated-feature-info">
-                    <!-- DECORATED FEATURE TITLE -->
-                    <p class="decorated-feature-title">{{selectedEvent?.endDate | date : 'EEEE' | translate}} ,
-                        {{selectedEvent?.endDate | date :
-                        'mediumDate'}}</p>
-                    <!-- /DECORATED FEATURE TITLE -->
-
-                    <!-- DECORATED FEATURE TEXT -->
-                    <p class="decorated-feature-text">{{selectedEvent?.endDate | date : 'h:mm a'}} </p>
-                    <!-- /DECORATED FEATURE TEXT -->
-                </div>
-                <!-- /DECORATED FEATURE INFO -->
-            </div>
-            <!-- /DECORATED FEATURE -->
-        </div>
-        <!-- /DECORATED FEATURE LIST -->
-
-        <!-- POPUP EVENT SUBTITLE -->
-        <p class="popup-event-subtitle">Description</p>
-        <!-- /POPUP EVENT SUBTITLE -->
-
-        <!-- POPUP EVENT TEXT -->
-        <p class="popup-event-text">{{selectedEvent?.description}}</p>
-        <!-- /POPUP EVENT TEXT -->
-
-
-        <!-- POPUP EVENT SUBTITLE -->
-        <p class="popup-event-subtitle">Event location</p>
-        <!-- /POPUP EVENT SUBTITLE -->
-
-        <!-- GOOGLE MAP -->
-        <div *ngIf="selectedEvent" class="event-map">
-            <app-map-box [draggable]="false" [(position)]="selectedEvent.position"></app-map-box>
-        </div>
-        <!-- /GOOGLE MAP -->
-
-    </div>
-    <!-- /POPUP EVENT INFO -->
-</div>
-<!-- /POPUP EVENT -->
-
 <ng-template #content let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Evenement </h4>
@@ -502,5 +455,16 @@
 
         <button type="button" (click)="onUpdateEvent()" class="btn btn-primary">Save changes</button>
         <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+</ng-template>
+
+<ng-template #cellTemplate let-day="day" let-openDay="openDay" let-locale="locale"
+    let-tooltipPlacement="tooltipPlacement" let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay"
+    let-eventClicked="eventClicked" let-tooltipTemplate="tooltipTemplate" let-tooltipAppendToBody="tooltipAppendToBody">
+    <div class="cal-cell-top">
+        <span class="cal-day-badge" *ngFor="let event of day.events">{{event?.title}}</span>
+        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div class="cal-events" *ngIf="day.events.length > 0">
     </div>
 </ng-template>

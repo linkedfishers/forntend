@@ -12,7 +12,14 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { User } from 'src/app/interfaces/users.interface';
-
+import {
+  isWithinInterval,
+  isSameDay,
+  isSameMonth,
+  areIntervalsOverlapping,
+  differenceInDays,
+  isPast
+} from 'date-fns';
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
 
@@ -34,11 +41,11 @@ export class EventsComponent implements OnInit {
   ) { }
 
   newEvent: Event;
+  limitedEvent = false;
   monthEvents: Event[] = [];
   todayEvents: Event[] = [];
   upcomingEvents: Event[] = [];
   calendarEvents: CalendarEvent[] = [];
-  dates: Date[] = [new Date()];
   today: Date;
   viewDate: Date = new Date();
   refresh: Subject<any> = new Subject();
@@ -75,7 +82,14 @@ export class EventsComponent implements OnInit {
   showCalendarEvents(date: Date) {
     this.eventService.getEventByMonth(date.getMonth()).subscribe(
       res => {
-        this.monthEvents = res.data;
+        const events: Event[] = res.data;
+        console.log(events);
+        console.log(this.monthEvents);
+        events.forEach(event => {
+          if (this.monthEvents.findIndex((e) => { return e._id == event._id; }) == -1) {
+            this.monthEvents.push(event);
+          }
+        });
         this.calendarEvents = this.monthEvents.map(
           event => {
             if (!event.endDate) {
@@ -90,7 +104,14 @@ export class EventsComponent implements OnInit {
           }
         );
         this.todayEvents = this.monthEvents.filter(
-          event => moment().isSame(new Date(event.startDate), 'day')
+          event => {
+            const start = new Date(event.startDate);
+            start.setDate(start.getDate() - 1);
+            return isWithinInterval(date, {
+              start,
+              end: new Date(event.endDate),
+            })
+          }
         );
       },
       err => {
@@ -118,8 +139,8 @@ export class EventsComponent implements OnInit {
       return;
     }
     this.formData = this.formData || new FormData();
-    this.newEvent.startDate = this.dates[0];
-    this.newEvent.endDate = this.dates[1] || this.dates[0];
+    this.setTime(this.newEvent.startDate, this.newEvent.startTime);
+    this.setTime(this.newEvent.endDate, this.newEvent.endTime);
     for (const key in this.newEvent) {
       if (this.newEvent.hasOwnProperty(key)) {
         this.formData.append(key, this.newEvent[key]);
@@ -153,20 +174,20 @@ export class EventsComponent implements OnInit {
   }
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
-    let dayClicked = moment(date);
-    if ((moment(this.viewDate).isSame(dayClicked, 'day') && this.activeDayIsOpen === true) || this.calendarEvents.length == 0) {
-      this.activeDayIsOpen = false;
-    } else {
-      this.activeDayIsOpen = true;
-    }
     this.viewDate = date;
     this.todayEvents = this.monthEvents.filter(
-      event => moment(this.viewDate).isSame(new Date(event.startDate), 'day')
+      event => {
+        const start = new Date(event.startDate);
+        start.setDate(start.getDate() - 1);
+        return isWithinInterval(date, {
+          start,
+          end: new Date(event.endDate),
+        });
+      }
     );
   }
 
   showEvent(event: Event) {
-    console.log('a');
     this.selectedEvent = event;
     $("#eventInformationTrigger").click();
   }
@@ -177,7 +198,6 @@ export class EventsComponent implements OnInit {
       this.viewDate.getMonth() + delta,
       this.viewDate.getDate());
     this.showCalendarEvents(this.viewDate);
-
   }
 
   onDeleteEvent(i) {
@@ -238,5 +258,11 @@ export class EventsComponent implements OnInit {
   openVerticallyCentered(content, i) {
     this.modalService.open(content, { centered: true });
     this.selectedEvents = i;
+  }
+
+  setTime(date: Date, time: Date) {
+    date.setMinutes(time.getMinutes());
+    date.setHours(time.getHours());
+    date.setSeconds(time.getSeconds());
   }
 }

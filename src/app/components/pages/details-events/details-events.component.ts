@@ -43,6 +43,7 @@ export class DetailsEventsComponent implements OnInit {
       let id = params.id;
       this.eventService.getEventById(id).subscribe((response) => {
         this.event = response.data;
+        console.log(this.event);
         this.isOwner = this.event.host._id === this.currentUser._id;
         this.isGoing = this.event.going.includes(this.currentUser._id);
       })
@@ -51,13 +52,13 @@ export class DetailsEventsComponent implements OnInit {
   }
 
 
-  toggleGoing(){
+  toggleGoing() {
     console.log('houni');
-    this.eventService.addGoing(this.event._id,!this.isGoing ).subscribe(
+    this.eventService.addGoing(this.event._id, !this.isGoing).subscribe(
       (response) => {
         this.event = response.data;
         this.isGoing = this.event.going.includes(this.currentUser._id);
-      },error => {
+      }, error => {
         console.log(error);
       });
   }
