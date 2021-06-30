@@ -80,6 +80,7 @@ import { ProductListComponent } from './components/pages/products/product-list/p
 import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -147,6 +148,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductListComponent,
     ProviderLoginComponent,
     AddProductComponent,
+    MainpageComponent,
   ],
   imports: [
     BrowserModule,

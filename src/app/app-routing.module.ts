@@ -33,6 +33,7 @@ import { ProductListComponent } from './components/pages/products/product-list/p
 import { ProviderLoginComponent } from './components/pages/provider-login/provider-login.component';
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
 import { DetailsProductComponent } from './components/pages/details-product/details-product.component';
+import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: '',
         component: HomeComponent,
+      },
+      {
+        path: 'main',
+        component: MainpageComponent,
       },
       {
         path: 'admin',
