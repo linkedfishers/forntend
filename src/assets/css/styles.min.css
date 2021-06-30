@@ -530,7 +530,6 @@ textarea::placeholder {
   border: 1px solid rgb(54, 54, 54);
   background-color: #fff;
   color: black;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 .interactive-input.dark input::-webkit-input-placeholder {
   color: black;

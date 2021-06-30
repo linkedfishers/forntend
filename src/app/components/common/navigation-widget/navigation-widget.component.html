@@ -1,68 +1,59 @@
-<!-- NAVIGATION WIDGET -->
+
+
+
+
+
+
+
+
+
+
+
 <nav id="navigation-widget" class="navigation-widget navigation-widget-desktop sidebar left" data-simplebar>
   <!-- NAVIGATION WIDGET COVER -->
-  <figure class="navigation-widget-cover liquid">
-    <img src="./assets/img/cover/01.jpg" alt="cover-01" />
-  </figure>
+
   <!-- /NAVIGATION WIDGET COVER -->
 
   <!-- USER SHORT DESCRIPTION -->
-  <div class="user-short-description">
-    <!-- USER SHORT DESCRIPTION AVATAR -->
+ <!--  <div class="user-short-description">
     <a class="user-short-description-avatar user-avatar medium" [routerLink]="['/profile']">
-      <!-- USER AVATAR BORDER -->
       <div class="user-avatar-border">
-        <!-- HEXAGON -->
         <div class="hexagon-120-132"></div>
-        <!-- /HEXAGON -->
       </div>
-      <!-- /USER AVATAR BORDER -->
 
-      <!-- USER AVATAR CONTENT -->
+
       <div class="user-avatar-content">
-        <!-- HEXAGON -->
         <div class="hexagon-image-82-90" id="profilePicture1" data-src="../../../../assets/img/default-profile.png">
         </div>
-        <!-- /HEXAGON -->
       </div>
-      <!-- /USER AVATAR CONTENT -->
 
-      <!-- USER AVATAR PROGRESS -->
+
+
       <div class="user-avatar-progress">
-        <!-- HEXAGON -->
+
         <div class="hexagon-progress-100-110"></div>
-        <!-- /HEXAGON -->
-      </div>
-      <!-- /USER AVATAR PROGRESS -->
 
-      <!-- USER AVATAR PROGRESS BORDER -->
+      </div>
+
+
       <div class="user-avatar-progress-border">
-        <!-- HEXAGON -->
         <div class="hexagon-border-100-110"></div>
-        <!-- /HEXAGON -->
       </div>
-      <!-- /USER AVATAR PROGRESS BORDER -->
     </a>
-    <!-- /USER SHORT DESCRIPTION AVATAR -->
 
-    <!-- USER SHORT DESCRIPTION TITLE -->
     <p class="user-short-description-title">
       <a [routerLink]="['/profile']">{{ fullName }}</a>
     </p>
-    <!-- /USER SHORT DESCRIPTION TITLE -->
-  </div>
-  <!-- /USER SHORT DESCRIPTION -->
+  </div> -->
 
   <!-- MENU -->
-  <ul class="menu">
+  <ul class="menus">
     <!-- MENU ITEM -->
     <li class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-newsfeed">
-          <use xlink:href="#svg-newsfeed"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Newsfeed
       </a>
@@ -74,11 +65,8 @@
     <li *ngIf="isAdmin" class="menu-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/admin']">
-        <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-overview">
-          <use xlink:href="#svg-admin"></use>
-        </svg>
-        <!-- /MENU ITEM LINK ICON -->
+
+
         Administration
       </a>
       <!-- /MENU ITEM LINK -->
@@ -89,9 +77,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/provider/add-product']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-marketplace">
-          <use xlink:href="#svg-marketplace"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         products
       </a>
@@ -104,9 +90,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/events']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-events">
-          <use xlink:href="#svg-events"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Events
       </a>
@@ -119,9 +103,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/map']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-members">
-          <use xlink:href="#svg-globe"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Map
       </a>
@@ -134,9 +116,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/weather']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-members">
-          <use xlink:href="#svg-weather"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Weather
       </a>
@@ -146,9 +126,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/services']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-members">
-          <use xlink:href="#svg-group"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Services
       </a>
@@ -161,9 +139,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/equipments']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-members">
-          <use xlink:href="#svg-equipment"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Equipment
       </a>
@@ -176,9 +152,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/boats']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-quests">
-          <use xlink:href="#svg-boat"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Boats
       </a>
@@ -191,9 +165,7 @@
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/homes']">
         <!-- MENU ITEM LINK ICON -->
-        <svg class="menu-item-link-icon icon-streams">
-          <use xlink:href="#svg-home"></use>
-        </svg>
+
         <!-- /MENU ITEM LINK ICON -->
         Homes
       </a>
@@ -203,9 +175,9 @@
   </ul>
   <!-- /MENU -->
 </nav>
-<!-- /NAVIGATION WIDGET -->
 
-<!-- NAVIGATION WIDGET -->
+
+
 <nav id="navigation-widget-mobile" class="navigation-widget navigation-widget-mobile sidebar left hidden"
   data-simplebar>
   <!-- NAVIGATION WIDGET CLOSE BUTTON -->
@@ -424,4 +396,6 @@
   <a class="navigation-widget-section-link" [routerLink]="['/settings/social']">Social links</a>
   <!-- /NAVIGATION WIDGET SECTION LINK -->
 </nav>
-<!-- /NAVIGATION WIDGET -->
+
+
+
