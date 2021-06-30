@@ -44,6 +44,8 @@ export class ProductListComponent implements OnInit {
     }
   };
 
+  filterBy = 'price';
+  orderBy = 1;
   ngOnInit(): void {
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
@@ -64,6 +66,19 @@ export class ProductListComponent implements OnInit {
   updatePriceFilter() {
     this.visibleProducts = this.products.filter((product) => {
       return (product.price <= this.maxPrice && product.price >= this.minPrice);
+    });
+  }
+
+  applySortFilters() {
+    this.visibleProducts = this.products.sort((p1, p2) => {
+      switch (this.filterBy) {
+        case 'price':
+          return (p1.price - p2.price) * this.orderBy;
+        case 'createdAt':
+          return (new Date(p1.createdAt).getTime() - (new Date(p2.createdAt).getTime())) * this.orderBy;
+        default:
+          break;
+      }
     });
   }
 
