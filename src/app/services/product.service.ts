@@ -29,8 +29,12 @@ export class ProductService {
       `${this.API}/categorie/${catId}/providerr/${providerId}`
     );
   }
-  getProducts() {
-    return this.httpClient.get<any>(`${this.API}/all/`);
+  getProducts(numberOfResult: number = 3) {
+    return this.httpClient.get<any>(`${this.API}/all/`, {
+      params: {
+        limit: numberOfResult.toString(),
+      },
+    });
   }
 
   deleteProduct(id: string) {
@@ -43,6 +47,14 @@ export class ProductService {
 
   getCategories() {
     return this.httpClient.get<any>(`${this.API}/categories`);
+  }
+
+  getProduc(numberOfResult: number = 2) {
+    return this.httpClient.get<any>(`${this.API}/all`, {
+      params: {
+        limit: numberOfResult.toString(),
+      },
+    });
   }
 }
 export default ProductService;

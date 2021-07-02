@@ -115,7 +115,7 @@ h1 {
 .blog-card h3 a:hover {
   text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.95);
 }
-h3:after {
+/* h3:after {
   content: " ";
   display: block;
   width: 10%;
@@ -124,7 +124,7 @@ h3:after {
   border: 0;
   background: #bda26b;
   transition: all 0.2s;
-}
+} */
 
 @keyframes changeLetter {
   0% {
@@ -164,15 +164,18 @@ h3:after {
   transition: bottom 0.64s, opacity 0.63s cubic-bezier(0.33, 0.66, 0.66, 1);
 }
 
-.card-info a {
+.card-info h4 {
   display: block;
-  width: 100px;
-  margin: 15px auto;
-  background: #fff;
-  color: #444;
+  width: 200px;
+  margin: 0px auto;
+
+  color: rgb(243, 243, 243);
   padding: 3px 10px;
   border-radius: 2px;
-  font-size: 0.8em;
+  font-size: 18px;
+}
+em {
+  color: #9cc9e3;
 }
 .card-info a:hover {
   background: #8e7c49;
@@ -507,12 +510,18 @@ h3:after {
   left: 0;
   z-index: 15;
 }
+.blog-cards:hover .title-contents h3 {
+  display: none;
+}
 .blog-cards:hover .card-infos {
   opacity: 1;
-  bottom: 120px;
+  bottom: 90px;
 }
 .blog-cards:hover .color-overlays {
   background: rgba(84, 104, 110, 0.8);
+}
+.blog-cards:hover .title-contents .intro {
+  display: none;
 }
 .title-contents {
   text-align: center;
@@ -538,14 +547,21 @@ hr {
   border: 0;
   background: #d0bb57;
 }
+.blog-cards:hover .title-contents hr {
+  display: none;
+}
 .intros {
-  width: 170px;
+  width: 500px;
   margin: 0 auto;
   color: #dce3e7;
   font-family: "Droid Serif", serif;
   font-size: 13px;
   font-style: italic;
   line-height: 18px;
+}
+.intros a {
+  font-size: 18px;
+  line-height: 32px;
 }
 .card-infos {
   width: 100%;
@@ -594,4 +610,25 @@ hr {
   display: flex;
   justify-content: space-evenly;
   align-items: flex-start;
+}
+
+.map-container {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.title-map {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.title-map h4 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.mrg {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }

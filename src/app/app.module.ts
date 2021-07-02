@@ -81,6 +81,8 @@ import { ProviderLoginComponent } from './components/pages/provider-login/provid
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
+import { FooterComponent } from './components/pages/footer/footer.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -149,6 +151,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProviderLoginComponent,
     AddProductComponent,
     MainpageComponent,
+    FooterComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
