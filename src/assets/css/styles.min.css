@@ -11793,7 +11793,7 @@ figure > img {
 .header .mobilemenu-trigger,
 .header .sidemenu-trigger {
   display: -ms-flexbox;
-  display: flex;
+  display: none;
   -ms-flex-pack: center;
   justify-content: center;
   -ms-flex-align: center;
@@ -12921,5 +12921,3 @@ figure > img {
 .colortwo {
   color: rgb(20, 148, 20);
 }
-
-
