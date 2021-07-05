@@ -83,6 +83,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { FooterComponent } from './components/pages/footer/footer.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
+import { AboutusComponent } from './components/pages/aboutus/aboutus.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -153,6 +154,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MainpageComponent,
     FooterComponent,
     ContactComponent,
+    AboutusComponent,
   ],
   imports: [
     BrowserModule,

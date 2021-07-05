@@ -850,8 +850,11 @@ textarea::placeholder {
 }
 .icon-logo-vikinger {
   fill: #fff;
-  width: 42px;
-  height: 60px;
+  width: 175px;
+  height: 210px;
+  position: absolute;
+  top: -13px;
+  left: -15px;
 }
 .icon-logo-vikinger.small {
   width: 28px;
@@ -11733,12 +11736,11 @@ figure > img {
   transform: translate(0);
 }
 .header {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
-    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
   justify-content: space-between;
   width: 100%;
   height: 80px;
-  background: #fff;
+  background: #1f1f5e;
   position: fixed;
   top: 0;
   left: 0;
@@ -11978,7 +11980,7 @@ figure > img {
 .menu-main .menu-main-item .menu-main-item-link {
   padding: 0 24px;
   display: block;
-  color: rgb(24, 23, 23);
+  color: rgb(255, 255, 255);
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 80px;

@@ -56,20 +56,15 @@
       </a>
       <!-- /MENU ITEM LINK -->
     </li>
-    <!-- /MENU ITEM -->
 
-    <!-- MENU ITEM -->
     <li
       *ngIf="isAdmin"
       class="menu-item"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
     >
-      <!-- MENU ITEM LINK -->
-      <a class="menu-item-link" [routerLink]="['/admin']"> Administration </a>
-      <!-- /MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/admin']"> Admin</a>
     </li>
-    <!-- /MENU ITEM -->
 
     <li
       *ngIf="isProvider"
@@ -77,11 +72,7 @@
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
     >
-      <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/provider/add-product']">
-        <!-- MENU ITEM LINK ICON -->
-
-        <!-- /MENU ITEM LINK ICON -->
         products
       </a>
       <!-- /MENU ITEM LINK -->

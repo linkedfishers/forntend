@@ -10,7 +10,7 @@ import { DetailsEquipmentComponent } from './components/pages/details-equipment/
 import { DetailsHebergementsComponent } from './components/pages/details-hebergements/details-hebergements.component';
 import { CategoriesComponent } from './components/pages/equipments/categories/categories.component';
 import { CategoriesServiceComponent } from './components/pages/services/categoriesService/categories.component';
-
+import { AboutusComponent } from './components/pages/aboutus/aboutus.component';
 import { EquipmentListComponent } from './components/pages/equipments/equipment-list/equipment-list.component';
 import { EquipmentsComponent } from './components/pages/equipments/equipments.component';
 import { EventsComponent } from './components/pages/events/events.component';
@@ -47,6 +47,10 @@ const routes: Routes = [
       {
         path: '',
         component: MainpageComponent,
+      },
+      {
+        path: 'about-us',
+        component: AboutusComponent,
       },
       {
         path: 'admin',
