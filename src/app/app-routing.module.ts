@@ -41,11 +41,11 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
+        path: 'main',
         component: HomeComponent,
       },
       {
-        path: 'main',
+        path: '',
         component: MainpageComponent,
       },
       {

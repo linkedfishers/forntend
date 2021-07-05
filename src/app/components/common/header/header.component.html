@@ -89,7 +89,7 @@
         <!-- MENU MAIN ITEM -->
         <!-- <li class="menu-main-item">
           <a class="menu-main-item-link" [routerLink]="['/']">{{
-            "about_us" | translate
+            "About_us" | translate
           }}</a>
         </li> -->
         <!-- /MENU MAIN ITEM -->
@@ -521,6 +521,54 @@
         <a class="dropdown-navigation-link" [routerLink]="['/booking-requests']"
           >Manage reservations requests</a
         >
+        <p
+          *ngIf="!isProvider"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+          <a class="menu-item-link" [routerLink]="['/services']">
+            <!-- MENU ITEM LINK ICON -->
+
+            <!-- /MENU ITEM LINK ICON -->
+            Services
+          </a>
+        </p>
+        <p *ngIf="!isProvider" class="dropdown-navigation-link" routerLinkActive="active">
+      <!-- MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/equipments']">
+        <!-- MENU ITEM LINK ICON -->
+
+        <!-- /MENU ITEM LINK ICON -->
+        Equipment
+      </a>
+      <!-- /MENU ITEM LINK -->
+    </p>
+    <!-- /MENU ITEM -->
+
+    <!-- MENU ITEM -->
+    <p *ngIf="!isProvider" class="dropdown-navigation-link" routerLinkActive="active">
+      <!-- MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/boats']">
+        <!-- MENU ITEM LINK ICON -->
+
+        <!-- /MENU ITEM LINK ICON -->
+        Boats
+      </a>
+      <!-- /MENU ITEM LINK -->
+    </p>
+    <!-- /MENU ITEM -->
+
+    <!-- MENU ITEM -->
+    <p *ngIf="!isProvider" class="dropdown-navigation-link" routerLinkActive="active">
+      <!-- MENU ITEM LINK -->
+      <a class="menu-item-link" [routerLink]="['/homes']">
+        <!-- MENU ITEM LINK ICON -->
+
+        <!-- /MENU ITEM LINK ICON -->
+        Homes
+      </a>
+      <!-- /MENU ITEM LINK -->
+    </p>
         <!-- /DROPDOWN NAVIGATION LINK -->
 
         <!-- DROPDOWN NAVIGATION BUTTON -->
