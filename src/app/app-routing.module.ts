@@ -34,6 +34,8 @@ import { ProviderLoginComponent } from './components/pages/provider-login/provid
 import { AddProductComponent } from './components/pages/add-product/add-product.component';
 import { DetailsProductComponent } from './components/pages/details-product/details-product.component';
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
+import { ListHebergementsComponent } from './components/pages/hebergements/list-hebergements/list-hebergements.component';
+import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boats.component';
 
 const routes: Routes = [
   {
@@ -139,6 +141,14 @@ const routes: Routes = [
       {
         path: 'details-home/:id',
         component: DetailsHebergementsComponent,
+      },
+      {
+        path: 'list-home',
+        component: ListHebergementsComponent,
+      },
+      {
+        path: 'list-boats',
+        component: ListBoatsComponent,
       },
       {
         path: 'details-boat/:id',

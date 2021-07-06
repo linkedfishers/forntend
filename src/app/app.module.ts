@@ -84,6 +84,8 @@ import { MainpageComponent } from './components/pages/mainpage/mainpage.componen
 import { FooterComponent } from './components/pages/footer/footer.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { AboutusComponent } from './components/pages/aboutus/aboutus.component';
+import { ListHebergementsComponent } from './components/pages/hebergements/list-hebergements/list-hebergements.component';
+import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boats.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -155,6 +157,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     ContactComponent,
     AboutusComponent,
+    ListHebergementsComponent,
+    ListBoatsComponent,
   ],
   imports: [
     BrowserModule,
