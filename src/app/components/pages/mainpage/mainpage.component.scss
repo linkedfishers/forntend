@@ -523,19 +523,24 @@ em {
 .blog-cards:hover .title-contents .intro {
   display: none;
 }
+
+/* .card-info p {
+  font-family: "Roboto" sans-serif;
+  color: white !important;
+} */
 .title-contents {
   text-align: center;
-  margin: 70px 0 0 0;
-  position: absolute;
+  margin: 70px auto 0 auto;
+  position: relative;
   z-index: 20;
-  width: 100%;
+  max-width: 300px;
   top: 0;
   left: 0;
 }
 h3 {
   font-size: 20px;
   font-weight: 500;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: #9cc9e3;
   font-family: "Roboto", sans-serif;
   margin-bottom: 0;
@@ -571,7 +576,7 @@ hr {
   margin: 0 auto;
   padding: 0 50px;
   color: #dce3e7;
-  font-family: "Droid Serif", serif;
+  font-family: "Roboto", sans-serif;
   font-style: 16px;
   line-height: 24px;
   z-index: 20;
