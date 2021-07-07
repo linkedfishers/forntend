@@ -36,6 +36,7 @@ import { DetailsProductComponent } from './components/pages/details-product/deta
 import { MainpageComponent } from './components/pages/mainpage/mainpage.component';
 import { ListHebergementsComponent } from './components/pages/hebergements/list-hebergements/list-hebergements.component';
 import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boats.component';
+import { ListServicesComponent } from './components/pages/services/list-services/list-services.component';
 
 const routes: Routes = [
   {
@@ -149,6 +150,10 @@ const routes: Routes = [
       {
         path: 'list-boats',
         component: ListBoatsComponent,
+      },
+      {
+        path: 'list-services',
+        component: ListServicesComponent,
       },
       {
         path: 'details-boat/:id',

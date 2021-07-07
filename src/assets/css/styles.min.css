@@ -6014,6 +6014,8 @@ figure > img {
   background-color: #fff;
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
   position: relative;
+  margin-top: 210px !important;
+  margin-left: 170px;
 }
 .widget-box.no-padding {
   padding: 0;
@@ -12055,6 +12057,7 @@ figure > img {
 .menu .menu-item .menu-item-link {
   display: block;
   height: 48px;
+  width: 30px !important;
   padding-left: 62px;
   border-radius: 12px;
   font-size: 0.875rem;
@@ -12062,6 +12065,7 @@ figure > img {
   line-height: 48px;
   position: relative;
   transition: all 0.2s ease-in-out;
+  padding: 0 !important;
 }
 .menu .menu-item .menu-item-link:hover {
   background-color: #fff;

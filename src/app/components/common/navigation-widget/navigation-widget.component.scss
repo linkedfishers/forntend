@@ -5,7 +5,7 @@ a.menu-item-link {
 .menus {
   display: flex;
   width: 100% !important;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 #navigation-widget {
@@ -15,10 +15,14 @@ a.menu-item-link {
 }
 .menus li {
   margin-top: 20px;
+  width: 40px;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 .menus li a {
   color: white;
-  padding: 20px;
+  padding: 10px;
+  width: 100%;
 }
 
 .menus li a:hover {

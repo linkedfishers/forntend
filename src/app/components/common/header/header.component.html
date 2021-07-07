@@ -72,6 +72,11 @@
           }}</a>
           <!-- /MENU MAIN ITEM LINK -->
         </li>
+        <li *ngIf="isAdmin" class="menu-main-item">
+          <a class="menu-main-item-link" [routerLink]="['/admin']">
+            {{ "Admin" | translate }}</a
+          >
+        </li>
         <!-- /MENU MAIN ITEM -->
 
         <!-- MENU MAIN ITEM -->
@@ -89,6 +94,16 @@
           }}</a>
           <!-- /MENU MAIN ITEM LINK -->
         </li>
+        <li *ngIf="!isProvider" class="menu-main-item">
+          <!-- MENU ITEM LINK -->
+          <a class="menu-main-item-link" [routerLink]="['/map']">
+            <!-- MENU ITEM LINK ICON -->
+
+            <!-- /MENU ITEM LINK ICON -->
+            Map
+          </a>
+          <!-- /MENU ITEM LINK -->
+        </li>
         <!-- /MENU MAIN ITEM -->
 
         <!-- MENU MAIN ITEM -->
@@ -105,6 +120,7 @@
             "rules" | translate
           }}</a>
         </li> -->
+
         <!-- /MENU MAIN ITEM -->
       </ul>
       <!-- /MENU MAIN -->

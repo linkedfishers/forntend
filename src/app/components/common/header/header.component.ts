@@ -77,7 +77,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.fullName = this.currentUser.fullName;
       }
-      let profilePicture1, profilePicture2;
+    /*   let profilePicture1, profilePicture2;
       profilePicture1 = this.el.nativeElement.querySelector('#profilePicture1');
       profilePicture2 = this.el.nativeElement.querySelector('#profilePicture2');
       profilePicture1.setAttribute(
@@ -87,10 +87,11 @@ export class HeaderComponent implements OnInit {
       profilePicture2.setAttribute(
         'data-src',
         picturePipe.transform(this.currentUser.profilePicture)
-      );
+      ); */
     } else {
       this.fullName = 'Guest';
     }
+    initHexagons();
     this.isAdmin = this.authService.isAdmin();
   }
 

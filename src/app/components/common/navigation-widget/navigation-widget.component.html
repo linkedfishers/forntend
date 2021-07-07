@@ -52,19 +52,19 @@
         <!-- MENU ITEM LINK ICON -->
 
         <!-- /MENU ITEM LINK ICON -->
-        Newsfeed
+        Profil
       </a>
       <!-- /MENU ITEM LINK -->
     </li>
 
-    <li
+    <!--   <li
       *ngIf="isAdmin"
       class="menu-item"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
     >
       <a class="menu-item-link" [routerLink]="['/admin']"> Admin</a>
-    </li>
+    </li> -->
 
     <li
       *ngIf="isProvider"
@@ -93,16 +93,14 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
-      <!-- MENU ITEM LINK -->
-      <a class="menu-item-link" [routerLink]="['/map']">
-        <!-- MENU ITEM LINK ICON -->
+    <!--     <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
 
-        <!-- /MENU ITEM LINK ICON -->
+      <a class="menu-item-link" [routerLink]="['/map']">
+
         Map
       </a>
-      <!-- /MENU ITEM LINK -->
-    </li>
+
+    </li> -->
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
@@ -169,6 +167,12 @@
       <!-- MENU MAIN ITEM LINK -->
       <a class="menu-main-item-link" [routerLink]="['/list-boats']">{{
         "Boats" | translate
+      }}</a>
+    </li>
+    <li class="menu-main-item">
+      <!-- MENU MAIN ITEM LINK -->
+      <a class="menu-main-item-link" [routerLink]="['/list-services']">{{
+        "Freelancer" | translate
       }}</a>
     </li>
   </ul>
