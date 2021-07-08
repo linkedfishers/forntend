@@ -1,5 +1,39 @@
-<div id="weather-container" class="weather-side">
+<!-- <div id="weather-container" class="weather-side">
     <iframe width="{{width}}" height="450" class="weather-side"
         src="https://embed.windy.com/embed2.html?lat=33.724&lon=9.360&detailLat=33.724&detailLon=9.360&width=650&height=450&zoom=5&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=default&radarRange=-1"
         frameborder="0"></iframe>
+</div> -->
+
+<!--
+<div id="widget_edc8a9da54b0ef7c38def0a05b8852d2">
+<span id="t_edc8a9da54b0ef7c38def0a05b8852d2">Météo Tunis</span>
+<span id="l_edc8a9da54b0ef7c38def0a05b8852d2"><a href="http://www.mymeteo.info/r/accueil_C5">www.my-meteo.com</a></span>
+
+</div> -->
+
+<div id="divWeatherMain">
+  <div *ngIf="weatherDat.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-sun sun"></i>
+  </div>
+  <div *ngIf="!weatherDat.isDay" class="weatherWidgetRow">
+    <i class="fas fa-3x fa-moon moon"></i>
+  </div>
+  <div class="weatherWidgetRow cloudDiv">
+    <i class="fas fa-cloud fa-3x cloud"></i>
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 32px; margin-top: 5px">
+    {{ weatherDat.temp_celcius }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    {{ weatherDat.temp_min }}° / {{ weatherDat.temp_max }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    Feels Like: {{ weatherDat.temp_feels_like }}°
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 25px; margin-top: 10px">
+    {{ weatherDat.name }}
+  </div>
+  <div class="weatherWidgetRow" style="font-size: 12px">
+    Humidity: {{ weatherDat.main.humidity }}%
+  </div>
 </div>

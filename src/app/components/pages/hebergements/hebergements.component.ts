@@ -83,7 +83,7 @@ export class HebergementsComponent implements OnInit {
     console.log(this.newHome.type);
     this.formData = this.formData || new FormData();
     for (const key in this.newHome) {
-      if (this.newHome.hasOwnProperty(key)) {
+      if (this.newHome.hasOwnProperty(key) && key !='details') {
         this.formData.append(key, this.newHome[key]);
       }
     }
@@ -91,6 +91,7 @@ export class HebergementsComponent implements OnInit {
       this.formData.append('lat', this.newHome.position['lat']);
       this.formData.append('lng', this.newHome.position['lng']);
     }
+    this.formData.append('details',JSON.stringify(this.newHome.details))
     this.equipmentService.createHebergement(this.formData).subscribe(
       res => {
         this.userHomes.unshift(res.data);

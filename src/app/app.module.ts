@@ -87,6 +87,7 @@ import { AboutusComponent } from './components/pages/aboutus/aboutus.component';
 import { ListHebergementsComponent } from './components/pages/hebergements/list-hebergements/list-hebergements.component';
 import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boats.component';
 import { ListServicesComponent } from './components/pages/services/list-services/list-services.component';
+import { CommonModule } from '@angular/common';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -164,6 +165,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+
+    CommonModule,
     CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,
@@ -224,4 +227,4 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

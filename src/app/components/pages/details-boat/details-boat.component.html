@@ -1,8 +1,11 @@
-<div class="content-grid" style="
+<div
+  class="content-grid"
+  style="
     transform: translate(360.5px, 0px);
     transition: transform 0.4s ease-in-out 0s;
-  ">
- <!--  <div class="section-banner">
+  "
+>
+  <!--  <div class="section-banner">
     <img class="section-banner-icon" src="../../../../assets/img/banner/marketplace-icon.png" alt="marketplace-icon" />
 
     <p class="section-banner-title">boat details!</p>
@@ -12,8 +15,9 @@
   <!-- SECTION HEADER -->
   <div class="section-header">
     <!-- SECTION HEADER INFO -->
-    <div class="section-header-info">
+    <div class="section-header-info flex">
       <!-- SECTION TITLE -->
+      <h1 class="named-title">{{ "Boat Name" | translate }} :</h1>
       <h2 class="section-title">{{ boat?.name }}</h2>
       <!-- /SECTION TITLE -->
     </div>
@@ -22,27 +26,38 @@
   <!-- /SECTION HEADER -->
 
   <!-- GRID -->
-  <div class="grid grid-8-4">
+  <div class="grid grid-8-4 blockcontent">
     <!-- MARKETPLACE CONTENT -->
-    <div class="marketplace-content grid-column">
+    <div class="marketplace-content grid-column max-width">
       <!-- SLIDER PANEL -->
       <div class="slider-panel">
         <!-- SLIDER PANEL SLIDES -->
         <div class="tns-outer" id="product-box-slider-items-ow">
-          <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">
+          <div
+            class="tns-liveregion tns-visually-hidden"
+            aria-live="polite"
+            aria-atomic="true"
+          >
             slide <span class="current">8</span> of 7
           </div>
           <div class="tns-inner" id="product-box-slider-items-iw">
-            <div id="product-box-slider-items" class="
+            <div
+              id="product-box-slider-items"
+              class="
                 slider-panel-slides
                 tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
-              ">
+              "
+            >
               <!-- SLIDER PANEL SLIDE -->
-              <img style="border-radius: 2%" src="{{
+              <img
+                style="border-radius: 2%"
+                src="{{
                   boat?.image
                     ? API + boat?.image
                     : '../../../../assets/img/fishing-home-header.png'
-                }}" alt="item-10" />
+                }}"
+                alt="item-10"
+              />
               <!-- /SLIDER PANEL SLIDE -->
             </div>
           </div>
@@ -98,11 +113,18 @@
               <!-- POST COMMENT -->
               <div *ngFor="let review of boat?.reviews" class="post-comment">
                 <!-- USER AVATAR -->
-                <a class="user-avatar small no-outline" [routerLink]="[
+                <a
+                  class="user-avatar small no-outline"
+                  [routerLink]="[
                     '/profile/',
                     review?.author?.slug || review?.author?._id
-                  ]">
-                  <img class="round-small" [src]="review?.author?.profilePicture | picture" alt="avatar-01" />
+                  ]"
+                >
+                  <img
+                    class="round-small"
+                    [src]="review?.author?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
                 </a>
                 <!-- /USER AVATAR -->
 
@@ -111,7 +133,10 @@
                   <!-- RATING LIST -->
                   <div class="rating-list medium">
                     <!-- RATING -->
-                    <div *ngFor="let i of range(review?.rating)" class="rating medium filled">
+                    <div
+                      *ngFor="let i of range(review?.rating)"
+                      class="rating medium filled"
+                    >
                       <!-- RATING ICON -->
                       <svg class="rating-icon medium icon-star">
                         <use xlink:href="#svg-star"></use>
@@ -121,7 +146,10 @@
                     <!-- /RATING -->
 
                     <!-- RATING -->
-                    <div *ngFor="let i of range(5 - review?.rating)" class="rating medium">
+                    <div
+                      *ngFor="let i of range(5 - review?.rating)"
+                      class="rating medium"
+                    >
                       <!-- RATING ICON -->
                       <svg class="rating-icon medium icon-star">
                         <use xlink:href="#svg-star"></use>
@@ -153,10 +181,12 @@
                     <div class="meta-line">
                       <!-- META LINE TEXT -->
                       <p class="meta-line-text">
-                        <a [routerLink]="[
+                        <a
+                          [routerLink]="[
                             '/profile/',
                             review?.author?.slug || review?.author?._id
-                          ]">
+                          ]"
+                        >
                           {{ review?.author?.fullName }}
                         </a>
                       </p>
@@ -177,9 +207,14 @@
                     <!-- META LINE -->
                     <div class="meta-line settings">
                       <!-- POST SETTINGS WRAP -->
-                      <div class="post-settings-wrap" style="position: relative">
+                      <div
+                        class="post-settings-wrap"
+                        style="position: relative"
+                      >
                         <!-- POST SETTINGS -->
-                        <div class="post-settings post-settings-dropdown-trigger">
+                        <div
+                          class="post-settings post-settings-dropdown-trigger"
+                        >
                           <!-- POST SETTINGS ICON -->
                           <svg class="post-settings-icon icon-more-dots">
                             <use xlink:href="#svg-more-dots"></use>
@@ -189,7 +224,9 @@
                         <!-- /POST SETTINGS -->
 
                         <!-- SIMPLE DROPDOWN -->
-                        <div class="simple-dropdown post-settings-dropdown" style="
+                        <div
+                          class="simple-dropdown post-settings-dropdown"
+                          style="
                             position: absolute;
                             z-index: 9999;
                             bottom: 30px;
@@ -200,7 +237,8 @@
                             transition: transform 0.3s ease-in-out 0s,
                               opacity 0.3s ease-in-out 0s,
                               visibility 0.3s ease-in-out 0s;
-                          ">
+                          "
+                        >
                           <!-- SIMPLE DROPDOWN LINK -->
                           <p class="simple-dropdown-link">Report Review</p>
                           <!-- /SIMPLE DROPDOWN LINK -->
@@ -216,7 +254,10 @@
                 <!-- /CONTENT ACTIONS -->
               </div>
               <!-- /POST COMMENT -->
-              <div *ngIf="!isOwner && currentUser" class="post-comment-form with-title">
+              <div
+                *ngIf="!isOwner && currentUser"
+                class="post-comment-form with-title"
+              >
                 <!-- POST COMMENT FORM TITLE -->
                 <p class="post-comment-form-title">Leave a Review</p>
                 <!-- /POST COMMENT FORM TITLE -->
@@ -224,7 +265,11 @@
                 <!-- USER AVATAR -->
                 <div class="user-avatar small no-outline">
                   <!-- USER AVATAR CONTENT -->
-                  <img class="round-small" [src]="currentUser?.profilePicture | picture" alt="avatar-01" />
+                  <img
+                    class="round-small"
+                    [src]="currentUser?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
                 </div>
                 <!-- /USER AVATAR -->
 
@@ -235,14 +280,27 @@
                     <!-- FORM ITEM -->
                     <div class="form-item">
                       <!-- FORM INPUT -->
-                      <ngb-rating [resettable]="true" [max]="5" [(rate)]="newReview.rating">
+                      <ngb-rating
+                        [resettable]="true"
+                        [max]="5"
+                        [(rate)]="newReview.rating"
+                      >
                         <ng-template let-fill="fill" let-index="index">
-                          <span class="star" [class.filled]="fill === 100">&#9733;</span>
+                          <span class="star" [class.filled]="fill === 100"
+                            >&#9733;</span
+                          >
                         </ng-template>
                       </ngb-rating>
-                      <div style="padding-top: 20px" class="form-input small active">
-                        <textarea placeholder="Your review" [(ngModel)]="newReview.content" id="post-reply-2"
-                          name="post_reply_2"></textarea>
+                      <div
+                        style="padding-top: 20px"
+                        class="form-input small active"
+                      >
+                        <textarea
+                          placeholder="Your review"
+                          [(ngModel)]="newReview.content"
+                          id="post-reply-2"
+                          name="post_reply_2"
+                        ></textarea>
                       </div>
                       <!-- /FORM INPUT -->
                     </div>
@@ -251,7 +309,11 @@
                   <!-- /FORM ROW -->
                 </form>
                 <!-- /FORM -->
-                <p (click)="addReview()" style="width: 100%" class="button secondary">
+                <p
+                  (click)="addReview()"
+                  style="width: 100%"
+                  class="button secondary"
+                >
                   {{ "Add review" | translate }}
                 </p>
                 <!-- /BUTTON -->
@@ -280,33 +342,21 @@
           <!-- /PRICE TITLE -->
 
           <!-- BUTTON -->
-          <p [routerLink]="['/book/', 'boat', boat?._id]" class="button primary">
-            {{
-            isOwner
-            ? "Détails
-            reservations"
-            : "Réserver"
-            }}
+          <p
+            [routerLink]="['/book/', 'boat', boat?._id]"
+            class="button primary"
+          >
+            {{ isOwner ? "Détailsreservations" : "Réserver" }}
           </p>
-          <!-- /BUTTON -->
 
-          <!-- USER STATS -->
           <div class="user-stats">
-            <!-- USER STAT -->
             <div class="user-stat big">
-              <!-- USER STAT TITLE -->
               <p class="user-stat-title">{{ boat?.reviews.length }}</p>
-              <!-- /USER STAT TITLE -->
 
-              <!-- USER STAT TEXT -->
               <p class="user-stat-text">Reviews</p>
-              <!-- /USER STAT TEXT -->
             </div>
-            <!-- /USER STAT -->
 
-            <!-- USER STAT -->
             <div class="user-stat big">
-              <!-- USER STAT TITLE -->
               <p class="user-stat-title">
                 {{ boat?.rating | number: "1.0-2" }}/5
               </p>
@@ -316,7 +366,10 @@
               <div class="rating-list">
                 <!-- RATING -->
                 <!-- RATING -->
-                <div *ngFor="let i of range(boat?.rating)" class="rating medium filled">
+                <div
+                  *ngFor="let i of range(boat?.rating)"
+                  class="rating medium filled"
+                >
                   <!-- RATING ICON -->
                   <svg class="rating-icon medium icon-star">
                     <use xlink:href="#svg-star"></use>
@@ -326,7 +379,10 @@
                 <!-- /RATING -->
 
                 <!-- RATING -->
-                <div *ngFor="let i of range(5 - boat?.rating)" class="rating medium">
+                <div
+                  *ngFor="let i of range(5 - boat?.rating)"
+                  class="rating medium"
+                >
                   <!-- RATING ICON -->
                   <svg class="rating-icon medium icon-star">
                     <use xlink:href="#svg-star"></use>
@@ -352,7 +408,11 @@
           <!-- USER STATUS -->
           <div class="user-status" style="padding-left: 0px !important">
             <!-- USER AVATAR -->
-            <img class="round" [src]="boat?.owner?.profilePicture | picture" alt="avatar-01" />
+            <img
+              class="round"
+              [src]="boat?.owner?.profilePicture | picture"
+              alt="avatar-01"
+            />
             <!-- /USER AVATAR -->
 
             <!-- USER STATUS TITLE -->
@@ -388,7 +448,10 @@
                 <div class="rating-list">
                   <!-- RATING -->
                   <!-- RATING -->
-                  <div *ngFor="let i of range(boat?.owner?.rating)" class="rating medium filled">
+                  <div
+                    *ngFor="let i of range(boat?.owner?.rating)"
+                    class="rating medium filled"
+                  >
                     <!-- RATING ICON -->
                     <svg class="rating-icon medium icon-star">
                       <use xlink:href="#svg-star"></use>
@@ -398,7 +461,10 @@
                   <!-- /RATING -->
 
                   <!-- RATING -->
-                  <div *ngFor="let i of range(5 - boat?.owner?.rating)" class="rating medium">
+                  <div
+                    *ngFor="let i of range(5 - boat?.owner?.rating)"
+                    class="rating medium"
+                  >
                     <!-- RATING ICON -->
                     <svg class="rating-icon medium icon-star">
                       <use xlink:href="#svg-star"></use>
@@ -430,7 +496,7 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">Type</p>
+              <p class="information-line-title customwidth">Type</p>
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
@@ -444,7 +510,7 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
+              <p class="information-line-title customwidth">
                 {{ "boat_size" | translate }}
               </p>
               <!-- /INFORMATION LINE TITLE -->
@@ -459,7 +525,7 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
+              <p class="information-line-title customwidth">
                 {{ "capacity_excluding_crew" | translate }}
               </p>
               <!-- /INFORMATION LINE TITLE -->
@@ -475,7 +541,7 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">
+              <p class="information-line-title customwidth">
                 {{ "port_address" | translate }}
               </p>
               <!-- /INFORMATION LINE TITLE -->
@@ -491,12 +557,14 @@
             <!-- INFORMATION LINE -->
             <div class="information-line">
               <!-- INFORMATION LINE TITLE -->
-              <p class="information-line-title">Created</p>
+              <p class="information-line-title customwidth">Created</p>
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
               <p class="information-line-text">
-                <span class="bold">{{boat?.createdAt| date: " MMMM, d, y,h:mm a"}}</span>
+                <span class="bold">{{
+                  boat?.createdAt | date: " MMMM, d, y,h:mm a"
+                }}</span>
               </p>
               <!-- /INFORMATION LINE TEXT -->
             </div>

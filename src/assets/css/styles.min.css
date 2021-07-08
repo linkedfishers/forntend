@@ -12925,3 +12925,6 @@ figure > img {
 .colortwo {
   color: rgb(20, 148, 20);
 }
+.customwidth {
+  width: 300px !important;
+}

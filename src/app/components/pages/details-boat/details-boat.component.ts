@@ -14,6 +14,8 @@ declare var app, loadSvg, initTooltips,
   initHeader,
   initContent,
   initLoader, loadSvg: any;
+  declare var initForm, $: any;
+  declare var initSidebar, initPopups, loadSvg: any;
 
 @Component({
   selector: 'app-details-boat',
@@ -38,6 +40,10 @@ export class DetailsBoatComponent implements OnInit {
   isOwner = false;
 
   ngOnInit(): void {
+    initSidebar();
+    initPopups();
+    initForm();
+    loadSvg();
     this.currentUser = this.authService.getCurrentUser();
     this.route.params.subscribe(params => {
       let id = params.id;

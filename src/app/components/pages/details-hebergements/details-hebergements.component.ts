@@ -8,28 +8,32 @@ import { environment } from 'src/environments/environment';
 import { Review } from 'src/app/interfaces/reviews.interface';
 import { ToastrService } from 'ngx-toastr';
 
-declare var app, loadSvg, initTooltips,
+declare var app,
+  loadSvg,
+  initTooltips,
   initCharts,
   initHexagons,
   initPopups,
   initHeader,
   initContent,
-  initLoader, loadSvg: any;
+  initLoader,
+  loadSvg: any;
+declare var initForm, $: any;
+declare var initSidebar, initPopups, loadSvg: any;
 
 @Component({
   selector: 'app-details-hebergements',
   templateUrl: './details-hebergements.component.html',
-  styleUrls: ['./details-hebergements.component.scss']
+  styleUrls: ['./details-hebergements.component.scss'],
 })
 export class DetailsHebergementsComponent implements OnInit {
-
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
     private equipmentService: EquipmentService,
-    private toastr: ToastrService,
-  ) { }
+    private toastr: ToastrService
+  ) {}
   readonly API: string = environment.apiUrl + '/';
 
   hebergement: Hebergement;
@@ -39,14 +43,18 @@ export class DetailsHebergementsComponent implements OnInit {
   isOwner = true;
 
   ngOnInit(): void {
+    initSidebar();
+    initPopups();
+    initForm();
+    loadSvg();
     this.currentUser = this.authService.getCurrentUser();
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       let id = params.id;
       this.equipmentService.getHebergement(id).subscribe((response) => {
         this.hebergement = response.data;
         this.hebergement.reviews = this.hebergement.reviews || [];
         this.isOwner = this.hebergement.owner._id === this.currentUser._id;
-      })
+      });
     });
     initContent();
   }
@@ -59,18 +67,16 @@ export class DetailsHebergementsComponent implements OnInit {
         review.author = this.currentUser;
         this.hebergement.reviews.push(review);
         this.newReview = new Review();
-        this.toastr.info("Added review");
+        this.toastr.info('Added review');
       },
       (error) => {
         this.toastr.error('Error while adding review', error.error.message);
-
       }
-    )
+    );
   }
 
   range(n) {
     if (!n) return Array(0);
     return Array(Math.round(n));
   }
-
 }

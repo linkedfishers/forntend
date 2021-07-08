@@ -16,7 +16,7 @@ export class ListServicesComponent implements OnInit {
   visibleservices: Service[];
   content: Service[] = [];
   ngOnInit(): void {
-    this.equipmentService.getHebergements().subscribe((res) => {
+    this.equipmentService.getServices().subscribe((res) => {
       this.services = res.data;
       this.visibleservices = this.services;
     });
