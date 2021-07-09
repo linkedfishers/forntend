@@ -28,11 +28,14 @@
     <!-- /MARKETPLACE SIDEBAR -->
 
     <!-- MARKETPLACE CONTENT -->
-    <div class="marketplace-content">
+    <div class="marketplace-content maxw">
       <!-- GRID -->
-      <div class="grid grid-3-3-3 centered">
+      <div class="grid grid-3-3-3 centered displayflef">
         <!-- PRODUCT PREVIEW -->
-        <div *ngFor="let boat of visiblehebrgements" class="product-preview">
+        <div
+          *ngFor="let boat of visiblehebrgements"
+          class="product-preview widthprod"
+        >
           <!-- PRODUCT PREVIEW IMAGE -->
           <a [routerLink]="['/details-home', boat?._id]">
             <figure

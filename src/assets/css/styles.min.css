@@ -6014,7 +6014,7 @@ figure > img {
   background-color: #fff;
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
   position: relative;
-  margin-top: 210px !important;
+  margin-top: 0px !important;
 }
 .widget-box.no-padding {
   padding: 20px;

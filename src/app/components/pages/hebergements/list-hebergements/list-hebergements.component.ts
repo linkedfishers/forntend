@@ -3,8 +3,8 @@ import { Hebergement } from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 
-declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
+declare var initSidebar, initPopups, loadSvg: any;
 
 @Component({
   selector: 'app-list-hebergements',
@@ -19,9 +19,13 @@ export class ListHebergementsComponent implements OnInit {
   visiblehebrgements: Hebergement[];
   content: Hebergement[] = [];
   ngOnInit(): void {
+    initSidebar();
+    initPopups();
+    initForm();
+    loadSvg();
     this.equipementService.getHebergements().subscribe((res) => {
       this.hebergements = res.data;
-         this.visiblehebrgements = this.hebergements;
+      this.visiblehebrgements = this.hebergements;
     });
   }
 }
