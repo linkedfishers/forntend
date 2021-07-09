@@ -11,6 +11,7 @@ export class Equipment {
   createdAt: any;
   reviews: any[];
   rating: number;
+  details: DetailServices = new DetailServices();
 }
 export class EquipmentType {
   _id: string;
@@ -32,6 +33,7 @@ export class Service {
   createdAt: any;
   reviews: any[];
   rating: number;
+  details: DetailServices = new DetailServices();
 }
 export class ServiceType {
   _id: string;

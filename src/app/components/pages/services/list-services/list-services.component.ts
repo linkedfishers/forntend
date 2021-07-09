@@ -18,6 +18,7 @@ export class ListServicesComponent implements OnInit {
   ngOnInit(): void {
     this.equipmentService.getServices().subscribe((res) => {
       this.services = res.data;
+      console.log(res.data);
       this.visibleservices = this.services;
     });
   }

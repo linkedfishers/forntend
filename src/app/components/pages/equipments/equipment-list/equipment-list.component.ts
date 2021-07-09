@@ -38,13 +38,8 @@ export class EquipmentListComponent implements OnInit {
   formData: FormData;
   imageSrc: any;
   newEquipment: Equipment;
-
-  
   userEquipements: Equipment[] = [];
   selectedEquipment = -1;
-
-
-
   ngOnInit(): void {
     initForm();
     initSidebar();

@@ -10,7 +10,7 @@
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info">
       <!-- SECTION PRETITLE -->
-      <p class="section-pretitle">Browse Boats</p>
+      <p class="section-pretitle">Freelancer Boats</p>
       <!-- /SECTION PRETITLE -->
     </div>
     <!-- /SECTION HEADER INFO -->
@@ -28,11 +28,11 @@
     <!-- /MARKETPLACE SIDEBAR -->
 
     <!-- MARKETPLACE CONTENT -->
-    <div class="marketplace-content">
+    <div class="marketplace-content maxw">
       <!-- GRID -->
-      <div class="grid grid-3-3-3 centered">
+      <div class="grid grid-3-3-3 centered displayflef">
         <!-- PRODUCT PREVIEW -->
-        <div *ngFor="let boat of visibleservices" class="product-preview">
+        <div *ngFor="let boat of visibleservices" class="product-preview widthprod">
           <!-- PRODUCT PREVIEW IMAGE -->
           <a [routerLink]="['/details-boat', boat?._id]">
             <figure

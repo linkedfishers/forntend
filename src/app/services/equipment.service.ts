@@ -4,14 +4,14 @@ import { environment } from 'src/environments/environment';
 import { Review } from '../interfaces/reviews.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class EquipmentService {
   readonly API: string = environment.apiUrl + '/equipments';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
   createService(FormData: FormData) {
-    return this.httpClient.post<any>(`${this.API}/service/new`, FormData)
+    return this.httpClient.post<any>(`${this.API}/service/new`, FormData);
   }
   createBoat(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/boat/new`, formData);
@@ -59,10 +59,14 @@ export class EquipmentService {
   }
 
   getEquipmentsByTypeAndUser(typeId: string, userId: string) {
-    return this.httpClient.get<any>(`${this.API}/type/${typeId}/user/${userId}`);
+    return this.httpClient.get<any>(
+      `${this.API}/type/${typeId}/user/${userId}`
+    );
   }
   getServicesByTypeAndUser(typeId: string, userId: string) {
-    return this.httpClient.get<any>(`${this.API}/service/type/${typeId}/user/${userId}`);
+    return this.httpClient.get<any>(
+      `${this.API}/service/type/${typeId}/user/${userId}`
+    );
   }
 
   getBoatsByUser(userId: string) {
@@ -72,17 +76,20 @@ export class EquipmentService {
     return this.httpClient.get<any>(`${this.API}/hebergements/user/${userId}`);
   }
   getServices() {
-    return this.httpClient.get<any>(`${this.API}/services/all/`)
+    return this.httpClient.get<any>(`${this.API}/services/all/`);
   }
   getHebergements() {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
   }
 
+  getEquipments() {
+    return this.httpClient.get<any>(`${this.API}/all/`);
+  }
   getBoats() {
     return this.httpClient.get<any>(`${this.API}/boats/all/`);
   }
   deleteService(id: string) {
-    return this.httpClient.delete<any>(`${this.API}/service/${id}`)
+    return this.httpClient.delete<any>(`${this.API}/service/${id}`);
   }
   deleteEquipment(id: string) {
     return this.httpClient.delete<any>(`${this.API}/equipment/${id}`);
@@ -112,7 +119,9 @@ export class EquipmentService {
   }
 
   addReview(review: Review, categoryName: string) {
-    return this.httpClient.post<any>(`${this.API}/${categoryName}/review`, review);
+    return this.httpClient.post<any>(
+      `${this.API}/${categoryName}/review`,
+      review
+    );
   }
-
 }

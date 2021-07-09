@@ -16,10 +16,9 @@ declare var initSidebar, initPopups: any;
 @Component({
   selector: 'app-service-list',
   templateUrl: './service-list.component.html',
-  styleUrls: ['./service-list.component.scss']
+  styleUrls: ['./service-list.component.scss'],
 })
 export class ServiceListComponent implements OnInit {
-
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
@@ -28,15 +27,14 @@ export class ServiceListComponent implements OnInit {
     private equipmentService: EquipmentService,
     private translate: TranslateService,
     private modalService: NgbModal
-  ) { }
+  ) {}
   readonly API: string = environment.apiUrl + '/';
-  currentUser: User
+  currentUser: User;
   services: Service[];
   serviceType: ServiceType;
   formData: FormData;
   imageSrc: any;
   newService: Service;
-
 
   userServices: Service[] = [];
   selectedService = -1;
@@ -46,24 +44,24 @@ export class ServiceListComponent implements OnInit {
     initPopups();
     this.currentUser = this.authService.getCurrentUser();
 
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       let typeId = params.typeId;
       if (!typeId) {
         this.router.navigate(['/services']);
       }
       this.initServices(typeId);
-    })
+    });
   }
   initServices(typeId: string) {
     this.newService = new Service();
-    this.equipmentService.getServicesByTypeAndUser(typeId, this.currentUser._id).subscribe(
-      res => {
+    this.equipmentService
+      .getServicesByTypeAndUser(typeId, this.currentUser._id)
+      .subscribe((res) => {
         console.log(res);
 
         this.serviceType = res.data.type;
-        this.services = res.data.services
-      }
-    )
+        this.services = res.data.services;
+      });
   }
   fileChange(event) {
     let fileList: FileList = event.target.files;
@@ -73,7 +71,7 @@ export class ServiceListComponent implements OnInit {
       this.formData = new FormData();
       this.formData.append('file', file, file.name);
       const reader = new FileReader();
-      reader.onload = e => {
+      reader.onload = (e) => {
         this.imageSrc = e.target['result'];
       };
       reader.readAsDataURL(fileList[0]);
@@ -86,24 +84,26 @@ export class ServiceListComponent implements OnInit {
     this.formData = this.formData || new FormData();
     this.newService.type = this.serviceType._id;
     for (const key in this.newService) {
-      if (this.newService.hasOwnProperty(key)) {
+      if (this.newService.hasOwnProperty(key) && key != 'details') {
         this.formData.append(key, this.newService[key]);
       }
     }
+    this.formData.append('details', JSON.stringify(this.newService.details));
+
     this.equipmentService.createService(this.formData).subscribe(
-      res => {
+      (res) => {
         this.services.unshift(res.data);
         this.toastr.success(res.message);
         this.newService = new Service();
       },
-      err => {
+      (err) => {
         console.log(err);
         this.toastr.error(err.error.message);
       }
-    )
+    );
   }
   openFileInput() {
-    $("#postPhoto").click();
+    $('#postPhoto').click();
   }
   deleteService(i) {
     Swal.fire({
@@ -111,29 +111,28 @@ export class ServiceListComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: this.translate.instant('delete_service'),
-      cancelButtonText: this.translate.instant('discard')
+      cancelButtonText: this.translate.instant('discard'),
     }).then((result) => {
       if (result.value) {
         this.equipmentService.deleteService(this.services[i]._id).subscribe(
-          res => {
-            Swal.fire(
-              {
-                title: this.translate.instant('deleted_service'),
-                icon: 'success'
-              });
+          (res) => {
+            Swal.fire({
+              title: this.translate.instant('deleted_service'),
+              icon: 'success',
+            });
             this.services.splice(i, 1);
           },
-          err => {
+          (err) => {
             Swal.fire({
               title: this.translate.instant('delete_error'),
-              icon: 'error'
+              icon: 'error',
             });
           }
-        )
+        );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         return;
       }
-    })
+    });
   }
   onUpdateService() {
     this.formData = this.formData || new FormData();
@@ -142,27 +141,28 @@ export class ServiceListComponent implements OnInit {
         this.formData.append(key, this.services[this.selectedService][key]);
       }
     }
-    this.equipmentService.updateService(this.formData, this.services[this.selectedService]._id).subscribe(
-      res => {
-        this.toastr.success(res.message);
-        this.formData = new FormData();
-        this.imageSrc = "";
-        this.modalService.dismissAll();
-      },
-      err => {
-        this.imageSrc = "";
-        console.log(err);
-        this.toastr.error(err.error.message);
-      },
-      () => {
-      }
-    )
+    this.equipmentService
+      .updateService(this.formData, this.services[this.selectedService]._id)
+      .subscribe(
+        (res) => {
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+          this.modalService.dismissAll();
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log(err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
   }
   openUpdatePopup(i) {
     initForm();
-    this.imageSrc = "";
+    this.imageSrc = '';
     this.selectedService = i;
-    $("#updateBtn").click();
+    $('#updateBtn').click();
   }
 
   openVerticallyCentered(content, i) {
