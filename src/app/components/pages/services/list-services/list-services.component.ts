@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Service } from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
+declare var initForm, $: any;
+declare var initSidebar, initPopups, loadSvg: any;
 
 @Component({
   selector: 'app-list-services',
@@ -16,6 +18,9 @@ export class ListServicesComponent implements OnInit {
   visibleservices: Service[];
   content: Service[] = [];
   ngOnInit(): void {
+    initForm();
+    initSidebar();
+    initPopups();
     this.equipmentService.getServices().subscribe((res) => {
       this.services = res.data;
       console.log(res.data);
