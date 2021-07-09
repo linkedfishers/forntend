@@ -20,6 +20,8 @@ declare var app,
   initContent,
   initLoader,
   loadSvg: any;
+declare var initForm, $: any;
+declare var initSidebar, initPopups, loadSvg: any;
 @Component({
   selector: 'app-details-product',
   templateUrl: './details-product.component.html',
@@ -33,13 +35,17 @@ export class DetailsProductComponent implements OnInit {
     private toastr: ToastrService,
     private auService: AuthService,
     private translate: TranslateService
-  ) { }
+  ) {}
 
   readonly API: string = environment.apiUrl + '/';
   product: Product;
   currentUser: User;
   isOwner = false;
   ngOnInit(): void {
+    initSidebar();
+    initPopups();
+    initForm();
+    loadSvg();
     const picturePipe = new PicturePipe();
     this.currentUser = this.auService.getCurrentUser();
     this.route.params.subscribe((params) => {
@@ -49,11 +55,9 @@ export class DetailsProductComponent implements OnInit {
         if (this.product.pictures.length == 0) {
           this.product.pictures = [this.product.picture];
         }
-        this.product.pictures = this.product.pictures.map(
-          picture => {
-            return picturePipe.transform(picture);
-          }
-        )
+        this.product.pictures = this.product.pictures.map((picture) => {
+          return picturePipe.transform(picture);
+        });
         this.isOwner = response.data.isOwner || false;
       });
     });
