@@ -83,7 +83,7 @@
 
         <!-- PRODUCT PREVIEW -->
         <div
-          *ngFor="let home of userHomes; let i = index"
+          *ngFor="let home of userEquipment; let i = index"
           class="product-preview fixed-height"
         >
           <!-- PRODUCT PREVIEW IMAGE -->
@@ -133,7 +133,7 @@
 
             <!-- BUTTON -->
             <p
-              (click)="deleteHebergement(i)"
+              (click)="deleteEquipement(i)"
               class="button secondary full popup-manage-item-trigger"
             >
               {{ "delete_home" | translate }}
@@ -174,11 +174,11 @@
         <a (click)="openFileInput()" [routerLink]="">
           <figure class="product-preview-image liquid">
             <img
-              *ngIf="!imageSrc"
+              *ngIf="!imgSrc"
               src="../../../../assets/img/fishing-home-header.png"
               alt="item-10"
             />
-            <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
+            <img *ngIf="imgSrc" [src]="imgSrc" alt="item-10" />
           </figure>
         </a>
         <!-- /PRODUCT PREVIEW IMAGE -->
@@ -188,7 +188,7 @@
           <!-- PRODUCT PREVIEW TITLE -->
           <!-- TEXT STICKER -->
           <p class="text-sticker">
-            <span class="highlighted">$</span> {{ newHome?.price }}
+            <span class="highlighted">$</span> {{ newEquipement?.price }}
           </p>
           <!-- /TEXT STICKER -->
           <p class="product-preview-title">
@@ -216,7 +216,7 @@
       <div class="popup-box-sidebar-footer">
         <!-- BUTTON -->
         <p
-          (click)="createHebergement()"
+          (click)="createEquipment()"
           class="button primary full popup-manage-item-trigger"
         >
           Save Changes!
@@ -253,7 +253,7 @@
                 <div class="form-input small active">
                   <label for="item-name">Hebergement Name</label>
                   <input
-                    [(ngModel)]="newHome.name"
+                    [(ngModel)]="newEquipement.name"
                     type="text"
                     id="item-name"
                     name="item_name"
@@ -273,7 +273,7 @@
                   <label for="item-name">Hebergement Price</label>
                   <input
                     min="0"
-                    [(ngModel)]="newHome.price"
+                    [(ngModel)]="newEquipement.price"
                     type="number"
                     id="item-name"
                     name="item_price"
@@ -281,17 +281,22 @@
                 </div>
                 <!-- /FORM INPUT -->
               </div>
-                 <div class="form-item">
-                                <!-- FORM INPUT -->
-                                <div class="form-input small active">
-                                    <label for="capacity_excluding_crew">
-                                        {{'capacity_excluding_crew' |translate}}
-                                    </label>
-                                    <input min="0" [(ngModel)]="newHome.details.capacity" type="number"
-                                        id="capacity_excluding_crew" name="capacity_excluding_crew">
-                                </div>
-                                <!-- /FORM INPUT -->
-                            </div>
+              <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                  <label for="capacity_excluding_crew">
+                    {{ "capacity_excluding_crew" | translate }}
+                  </label>
+                  <input
+                    min="0"
+                    [(ngModel)]="newEquipement.details.capacity"
+                    type="number"
+                    id="capacity_excluding_crew"
+                    name="capacity_excluding_crew"
+                  />
+                </div>
+                <!-- /FORM INPUT -->
+              </div>
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
@@ -302,10 +307,13 @@
                 <!-- FORM SELECT -->
                 <div class="form-select">
                   <label for="item-description">Hebergement type</label>
-                  <select [(ngModel)]="newHome.type" name="hebergement-name">
+                  <select
+                    [(ngModel)]="newEquipement.type"
+                    name="hebergement-name"
+                  >
                     <option value="" selected>Select Hebergement type</option>
                     <option
-                      *ngFor="let type of hebergementTypes"
+                      *ngFor="let type of equipmentTypes"
                       value="{{ type._id }}"
                     >
                       {{ type.name }}
@@ -324,7 +332,7 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.internet"
+                    [(ngModel)]="newEquipement.details.internet"
                     type="checkbox"
                     id="internet"
                     name="internet"
@@ -352,7 +360,7 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.alcoholAllowed"
+                    [(ngModel)]="newEquipement.details.alcoholAllowed"
                     type="checkbox"
                     id="alcoholAllowed"
                     name="alcoholAllowed"
@@ -377,7 +385,7 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.partyAllowed"
+                    [(ngModel)]="newEquipement.details.partyAllowed"
                     type="checkbox"
                     id="partyAllowed"
                     name="partyAllowed"
@@ -404,7 +412,7 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.equipmentIncluded"
+                    [(ngModel)]="newEquipement.details.equipmentIncluded"
                     type="checkbox"
                     id="equipment_included"
                     name="equipment_included"
@@ -434,7 +442,7 @@
                 <div class="form-input small active">
                   <label for="item-description">Hebergement description</label>
                   <input
-                    [(ngModel)]="newHome.description"
+                    [(ngModel)]="newEquipement.description"
                     type="text"
                     id="item-description"
                     name="item_description"
@@ -451,7 +459,9 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small mid-textarea">
-                  <app-map-box [(position)]="newHome.position"></app-map-box>
+                  <app-map-box
+                    [(position)]="newEquipement.position"
+                  ></app-map-box>
                 </div>
                 <!-- /FORM INPUT -->
               </div>
@@ -493,10 +503,10 @@
         <a (click)="openFileInput()" [routerLink]="">
           <figure class="product-preview-image liquid">
             <img
-              *ngIf="!imageSrc"
-              [src]="API + userHomes[selectedHome]?.image"
+              *ngIf="!imgSrc"
+              [src]="API + userEquipment[selectedEquipment]?.image"
             />
-            <img *ngIf="imageSrc" [src]="imageSrc" />
+            <img *ngIf="imgSrc" [src]="imgSrc" />
           </figure>
         </a>
         <!-- /PRODUCT PREVIEW IMAGE -->
@@ -507,7 +517,7 @@
           <!-- TEXT STICKER -->
           <p class="text-sticker">
             <span class="highlighted">$</span>
-            {{ userHomes[selectedHome]?.price }}
+            {{ userEquipment[selectedEquipment]?.price }}
           </p>
           <!-- /TEXT STICKER -->
           <p class="product-preview-title">
@@ -535,7 +545,7 @@
       <div class="popup-box-sidebar-footer">
         <!-- BUTTON -->
         <p
-          (click)="updateHebergement()"
+          (click)="updateEquipment()"
           class="button primary full popup-edit-hosting-trigger"
         >
           Save Changes!
@@ -571,8 +581,8 @@
                 <div class="form-input small active">
                   <label for="item-name">Hebergement Name</label>
                   <input
-                    *ngIf="selectedHome >= 0"
-                    [(ngModel)]="userHomes[selectedHome].name"
+                    *ngIf="selectedEquipment >= 0"
+                    [(ngModel)]="userEquipment[selectedEquipment].name"
                     type="text"
                     id="item-name"
                     name="item_name"
@@ -592,8 +602,8 @@
                   <label for="item-name">Hebergement Price</label>
                   <input
                     min="0"
-                    *ngIf="selectedHome >= 0"
-                    [(ngModel)]="userHomes[selectedHome].price"
+                    *ngIf="selectedEquipment >= 0"
+                    [(ngModel)]="userEquipment[selectedEquipment].price"
                     type="number"
                     id="item-name"
                     name="item_price"
@@ -612,13 +622,13 @@
                 <div class="form-select">
                   <label for="item-description">Hebergement type</label>
                   <select
-                    *ngIf="selectedHome >= 0"
-                    [(ngModel)]="userHomes[selectedHome].type"
+                    *ngIf="selectedEquipment >= 0"
+                    [(ngModel)]="userEquipment[selectedEquipment].type"
                     name="hebergement-name"
                   >
                     <option value="" selected>Select Hebergement type</option>
                     <option
-                      *ngFor="let type of hebergementTypes"
+                      *ngFor="let type of equipmentTypes"
                       value="{{ type._id }}"
                     >
                       {{ type.name }}
@@ -643,8 +653,8 @@
                 <div class="form-input small active">
                   <label for="item-description">Hebergement description</label>
                   <input
-                    *ngIf="selectedHome >= 0"
-                    [(ngModel)]="userHomes[selectedHome].description"
+                    *ngIf="selectedEquipment >= 0"
+                    [(ngModel)]="userEquipment[selectedEquipment].description"
                     type="text"
                     id="item-description"
                     name="item_description"
@@ -662,8 +672,8 @@
                 <!-- FORM INPUT -->
                 <div class="form-input small mid-textarea">
                   <app-map-box
-                    *ngIf="selectedHome >= 0"
-                    [(position)]="userHomes[selectedHome].position"
+                    *ngIf="selectedEquipment >= 0"
+                    [(position)]="userEquipment[selectedEquipment].position"
                   ></app-map-box>
                 </div>
                 <!-- /FORM INPUT -->

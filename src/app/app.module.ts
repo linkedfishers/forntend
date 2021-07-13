@@ -89,6 +89,8 @@ import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boa
 import { ListServicesComponent } from './components/pages/services/list-services/list-services.component';
 import { CommonModule } from '@angular/common';
 import { DetailsServiceComponent } from './components/pages/details-service/details-service.component';
+import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
+import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -164,6 +166,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ListBoatsComponent,
     ListServicesComponent,
     DetailsServiceComponent,
+    EquipmentpecheComponent,
+    ListEquipmentsComponent,
   ],
   imports: [
     BrowserModule,

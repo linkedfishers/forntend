@@ -37,6 +37,8 @@ import { MainpageComponent } from './components/pages/mainpage/mainpage.componen
 import { ListHebergementsComponent } from './components/pages/hebergements/list-hebergements/list-hebergements.component';
 import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boats.component';
 import { ListServicesComponent } from './components/pages/services/list-services/list-services.component';
+import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
+import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
 
 const routes: Routes = [
   {
@@ -78,6 +80,11 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'equipments',
+        component: EquipmentpecheComponent,
+        canActivate: [AuthGuard],
+      },
+      {
         path: 'homes',
         component: HebergementsComponent,
         canActivate: [AuthGuard],
@@ -101,7 +108,7 @@ const routes: Routes = [
           },
         ],
       },
-      {
+      /*     {
         path: 'equipments',
         component: EquipmentsComponent,
         canActivate: [AuthGuard],
@@ -119,7 +126,7 @@ const routes: Routes = [
             redirectTo: '',
           },
         ],
-      },
+      }, */
       {
         path: 'settings',
         component: AccountComponent,
@@ -150,6 +157,10 @@ const routes: Routes = [
       {
         path: 'list-boats',
         component: ListBoatsComponent,
+      },
+      {
+        path: 'list-equipments',
+        component: ListEquipmentsComponent,
       },
       {
         path: 'list-services',

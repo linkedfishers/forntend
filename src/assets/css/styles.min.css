@@ -850,11 +850,11 @@ textarea::placeholder {
 }
 .icon-logo-vikinger {
   fill: #fff;
-  width: 175px;
-  height: 210px;
+  width: 115px;
+  height: 155px;
   position: absolute;
-  top: -13px;
-  left: -15px;
+  top: -5px;
+  left: 15px;
 }
 .icon-logo-vikinger.small {
   width: 28px;
@@ -1036,6 +1036,7 @@ textarea::placeholder {
 }
 .content-grid .calendar-widget {
   margin-top: 16px;
+  width: 678px !important;
 }
 .content-grid .forum-content .quick-post {
   margin-top: 60px;
@@ -6013,8 +6014,11 @@ figure > img {
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 0 40px 0 rgba(94, 92, 154, 0.06);
-  position: relative;
+  position: absolute !important;
   margin-top: 0px !important;
+  top: 140;
+  left: 20;
+  z-index: 999 !important;
 }
 .widget-box.no-padding {
   padding: 20px;
