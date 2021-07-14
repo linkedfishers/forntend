@@ -1,15 +1,19 @@
 .button.disabled {
-    background-color: gray;
+  background-color: gray;
 }
 
 img.round {
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 p.option-item-title {
-    font-size: medium;
+  font-size: medium;
 }
 
 .simple-tab-item {
-    display: block !important;
+  display: block !important;
+}
+
+.custompos {
+  position: relative !important;
 }

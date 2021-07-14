@@ -2,7 +2,7 @@
   display: flex;
   max-width: 1200px;
   margin: 20px auto;
-  justify-content: space-around;
+  justify-content: flex-start !important;
   flex-wrap: wrap;
 }
 .widthprod {

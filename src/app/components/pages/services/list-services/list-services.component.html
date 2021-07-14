@@ -10,7 +10,7 @@
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info">
       <!-- SECTION PRETITLE -->
-      <p class="section-pretitle">Freelancer Boats</p>
+      <p class="section-pretitle">Browse Freelancer</p>
       <!-- /SECTION PRETITLE -->
     </div>
     <!-- /SECTION HEADER INFO -->
@@ -32,7 +32,10 @@
       <!-- GRID -->
       <div class="grid grid-3-3-3 centered displayflef">
         <!-- PRODUCT PREVIEW -->
-        <div *ngFor="let boat of visibleservices" class="product-preview widthprod">
+        <div
+          *ngFor="let boat of visibleservices"
+          class="product-preview widthprod"
+        >
           <!-- PRODUCT PREVIEW IMAGE -->
           <a [routerLink]="['/details-boat', boat?._id]">
             <figure
