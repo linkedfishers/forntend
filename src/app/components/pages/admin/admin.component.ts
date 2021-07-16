@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { EquipmentType, HebergementType, BoatType, ServiceType } from 'src/app/interfaces/equipments.interface';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  EquipmentType,
+  HebergementType,
+  BoatType,
+  ServiceType,
+} from 'src/app/interfaces/equipments.interface';
 import { Report, User } from 'src/app/interfaces/users.interface';
 import { AdminService } from 'src/app/services/admin.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 import { ToastrService } from 'ngx-toastr';
-import * as data from "../../../interfaces/countries.json";
+import * as data from '../../../interfaces/countries.json';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { Categorie } from 'src/app/interfaces/product.interface';
+import { Content } from 'src/app/interfaces/content.interface';
 import ProductService from 'src/app/services/product.service';
 
 declare var initForm, $: any;
@@ -17,17 +23,16 @@ declare var initSidebar, initPopups, loadSvg: any;
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-
   constructor(
     private adminService: AdminService,
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private translate: TranslateService,
-    private productService: ProductService,
-  ) { }
+    private productService: ProductService
+  ) {}
   readonly API: string = environment.apiUrl + '/';
   countries = (<any>data).default;
 
@@ -42,15 +47,16 @@ export class AdminComponent implements OnInit {
   imageSrc: any;
   skip = 0;
   count = 5;
-  selectedCategory = "equipment";
+  selectedCategory = 'equipment';
   activeUsersCount = 0;
   newUsers = 0;
-
   showReportsPannel = false;
   selectedUser: User;
   language: string;
   reports: Report[] = [];
   categories: Categorie[];
+  contents: Content[];
+  newContent: Content;
 
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
@@ -60,52 +66,50 @@ export class AdminComponent implements OnInit {
     loadSvg();
     this.loadUsers();
     this.adminService.getOverview().subscribe(
-      response => {
+      (response) => {
         this.activeUsersCount = response.data.activeUsers;
         this.newUsers = response.data.newUsers;
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
 
-    this.adminService.getAllProviders().subscribe(
-      response => {
-        this.providersList = response.data;
-      }
-    )
+    this.adminService.getAllProviders().subscribe((response) => {
+      this.providersList = response.data;
+    });
     this.productService.getCategories().subscribe((response) => {
       this.categories = response.data;
     });
     this.equipmentService.getEquipmentTypes().subscribe(
-      res => {
+      (res) => {
         this.equipmentTypes = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading equipment types');
       }
     );
     this.equipmentService.getBoatTypes().subscribe(
-      res => {
+      (res) => {
         this.boatTypes = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading boat types');
       }
     );
     this.equipmentService.getHebergementTypes().subscribe(
-      res => {
+      (res) => {
         this.hebergementTypes = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading hebergement types');
       }
     );
     this.equipmentService.getServiceTypes().subscribe(
-      res => {
+      (res) => {
         this.serviceTypes = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading services types');
       }
     );
@@ -117,7 +121,9 @@ export class AdminComponent implements OnInit {
 
   getCountryName(countryCode: string) {
     if (!this.countries) return '';
-    let country = this.countries.find(country => country.code === countryCode);
+    let country = this.countries.find(
+      (country) => country.code === countryCode
+    );
     if (!country) return '';
     return country.name;
   }
@@ -129,11 +135,36 @@ export class AdminComponent implements OnInit {
       this.formData = new FormData();
       this.formData.append('file', file, file.name);
       const reader = new FileReader();
-      reader.onload = e => {
+      reader.onload = (e) => {
         this.imageSrc = e.target['result'];
       };
       reader.readAsDataURL(fileList[0]);
     }
+  }
+  //Post home Page
+  createContent() {
+    if (!this.newContent.content) {
+      return;
+    }
+    this.formData = this.formData || new FormData();
+
+    for (const key in this.newContent) {
+
+      if (this.newContent.hasOwnProperty(key)) {
+        this.formData.append(key, this.newContent[key]);
+      }
+    }
+    this.adminService.createContent(this.formData).subscribe(
+      (res) => {
+        this.contents.unshift(res.data)
+        this.toastr.success(res.message);
+        this.newContent = new Content();
+      },
+      (err) => {
+        this.toastr.error(err.error.message);
+      },
+      () => {}
+    );
   }
 
   addCategory(categoryName: string) {
@@ -145,48 +176,49 @@ export class AdminComponent implements OnInit {
       return;
     }
     this.formData = this.formData || new FormData();
-    this.formData.append("name", this.newEquipmentType["name"]);
-    this.formData.append("description", this.newEquipmentType["description"]);
-    this.adminService.createCategoryType(this.formData, this.selectedCategory).subscribe(
-      res => {
-        if (this.selectedCategory == 'equipment') {
-          this.equipmentTypes.unshift(res.data);
-        } else if (this.selectedCategory == 'boat') {
-          this.boatTypes.unshift(res.data);
-        } else if (this.selectedCategory == 'hebergement') {
-          this.hebergementTypes.unshift(res.data);
-        } else if (this.selectedCategory == "service") {
-          this.serviceTypes.unshift(res.data);
-        } else if (this.selectedCategory == "productCategory") {
-          this.categories.unshift(res.data);
-        }
-        this.toastr.success(res.message);
-        this.formData = new FormData();
-        this.newEquipmentType = new EquipmentType();
-        this.imageSrc = "";
-      },
-      err => {
-        this.imageSrc = "";
-        console.log(err);
-        this.toastr.error(err.error.message);
-      },
-      () => {
-      }
-    )
+    this.formData.append('name', this.newEquipmentType['name']);
+    this.formData.append('description', this.newEquipmentType['description']);
+    this.adminService
+      .createCategoryType(this.formData, this.selectedCategory)
+      .subscribe(
+        (res) => {
+          if (this.selectedCategory == 'equipment') {
+            this.equipmentTypes.unshift(res.data);
+          } else if (this.selectedCategory == 'boat') {
+            this.boatTypes.unshift(res.data);
+          } else if (this.selectedCategory == 'hebergement') {
+            this.hebergementTypes.unshift(res.data);
+          } else if (this.selectedCategory == 'service') {
+            this.serviceTypes.unshift(res.data);
+          } else if (this.selectedCategory == 'productCategory') {
+            this.categories.unshift(res.data);
+          }
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.newEquipmentType = new EquipmentType();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log(err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
   }
 
   openFileInput() {
-    $("#postPhoto").click();
+    $('#postPhoto').click();
   }
 
   loadUsers() {
     this.adminService.getUsers(this.count, this.skip).subscribe(
-      response => {
+      (response) => {
         this.usersList = this.usersList.concat(response.data);
         this.skip += this.count;
         console.log(response);
       },
-      error => {
+      (error) => {
         console.log(error);
       }
     );
@@ -200,12 +232,12 @@ export class AdminComponent implements OnInit {
     }
     this.selectedUser = user;
     this.adminService.getReports(user._id).subscribe(
-      response => {
+      (response) => {
         this.reports = response.data;
         this.showReportsPannel = true;
       },
-      error => {
-        this.toastr.error("Error while fetching reports");
+      (error) => {
+        this.toastr.error('Error while fetching reports');
       }
     );
   }
@@ -240,31 +272,30 @@ export class AdminComponent implements OnInit {
   //   });
   // }
 
+
+
   deleteCategory(type: EquipmentType, categoryName: string) {
     Swal.fire({
       title: this.translate.instant('delete_category') + ' ' + type.name + '?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: this.translate.instant('delete_category'),
-      cancelButtonText: this.translate.instant('discard')
+      cancelButtonText: this.translate.instant('discard'),
     }).then((result) => {
       if (result.value) {
         this.adminService.deleteCategoryType(type._id, categoryName).subscribe(
-          res => {
-            Swal.fire(
-              {
-                title: this.translate.instant('delete_category'),
-                icon: 'success'
-              });
+          (res) => {
+            Swal.fire({
+              title: this.translate.instant('delete_category'),
+              icon: 'success',
+            });
 
             if (categoryName == 'equipment') {
               let i = this.equipmentTypes.findIndex((t) => t._id == type._id);
               this.equipmentTypes.splice(i, 1);
-
             } else if (categoryName == 'boat') {
               let i = this.boatTypes.findIndex((t) => t._id == type._id);
               this.boatTypes.splice(i, 1);
-
             } else if (categoryName == 'hebergement') {
               let i = this.hebergementTypes.findIndex((t) => t._id == type._id);
               this.hebergementTypes.splice(i, 1);
@@ -275,15 +306,14 @@ export class AdminComponent implements OnInit {
               let i = this.categories.findIndex((t) => t._id == type._id);
               this.categories.splice(i, 1);
             }
-
           },
-          err => {
+          (err) => {
             Swal.fire({
               title: this.translate.instant('delete_post_error'),
-              icon: 'error'
+              icon: 'error',
             });
           }
-        )
+        );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         return;
       }
@@ -291,28 +321,35 @@ export class AdminComponent implements OnInit {
   }
 
   toggleUserStatus(i: number) {
-    this.adminService.updateUserStatus(this.usersList[i]._id, !this.usersList[i].activated).subscribe(
-      response => {
-        console.log(response);
-        this.usersList[i].activated = response.data.activated;
-        this.toastr.success("updated status");
-      },
-      error => {
-        this.toastr.error("error");
-        console.log(error);
-      }
-    )
+    this.adminService
+      .updateUserStatus(this.usersList[i]._id, !this.usersList[i].activated)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          this.usersList[i].activated = response.data.activated;
+          this.toastr.success('updated status');
+        },
+        (error) => {
+          this.toastr.error('error');
+          console.log(error);
+        }
+      );
   }
   toggleProviderStatus(i: number) {
-    this.adminService.updateUserStatus(this.providersList[i]._id, !this.providersList[i].activated).subscribe(
-      response => {
-        this.providersList[i].activated = response.data.activated;
-        this.toastr.success("updated status");
-      },
-      error => {
-        this.toastr.error("error");
-        console.log(error);
-      }
-    )
+    this.adminService
+      .updateUserStatus(
+        this.providersList[i]._id,
+        !this.providersList[i].activated
+      )
+      .subscribe(
+        (response) => {
+          this.providersList[i].activated = response.data.activated;
+          this.toastr.success('updated status');
+        },
+        (error) => {
+          this.toastr.error('error');
+          console.log(error);
+        }
+      );
   }
 }

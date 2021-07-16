@@ -17,8 +17,8 @@ export class ListEquipmentsComponent implements OnInit {
   visibleequipments: Equipment[];
   content: Equipment[] = [];
   ngOnInit(): void {
-    initSidebar();
     initPopups();
+    initSidebar();
     initForm();
     loadSvg();
     this.equipementService.getEquipments().subscribe((res) => {

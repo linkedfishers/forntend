@@ -2,14 +2,15 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/users.interface';
+import { roundToNearestMinutesWithOptions } from 'date-fns/fp';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
   readonly API: string = environment.apiUrl + '/admin';
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getUsers(count: number, skip: number) {
     return this.httpClient.get<any>(`${this.API}/users/${count}/${skip}`);
@@ -20,7 +21,10 @@ export class AdminService {
   }
 
   createCategoryType(formData: FormData, categoryName: string) {
-    return this.httpClient.post<any>(`${this.API}/${categoryName}/addType`, formData);
+    return this.httpClient.post<any>(
+      `${this.API}/${categoryName}/addType`,
+      formData
+    );
   }
 
   createEquipmentType(formData: FormData) {
@@ -44,11 +48,33 @@ export class AdminService {
   }
 
   updateUserStatus(userId: string, activated: boolean) {
-    return this.httpClient.put<any>(`${this.API}/users/${userId}`, { activated });
+    return this.httpClient.put<any>(`${this.API}/users/${userId}`, {
+      activated,
+    });
   }
 
-  getAllProviders(){
+  getAllProviders() {
     return this.httpClient.get<any>(`${this.API}/providers/`);
   }
+  createContent(formData: FormData) {
+    return this.httpClient.post<any>(
+      `${this.API}/content/addContent`,
+      formData
+    );
+  }
 
+  getContent(id: string) {
+    return this.httpClient.get<any>(`${this.API}/content/get/${id}`);
+  }
+
+  updateContent(id: string, formData: FormData) {
+    return this.httpClient.put<any>(`${this.API}/content/${id}`, formData);
+  }
+
+  updateBoaType(formData: FormData, id: string, categoryName: string) {
+    return this.httpClient.put<any>(
+      `${this.API}/${categoryName}/updateType/${id}`,
+      formData
+    );
+  }
 }

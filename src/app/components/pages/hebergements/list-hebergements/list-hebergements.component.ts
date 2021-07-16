@@ -19,8 +19,8 @@ export class ListHebergementsComponent implements OnInit {
   visiblehebrgements: Hebergement[];
   content: Hebergement[] = [];
   ngOnInit(): void {
-    initSidebar();
     initPopups();
+    initSidebar();
     initForm();
     loadSvg();
     this.equipementService.getHebergements().subscribe((res) => {
