@@ -17,6 +17,7 @@ import { Provider } from 'src/app/interfaces/provider.interface';
 import { Categorie } from 'src/app/interfaces/product.interface';
 import { Content } from 'src/app/interfaces/content.interface';
 import ProductService from 'src/app/services/product.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
@@ -31,11 +32,11 @@ export class AdminComponent implements OnInit {
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private translate: TranslateService,
-    private productService: ProductService
+    private productService: ProductService,
+    private modalService: NgbModal
   ) {}
   readonly API: string = environment.apiUrl + '/';
   countries = (<any>data).default;
-
   usersList: User[] = [];
   providersList: Provider[] = [];
   equipmentTypes: EquipmentType[];
@@ -48,6 +49,7 @@ export class AdminComponent implements OnInit {
   skip = 0;
   count = 5;
   selectedCategory = 'equipment';
+  selectedBoat = -1;
   activeUsersCount = 0;
   newUsers = 0;
   showReportsPannel = false;
@@ -57,7 +59,8 @@ export class AdminComponent implements OnInit {
   categories: Categorie[];
   contents: Content[];
   newContent: Content;
-
+  newBoatType: BoatType;
+  userBoat: BoatType[] = [];
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
     initSidebar();
@@ -149,14 +152,13 @@ export class AdminComponent implements OnInit {
     this.formData = this.formData || new FormData();
 
     for (const key in this.newContent) {
-
       if (this.newContent.hasOwnProperty(key)) {
         this.formData.append(key, this.newContent[key]);
       }
     }
     this.adminService.createContent(this.formData).subscribe(
       (res) => {
-        this.contents.unshift(res.data)
+        this.contents.unshift(res.data);
         this.toastr.success(res.message);
         this.newContent = new Content();
       },
@@ -272,7 +274,31 @@ export class AdminComponent implements OnInit {
   //   });
   // }
 
+  updateBoatType(type: EquipmentType, categoryName: string) {
+    this.formData = this.formData || new FormData();
+    for (const key in this.userBoat[this.selectedBoat]) {
+      if (this.userBoat[this.selectedBoat].hasOwnProperty(key)) {
+        this.formData.append(key, this.userBoat[this.selectedBoat][key]);
+      }
+    }
 
+    this.adminService
+      .updateBoatType(this.formData, this.userBoat[this.selectedBoat]._id)
+      .subscribe(
+        (res) => {
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.newBoatType = new BoatType();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log(err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
+  }
 
   deleteCategory(type: EquipmentType, categoryName: string) {
     Swal.fire({
@@ -334,6 +360,12 @@ export class AdminComponent implements OnInit {
           console.log(error);
         }
       );
+  }
+  openUpdatePopup(i) {
+    initForm();
+    this.imageSrc = '';
+    this.selectedBoat = i;
+    $('#updateBtn').click();
   }
   toggleProviderStatus(i: number) {
     this.adminService

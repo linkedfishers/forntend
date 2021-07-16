@@ -71,9 +71,9 @@ export class AdminService {
     return this.httpClient.put<any>(`${this.API}/content/${id}`, formData);
   }
 
-  updateBoaType(formData: FormData, id: string, categoryName: string) {
+  updateBoatType(formData: FormData,id:string) {
     return this.httpClient.put<any>(
-      `${this.API}/${categoryName}/updateType/${id}`,
+      `${this.API}/boat}/updateType/${id}`,
       formData
     );
   }

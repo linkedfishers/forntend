@@ -33,11 +33,11 @@ footer {
 }
 
 .footer-column:not(:first-child) {
-    padding-top: 2rem;
-    @media (min-width: 768px) {
-      padding-top: 0rem;
-    }
+  padding-top: 2rem;
+  @media (min-width: 768px) {
+    padding-top: 0rem;
   }
+}
 
 .footer-column {
   text-align: center;
