@@ -18,7 +18,6 @@ import { Categorie } from 'src/app/interfaces/product.interface';
 import { Content } from 'src/app/interfaces/content.interface';
 import ProductService from 'src/app/services/product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
 @Component({
@@ -63,6 +62,7 @@ export class AdminComponent implements OnInit {
   userBoat: BoatType[] = [];
   ngOnInit(): void {
     this.newEquipmentType = new EquipmentType();
+    this.newContent = new Content();
     initSidebar();
     initPopups();
     initForm();
@@ -160,12 +160,13 @@ export class AdminComponent implements OnInit {
       (res) => {
         this.contents.unshift(res.data);
         this.toastr.success(res.message);
+        this.formData = new FormData();
         this.newContent = new Content();
+        this.imageSrc = '';
       },
       (err) => {
         this.toastr.error(err.error.message);
-      },
-      () => {}
+      }
     );
   }
 
@@ -274,7 +275,7 @@ export class AdminComponent implements OnInit {
   //   });
   // }
 
-  updateBoatType(type: EquipmentType, categoryName: string) {
+  updateBoatType() {
     this.formData = this.formData || new FormData();
     for (const key in this.userBoat[this.selectedBoat]) {
       if (this.userBoat[this.selectedBoat].hasOwnProperty(key)) {

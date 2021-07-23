@@ -1,6 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from 'src/app/services/contact.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { SnotifyService } from 'ng-snotify';
 
 @Component({
   selector: 'app-contact',
@@ -8,6 +11,7 @@ import { ContactService } from 'src/app/services/contact.service';
   styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent implements OnInit {
+  model: any = {};
   contactForm: FormGroup;
   disabledSubmiButton: boolean = true;
   optionsSelected: Array<any>;
@@ -17,7 +21,11 @@ export class ContactComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, private contactService: ContactService) {
+  constructor(
+    private fb: FormBuilder,
+    private contactService: ContactService,
+    private http: HttpClient
+  ) {
     this.contactForm = fb.group({
       contactFormName: ['', Validators.required],
       contactFormEmail: [
@@ -31,16 +39,16 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  onSubmit() {
-    this.contactService.sendMessage(this.contactForm.value).subscribe(
-      () => {
-        alert('Your message Has been sent');
-        this.contactForm.reset();
-        this.disabledSubmiButton = true;
-      },
-      (error) => {
-        console.log('Error', error);
-      }
-    );
+  onSubmit(name, subject, email, message) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    this.http
+      .post(
+        'https://formspree.io/f/xoqynbgk',
+        { name: name, subject: subject, replyto: email, message: message },
+        { headers: headers }
+      )
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 }

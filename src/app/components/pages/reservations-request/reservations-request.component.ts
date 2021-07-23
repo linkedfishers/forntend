@@ -1,10 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy, ViewChild, TemplateRef, } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ViewChild,
+  TemplateRef,
+} from '@angular/core';
 import {
   isSameDay,
   isSameMonth,
   areIntervalsOverlapping,
   differenceInDays,
-  isPast
+  isPast,
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import {
@@ -20,15 +26,14 @@ import { colors } from 'src/app/services/utils';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
 import { ToastrService } from 'ngx-toastr';
-
+declare var initForm, $: any;
+declare var initSidebar, initPopups, loadSvg: any;
 @Component({
   selector: 'app-reservations-request',
   templateUrl: './reservations-request.component.html',
-  styleUrls: ['./reservations-request.component.scss']
+  styleUrls: ['./reservations-request.component.scss'],
 })
 export class ReservationsRequestComponent implements OnInit {
-
-
   reservations: Reservation[] = [];
   pendingReservations: Reservation[] = [];
   requestedReservations: Reservation[] = [];
@@ -55,8 +60,8 @@ export class ReservationsRequestComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthService,
-    private toastr: ToastrService,
-  ) { }
+    private toastr: ToastrService
+  ) {}
 
   id: string;
   category: string = 'boat';
@@ -65,8 +70,12 @@ export class ReservationsRequestComponent implements OnInit {
   item: any;
   currentUser: User;
   ngOnInit(): void {
+    initSidebar();
+    initPopups();
+    initForm();
+    loadSvg();
     this.currentUser = this.authService.getCurrentUser();
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       this.id = params.id;
       this.category = params.type;
       if (!this.categoriesList.includes(this.category)) {
@@ -74,51 +83,49 @@ export class ReservationsRequestComponent implements OnInit {
         this.router.navigateByUrl('404');
       }
       this.newReservation[this.category] = this.id;
-      this.reservationService.getReservationsByCategory(this.id, this.category).subscribe(
-        (response) => {
+      this.reservationService
+        .getReservationsByCategory(this.id, this.category)
+        .subscribe((response) => {
           this.reservations = response.data.reservations;
           this.requestedReservations = response.data.pendingReservations;
           this.item = response.data.item;
           for (let i = 0; i < this.reservations.length; i++) {
             let color = colors.red;
             let title = 'Booked';
-            if (this.reservations[i].reservedBy as unknown as string == this.currentUser._id) {
+            if (
+              (this.reservations[i].reservedBy as unknown as string) ==
+              this.currentUser._id
+            ) {
               color = colors.green;
               title += ' by you';
             }
-            this.displayedReservations.push(
-              {
-                start: new Date(this.reservations[i].dateStart),
-                end: new Date(this.reservations[i].dateEnd),
-                title: title,
-                color: color,
-                allDay: true,
-              }
-            )
+            this.displayedReservations.push({
+              start: new Date(this.reservations[i].dateStart),
+              end: new Date(this.reservations[i].dateEnd),
+              title: title,
+              color: color,
+              allDay: true,
+            });
           }
           this.refresh.next();
-        }
-      );
-      this.reservationService.getMyPendingReservations(this.id, this.category).subscribe(
-        (response) => {
+        });
+      this.reservationService
+        .getMyPendingReservations(this.id, this.category)
+        .subscribe((response) => {
           this.pendingReservations = response.data;
           for (let i = 0; i < this.pendingReservations.length; i++) {
-            this.displayedReservations.push(
-              {
-                start: new Date(this.pendingReservations[i].dateStart),
-                end: new Date(this.pendingReservations[i].dateEnd),
-                title: 'Pending reservation',
-                color: colors.yellow,
-                allDay: true,
-              }
-            )
+            this.displayedReservations.push({
+              start: new Date(this.pendingReservations[i].dateStart),
+              end: new Date(this.pendingReservations[i].dateEnd),
+              title: 'Pending reservation',
+              color: colors.yellow,
+              allDay: true,
+            });
           }
           this.refresh.next();
-        }
-      );
+        });
     });
   }
-
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -144,10 +151,22 @@ export class ReservationsRequestComponent implements OnInit {
   createReservationRequest() {
     for (let i = 0; i < this.reservations.length; i++) {
       const reservation = this.reservations[i];
-      if (areIntervalsOverlapping(
-        { start: new Date(this.newReservation.dateStart), end: new Date(this.newReservation.dateEnd) },
-        { start: new Date(reservation.dateStart), end: new Date(reservation.dateEnd) })) {
-        this.toastr.warning("Ces dates ne sont pas disponibles", "Those dates are not available");
+      if (
+        areIntervalsOverlapping(
+          {
+            start: new Date(this.newReservation.dateStart),
+            end: new Date(this.newReservation.dateEnd),
+          },
+          {
+            start: new Date(reservation.dateStart),
+            end: new Date(reservation.dateEnd),
+          }
+        )
+      ) {
+        this.toastr.warning(
+          'Ces dates ne sont pas disponibles',
+          'Those dates are not available'
+        );
         return;
       }
     }
@@ -155,25 +174,24 @@ export class ReservationsRequestComponent implements OnInit {
     this.reservationService.createReservation(this.newReservation).subscribe(
       (response) => {
         const reservation: Reservation = response.data;
-        this.displayedReservations.push(
-          {
-            start: new Date(reservation.dateStart),
-            end: new Date(reservation.dateEnd),
-            title: 'Pending reservation',
-            color: colors.yellow,
-            allDay: true,
-          }
-        );
+        this.displayedReservations.push({
+          start: new Date(reservation.dateStart),
+          end: new Date(reservation.dateEnd),
+          title: 'Pending reservation',
+          color: colors.yellow,
+          allDay: true,
+        });
         this.refresh.next();
         this.newReservation = new Reservation();
         this.totalPrice = 0;
         this.showSpinner = false;
-        this.toastr.success("Request a reservation");
-      }, (error) => {
+        this.toastr.success('Request a reservation');
+      },
+      (error) => {
         this.toastr.error(error.error.message);
         this.showSpinner = false;
       }
-    )
+    );
   }
 
   updatePrice() {
@@ -200,24 +218,23 @@ export class ReservationsRequestComponent implements OnInit {
   updateReservation(i: number, status: string) {
     let reservation = this.requestedReservations[i];
     reservation.status = status;
-    this.reservationService.updateReservation(reservation).subscribe(
-      (response) => {
+    this.reservationService
+      .updateReservation(reservation)
+      .subscribe((response) => {
         console.log(response);
         this.requestedReservations.splice(i, 1);
         reservation = response.data;
-        if (reservation.status == "CONFIRMED") {
+        if (reservation.status == 'CONFIRMED') {
           this.displayedReservations.push({
             start: new Date(reservation.dateStart),
             end: new Date(reservation.dateEnd),
-            title: "Booked",
+            title: 'Booked',
             color: colors.red,
             allDay: true,
           });
           this.refresh.next();
         }
-        this.toastr.success("updated reservation");
-      }
-    )
+        this.toastr.success('updated reservation');
+      });
   }
-
 }

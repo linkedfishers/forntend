@@ -935,7 +935,6 @@
 
             <!-- BUTTON -->
             <p
-              
               id="updateBtn"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
@@ -1155,6 +1154,7 @@
 
             <!-- BUTTON -->
             <p
+              (Click)="updateBoatType()"
               id="updateBtn"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
@@ -1282,6 +1282,60 @@
   </div>
   <!-- /GRID -->
 
+  <!-- ******************************************************** -->
+
+  <div class="content">Content Home Page</div>
+  <div class="promo-line">
+    <!-- PROMO LINE TEXT -->
+    <p class="promo-line-text">Add a new Content!</p>
+    <!-- /PROMO LINE TEXT -->
+
+    <!-- PROMO LINE ACTIONS -->
+    <div class="promo-line-actions">
+      <!-- FORM INPUT -->
+      <div class="form-input small">
+        <label for="promo-code">Service name</label>
+        <input
+          [(ngModel)]="newContent.content"
+          type="text"
+          id="equipment-name"
+          name="promo_code"
+        />
+      </div>
+
+      <!-- /FORM INPUT -->
+      <a (click)="openFileInput()" [routerLink]="">
+        <div class="form-input small">
+          <!-- ICON DELETE -->
+          <label *ngIf="!imageSrc" for="promo-code">photo</label>
+          <svg class="icon-delete">
+            <use xlink:href="#svg-group"></use>
+          </svg>
+          <!-- /ICON DELETE -->
+          <img
+            style="max-height: 80px; max-width: 80px"
+            *ngIf="imageSrc"
+            [src]="imageSrc"
+            alt="item-10"
+          />
+        </div>
+      </a>
+      <input
+        (change)="fileChange($event)"
+        id="postPhoto"
+        type="file"
+        style="display: none"
+      />
+
+      <!-- BUTTON -->
+      <p (click)="createContent()" class="button secondary">Add Service</p>
+      <!-- /BUTTON -->
+    </div>
+
+    <!-- /PROMO LINE ACTIONS -->
+  </div>
+
+  <!-- ******************************* -->
   <div class="grid medium-space">
     <!-- GRID COLUMN -->
     <div class="account-hub-content">
@@ -1650,6 +1704,7 @@
 
     <div class="form-input small">
       <label for="promo-code">Post Content</label>
+
       <input
         [(ngModel)]="newContent.content"
         type="text"

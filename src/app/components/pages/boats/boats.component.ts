@@ -39,6 +39,7 @@ export class BoatsComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.newBoat = new Boat();
+    
     initSidebar();
     initPopups();
     initForm();
