@@ -249,28 +249,18 @@
               <!-- TABLE BODY -->
               <div class="table-body">
                 <!-- TABLE ROW -->
-                <div
-                  *ngFor="let user of usersList; let i = index"
-                  class="table-row tiny"
-                >
+                <div *ngFor="let user of usersList; let i = index" class="table-row tiny">
                   <!-- TABLE COLUMN -->
                   <div class="table-column">
                     <!-- USER STATUS -->
                     <div class="user-status">
                       <!-- USER STATUS AVATAR -->
-                      <a
-                        class="user-status-avatar"
-                        [routerLink]="['/profile/', user?.slug || user?._id]"
-                      >
+                      <a class="user-status-avatar" [routerLink]="['/profile/', user?.slug || user?._id]">
                         <!-- USER AVATAR -->
                         <div class="user-avatar small no-outline">
                           <!-- USER AVATAR CONTENT -->
                           <figure class="picture round liquid small">
-                            <img
-                              class="round"
-                              [src]="user?.profilePicture | picture"
-                              alt="avatar-01"
-                            />
+                            <img class="round" [src]="user?.profilePicture | picture" alt="avatar-01" />
                           </figure>
                         </div>
                         <!-- /USER AVATAR -->
@@ -279,10 +269,7 @@
 
                       <!-- USER STATUS TITLE -->
                       <p class="user-status-title">
-                        <a
-                          class="bold"
-                          [routerLink]="['/profile/', user?.slug || user?._id]"
-                        >
+                        <a class="bold" [routerLink]="['/profile/', user?.slug || user?._id]">
                           {{ user?.fullName }}
                         </a>
                       </p>
@@ -292,10 +279,10 @@
                       <p class="user-status-text small">
                         Joined:
                         {{
-                          user?.createdAt
-                            | date
-                              : "
-                                                MMMM,d, yyyy"
+                        user?.createdAt
+                        | date
+                        : "
+                        MMMM,d, yyyy"
                         }}
                       </p>
                       <!-- /USER STATUS TEXT -->
@@ -306,14 +293,9 @@
 
                   <!-- TABLE COLUMN -->
                   <div class="table-column centered padded">
-                    <img
-                      style="height: 30px; width: auto"
-                      [owlTooltip]="getCountryName(user?.country)"
-                      *ngIf="user?.country"
-                      class="user-stat-image"
-                      src="../../../../assets/img/flag/{{ user?.country }}.png"
-                      alt="flag"
-                    />
+                    <img style="height: 30px; width: auto" [owlTooltip]="getCountryName(user?.country)"
+                      *ngIf="user?.country" class="user-stat-image"
+                      src="../../../../assets/img/flag/{{ user?.country }}.png" alt="flag" />
                   </div>
                   <!-- /TABLE COLUMN -->
 
@@ -344,18 +326,11 @@
                   <!-- TABLE COLUMN -->
                   <div class="table-column centered padded">
                     <!-- TABLE TITLE -->
-                    <a
-                      (click)="showReports(user)"
-                      [routerLink]=""
-                      routerLinkActive="router-link-active"
-                    >
-                      <p
-                        [ngClass]="{
+                    <a (click)="showReports(user)" [routerLink]="" routerLinkActive="router-link-active">
+                      <p [ngClass]="{
                           red: user?.reports?.length >= 5,
                           yellow: user?.reports?.length >= 3
-                        }"
-                        class="table-title"
-                      >
+                        }" class="table-title">
                         {{ user?.reports?.length || 0 }}
                       </p>
                     </a>
@@ -365,10 +340,7 @@
                   <div class="table-column centered padded">
                     <div (click)="toggleUserStatus(i)" class="switch-option">
                       <!-- FORM SWITCH -->
-                      <div
-                        [ngClass]="{ active: user?.activated }"
-                        class="form-switch"
-                      >
+                      <div [ngClass]="{ active: user?.activated }" class="form-switch">
                         <!-- FORM SWITCH BUTTON -->
                         <div class="form-switch-button"></div>
                         <!-- /FORM SWITCH BUTTON -->
@@ -389,10 +361,7 @@
 
                       <!-- USER STATUS TEXT -->
                       <a (click)="loadUsers()" [routerLink]="">
-                        <p
-                          style="color: #23d2e2; font-size: medium"
-                          class="user-status-text"
-                        >
+                        <p style="color: #23d2e2; font-size: medium" class="user-status-text">
                           See more >>
                         </p>
                       </a>
@@ -413,39 +382,27 @@
         <!-- /WIDGET BOX -->
       </div>
       <!-- /GRID COLUMN -->
-      <div
-        *ngIf="showReportsPannel && reports.length > 0"
-        class="widget-box no-padding"
-      >
+      <div *ngIf="showReportsPannel && reports.length > 0" class="widget-box no-padding">
         <!-- WIDGET BOX TITLE -->
         <p class="widget-box-title">Reports</p>
         <!-- /WIDGET BOX TITLE -->
 
         <!-- WIDGET BOX CONTENT -->
-        <div
-          class="widget-box-content small-margin-top padded-for-scroll small"
-          data-simplebar="init"
-        >
+        <div class="widget-box-content small-margin-top padded-for-scroll small" data-simplebar="init">
           <div class="simplebar-wrapper" style="margin: 0px 0px -28px">
             <div class="simplebar-height-auto-observer-wrapper">
               <div class="simplebar-height-auto-observer"></div>
             </div>
             <div class="simplebar-mask">
               <div class="simplebar-offset" style="right: 0px; bottom: 0px">
-                <div
-                  class="simplebar-content-wrapper"
-                  style="height: 100%; overflow: hidden scroll"
-                >
+                <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll">
                   <div class="simplebar-content" style="padding: 0px 0px 28px">
                     <!-- EXP LINE LIST -->
                     <div class="exp-line-list scroll-content">
                       <!-- EXP LINE -->
                       <div *ngFor="let report of reports" class="exp-line">
                         <!-- EXP LINE ICON -->
-                        <a
-                          [routerLink]=""
-                          routerLinkActive="router-link-active"
-                        >
+                        <a [routerLink]="" routerLinkActive="router-link-active">
                           <svg class="exp-line-icon icon-badges">
                             <use xlink:href="#svg-delete"></use>
                           </svg>
@@ -480,32 +437,17 @@
                 </div>
               </div>
             </div>
-            <div
-              class="simplebar-placeholder"
-              style="width: auto; height: 392px"
-            ></div>
+            <div class="simplebar-placeholder" style="width: auto; height: 392px"></div>
           </div>
-          <div
-            class="simplebar-track simplebar-horizontal"
-            style="visibility: hidden"
-          >
-            <div
-              class="simplebar-scrollbar"
-              style="width: 0px; display: none"
-            ></div>
+          <div class="simplebar-track simplebar-horizontal" style="visibility: hidden">
+            <div class="simplebar-scrollbar" style="width: 0px; display: none"></div>
           </div>
-          <div
-            class="simplebar-track simplebar-vertical"
-            style="visibility: visible"
-          >
-            <div
-              class="simplebar-scrollbar"
-              style="
+          <div class="simplebar-track simplebar-vertical" style="visibility: visible">
+            <div class="simplebar-scrollbar" style="
                 height: 261px;
                 transform: translate3d(0px, 0px, 0px);
                 display: block;
-              "
-            ></div>
+              "></div>
           </div>
         </div>
         <!-- WIDGET BOX CONTENT -->
@@ -588,31 +530,21 @@
               <!-- TABLE BODY -->
               <div class="table-body">
                 <!-- TABLE ROW -->
-                <div
-                  *ngFor="let provider of providersList; let i = index"
-                  class="table-row tiny"
-                >
+                <div *ngFor="let provider of providersList; let i = index" class="table-row tiny">
                   <!-- TABLE COLUMN -->
                   <div class="table-column">
                     <!-- USER STATUS -->
                     <div class="user-status">
                       <!-- USER STATUS AVATAR -->
-                      <a
-                        class="user-status-avatar"
-                        [routerLink]="[
+                      <a class="user-status-avatar" [routerLink]="[
                           '/profile/',
                           provider?.slug || provider?._id
-                        ]"
-                      >
+                        ]">
                         <!-- USER AVATAR -->
                         <div class="user-avatar small no-outline">
                           <!-- USER AVATAR CONTENT -->
                           <figure class="picture round liquid small">
-                            <img
-                              class="round"
-                              [src]="provider?.profilePicture | picture"
-                              alt="avatar-01"
-                            />
+                            <img class="round" [src]="provider?.profilePicture | picture" alt="avatar-01" />
                           </figure>
                         </div>
                         <!-- /USER AVATAR -->
@@ -621,13 +553,10 @@
 
                       <!-- USER STATUS TITLE -->
                       <p class="user-status-title">
-                        <a
-                          class="bold"
-                          [routerLink]="[
+                        <a class="bold" [routerLink]="[
                             '/profile/',
                             provider?.slug || provider?._id
-                          ]"
-                        >
+                          ]">
                           {{ provider?.companyName }}
                         </a>
                       </p>
@@ -637,10 +566,10 @@
                       <p class="user-status-text small">
                         Joined:
                         {{
-                          provider?.createdAt
-                            | date
-                              : "
-                                                MMMM,d, yyyy"
+                        provider?.createdAt
+                        | date
+                        : "
+                        MMMM,d, yyyy"
                         }}
                       </p>
                       <!-- /USER STATUS TEXT -->
@@ -651,16 +580,10 @@
 
                   <!-- TABLE COLUMN -->
                   <div class="table-column centered padded">
-                    <img
-                      style="height: 30px; width: auto"
-                      [owlTooltip]="getCountryName(provider?.country)"
-                      *ngIf="provider?.country"
-                      class="user-stat-image"
-                      src="../../../../assets/img/flag/{{
+                    <img style="height: 30px; width: auto" [owlTooltip]="getCountryName(provider?.country)"
+                      *ngIf="provider?.country" class="user-stat-image" src="../../../../assets/img/flag/{{
                         provider?.country
-                      }}.png"
-                      alt="flag"
-                    />
+                      }}.png" alt="flag" />
                   </div>
                   <!-- /TABLE COLUMN -->
 
@@ -681,15 +604,9 @@
                   <!-- /TABLE COLUMN -->
                   <!-- /TABLE COLUMN -->
                   <div class="table-column centered padded">
-                    <div
-                      (click)="toggleProviderStatus(i)"
-                      class="switch-option"
-                    >
+                    <div (click)="toggleProviderStatus(i)" class="switch-option">
                       <!-- FORM SWITCH -->
-                      <div
-                        [ngClass]="{ active: provider?.activated }"
-                        class="form-switch"
-                      >
+                      <div [ngClass]="{ active: provider?.activated }" class="form-switch">
                         <!-- FORM SWITCH BUTTON -->
                         <div class="form-switch-button"></div>
                         <!-- /FORM SWITCH BUTTON -->
@@ -710,10 +627,7 @@
 
                       <!-- USER STATUS TEXT -->
                       <a (click)="loadUsers()" [routerLink]="">
-                        <p
-                          style="color: #23d2e2; font-size: medium"
-                          class="user-status-text"
-                        >
+                        <p style="color: #23d2e2; font-size: medium" class="user-status-text">
                           See more >>
                         </p>
                       </a>
@@ -734,39 +648,27 @@
         <!-- /WIDGET BOX -->
       </div>
       <!-- /GRID COLUMN -->
-      <div
-        *ngIf="showReportsPannel && reports.length > 0"
-        class="widget-box no-padding"
-      >
+      <div *ngIf="showReportsPannel && reports.length > 0" class="widget-box no-padding">
         <!-- WIDGET BOX TITLE -->
         <p class="widget-box-title">Reports</p>
         <!-- /WIDGET BOX TITLE -->
 
         <!-- WIDGET BOX CONTENT -->
-        <div
-          class="widget-box-content small-margin-top padded-for-scroll small"
-          data-simplebar="init"
-        >
+        <div class="widget-box-content small-margin-top padded-for-scroll small" data-simplebar="init">
           <div class="simplebar-wrapper" style="margin: 0px 0px -28px">
             <div class="simplebar-height-auto-observer-wrapper">
               <div class="simplebar-height-auto-observer"></div>
             </div>
             <div class="simplebar-mask">
               <div class="simplebar-offset" style="right: 0px; bottom: 0px">
-                <div
-                  class="simplebar-content-wrapper"
-                  style="height: 100%; overflow: hidden scroll"
-                >
+                <div class="simplebar-content-wrapper" style="height: 100%; overflow: hidden scroll">
                   <div class="simplebar-content" style="padding: 0px 0px 28px">
                     <!-- EXP LINE LIST -->
                     <div class="exp-line-list scroll-content">
                       <!-- EXP LINE -->
                       <div *ngFor="let report of reports" class="exp-line">
                         <!-- EXP LINE ICON -->
-                        <a
-                          [routerLink]=""
-                          routerLinkActive="router-link-active"
-                        >
+                        <a [routerLink]="" routerLinkActive="router-link-active">
                           <svg class="exp-line-icon icon-badges">
                             <use xlink:href="#svg-delete"></use>
                           </svg>
@@ -801,32 +703,17 @@
                 </div>
               </div>
             </div>
-            <div
-              class="simplebar-placeholder"
-              style="width: auto; height: 392px"
-            ></div>
+            <div class="simplebar-placeholder" style="width: auto; height: 392px"></div>
           </div>
-          <div
-            class="simplebar-track simplebar-horizontal"
-            style="visibility: hidden"
-          >
-            <div
-              class="simplebar-scrollbar"
-              style="width: 0px; display: none"
-            ></div>
+          <div class="simplebar-track simplebar-horizontal" style="visibility: hidden">
+            <div class="simplebar-scrollbar" style="width: 0px; display: none"></div>
           </div>
-          <div
-            class="simplebar-track simplebar-vertical"
-            style="visibility: visible"
-          >
-            <div
-              class="simplebar-scrollbar"
-              style="
+          <div class="simplebar-track simplebar-vertical" style="visibility: visible">
+            <div class="simplebar-scrollbar" style="
                 height: 261px;
                 transform: translate3d(0px, 0px, 0px);
                 display: block;
-              "
-            ></div>
+              "></div>
           </div>
         </div>
         <!-- WIDGET BOX CONTENT -->
@@ -887,10 +774,7 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="addCategory('productCategory')"
-              class="button primary full popup-manage-item-trigger"
-            >
+            <p (click)="addCategory('productCategory')" class="button primary full popup-manage-item-trigger">
               Add new Category!
             </p>
             <!-- /BUTTON -->
@@ -900,10 +784,7 @@
         <!-- /CREATE ENTITY BOX -->
 
         <!-- CREATE ENTITY BOX -->
-        <div
-          *ngFor="let productCategory of categories; let i = index"
-          class="create-entity-box v2"
-        >
+        <div *ngFor="let productCategory of categories; let i = index" class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -924,21 +805,14 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="deleteCategory(productCategory, 'productCategory')"
-              style="margin-top: 10px"
-              class="button red-background full popup-manage-item-trigger"
-            >
+            <p (click)="deleteCategory(productCategory, 'productCategory')" style="margin-top: 10px"
+              class="button red-background full popup-manage-item-trigger">
               {{ "delete_category" | translate }}
             </p>
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              id="updateBtn"
-              style="margin-top: 10px"
-              class="button full popup-edit-hosting-trigger"
-            >
+            <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
               {{ "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
@@ -997,10 +871,7 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="addCategory('equipment')"
-              class="button primary full popup-manage-item-trigger"
-            >
+            <p (click)="addCategory('equipment')" class="button primary full popup-manage-item-trigger">
               Add new Category!
             </p>
             <!-- /BUTTON -->
@@ -1010,10 +881,7 @@
         <!-- /CREATE ENTITY BOX -->
 
         <!-- CREATE ENTITY BOX -->
-        <div
-          *ngFor="let equipmnentType of equipmentTypes; let i = index"
-          class="create-entity-box v2"
-        >
+        <div *ngFor="let equipmnentType of equipmentTypes; let i = index" class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -1034,21 +902,14 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="deleteCategory(equipmnentType, 'equipment')"
-              style="margin-top: 10px"
-              class="button red-background full popup-manage-item-trigger"
-            >
+            <p (click)="deleteCategory(equipmnentType, 'equipment')" style="margin-top: 10px"
+              class="button red-background full popup-manage-item-trigger">
               {{ "delete_category" | translate }}
             </p>
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              id="updateBtn"
-              style="margin-top: 10px"
-              class="button full popup-edit-hosting-trigger"
-            >
+            <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
               {{ "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
@@ -1106,10 +967,7 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="addCategory('boat')"
-              class="button primary full popup-manage-item-trigger"
-            >
+            <p (click)="addCategory('boat')" class="button primary full popup-manage-item-trigger">
               Add new Category!
             </p>
             <!-- /BUTTON -->
@@ -1119,10 +977,7 @@
         <!-- /CREATE ENTITY BOX -->
 
         <!-- CREATE ENTITY BOX -->
-        <div
-          *ngFor="let boatType of boatTypes; let i = index"
-          class="create-entity-box v2"
-        >
+        <div *ngFor="let boatType of boatTypes; let i = index" class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -1139,29 +994,28 @@
           <!-- CREATE ENTITY BOX INFO -->
           <div class="create-entity-box-info">
             <!-- CREATE ENTITY BOX TITLE -->
-            <p class="create-entity-box-title">{{ boatType?.name }}</p>
+            <p *ngIf="!boatType?.updating" class="create-entity-box-title">{{ boatType?.name }}</p>
             <!-- /CREATE ENTITY BOX TITLE -->
-
+            <div *ngIf="boatType?.updating" class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input small active">
+                <label for="item-name">Type name</label>
+                <input [(ngModel)]="boatType.name" type="text" id="item-name" name="item_name" />
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
             <!-- BUTTON -->
-            <p
-              (click)="deleteCategory(boatType, 'boat')"
-              style="margin-top: 10px"
-              class="button red-background full popup-manage-item-trigger"
-            >
+            <p (click)="deleteCategory(boatType, 'boat')" style="margin-top: 10px"
+              class="button red-background full popup-manage-item-trigger">
               {{ "delete_category" | translate }}
             </p>
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              (Click)="updateBoatType()"
-              id="updateBtn"
-              style="margin-top: 10px"
-              class="button full popup-edit-hosting-trigger"
-            >
-              {{ "update_category" | translate }}
+            <p (click)="updateCategory(boatType,'')" id="updateBtn" style="margin-top: 10px"
+              class="button full popup-edit-hosting-trigger">
+              {{ boatType?.updating? "save" : "update_category" | translate }}
             </p>
-            <!-- /BUTTON -->
           </div>
           <!-- /CREATE ENTITY BOX INFO -->
         </div>
@@ -1216,10 +1070,7 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="addCategory('hebergement')"
-              class="button primary full popup-manage-item-trigger"
-            >
+            <p (click)="addCategory('hebergement')" class="button primary full popup-manage-item-trigger">
               Add new Category!
             </p>
             <!-- /BUTTON -->
@@ -1229,10 +1080,7 @@
         <!-- /CREATE ENTITY BOX -->
 
         <!-- CREATE ENTITY BOX -->
-        <div
-          *ngFor="let hebergementType of hebergementTypes; let i = index"
-          class="create-entity-box v2"
-        >
+        <div *ngFor="let hebergementType of hebergementTypes; let i = index" class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -1253,21 +1101,14 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="deleteCategory(hebergementType, 'hebergement')"
-              style="margin-top: 10px"
-              class="button red-background full popup-manage-item-trigger"
-            >
+            <p (click)="deleteCategory(hebergementType, 'hebergement')" style="margin-top: 10px"
+              class="button red-background full popup-manage-item-trigger">
               {{ "delete_category" | translate }}
             </p>
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              id="updateBtn"
-              style="margin-top: 10px"
-              class="button full popup-edit-hosting-trigger"
-            >
+            <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
               {{ "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
@@ -1295,12 +1136,7 @@
       <!-- FORM INPUT -->
       <div class="form-input small">
         <label for="promo-code">Service name</label>
-        <input
-          [(ngModel)]="newContent.content"
-          type="text"
-          id="equipment-name"
-          name="promo_code"
-        />
+        <input [(ngModel)]="newContent.content" type="text" id="equipment-name" name="promo_code" />
       </div>
 
       <!-- /FORM INPUT -->
@@ -1312,20 +1148,10 @@
             <use xlink:href="#svg-group"></use>
           </svg>
           <!-- /ICON DELETE -->
-          <img
-            style="max-height: 80px; max-width: 80px"
-            *ngIf="imageSrc"
-            [src]="imageSrc"
-            alt="item-10"
-          />
+          <img style="max-height: 80px; max-width: 80px" *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
         </div>
       </a>
-      <input
-        (change)="fileChange($event)"
-        id="postPhoto"
-        type="file"
-        style="display: none"
-      />
+      <input (change)="fileChange($event)" id="postPhoto" type="file" style="display: none" />
 
       <!-- BUTTON -->
       <p (click)="createContent()" class="button secondary">Add Service</p>
@@ -1379,10 +1205,7 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="addCategory('service')"
-              class="button primary full popup-manage-item-trigger"
-            >
+            <p (click)="addCategory('service')" class="button primary full popup-manage-item-trigger">
               Add new Category!
             </p>
             <!-- /BUTTON -->
@@ -1392,10 +1215,7 @@
         <!-- /CREATE ENTITY BOX -->
 
         <!-- CREATE ENTITY BOX -->
-        <div
-          *ngFor="let serviceType of serviceTypes; let i = index"
-          class="create-entity-box v2"
-        >
+        <div *ngFor="let serviceType of serviceTypes; let i = index" class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -1416,21 +1236,14 @@
             <!-- /CREATE ENTITY BOX TITLE -->
 
             <!-- BUTTON -->
-            <p
-              (click)="deleteCategory(serviceType, 'service')"
-              style="margin-top: 10px"
-              class="button red-background full popup-manage-item-trigger"
-            >
+            <p (click)="deleteCategory(serviceType, 'service')" style="margin-top: 10px"
+              class="button red-background full popup-manage-item-trigger">
               {{ "delete_category" | translate }}
             </p>
             <!-- /BUTTON -->
 
             <!-- BUTTON -->
-            <p
-              id="updateBtn"
-              style="margin-top: 10px"
-              class="button full popup-edit-hosting-trigger"
-            >
+            <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
               {{ "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
@@ -1468,11 +1281,7 @@
         <!-- PRODUCT PREVIEW IMAGE -->
         <a (click)="openFileInput()" [routerLink]="">
           <figure class="product-preview-image liquid">
-            <img
-              *ngIf="!imageSrc"
-              src="../../../../assets/img/plus.png"
-              alt="item-10"
-            />
+            <img *ngIf="!imageSrc" src="../../../../assets/img/plus.png" alt="item-10" />
             <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
           </figure>
         </a>
@@ -1482,19 +1291,9 @@
         <div class="product-preview-info">
           <!-- PRODUCT PREVIEW TITLE -->
           <p class="product-preview-title">
-            <a
-              (click)="openFileInput()"
-              [routerLink]=""
-              routerLinkActive="router-link-active"
-              >Add picture</a
-            >
+            <a (click)="openFileInput()" [routerLink]="" routerLinkActive="router-link-active">Add picture</a>
           </p>
-          <input
-            id="postPhoto"
-            type="file"
-            style="display: none"
-            (change)="fileChange($event)"
-          />
+          <input id="postPhoto" type="file" style="display: none" (change)="fileChange($event)" />
 
           <!-- /PRODUCT PREVIEW TITLE -->
         </div>
@@ -1505,10 +1304,7 @@
       <!-- POPUP BOX SIDEBAR FOOTER -->
       <div class="popup-box-sidebar-footer">
         <!-- BUTTON -->
-        <p
-          (click)="createEquipmentType()"
-          class="button primary full popup-manage-item-trigger"
-        >
+        <p (click)="createEquipmentType()" class="button primary full popup-manage-item-trigger">
           Save Changes!
         </p>
         <!-- /BUTTON -->
@@ -1542,12 +1338,7 @@
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
                   <label for="item-name">Type name</label>
-                  <input
-                    [(ngModel)]="newEquipmentType.name"
-                    type="text"
-                    id="item-name"
-                    name="item_name"
-                  />
+                  <input [(ngModel)]="newEquipmentType.name" type="text" id="item-name" name="item_name" />
                 </div>
                 <!-- /FORM INPUT -->
               </div>
@@ -1557,12 +1348,8 @@
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
                   <label for="item-name">Type description</label>
-                  <textarea
-                    [(ngModel)]="newEquipmentType.description"
-                    id="item-files"
-                    name="item_files"
-                    placeholder=""
-                  ></textarea>
+                  <textarea [(ngModel)]="newEquipmentType.description" id="item-files" name="item_files"
+                    placeholder=""></textarea>
                 </div>
                 <!-- /FORM INPUT -->
               </div>
@@ -1613,10 +1400,7 @@
                       <!-- /CREATE ENTITY BOX TITLE -->
 
                       <!-- BUTTON -->
-                      <p
-                        (click)="addCategory('service')"
-                        class="button primary full popup-manage-item-trigger"
-                      >
+                      <p (click)="addCategory('service')" class="button primary full popup-manage-item-trigger">
                         Add new Category!
                       </p>
                       <!-- /BUTTON -->
@@ -1626,10 +1410,7 @@
                   <!-- /CREATE ENTITY BOX -->
 
                   <!-- CREATE ENTITY BOX -->
-                  <div
-                    *ngFor="let serviceType of serviceTypes; let i = index"
-                    class="create-entity-box v2"
-                  >
+                  <div *ngFor="let serviceType of serviceTypes; let i = index" class="create-entity-box v2">
                     <!-- CREATE ENTITY BOX COVER -->
                     <div class="create-entity-box-cover"></div>
                     <!-- /CREATE ENTITY BOX COVER -->
@@ -1652,26 +1433,18 @@
                       <!-- /CREATE ENTITY BOX TITLE -->
 
                       <!-- BUTTON -->
-                      <p
-                        (click)="deleteCategory(serviceType, 'service')"
-                        style="margin-top: 10px"
-                        class="
+                      <p (click)="deleteCategory(serviceType, 'service')" style="margin-top: 10px" class="
                           button
                           red-background
                           full
                           popup-manage-item-trigger
-                        "
-                      >
+                        ">
                         {{ "delete_category" | translate }}
                       </p>
                       <!-- /BUTTON -->
 
                       <!-- BUTTON -->
-                      <p
-                        id="updateBtn"
-                        style="margin-top: 10px"
-                        class="button full popup-edit-hosting-trigger"
-                      >
+                      <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
                         {{ "update_category" | translate }}
                       </p>
                       <!-- /BUTTON -->

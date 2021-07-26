@@ -33,7 +33,7 @@ export class AdminComponent implements OnInit {
     private translate: TranslateService,
     private productService: ProductService,
     private modalService: NgbModal
-  ) {}
+  ) { }
   readonly API: string = environment.apiUrl + '/';
   countries = (<any>data).default;
   usersList: User[] = [];
@@ -206,7 +206,7 @@ export class AdminComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => {}
+        () => { }
       );
   }
 
@@ -297,8 +297,35 @@ export class AdminComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => {}
+        () => { }
       );
+  }
+
+  updateCategory(type: EquipmentType, categoryName: string) {
+    if (!type['updating']) {
+      type['updating'] = true;
+    } else {
+      type['updating'] = false;
+      this.formData = new FormData();
+      this.formData.append('name', type['name']);
+      this.formData.append('description', type['description']);
+      this.adminService
+        .updateBoatType(this.formData, type._id)
+        .subscribe(
+          (res) => {
+            console.log(res);
+            this.toastr.success(res.message);
+            this.formData = new FormData();
+            this.imageSrc = '';
+          },
+          (err) => {
+            this.imageSrc = '';
+            console.log(err);
+            this.toastr.error(err.error.message);
+          },
+          () => { }
+        );
+    }
   }
 
   deleteCategory(type: EquipmentType, categoryName: string) {
