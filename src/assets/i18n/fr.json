@@ -6,6 +6,8 @@
 	"all_updates": "Toutes les publications",
 	"boat": "Bateau",
 	"boats": "Bateaux",
+  "homes":"Hébergements",
+  "marketplace":"Boutiques",
 	"change_password": "Changer le mot de passe",
 	"change_password_now": "Changez le mot de passe maintenant!",
 	"confirm_new_password": "Confirmer le nouveau mot de passe",
@@ -41,6 +43,7 @@
 	"friends": "Amis",
 	"followers": "Abonnés",
 	"following": "Abonnements",
+  "freelancer": "Services",
 	"name": "Nom",
 	"fullname": "Nom et prénom",
 	"firstname": "Prénom",
@@ -65,6 +68,7 @@
 	"password": "Mot de passe",
 	"post": "Publier",
 	"profile": "Profil",
+  "feed": "Actualités",
 	"profile_info": "Informations de profil",
 	"register": "S'inscrire",
 	"remember_me": "Se rappeler de moi",
@@ -72,6 +76,7 @@
 	"share post": "Que voulez vous publiez?",
 	"welcome_to": "Bienvenue à",
 	"your_new_password": "Your New Password",
+  "map":"Carte",
 	"commented_post": "A commenté ta publication",
 	"liked_post": "A aimé ta publication",
 	"followed_you": "Vous suit",
@@ -102,5 +107,11 @@
 	"boat_size": "Longueur du bateau",
 	"boat_details": "Détails du bateau",
 	"boat_name": "Nom du bateau",
-	"port_address": "Adresse du port"
+	"port_address": "Adresse du port",
+  "my_boats":"Mes Bateaux",
+  "my_homes":"Mes Hébergements",
+  "my_services":"Mes Services",
+  "my_equipments":"Mes Equipements",
+  "manage_res_req" : "Gestion des Reservations"
+
 }

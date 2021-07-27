@@ -163,6 +163,7 @@ export class AdminComponent implements OnInit {
         this.formData = new FormData();
         this.newContent = new Content();
         this.imageSrc = '';
+        
       },
       (err) => {
         this.toastr.error(err.error.message);
@@ -390,7 +391,6 @@ export class AdminComponent implements OnInit {
       );
   }
   openUpdatePopup(i) {
-    initForm();
     this.imageSrc = '';
     this.selectedBoat = i;
     $('#updateBtn').click();

@@ -1126,39 +1126,37 @@
   <!-- ******************************************************** -->
 
   <div class="content">Content Home Page</div>
-  <div class="promo-line">
-    <!-- PROMO LINE TEXT -->
-    <p class="promo-line-text">Add a new Content!</p>
-    <!-- /PROMO LINE TEXT -->
+ <div class="promo-line">
 
-    <!-- PROMO LINE ACTIONS -->
+    <p class="promo-line-text">Add a new Content!</p>
+
     <div class="promo-line-actions">
-      <!-- FORM INPUT -->
+
       <div class="form-input small">
         <label for="promo-code">Service name</label>
         <input [(ngModel)]="newContent.content" type="text" id="equipment-name" name="promo_code" />
       </div>
 
-      <!-- /FORM INPUT -->
+
       <a (click)="openFileInput()" [routerLink]="">
         <div class="form-input small">
-          <!-- ICON DELETE -->
+
           <label *ngIf="!imageSrc" for="promo-code">photo</label>
           <svg class="icon-delete">
             <use xlink:href="#svg-group"></use>
           </svg>
-          <!-- /ICON DELETE -->
+
           <img style="max-height: 80px; max-width: 80px" *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
         </div>
       </a>
       <input (change)="fileChange($event)" id="postPhoto" type="file" style="display: none" />
 
-      <!-- BUTTON -->
+
       <p (click)="createContent()" class="button secondary">Add Service</p>
-      <!-- /BUTTON -->
+
     </div>
 
-    <!-- /PROMO LINE ACTIONS -->
+
   </div>
 
   <!-- ******************************* -->
@@ -1322,7 +1320,7 @@
     <!-- POPUP BOX CONTENT -->
     <div class="popup-box-content limited" data-simplebar>
       <!-- WIDGET BOX -->
-      <div class="widget-box custompos">
+      <div class="widget-box cus">
         <!-- WIDGET BOX TITLE -->
         <p class="widget-box-title">Category Details</p>
         <!-- /WIDGET BOX TITLE -->
@@ -1355,108 +1353,7 @@
               </div>
               <!-- /FORM ITEM -->
             </div>
-            <div class="grid medium-space">
-              <!-- GRID COLUMN -->
-              <div class="account-hub-content">
-                <!-- SECTION HEADER -->
-                <div class="section-header">
-                  <!-- SECTION HEADER INFO -->
-                  <div class="section-header-info">
-                    <!-- SECTION PRETITLE -->
-                    <p class="section-pretitle">Post Home Page</p>
-                    <!-- /SECTION PRETITLE -->
 
-                    <!-- SECTION TITLE -->
-                    <h2 class="section-title">Manage</h2>
-                    <!-- /SECTION TITLE -->
-                  </div>
-                  <!-- /SECTION HEADER INFO -->
-                </div>
-                <!-- /SECTION HEADER -->
-
-                <!-- GRID -->
-                <div class="grid grid-3-3-3 centered-on-mobile">
-                  <!-- CREATE ENTITY BOX -->
-                  <div class="create-entity-box v2">
-                    <!-- CREATE ENTITY BOX COVER -->
-                    <div class="create-entity-box-cover"></div>
-                    <!-- /CREATE ENTITY BOX COVER -->
-
-                    <!-- CREATE ENTITY BOX AVATAR -->
-                    <div class="create-entity-box-avatar primary">
-                      <!-- CREATE ENTITY BOX AVATAR ICON -->
-                      <svg class="create-entity-box-avatar-icon icon-item">
-                        <use xlink:href="#svg-plus"></use>
-                      </svg>
-                      <!-- /CREATE ENTITY BOX AVATAR ICON -->
-                    </div>
-                    <!-- /CREATE ENTITY BOX AVATAR -->
-                    <!-- CREATE ENTITY BOX INFO -->
-                    <div class="create-entity-box-info">
-                      <!-- CREATE ENTITY BOX TITLE -->
-                      <p class="create-entity-box-title">
-                        {{ "category" | translate }}
-                      </p>
-                      <!-- /CREATE ENTITY BOX TITLE -->
-
-                      <!-- BUTTON -->
-                      <p (click)="addCategory('service')" class="button primary full popup-manage-item-trigger">
-                        Add new Category!
-                      </p>
-                      <!-- /BUTTON -->
-                    </div>
-                    <!-- /CREATE ENTITY BOX INFO -->
-                  </div>
-                  <!-- /CREATE ENTITY BOX -->
-
-                  <!-- CREATE ENTITY BOX -->
-                  <div *ngFor="let serviceType of serviceTypes; let i = index" class="create-entity-box v2">
-                    <!-- CREATE ENTITY BOX COVER -->
-                    <div class="create-entity-box-cover"></div>
-                    <!-- /CREATE ENTITY BOX COVER -->
-
-                    <!-- CREATE ENTITY BOX AVATAR -->
-                    <div class="create-entity-box-avatar primary">
-                      <!-- PRODUCT PREVIEW IMAGE -->
-                      <figure class="product-preview-image liquid">
-                        <img [src]="API + serviceType.icon" alt="equipment" />
-                      </figure>
-                      <!-- /PRODUCT PREVIEW IMAGE -->
-                    </div>
-                    <!-- /CREATE ENTITY BOX AVATAR -->
-                    <!-- CREATE ENTITY BOX INFO -->
-                    <div class="create-entity-box-info">
-                      <!-- CREATE ENTITY BOX TITLE -->
-                      <p class="create-entity-box-title">
-                        {{ serviceType?.name }}
-                      </p>
-                      <!-- /CREATE ENTITY BOX TITLE -->
-
-                      <!-- BUTTON -->
-                      <p (click)="deleteCategory(serviceType, 'service')" style="margin-top: 10px" class="
-                          button
-                          red-background
-                          full
-                          popup-manage-item-trigger
-                        ">
-                        {{ "delete_category" | translate }}
-                      </p>
-                      <!-- /BUTTON -->
-
-                      <!-- BUTTON -->
-                      <p id="updateBtn" style="margin-top: 10px" class="button full popup-edit-hosting-trigger">
-                        {{ "update_category" | translate }}
-                      </p>
-                      <!-- /BUTTON -->
-                    </div>
-                    <!-- /CREATE ENTITY BOX INFO -->
-                  </div>
-                  <!-- /CREATE ENTITY BOX -->
-                </div>
-                <!-- /GRID -->
-              </div>
-              <!-- /GRID COLUMN -->
-            </div>
             <!-- /FORM ROW -->
           </form>
           <!-- /FORM -->
@@ -1470,26 +1367,4 @@
   <!-- /POPUP BOX BODY -->
 </div>
 
-<!-- <div class="promo-line">
-  <p class="promo-line-text">Add a new service!</p>
 
-  <div class="promo-line-actions">
-
-    <div class="form-input small">
-      <label for="promo-code">Post Content</label>
-
-      <input
-        [(ngModel)]="newContent.content"
-        type="text"
-        id="content-name"
-        name="promo_code"
-      />
-    </div>
-
-
-
-    <p (click)="createContent()" class="button secondary">Add Conetent</p>
-
-  </div>
-</div> -->
-<!-- /PROMO LINE ACTIONS -->
