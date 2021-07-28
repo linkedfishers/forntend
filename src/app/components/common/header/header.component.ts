@@ -1,11 +1,14 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
+import { EquipmentType } from 'src/app/interfaces/equipments.interface';
 import { Notification } from 'src/app/interfaces/posts.interface';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
 import { PicturePipe } from 'src/app/pipes/picture.pipe';
 import { AuthService } from 'src/app/services/auth.service';
+import { EquipmentService } from 'src/app/services/equipment.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 
@@ -19,9 +22,11 @@ declare var initHeader, initHexagons: any;
 export class HeaderComponent implements OnInit {
   constructor(
     private translate: TranslateService,
+     private toastr: ToastrService,
     private router: Router,
     private authService: AuthService,
     private userService: UserService,
+    private equipmentService : EquipmentService,
     private el: ElementRef
   ) {}
   readonly API: string = environment.apiUrl + '/';
@@ -41,6 +46,7 @@ export class HeaderComponent implements OnInit {
 
   isGuest = true;
   fullName: string = '';
+  equipmentTypes: EquipmentType[];
   ngOnInit(): void {
     initHeader();
     this.language = this.translate.currentLang;
@@ -66,6 +72,8 @@ export class HeaderComponent implements OnInit {
           console.log(err);
         }
       );
+    
+
     }
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();

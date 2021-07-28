@@ -157,33 +157,76 @@
         >{{ "marketplace" | translate }}</a
       >
     </li>
-    <li class="menu-main-item">
+   <!--  <li class="menu-main-item"> -->
       <!-- MENU MAIN ITEM LINK -->
-      <a class="menu-main-item-link" [routerLink]="['/list-home']">{{
+     <!--  <a class="menu-main-item-link" [routerLink]="['/list-home']">{{
         "homes" | translate
-      }}</a>
+      }}</a> -->
+
+      <!-- $$$$$$$$$$ -->
+<!-- <div mdbDropdown class="btn-group">
+  <button type="button" class="btn btn-primary" [routerLink]="['/list-home']">{{"homes" | translate}}</button>
+  <button
+    type="button"
+    class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+    mdbDropdownToggle
+    aria-expanded="false"
+  >
+    <span class="visually-hidden"></span>
+  </button>
+    <ul mdbDropdownMenu class="dropdown-menu" >
+    <li *ngFor ="let home of hebergementType ; let i = index"><a class="dropdown-item colortxt" >{{i}}{{home?.name}}</a></li>
+  </ul>
+</div> -->
+<li class="menu-main-item">
+<div class="dropdown">
+  <a class="dropbtn" [routerLink]="['/list-home']">{{"homes" | translate}}</a>
+  <div class="dropdown-content">
+    <a *ngFor="let item of hebergementType">{{item?.name}}</a>
+  </div>
+</div>
+
     </li>
     <li class="menu-main-item">
       <!-- MENU MAIN ITEM LINK -->
-      <a class="menu-main-item-link" [routerLink]="['/list-boats']">{{
+    <!--   <a class="menu-main-item-link" [routerLink]="['/list-boats']">{{
         "boats" | translate
-      }}</a>
+      }}</a> -->
+      <div class="dropdown">
+  <a class="dropbtn" [routerLink]="['/list-boats']">{{"boats" | translate}}</a>
+  <div class="dropdown-content">
+    <a *ngFor="let item of boatTypes">{{item?.name}}</a>
+  </div>
+</div>
     </li>
+
+
     <li class="menu-main-item">
       <!-- MENU MAIN ITEM LINK -->
-      <a class="menu-main-item-link" [routerLink]="['/list-services']">{{
+    <!--   <a class="menu-main-item-link" [routerLink]="['/list-services']">{{
         "freelancer" | translate
-      }}</a>
+      }}</a> -->
+           <div class="dropdown">
+  <a class="dropbtn" [routerLink]="['/list-services']">{{"freelancer" | translate}}</a>
+  <div class="dropdown-content">
+    <a *ngFor="let item of serviceTypes">{{item?.name}}</a>
+  </div>
+</div>
     </li>
     <li class="menu-main-item">
       <!-- MENU MAIN ITEM LINK -->
-      <a class="menu-main-item-link" [routerLink]="['/list-equipments']">{{
+     <!--  <a class="menu-main-item-link" [routerLink]="['/list-equipments']">{{
         "Equipements" | translate
-      }}</a>
+      }}</a> -->
+               <div class="dropdown">
+  <a class="dropbtn" [routerLink]="['/list-equipments']">{{"Equipements" | translate}}</a>
+  <div class="dropdown-content">
+    <a *ngFor="let item of equipmentTypes">{{item?.name}}</a>
+  </div>
+</div>
     </li>
   </ul>
 </nav>
-
 <nav
   id="navigation-widget-mobile"
   class="navigation-widget navigation-widget-mobile sidebar left hidden"
