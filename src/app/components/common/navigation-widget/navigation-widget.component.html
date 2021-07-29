@@ -182,7 +182,7 @@
 <div class="dropdown">
   <a class="dropbtn" [routerLink]="['/list-home']">{{"homes" | translate}}</a>
   <div class="dropdown-content">
-    <a *ngFor="let item of hebergementType">{{item?.name}}</a>
+    <a *ngFor="let item of hebergementType" [routerLink]="['/equipment-cat',item.type._id,item.owner?._id]">{{item?.name}}</a>
   </div>
 </div>
 

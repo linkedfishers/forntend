@@ -91,6 +91,7 @@ import { CommonModule } from '@angular/common';
 import { DetailsServiceComponent } from './components/pages/details-service/details-service.component';
 import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
 import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
+import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equipmentsbycat.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -168,6 +169,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DetailsServiceComponent,
     EquipmentpecheComponent,
     ListEquipmentsComponent,
+    EquipmentsbycatComponent,
   ],
   imports: [
     BrowserModule,

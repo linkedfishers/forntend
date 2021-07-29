@@ -39,6 +39,7 @@ import { ListBoatsComponent } from './components/pages/boats/list-boats/list-boa
 import { ListServicesComponent } from './components/pages/services/list-services/list-services.component';
 import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
 import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
+import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equipmentsbycat.component';
 
 const routes: Routes = [
   {
@@ -182,6 +183,10 @@ const routes: Routes = [
         path: 'my-booking-requests',
         component: MyReservationsComponent,
         canActivate: [AuthGuard],
+      },
+      {
+        path:"equipment-cat/home/:id",
+        component:EquipmentsbycatComponent
       },
       {
         path: 'book/:type/:id',
