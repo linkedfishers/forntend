@@ -68,7 +68,9 @@ export class EquipmentService {
       `${this.API}/service/type/${typeId}/user/${userId}`
     );
   }
-
+getBoatsByType(typeId:string){
+  return this.httpClient.get<any>(`${this.API}/boats/type/${typeId}`)
+}
   getBoatsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/boats/user/${userId}`);
   }

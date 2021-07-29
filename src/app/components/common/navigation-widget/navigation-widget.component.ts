@@ -78,6 +78,7 @@ export class NavigationWidgetComponent implements OnInit {
     )
     this.equipmentService.getHebergementTypes().subscribe(reslt=>{
         this.hebergementType=reslt.data
+        console.log(this.hebergementType)
     },
     err=>{this.toastr.error("Error while Loading ");
   }

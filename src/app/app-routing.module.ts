@@ -185,7 +185,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path:"equipment-cat/home/:id",
+        path:"boats/type/:id",
         component:EquipmentsbycatComponent
       },
       {
