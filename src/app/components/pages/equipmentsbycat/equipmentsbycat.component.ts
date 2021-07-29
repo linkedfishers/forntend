@@ -17,29 +17,27 @@ declare var initSidebar, initPopups, loadSvg: any;
 export class EquipmentsbycatComponent implements OnInit {
 
   constructor(
- private authService: AuthService,
+    private authService: AuthService,
     private userService: UserService,
     private route: ActivatedRoute,
     private router: Router,
     private el: ElementRef,
     private equipmentService: EquipmentService,
     private translate: TranslateService,
-    private toastr: ToastrService,  ) { }
+    private toastr: ToastrService,) { }
 
-    readonly API: string = environment.apiUrl + '/';
-   boats:Boat[]
-  type : BoatType
+  readonly API: string = environment.apiUrl + '/';
+  boats: Boat[]
+  type: BoatType
 
   ngOnInit(): void {
-      initSidebar();
+    initSidebar();
     initPopups();
     initForm();
     loadSvg();
+    this.route.params.subscribe(params => {
+      let id = params.id;
+      //todo :  get equipment by type (t3adilou id)
+    });
   }
-      getbottype(typeId : string){
-        this.equipmentService.getBoatsByType(this.type._id).subscribe(res=>{
-          this.boats=res.data
-          
-        })
-      }
 }

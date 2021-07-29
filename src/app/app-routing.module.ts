@@ -185,8 +185,12 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path:"boats/type/:id",
-        component:EquipmentsbycatComponent
+        path: "boats/type/:id",
+        component: EquipmentsbycatComponent
+      },
+      {
+        path: "equipments/type/:id",
+        component: EquipmentsbycatComponent
       },
       {
         path: 'book/:type/:id',
@@ -244,4 +248,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
