@@ -335,6 +335,35 @@
                 <!-- /USER STATUS -->
               </div>
             </a>
+            <br />
+            <a [routerLink]="" (click)="setLanguage('ar')">
+              <div
+                class="dropdown-box-list-item"
+                [ngClass]="{ active: currentUser?.language == 'ar' }"
+              >
+                <!-- USER STATUS -->
+                <div class="user-status request">
+                  <!-- USER STATUS AVATAR -->
+                  <a class="user-status-avatar" href="profile-timeline.html">
+                    <!-- USER AVATAR -->
+                    <div class="user-avatar small no-outline">
+                      <div class="user-avatar small no-outline">
+                        <figure>
+                          <img src="./assets/img/flag/AE.png" alt="avatar-01" />
+                        </figure>
+                      </div>
+                    </div>
+                    <!-- /USER AVATAR -->
+                  </a>
+                  <!-- /USER STATUS AVATAR -->
+
+                  <!-- USER STATUS TITLE -->
+                  <p class="user-status-title"><a class="bold">عربي</a></p>
+                  <!-- /USER STATUS TITLE -->
+                </div>
+                <!-- /USER STATUS -->
+              </div>
+            </a>
             <!-- /DROPDOWN BOX LIST ITEM -->
           </div>
           <!-- /DROPDOWN BOX LIST -->

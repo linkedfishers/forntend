@@ -70,7 +70,7 @@ export class NavigationWidgetComponent implements OnInit {
     )
     this.equipmentService.getBoatTypes().subscribe(reslt=>{
       this.boatTypes=reslt.data;
-      console.log(this.boatTypes)
+
 
     },
     err=>{this.toastr.error("Error while Loading ");
@@ -78,14 +78,14 @@ export class NavigationWidgetComponent implements OnInit {
     )
     this.equipmentService.getHebergementTypes().subscribe(reslt=>{
         this.hebergementType=reslt.data
-        console.log(this.hebergementType)
+
     },
     err=>{this.toastr.error("Error while Loading ");
   }
   )
   this.equipmentService.getServiceTypes().subscribe(res=>{
 this.serviceTypes= res.data;
-console.log(this.serviceTypes)
+
   },
   err=>{this.toastr.error("Error while Loading")})
   }

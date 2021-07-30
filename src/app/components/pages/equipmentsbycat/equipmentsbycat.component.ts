@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { Boat, BoatType, Hebergement } from 'src/app/interfaces/equipments.interface';
+import { Boat, BoatType, Equipment, Hebergement, Service } from 'src/app/interfaces/equipments.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { UserService } from 'src/app/services/user.service';
@@ -29,6 +29,9 @@ export class EquipmentsbycatComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
   boats: Boat[]
   type: BoatType
+    equipements:Equipment []
+    hebergements : Hebergement[]
+    services:Service[]
 
   ngOnInit(): void {
     initSidebar();
@@ -37,7 +40,10 @@ export class EquipmentsbycatComponent implements OnInit {
     loadSvg();
     this.route.params.subscribe(params => {
       let id = params.id;
-      //todo :  get equipment by type (t3adilou id)
+      this.equipmentService.getBoatsByType(id).subscribe(res=>{
+        this.boats=res.data
+        console.log(this.boats)
+      })
     });
   }
 }

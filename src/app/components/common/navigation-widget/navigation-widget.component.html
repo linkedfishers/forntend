@@ -182,7 +182,7 @@
 <div class="dropdown">
   <a class="dropbtn" [routerLink]="['/list-home']">{{"homes" | translate}}</a>
   <div class="dropdown-content">
-    <a *ngFor="let item of hebergementType" [routerLink]="['/equipment-cat',item?.type?._id]">{{item?.name}}</a>
+    <a  [routerLink]="['/hebergements/type/',item?._id]"  *ngFor="let item of hebergementType" [routerLink]="['/equipment-cat',item?.type?._id]">{{item?.name}}</a>
   </div>
 </div>
 
@@ -195,7 +195,7 @@
       <div class="dropdown">
   <a class="dropbtn" [routerLink]="['/list-boats']">{{"boats" | translate}}</a>
   <div class="dropdown-content">
-    <a *ngFor="let item of boatTypes">{{item?.name}}</a>
+    <a  [routerLink]="['/boats/type/',item?._id]"  *ngFor="let item of boatTypes">{{item?.name}}</a>
   </div>
 </div>
     </li>
@@ -209,7 +209,7 @@
            <div class="dropdown">
   <a class="dropbtn" [routerLink]="['/list-services']">{{"freelancer" | translate}}</a>
   <div class="dropdown-content">
-    <a *ngFor="let item of serviceTypes" [routerLink]="['/equipment-cat',item?.type?._id]">{{item?.name}}</a>
+    <a  [routerLink]="['/services/types/',item?._id]"  *ngFor="let item of serviceTypes" >{{item?.name}}</a>
   </div>
 </div>
     </li>

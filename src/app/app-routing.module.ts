@@ -189,10 +189,6 @@ const routes: Routes = [
         component: EquipmentsbycatComponent
       },
       {
-        path: "equipments/type/:id",
-        component: EquipmentsbycatComponent
-      },
-      {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,
         canActivate: [AuthGuard],
