@@ -45,7 +45,7 @@
 	"fullname": "Full name",
 	"firstname": "Prénom",
 	"lastname": "Nom",
-	"home": "home",
+	"home": "Home",
 	"about_us": "About us",
 	"rules": "Rules",
 	"language": "Language",
@@ -102,5 +102,8 @@
 	"boat_size": "Boat size",
 	"boat_details": "Boat details",
 	"boat_name": "Boat name",
-	"port_address": "Port address"
+	"port_address": "Port address",
+  "browser_services" : "Browser Services by categorie",
+  "admin":"Admin",
+  "map":"map"
 }

@@ -61,7 +61,22 @@
 	"account_activated": "Your account has been successfully activated!",
 	"invalid_confirmation_link": "The confirmation link provided is invalid",
 	"verification_email_sent": "Veuillez vérifier votre adresse mail pour activer votre compte",
-	"weather": "Weather",
+	"weather": "الطقس",
 	"reset_password": "Reset password",
-	"reset_password_request": "Reset password request"
+	"reset_password_request": "Reset password request",
+  "rules":"القوانين",
+  "about_us":"المعلومات",
+  "administartion":"المدير",
+  "map":"الخريطة",
+  "marketplace":"المتجر",
+  "feed":"المستجدات",
+  "homes" : "المنازل",
+  "freelancer":"الخدمات",
+  "Equipements" :"المعدات",
+  "my_boats":"قواربي",
+  "my_homes":"منازلي",
+  "my_services":"خدماتي",
+  "my_equipments":"معدّاتي"
+
+
 }

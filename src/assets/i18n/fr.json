@@ -112,6 +112,8 @@
   "my_homes":"Mes Hébergements",
   "my_services":"Mes Services",
   "my_equipments":"Mes Equipements",
-  "manage_res_req" : "Gestion des Reservations"
+  "manage_res_req" : "Gestion des Reservations",
+  "browser_services" : "Liste des Services",
+    "admin":"Admin"
 
 }

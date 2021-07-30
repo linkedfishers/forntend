@@ -74,7 +74,7 @@
         </li>
         <li *ngIf="isAdmin" class="menu-main-item">
           <a class="menu-main-item-link" [routerLink]="['/admin']">
-            {{ "Admin" | translate }}</a
+            {{ "admin" | translate }}</a
           >
         </li>
         <!-- /MENU MAIN ITEM -->
@@ -645,7 +645,7 @@
         <!-- DROPDOWN NAVIGATION BUTTON -->
         <a (click)="logout()" [routerLink]="">
           <p class="dropdown-navigation-button button small secondary">
-            Logout
+            {{"logout" | translate}}
           </p>
         </a>
         <!-- /DROPDOWN NAVIGATION BUTTON -->
