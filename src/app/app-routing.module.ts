@@ -40,6 +40,9 @@ import { ListServicesComponent } from './components/pages/services/list-services
 import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
 import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
 import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equipmentsbycat.component';
+import { ServicesbycatComponent } from './components/pages/servicesbycat/servicesbycat.component';
+import { HebergementsbycatComponent } from './components/pages/hebergementsbycat/hebergementsbycat.component';
+import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
 
 const routes: Routes = [
   {
@@ -188,6 +191,18 @@ const routes: Routes = [
         path: "boats/type/:id",
         component: EquipmentsbycatComponent
       },
+     {
+       path:"freelancer/type/:id",
+       component : ServicesbycatComponent
+    },
+    {
+      path:"hebergements/type/:id",
+      component:HebergementsbycatComponent
+    },
+     {
+      path:"equipments/type/:id",
+      component:EquiplistcatComponent
+    },
       {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,

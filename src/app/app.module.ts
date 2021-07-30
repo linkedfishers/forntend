@@ -92,6 +92,9 @@ import { DetailsServiceComponent } from './components/pages/details-service/deta
 import { EquipmentpecheComponent } from './components/pages/equipmentpeche/equipmentpeche.component';
 import { ListEquipmentsComponent } from './components/pages/equipmentpeche/list-equipments/list-equipments.component';
 import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equipmentsbycat.component';
+import { ServicesbycatComponent } from './components/pages/servicesbycat/servicesbycat.component';
+import { HebergementsbycatComponent } from './components/pages/hebergementsbycat/hebergementsbycat.component';
+import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -170,6 +173,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     EquipmentpecheComponent,
     ListEquipmentsComponent,
     EquipmentsbycatComponent,
+    ServicesbycatComponent,
+    HebergementsbycatComponent,
+    EquiplistcatComponent,
   ],
   imports: [
     BrowserModule,

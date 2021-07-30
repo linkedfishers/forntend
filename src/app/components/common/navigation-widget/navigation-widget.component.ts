@@ -63,7 +63,6 @@ export class NavigationWidgetComponent implements OnInit {
     this.isAdmin = this.authService.isAdmin();
       this.equipmentService.getEquipmentTypes().subscribe(reslt=>{
     this.equipmentTypes=reslt.data
-    console.log(this.equipmentTypes)
       },
       err=>{this.toastr.error('Error while loading homes');
     }

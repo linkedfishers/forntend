@@ -72,7 +72,7 @@ getBoatsByType(typeId:string){
   return this.httpClient.get<any>(`${this.API}/boats/type/${typeId}`)
 }
 getServicessByType(typeId:string){
-  return this.httpClient.get<any>(`${this.API}/services/type/${typeId}`)
+  return this.httpClient.get<any>(`${this.API}/freelancer/type/${typeId}`)
 }
 getEquipmentssByType(typeId:string){
   return this.httpClient.get<any>(`${this.API}/equipments/type/${typeId}`)
