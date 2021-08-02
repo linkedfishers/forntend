@@ -39,3 +39,24 @@ a.menu-main-item-link {
 .heig{
   height: 350px !important;
 }
+
+
+
+@media (max-width:700px) {
+.logo .icon-logo-vikinger {
+  width: 50px !important;
+  height: 63px !important;
+  left: 0px !important;
+}
+}
+@media (max-width:1400px){
+  .header-actions.search-bar{
+    width: 20% !important;
+  }
+}
+@media (max-width:1365px){
+  .navigation{display: block !important;}
+}
+@media(max-width:680px){
+  .navigation{display: none !important;}
+}

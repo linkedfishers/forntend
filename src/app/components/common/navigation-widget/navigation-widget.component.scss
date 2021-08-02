@@ -84,3 +84,9 @@ a.menu-item-link {
 .dropdown:hover .dropbtn {background-color: #3e8e412c;}
 
 
+@media(max-width:700px){
+.menu-item-link-icon{
+  display: none !important;
+}
+}
+

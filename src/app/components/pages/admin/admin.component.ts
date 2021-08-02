@@ -164,6 +164,7 @@ export class AdminComponent implements OnInit {
         this.newContent = new Content();
         this.imageSrc = '';
         
+
       },
       (err) => {
         this.toastr.error(err.error.message);

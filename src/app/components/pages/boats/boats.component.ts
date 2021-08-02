@@ -39,7 +39,7 @@ export class BoatsComponent implements OnInit {
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
     this.newBoat = new Boat();
-    
+
     initSidebar();
     initPopups();
     initForm();
@@ -60,6 +60,10 @@ export class BoatsComponent implements OnInit {
         this.toastr.error('Error while loading boat types');
       }
     );
+    this.equipmentService.getServiceTypes().subscribe(res=>{
+      this.boatTypes=res.data
+      
+    })
   }
 
   fileChange(event) {

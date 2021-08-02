@@ -105,5 +105,9 @@
 	"port_address": "Port address",
   "browser_services" : "Browser Services by categorie",
   "admin":"Admin",
-  "map":"map"
+  "map":"map",
+  "homes":"Home",
+  "marketplace":"MarketPlace",
+  "feed":"Feeds",
+  "Equipements":"Equipments"
 }

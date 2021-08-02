@@ -41,4 +41,16 @@
 
 .form-box .pp {
   margin-top: 10px !important;
+
+}
+.lined-text:after, .lined-text:before{
+  display: none !important;
+}
+
+
+@media(max-width:700px)
+{
+  .form-box.login-register-form-element{
+    width: 64vw !important;
+  }
 }

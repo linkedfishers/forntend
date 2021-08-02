@@ -114,6 +114,7 @@
   "my_equipments":"Mes Equipements",
   "manage_res_req" : "Gestion des Reservations",
   "browser_services" : "Liste des Services",
-    "admin":"Admin"
+    "admin":"Admin",
+    "Equipements":"Equipements"
 
 }
