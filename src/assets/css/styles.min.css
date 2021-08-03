@@ -12932,3 +12932,8 @@ figure > img {
 .customwidth {
   width: 300px !important;
 }
+
+.simplebar-content
+{
+  padding: 0px !important;
+}

@@ -643,3 +643,24 @@ hr {
   position: absolute !important;
   z-index: 9999 !important;
 }
+
+.framemap {
+  max-width: 800px !important;
+  margin: 0 auto !important;
+}
+@media (max-width: 800px) {
+  .flex-card {
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  .blog-cards.spring-fevers {
+    margin: 10px auto !important;
+  }
+  .framemap {
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+  .widget-box.pad {
+    margin-left: 100px !important;
+  }
+}

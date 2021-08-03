@@ -31,20 +31,25 @@
   top: 170px !important;
   left: 0;
 }
-.pad{
+.pad {
   padding: 11px 5px !important;
 }
 
-.mar{
+.mar {
   margin-top: 0px !important ;
 }
 
-.reduced
- {
-   padding: 28px 12px !important;
- }
+.reduced {
+  padding: 28px 12px !important;
+}
 
- .widget-box-title.large{
-   position: relative !important;
-   top: -9px !important;
- }
+.widget-box-title.large {
+  position: relative !important;
+  top: -9px !important;
+}
+
+@media (max-width: 800px) {
+  .widget-box.pad {
+    margin-left: 150px !important;
+  }
+}
