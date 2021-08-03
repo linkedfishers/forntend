@@ -1,0 +1,38 @@
+.event-cover-input {
+  padding-top: 48px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+.event-preview {
+  height: 300px;
+}
+
+.event-map {
+  overflow: hidden;
+}
+
+.cal-day-badge {
+  display: inline-block !important;
+}
+
+.flex-event {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-event .section-header {
+  margin-top: 16px !important;
+}
+/*# sourceMappingURL=events.component.css.map */

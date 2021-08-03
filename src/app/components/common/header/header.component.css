@@ -1,0 +1,63 @@
+.user-status-title {
+  position: relative;
+  top: 12px;
+}
+
+.dropdown-box.header-dropdown.language {
+  height: 250px;
+}
+
+img.round {
+  border-radius: 50%;
+}
+
+.header-text {
+  margin-left: 26px;
+  color: white;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+a.menu-main-item-link {
+  font-size: medium !important;
+}
+
+.icon-grid {
+  fill: black;
+}
+
+.custommargin {
+  margin-left: 110px !important;
+}
+
+.heig {
+  height: 350px !important;
+}
+
+@media (max-width: 700px) {
+  .logo .icon-logo-vikinger {
+    width: 50px !important;
+    height: 63px !important;
+    left: 0px !important;
+  }
+}
+
+@media (max-width: 1400px) {
+  .header-actions.search-bar {
+    width: 20% !important;
+  }
+}
+
+@media (max-width: 1365px) {
+  .navigation {
+    display: block !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .navigation {
+    display: none !important;
+  }
+}
+/*# sourceMappingURL=header.component.css.map */

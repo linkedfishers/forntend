@@ -3,7 +3,7 @@
   <!-- HEADER ACTIONS -->
   <div class="header-actions">
     <!-- HEADER BRAND -->
-    <a [routerLink]="['/main']">
+    <a [routerLink]="['/']">
       <div class="header-brand">
         <!-- LOGO -->
         <div class="logo">
@@ -100,7 +100,7 @@
             <!-- MENU ITEM LINK ICON -->
 
             <!-- /MENU ITEM LINK ICON -->
-            {{"map" | translate}}
+            {{ "map" | translate }}
           </a>
           <!-- /MENU ITEM LINK -->
         </li>
@@ -566,8 +566,10 @@
         <p class="dropdown-navigation-category">Reservations</p>
         <!-- /DROPDOWN NAVIGATION CATEGORY -->
         <!-- DROPDOWN NAVIGATION LINK -->
-        <a class="dropdown-navigation-link" [routerLink]="['/booking-requests']"
-          >{{"manage_res_req" | translate}}</a
+        <a
+          class="dropdown-navigation-link"
+          [routerLink]="['/booking-requests']"
+          >{{ "manage_res_req" | translate }}</a
         >
         <p
           *ngIf="!isProvider"
@@ -578,7 +580,7 @@
             <!-- MENU ITEM LINK ICON -->
 
             <!-- /MENU ITEM LINK ICON -->
-           {{"my_services" | translate}}
+            {{ "my_services" | translate }}
           </a>
         </p>
         <p
@@ -591,7 +593,7 @@
             <!-- MENU ITEM LINK ICON -->
 
             <!-- /MENU ITEM LINK ICON -->
-           {{"my_equipments" | translate}}
+            {{ "my_equipments" | translate }}
           </a>
           <!-- /MENU ITEM LINK -->
         </p>
@@ -608,7 +610,7 @@
             <!-- MENU ITEM LINK ICON -->
 
             <!-- /MENU ITEM LINK ICON -->
-            {{"my_boats" | translate}}
+            {{ "my_boats" | translate }}
           </a>
           <!-- /MENU ITEM LINK -->
         </p>
@@ -625,7 +627,7 @@
             <!-- MENU ITEM LINK ICON -->
 
             <!-- /MENU ITEM LINK ICON -->
-         {{"my_homes" | translate}}
+            {{ "my_homes" | translate }}
           </a>
           <!-- /MENU ITEM LINK -->
         </p>
@@ -645,7 +647,7 @@
         <!-- DROPDOWN NAVIGATION BUTTON -->
         <a (click)="logout()" [routerLink]="">
           <p class="dropdown-navigation-button button small secondary">
-            {{"logout" | translate}}
+            {{ "logout" | translate }}
           </p>
         </a>
         <!-- /DROPDOWN NAVIGATION BUTTON -->

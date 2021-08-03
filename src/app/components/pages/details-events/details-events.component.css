@@ -1,0 +1,19 @@
+img.round {
+  border-radius: 50%;
+  height: 64px;
+}
+
+img.round-small {
+  border-radius: 50%;
+  height: 32px;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
+}
+
+.filled {
+  color: #FFD700;
+}
+/*# sourceMappingURL=details-events.component.css.map */

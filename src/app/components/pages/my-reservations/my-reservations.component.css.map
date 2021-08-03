@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "my-reservations.component.scss"
+    ],
+    "names": [],
+    "file": "my-reservations.component.css"
+}

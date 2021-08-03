@@ -1,0 +1,13 @@
+input[type="number"] {
+  padding-left: 20px;
+}
+
+.product-preview.fixed-height {
+  height: auto !important;
+}
+
+.fixedpop {
+  position: relative !important;
+  z-index: 9999999999;
+}
+/*# sourceMappingURL=equipmentpeche.component.css.map */

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "boats-list.component.scss"
+    ],
+    "names": [],
+    "file": "boats-list.component.css"
+}

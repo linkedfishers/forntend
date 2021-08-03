@@ -95,6 +95,9 @@ import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equ
 import { ServicesbycatComponent } from './components/pages/servicesbycat/servicesbycat.component';
 import { HebergementsbycatComponent } from './components/pages/hebergementsbycat/hebergementsbycat.component';
 import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
+import { TodayComponent } from './components/common/today/today.component';
+import { FuturComponent } from './components/common/futur/futur.component';
+
 
 export function momentAdapterFactory() {
   return adapterFactory(moment);
@@ -176,6 +179,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ServicesbycatComponent,
     HebergementsbycatComponent,
     EquiplistcatComponent,
+    TodayComponent,
+    FuturComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAC;EACJ,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,eAAe;CACvC;;AACD,AAAA,IAAI,CAAC;EACH,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,UAAU,EAAE,IAAI;CACjB;;AACD,AAAA,KAAK,CAAC;EACJ,MAAM,EAAE,IAAI;EACZ,YAAY,EAAE,IAAI;CACnB;;AACD,AAAA,SAAS,CAAC;EACR,WAAW,EAAE,IAAI;CAClB",
+    "sources": [
+        "futur.component.scss"
+    ],
+    "names": [],
+    "file": "futur.component.css"
+}

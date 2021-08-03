@@ -1,0 +1,40 @@
+img.round {
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+}
+
+img.round-small {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #b0c4de;
+}
+
+.filled {
+  color: #ffd700;
+}
+
+.blockcontent {
+  display: block !important;
+}
+
+.flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.named-title {
+  color: #ffd700;
+}
+
+.max-width {
+  max-width: 800px !important;
+  margin: 20px auto !important;
+}
+/*# sourceMappingURL=details-hebergements.component.css.map */

@@ -1,0 +1,26 @@
+.main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (6rem)[5];
+      grid-template-columns: repeat(5, 6rem);
+}
+
+.sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+.icon {
+  height: 2rem;
+  padding-left: 2rem;
+}
+
+.selected {
+  font-weight: bold;
+}
+/*# sourceMappingURL=futur.component.css.map */

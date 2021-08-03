@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,IAAI;CACtB;;AAGD,AAAA,WAAW,CAAA;EACT,OAAO,EAAE,mBAAmB;CAC7B",
+    "sources": [
+        "map-box.component.scss"
+    ],
+    "names": [],
+    "file": "map-box.component.css"
+}

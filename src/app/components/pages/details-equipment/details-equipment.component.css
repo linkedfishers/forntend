@@ -1,0 +1,12 @@
+img.round {
+  border-radius: 50%;
+  height: 64px;
+  width: 64px;
+}
+
+img.round-small {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+}
+/*# sourceMappingURL=details-equipment.component.css.map */

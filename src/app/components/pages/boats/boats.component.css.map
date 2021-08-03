@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,AAAA,aAAa,CAAC;EAC5B,MAAM,EAAE,eAAe;CACxB;;AAED,AAAA,UAAU,CAAC;EACT,QAAQ,EAAE,mBAAmB;CAC9B",
+    "sources": [
+        "boats.component.scss"
+    ],
+    "names": [],
+    "file": "boats.component.css"
+}

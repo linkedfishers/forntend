@@ -1,0 +1,39 @@
+<div class="primary" *ngIf="primaryDisplay">
+  <h3>5-day Forcast</h3>
+  <ul *ngFor="let forcast of weatherData; let i = index">
+    <li class="main" (click)="toggle(weatherData[i], i)">
+      {{ forcast.dt_txt | date: "EE, MMM dd" }}
+      <img
+        src="assets/img/icons{{ forcast.weather[0].icon }}.png"
+        alt=""
+        class="icon"
+      />
+      <span>
+        {{ forcast.main.temp_min | number: "1.0-0" }} °C /
+        {{ forcast.main.temp_max | number: "1.0-0" }} °C
+      </span>
+      <span>
+        {{ forcast.weather[0].main }}
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+      </span>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="secondDisplay">
+  <h3>5-day Forcast</h3>
+  <ul class="sub">
+    <li
+      *ngFor="let forcast of weatherData; let i = index"
+      [ngClass]="{ selected: selectedIndex == i }"
+    >
+      <span (click)="showDetails(weatherData[i], i)">
+        {{ forcast.dt_txt | date: "EEE" }}</span
+      >
+    </li>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+  </ul>
+  <div>
+    {{ forcastDeatils.main.temp | number: "1.0" }}
+  </div>
+</div>
