@@ -22,11 +22,11 @@ declare var initHeader, initHexagons: any;
 export class HeaderComponent implements OnInit {
   constructor(
     private translate: TranslateService,
-     private toastr: ToastrService,
+    private toastr: ToastrService,
     private router: Router,
     private authService: AuthService,
     private userService: UserService,
-    private equipmentService : EquipmentService,
+    private equipmentService: EquipmentService,
     private el: ElementRef
   ) {}
   readonly API: string = environment.apiUrl + '/';
@@ -52,6 +52,7 @@ export class HeaderComponent implements OnInit {
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
+      console.log(this.language);
     });
     this.currentUser = this.authService.getCurrentUser();
     if (this.currentUser) {
@@ -72,8 +73,6 @@ export class HeaderComponent implements OnInit {
           console.log(err);
         }
       );
-    
-
     }
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
@@ -85,7 +84,7 @@ export class HeaderComponent implements OnInit {
       } else {
         this.fullName = this.currentUser.fullName;
       }
-    /*   let profilePicture1, profilePicture2;
+      /*   let profilePicture1, profilePicture2;
       profilePicture1 = this.el.nativeElement.querySelector('#profilePicture1');
       profilePicture2 = this.el.nativeElement.querySelector('#profilePicture2');
       profilePicture1.setAttribute(

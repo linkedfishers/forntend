@@ -80,7 +80,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item a" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/events']">
         <!-- MENU ITEM LINK ICON -->
@@ -104,7 +104,7 @@
     <!-- /MENU ITEM -->
 
     <!-- MENU ITEM -->
-    <li *ngIf="!isProvider" class="menu-item" routerLinkActive="active">
+    <li *ngIf="!isProvider" class="menu-item a" routerLinkActive="active">
       <!-- MENU ITEM LINK -->
       <a class="menu-item-link" [routerLink]="['/weather']">
         <!-- MENU ITEM LINK ICON -->
@@ -149,7 +149,7 @@
       </a>
 
     </li> -->
-    <li class="menu-main-item">
+    <li class="menu-main-item a">
       <!-- MENU MAIN ITEM LINK -->
       <a
         class="menu-main-item-link"
@@ -178,7 +178,7 @@
     <li *ngFor ="let home of hebergementType ; let i = index"><a class="dropdown-item colortxt" >{{i}}{{home?.name}}</a></li>
   </ul>
 </div> -->
-<li class="menu-main-item">
+<li class="menu-main-item a">
 <div class="dropdown">
   <a class="dropbtn" [routerLink]="['/list-home']">{{"homes" | translate}}</a>
   <div class="dropdown-content">
@@ -187,7 +187,7 @@
 </div>
 
     </li>
-    <li class="menu-main-item">
+    <li class="menu-main-item a">
       <!-- MENU MAIN ITEM LINK -->
     <!--   <a class="menu-main-item-link" [routerLink]="['/list-boats']">{{
         "boats" | translate
@@ -201,7 +201,7 @@
     </li>
 
 
-    <li class="menu-main-item">
+    <li class="menu-main-item a">
       <!-- MENU MAIN ITEM LINK -->
     <!--   <a class="menu-main-item-link" [routerLink]="['/list-services']">{{
         "freelancer" | translate
@@ -213,7 +213,7 @@
   </div>
 </div>
     </li>
-    <li class="menu-main-item">
+    <li class="menu-main-item a">
       <!-- MENU MAIN ITEM LINK -->
      <!--  <a class="menu-main-item-link" [routerLink]="['/list-equipments']">{{
         "Equipements" | translate

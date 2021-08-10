@@ -97,6 +97,7 @@ import { HebergementsbycatComponent } from './components/pages/hebergementsbycat
 import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
 import { TodayComponent } from './components/common/today/today.component';
 import { FuturComponent } from './components/common/futur/futur.component';
+import { ApiweatherComponent } from './components/common/apiweather/apiweather.component';
 
 
 export function momentAdapterFactory() {
@@ -181,6 +182,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EquiplistcatComponent,
     TodayComponent,
     FuturComponent,
+    ApiweatherComponent,
   ],
   imports: [
     BrowserModule,

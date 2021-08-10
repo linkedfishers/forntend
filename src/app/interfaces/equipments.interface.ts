@@ -1,3 +1,8 @@
+export class SousCatBoatType {
+  _id: string;
+  name: string;
+}
+
 export class Equipment {
   _id: string;
   name: string;
@@ -88,6 +93,7 @@ export class BoatType {
   name: string;
   icon: string;
   description: string;
+  cat: any;
   items: any[];
 }
 

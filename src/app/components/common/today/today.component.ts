@@ -29,7 +29,7 @@ export class TodayComponent implements OnInit {
 
   getTodayForcast(today: any) {
     this.location = today.city;
-    for (const forcast of today.list.slice(0, 8)) {
+    for (const forcast of today.list.slice(0,8)) {
       this.timeline.push({
         time: forcast.dt_txt,
         temp: forcast.main.temp,

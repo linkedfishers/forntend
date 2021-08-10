@@ -39,6 +39,7 @@ export class AdminComponent implements OnInit {
   usersList: User[] = [];
   providersList: Provider[] = [];
   equipmentTypes: EquipmentType[];
+  souscatboatType ;
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
   serviceTypes: ServiceType[];
@@ -163,7 +164,7 @@ export class AdminComponent implements OnInit {
         this.formData = new FormData();
         this.newContent = new Content();
         this.imageSrc = '';
-        
+
 
       },
       (err) => {
@@ -347,6 +348,7 @@ export class AdminComponent implements OnInit {
             });
 
             if (categoryName == 'equipment') {
+              
               let i = this.equipmentTypes.findIndex((t) => t._id == type._id);
               this.equipmentTypes.splice(i, 1);
             } else if (categoryName == 'boat') {

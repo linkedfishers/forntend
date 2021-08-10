@@ -15,9 +15,9 @@ a.menu-item-link {
 }
 .menus li {
   margin-top: 20px;
-  width: 50px;
-  margin-right: 40px;
-  margin-left: 40px;
+  width: auto !important;
+  text-align: center !important;
+  margin: 20px 20px;
 }
 .menus li a {
   color: white;
@@ -26,14 +26,11 @@ a.menu-item-link {
 }
 
 .menus li a:hover {
-  color:#41efff !important;
+  color: #41efff !important;
 }
-.colortxt
-{
+.colortxt {
   color: black !important;
 }
-
-
 
 /* Dropdown Button */
 .dropbtn {
@@ -43,7 +40,7 @@ a.menu-item-link {
   font-size: 16px;
   border: none;
 }
-.dropbtn:hover{
+.dropbtn:hover {
   background-color: rgba(255, 255, 255, 0) !important;
 }
 
@@ -60,7 +57,7 @@ a.menu-item-link {
   background-color: rgb(250, 250, 250);
   border-radius: 8px;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 99999999999999;
 }
 
@@ -75,22 +72,29 @@ a.menu-item-link {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;border-radius: 8px; color: #41efff !important;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 8px;
+  color: #41efff !important;
+}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e412c;}
-
-
-@media(max-width:700px){
-.menu-item-link-icon{
-  display: none !important;
-}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e412c;
 }
 
-.sidebar.navigation-widget{
+@media (max-width: 700px) {
+  .menu-item-link-icon {
+    display: none !important;
+  }
+}
+
+.sidebar.navigation-widget {
   position: fixed !important;
   top: 80px !important;
   margin-top: 0px !important;

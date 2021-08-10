@@ -20,9 +20,9 @@ a.menu-item-link {
 
 .menus li {
   margin-top: 20px;
-  width: 50px;
-  margin-right: 40px;
-  margin-left: 40px;
+  width: auto !important;
+  text-align: center !important;
+  margin: 20px 20px;
 }
 
 .menus li a {

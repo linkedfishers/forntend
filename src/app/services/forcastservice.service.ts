@@ -24,11 +24,11 @@ export class ForcastserviceService {
           .set('lon', val.coords.longitude)
           .set('lat', val.coords.latitude)
           .set('units', 'metric')
-          .set('appid', 'ca73b9253fb0753ca439d964a688acba');
+          .set('appId', 'ca73b9253fb0753ca439d964a688acba');
       }),
       switchMap((values) => {
         return this.http.get(
-          'https://api.openweathermap.org/data/2.5/forecast',
+          'http://api.openweathermap.org/data/2.5/forecast',
           { params: values }
         );
       })

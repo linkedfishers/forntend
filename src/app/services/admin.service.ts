@@ -20,6 +20,10 @@ export class AdminService {
     return this.httpClient.get<any>(`${this.API}/overview`);
   }
 
+  createSouscatType ( formData : FormData , categoryName : string){
+    return this.httpClient.post<any>(`${this.API}/boat/addSouscatType`,formData);
+  }
+
   createCategoryType(formData: FormData, categoryName: string) {
     return this.httpClient.post<any>(
       `${this.API}/${categoryName}/addType`,

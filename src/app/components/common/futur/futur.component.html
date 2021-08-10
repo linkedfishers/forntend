@@ -31,7 +31,11 @@
         {{ forcast.dt_txt | date: "EEE" }}</span
       >
     </li>
-    <i class="fa fa-caret-down" aria-hidden="true"></i>
+    <i
+      class="fa fa-caret-down"
+      aria-hidden="true"
+      (click)="toggle(undefined, undefined)"
+    ></i>
   </ul>
   <div>
     {{ forcastDeatils.main.temp | number: "1.0" }}
