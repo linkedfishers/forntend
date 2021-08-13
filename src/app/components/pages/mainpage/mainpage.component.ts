@@ -22,8 +22,12 @@ export class MainpageComponent implements OnInit {
   products: Product[];
   visibleProducts: Product[];
   content: Product[] = [];
+  carousselPictures = [
+    'assets/img/banner/fishing-rod-wheel-close-up.jpg',
+    'assets/img/banner/angler-holds-trophy-fish-carp.jpg',
+    'assets/img/banner/group-unrecognizable-adult-men-fishing.jpg',
+  ];
   ngOnInit(): void {
-    
     this.productService.getProducts().subscribe((response) => {
       this.products = response.data;
       this.visibleProducts = this.products;

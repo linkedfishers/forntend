@@ -20,13 +20,22 @@ export class AdminService {
     return this.httpClient.get<any>(`${this.API}/overview`);
   }
 
-  createSouscatType ( formData : FormData , categoryName : string){
-    return this.httpClient.post<any>(`${this.API}/boat/addSouscatType`,formData);
+  createSouscatType(formData: FormData, categoryName: string, id: string) {
+    return this.httpClient.post<any>(
+      `${this.API}/boat/type/${id}/addSouscatType`,
+      formData
+    );
   }
 
   createCategoryType(formData: FormData, categoryName: string) {
     return this.httpClient.post<any>(
       `${this.API}/${categoryName}/addType`,
+      formData
+    );
+  }
+  createSouCat(formData: FormData, categorieName: string, categorie: string) {
+    return this.httpClient.post<any>(
+      `${this.API}/${categorieName}/${categorie}/addSousType`,
       formData
     );
   }

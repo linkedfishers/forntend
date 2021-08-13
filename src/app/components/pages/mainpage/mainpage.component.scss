@@ -13,6 +13,7 @@
   background-color: rgba(20, 20, 21, 0.9);
   z-index: 1;
 }
+
 @import url(//fonts.googleapis.com/css?family=Abril+Fatface|Droid+Serif:400,700,400italic,700italic);
 html,
 body {
@@ -663,4 +664,10 @@ hr {
   .widget-box.pad {
     margin-left: 100px !important;
   }
+}
+
+.top {
+  position: relative !important;
+  top: 160px !important ;
+  height: 400px !important;
 }

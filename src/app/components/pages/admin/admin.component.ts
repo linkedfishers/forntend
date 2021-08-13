@@ -33,13 +33,13 @@ export class AdminComponent implements OnInit {
     private translate: TranslateService,
     private productService: ProductService,
     private modalService: NgbModal
-  ) { }
+  ) {}
   readonly API: string = environment.apiUrl + '/';
   countries = (<any>data).default;
   usersList: User[] = [];
   providersList: Provider[] = [];
   equipmentTypes: EquipmentType[];
-  souscatboatType ;
+  souscatboatType;
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
   serviceTypes: ServiceType[];
@@ -112,6 +112,7 @@ export class AdminComponent implements OnInit {
     this.equipmentService.getServiceTypes().subscribe(
       (res) => {
         this.serviceTypes = res.data;
+        console.log(this.serviceTypes);
       },
       (err) => {
         this.toastr.error('Error while loading services types');
@@ -164,8 +165,6 @@ export class AdminComponent implements OnInit {
         this.formData = new FormData();
         this.newContent = new Content();
         this.imageSrc = '';
-
-
       },
       (err) => {
         this.toastr.error(err.error.message);
@@ -209,7 +208,7 @@ export class AdminComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => { }
+        () => {}
       );
   }
 
@@ -300,7 +299,7 @@ export class AdminComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => { }
+        () => {}
       );
   }
 
@@ -312,22 +311,20 @@ export class AdminComponent implements OnInit {
       this.formData = new FormData();
       this.formData.append('name', type['name']);
       this.formData.append('description', type['description']);
-      this.adminService
-        .updateBoatType(this.formData, type._id)
-        .subscribe(
-          (res) => {
-            console.log(res);
-            this.toastr.success(res.message);
-            this.formData = new FormData();
-            this.imageSrc = '';
-          },
-          (err) => {
-            this.imageSrc = '';
-            console.log(err);
-            this.toastr.error(err.error.message);
-          },
-          () => { }
-        );
+      this.adminService.updateBoatType(this.formData, type._id).subscribe(
+        (res) => {
+          console.log(res);
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log(err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
     }
   }
 
@@ -348,7 +345,6 @@ export class AdminComponent implements OnInit {
             });
 
             if (categoryName == 'equipment') {
-              
               let i = this.equipmentTypes.findIndex((t) => t._id == type._id);
               this.equipmentTypes.splice(i, 1);
             } else if (categoryName == 'boat') {

@@ -108,6 +108,7 @@
           "options": {
             "browserTarget": "seven-seas-frontend:build"
           },
+
           "configurations": {
             "production": {
               "browserTarget": "seven-seas-frontend:build:production"
