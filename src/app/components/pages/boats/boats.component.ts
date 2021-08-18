@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Boat, BoatDetails, BoatType } from 'src/app/interfaces/equipments.interface';
+import {
+  Boat,
+  BoatDetails,
+  BoatType,
+} from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/interfaces/users.interface';
@@ -8,27 +12,24 @@ import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
 
-
 declare var initSidebar, initPopups: any, loadSvg: any;
 declare var initForm, $: any;
 @Component({
   selector: 'app-boats',
   templateUrl: './boats.component.html',
-  styleUrls: ['./boats.component.scss']
+  styleUrls: ['./boats.component.scss'],
 })
 export class BoatsComponent implements OnInit {
-
   constructor(
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private authService: AuthService,
-    private translate: TranslateService,
-
-  ) { }
+    private translate: TranslateService
+  ) {}
 
   readonly API: string = environment.apiUrl + '/';
 
-  currentUser: User
+  currentUser: User;
   formData: FormData;
   imageSrc: any;
   newBoat: Boat;
@@ -43,42 +44,44 @@ export class BoatsComponent implements OnInit {
     initSidebar();
     initPopups();
     initForm();
-    loadSvg()
+    loadSvg();
     this.equipmentService.getBoatsByUser(this.currentUser._id).subscribe(
-      res => {
+      (res) => {
         this.userBoats = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading boats');
       }
     );
     this.equipmentService.getBoatTypes().subscribe(
-      res => {
+      (res) => {
         this.boatTypes = res.data;
       },
-      err => {
+      (err) => {
         this.toastr.error('Error while loading boat types');
       }
     );
-    this.equipmentService.getServiceTypes().subscribe(res=>{
-      this.boatTypes=res.data
-      
-    })
+    this.equipmentService.getServiceTypes().subscribe((res) => {
+      this.boatTypes = res.data;
+    });
   }
 
   fileChange(event) {
-    this.imageSrc = "";
+    this.imageSrc = '';
     let fileList: FileList = event.target.files;
-    if (fileList.length > 0) {
-      let file: File = fileList[0];
-      this.formData = new FormData();
+    let file: File = fileList[0];
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
       this.formData.append('file', file, file.name);
-      const reader = new FileReader();
-      reader.onload = e => {
-        this.imageSrc = e.target['result'];
-      };
-      reader.readAsDataURL(fileList[0]);
     }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
   }
 
   createBoat() {
@@ -92,27 +95,27 @@ export class BoatsComponent implements OnInit {
       }
     }
     if (this.newBoat.position) {
-      this.formData.append("lat", this.newBoat.position["lat"]);
-      this.formData.append("lng", this.newBoat.position["lng"]);
+      this.formData.append('lat', this.newBoat.position['lat']);
+      this.formData.append('lng', this.newBoat.position['lng']);
     }
-    this.formData.append("details", JSON.stringify(this.newBoat.details));
+    this.formData.append('details', JSON.stringify(this.newBoat.details));
     this.equipmentService.createBoat(this.formData).subscribe(
-      res => {
+      (res) => {
         this.userBoats.unshift(res.data);
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newBoat = new Boat();
-        this.imageSrc = "";
+        this.imageSrc = '';
       },
-      err => {
+      (err) => {
         console.log(err);
         this.toastr.error(err.error.message);
       }
-    )
+    );
   }
 
   openFileInput() {
-    $("#postPhoto").click();
+    $('#postPhoto').click();
   }
 
   removeBoat(i: number) {
@@ -121,30 +124,29 @@ export class BoatsComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: this.translate.instant('delete_boat'),
-      cancelButtonText: this.translate.instant('discard')
+      cancelButtonText: this.translate.instant('discard'),
     }).then((result) => {
       if (result.value) {
         this.equipmentService.deleteBoat(this.userBoats[i]._id).subscribe(
-          res => {
-            Swal.fire(
-              {
-                title: this.translate.instant('deleted_boat'),
-                icon: 'success'
-              });
+          (res) => {
+            Swal.fire({
+              title: this.translate.instant('deleted_boat'),
+              icon: 'success',
+            });
             this.userBoats.splice(i, 1);
           },
-          err => {
+          (err) => {
             Swal.fire({
               title: this.translate.instant('delete_error'),
-              icon: 'error'
+              icon: 'error',
             });
-          })
+          }
+        );
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         return;
       }
-    })
+    });
   }
-
 
   updateBoat() {
     this.formData = this.formData || new FormData();
@@ -154,30 +156,36 @@ export class BoatsComponent implements OnInit {
       }
     }
     if (this.userBoats[this.selectedBoat].position) {
-      this.formData.append('lat', this.userBoats[this.selectedBoat].position['lat']);
-      this.formData.append('lng', this.userBoats[this.selectedBoat].position['lng']);
+      this.formData.append(
+        'lat',
+        this.userBoats[this.selectedBoat].position['lat']
+      );
+      this.formData.append(
+        'lng',
+        this.userBoats[this.selectedBoat].position['lng']
+      );
     }
-    this.equipmentService.updateBoat(this.formData, this.userBoats[this.selectedBoat]._id).subscribe(
-      res => {
-        this.toastr.success(res.message);
-        this.formData = new FormData();
-        this.imageSrc = "";
-      },
-      err => {
-        this.imageSrc = "";
-        console.log(err);
-        this.toastr.error(err.error.message);
-      },
-      () => {
-      }
-    )
+    this.equipmentService
+      .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
+      .subscribe(
+        (res) => {
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log(err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
   }
 
   openUpdatePopup(i) {
     initForm();
-    this.imageSrc = "";
+    this.imageSrc = '';
     this.selectedBoat = i;
-    $("#updateBtn").click();
+    $('#updateBtn').click();
   }
-
 }

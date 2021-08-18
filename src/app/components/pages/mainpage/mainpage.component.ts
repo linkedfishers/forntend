@@ -26,6 +26,8 @@ export class MainpageComponent implements OnInit {
     'assets/img/banner/fishing-rod-wheel-close-up.jpg',
     'assets/img/banner/angler-holds-trophy-fish-carp.jpg',
     'assets/img/banner/group-unrecognizable-adult-men-fishing.jpg',
+    'assets/img/banner/3814505.jpg',
+    
   ];
   ngOnInit(): void {
     this.productService.getProducts().subscribe((response) => {

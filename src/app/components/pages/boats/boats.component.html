@@ -153,7 +153,7 @@
                     <p class="product-preview-title"><a (click)="openFileInput()" [routerLink]=""
                             routerLinkActive="router-link-active">Add
                             picture</a></p>
-                    <input id="postPhoto" type="file" style="display:none" (change)="fileChange($event)">
+                    <input id="postPhoto" type="file" style="display:none" multiple (change)="fileChange($event)">
 
                     <!-- /PRODUCT PREVIEW TITLE -->
                 </div>

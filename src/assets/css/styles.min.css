@@ -12221,6 +12221,7 @@ figure > img {
 .sidebar.navigation-widget.navigation-widget-mobile {
   margin-top: 0;
   z-index: 100000;
+  top: 0 !important;
 }
 .sidebar.navigation-widget.closed {
   padding-top: 20px;
@@ -12898,11 +12899,9 @@ figure > img {
     width: 100%;
   }
 }
-
 .image-carousel {
-  width: 90%;
-  height: 400px;
-  border-radius: 11px;
+  width: 100%;
+  height: 500px;
 }
 .picsum-img-wrapper {
   text-align: center;
@@ -12933,7 +12932,6 @@ figure > img {
   width: 300px !important;
 }
 
-.simplebar-content
-{
+.simplebar-content {
   padding: 0px !important;
 }
