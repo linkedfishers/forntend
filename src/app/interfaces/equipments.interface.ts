@@ -52,7 +52,7 @@ export class Boat {
   name: string;
   owner: any;
   price: number = 0;
-  image: string;
+  image: string[];
   description: string;
   isAvailable: boolean;
   createdAt: any;

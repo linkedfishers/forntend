@@ -43,6 +43,7 @@ import { EquipmentsbycatComponent } from './components/pages/equipmentsbycat/equ
 import { ServicesbycatComponent } from './components/pages/servicesbycat/servicesbycat.component';
 import { HebergementsbycatComponent } from './components/pages/hebergementsbycat/hebergementsbycat.component';
 import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
+import { NaComponent } from './components/common/na/na.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,10 @@ const routes: Routes = [
       {
         path: 'main',
         component: HomeComponent,
+      },
+      {
+        path: 'nav',
+        component: NaComponent,
       },
       {
         path: '',
@@ -188,21 +193,21 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
-        path: "boats/type/:id",
-        component: EquipmentsbycatComponent
+        path: 'boats/type/:id',
+        component: EquipmentsbycatComponent,
       },
-     {
-       path:"freelancer/type/:id",
-       component : ServicesbycatComponent
-    },
-    {
-      path:"hebergements/type/:id",
-      component:HebergementsbycatComponent
-    },
-     {
-      path:"equipments/type/:id",
-      component:EquiplistcatComponent
-    },
+      {
+        path: 'freelancer/type/:id',
+        component: ServicesbycatComponent,
+      },
+      {
+        path: 'hebergements/type/:id',
+        component: HebergementsbycatComponent,
+      },
+      {
+        path: 'equipments/type/:id',
+        component: EquiplistcatComponent,
+      },
       {
         path: 'book/:type/:id',
         component: ReservationsRequestComponent,
@@ -259,4 +264,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

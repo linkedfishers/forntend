@@ -69,12 +69,11 @@ export class BoatsComponent implements OnInit {
   fileChange(event) {
     this.imageSrc = '';
     let fileList: FileList = event.target.files;
-    let file: File = fileList[0];
     this.formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
       const el = fileList[i];
       console.log(el);
-      this.formData.append('file', file, file.name);
+      this.formData.append('file', el /* file, file.name */);
     }
 
     const reader = new FileReader();

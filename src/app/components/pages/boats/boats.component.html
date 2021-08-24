@@ -76,7 +76,7 @@
                     <!-- PRODUCT PREVIEW IMAGE -->
                     <a [routerLink]="['/details-boat',boat._id]">
                         <figure class="product-preview-image liquid">
-                            <img [src]="boat.image? API + boat.image : '../../../../assets/img/fishing-boat-header.png'"
+                            <img [src]="boat.image[1]? API + boat.image : '../../../../assets/img/fishing-boat-header.png'"
                                 alt="item-01">
                         </figure>
                     </a>

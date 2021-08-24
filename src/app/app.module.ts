@@ -98,6 +98,8 @@ import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplist
 import { TodayComponent } from './components/common/today/today.component';
 import { FuturComponent } from './components/common/futur/futur.component';
 import { ApiweatherComponent } from './components/common/apiweather/apiweather.component';
+import { NaComponent } from './components/common/na/na.component';
+import { CartComponent } from './components/pages/cart/cart.component';
 
 
 export function momentAdapterFactory() {
@@ -183,6 +185,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     TodayComponent,
     FuturComponent,
     ApiweatherComponent,
+    NaComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
