@@ -9,7 +9,7 @@ export class Equipment {
   price: number = 0;
   owner: any;
   type: any;
-  image: string;
+  image: any[];
   description: string;
   position: any;
   isAvailable: boolean;
@@ -31,7 +31,7 @@ export class Service {
   price: number = 0;
   owner: any;
   type: any;
-  image: string;
+  image: any[];
   description: string;
   position: any;
   isAvailable: boolean;
@@ -52,7 +52,7 @@ export class Boat {
   name: string;
   owner: any;
   price: number = 0;
-  image: string[];
+  image: any[];
   description: string;
   isAvailable: boolean;
   createdAt: any;
@@ -67,7 +67,7 @@ export class Hebergement {
   _id: string;
   name: string;
   owner: any;
-  image: string;
+  image: any[];
   description: string;
   isAvailable: boolean;
   adress: string;

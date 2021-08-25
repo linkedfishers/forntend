@@ -100,6 +100,7 @@ import { FuturComponent } from './components/common/futur/futur.component';
 import { ApiweatherComponent } from './components/common/apiweather/apiweather.component';
 import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { GalleryComponent } from './components/pages/gallery/gallery.component';
 
 
 export function momentAdapterFactory() {
@@ -187,6 +188,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ApiweatherComponent,
     NaComponent,
     CartComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,

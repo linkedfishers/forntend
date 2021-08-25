@@ -48,9 +48,19 @@
                 tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
               "
             >
-              <div *ngFor="let item of boat?.image">
-                <img style="border-radius: 2%" src="{{ item }}" alt="item-10" />
-              </div>
+              <!--  <div *ngFor="let item of boat.image">
+                <img
+                  style="border-radius: 2%"
+                  src="{{
+                    boat?.image
+                      ? API + boat?.image
+                      : '../../../../assets/img/fishing-home-header.png'
+                  }}"
+                  alt="item-10"
+                />
+              </div> -->
+
+              <app-gallery [images]="boat.image"></app-gallery>
               <!-- SLIDER PANEL SLIDE -->
 
               <!-- /SLIDER PANEL SLIDE -->
