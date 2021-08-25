@@ -56,12 +56,13 @@ export class BoatsComponent implements OnInit {
     this.equipmentService.getBoatTypes().subscribe(
       (res) => {
         this.boatTypes = res.data;
+        console.log(this.boatTypes);
       },
       (err) => {
         this.toastr.error('Error while loading boat types');
       }
     );
-    this.equipmentService.getServiceTypes().subscribe((res) => {
+    this.equipmentService.getBoatTypes().subscribe((res) => {
       this.boatTypes = res.data;
     });
   }
