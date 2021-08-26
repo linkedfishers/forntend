@@ -1,1 +1,9 @@
-/* No CSS *//*# sourceMappingURL=product-list.component.css.map */
+.display-bloc {
+  display: block !important;
+}
+
+.checkbox-wrap {
+  margin-bottom: 10px !important;
+  padding: 10px !important;
+}
+/*# sourceMappingURL=product-list.component.css.map */

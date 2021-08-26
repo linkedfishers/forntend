@@ -102,7 +102,6 @@ import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
 
-
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }

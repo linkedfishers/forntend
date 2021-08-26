@@ -98,7 +98,7 @@ export class BoatsComponent implements OnInit {
   } */
 
   createBoat() {
-    if (!this.newBoat.name) {
+    if (!this.newBoat.name && !this.newBoat.image) {
       return;
     }
     this.formData = this.formData || new FormData();

@@ -3,7 +3,14 @@ import { Product, Categorie } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { environment } from 'src/environments/environment';
-import { Options, LabelType } from "@angular-slider/ngx-slider";
+import { Options, LabelType } from '@angular-slider/ngx-slider';
+import {
+  FormBuilder,
+  FormGroup,
+  FormArray,
+  FormControl,
+  Validators,
+} from '@angular/forms';
 
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
@@ -14,7 +21,11 @@ declare var initForm, $: any;
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      isArray: this.fb.array([], [Validators.required]),
+    });
+  }
   currentProvider: Provider;
   readonly API: string = environment.apiUrl + '/';
   searchKeyword: string;
@@ -24,6 +35,8 @@ export class ProductListComponent implements OnInit {
   newProduct: Product;
   categories: Categorie[];
   products: Product[];
+  form: FormGroup;
+  productCat: Categorie[];
   visibleProducts: Product[];
   content: Product[] = [];
 
@@ -35,13 +48,13 @@ export class ProductListComponent implements OnInit {
     translate: (value: number, label: LabelType): string => {
       switch (label) {
         case LabelType.Low:
-          return value + " Dt";
+          return value + ' Dt';
         case LabelType.High:
-          return value + " Dt";
+          return value + ' Dt';
         default:
-          return value + " Dt";
+          return value + ' Dt';
       }
-    }
+    },
   };
 
   filterBy = 'price';
@@ -51,9 +64,33 @@ export class ProductListComponent implements OnInit {
       this.products = response.data;
       this.visibleProducts = this.products;
     });
+    this.productService.getProductCategories().subscribe((response) => {
+      this.productCat = response.data;
+      console.log(this.productCat);
+    });
     initSidebar();
     initPopups();
     initForm();
+  }
+
+  onCbChange(e) {
+    const isArray: FormArray = this.form.get('isArray') as FormArray;
+
+    if (e.target.checked) {
+      isArray.push(new FormControl(e.target.value));
+    } else {
+      let i: number = 0;
+      isArray.controls.forEach((item: FormControl) => {
+        if (item.value == e.target.value) {
+          isArray.removeAt(i);
+          return;
+        }
+        i++;
+      });
+    }
+  }
+  onSubmit() {
+    console.log(this.form.value);
   }
   searchProduct() {
     if (!this.searchKeyword) return;
@@ -65,7 +102,7 @@ export class ProductListComponent implements OnInit {
 
   updatePriceFilter() {
     this.visibleProducts = this.products.filter((product) => {
-      return (product.price <= this.maxPrice && product.price >= this.minPrice);
+      return product.price <= this.maxPrice && product.price >= this.minPrice;
     });
   }
 
@@ -75,12 +112,14 @@ export class ProductListComponent implements OnInit {
         case 'price':
           return (p1.price - p2.price) * this.orderBy;
         case 'createdAt':
-          return (new Date(p1.createdAt).getTime() - (new Date(p2.createdAt).getTime())) * this.orderBy;
+          return (
+            (new Date(p1.createdAt).getTime() -
+              new Date(p2.createdAt).getTime()) *
+            this.orderBy
+          );
         default:
           break;
       }
     });
   }
-
 }
-

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "apiweather.component.scss"
+    ],
+    "names": [],
+    "file": "apiweather.component.css"
+}

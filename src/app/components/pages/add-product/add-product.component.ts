@@ -19,8 +19,8 @@ export class AddProductComponent implements OnInit {
     private productService: ProductService,
     private toastr: ToastrService,
     private translate: TranslateService,
-    private authService: AuthService,
-  ) { }
+    private authService: AuthService
+  ) {}
 
   categories: Categorie[] = [];
   newProduct: Product;
@@ -72,7 +72,25 @@ export class AddProductComponent implements OnInit {
       }
     );
   }
+  fileChange(event) {
+    
+    this.imageSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+      this.formData.append('file', el);
+    }
 
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
+  }
+
+  /*
   fileChange(event) {
     this.imageSrc = '';
     let fileList: FileList = event.target.files;
@@ -87,7 +105,7 @@ export class AddProductComponent implements OnInit {
       reader.readAsDataURL(fileList[0]);
     }
   }
-
+ */
   openFileInput() {
     $('#postPhoto').click();
   }
@@ -149,7 +167,7 @@ export class AddProductComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => { }
+        () => {}
       );
   }
   openUpdatePopup(i) {

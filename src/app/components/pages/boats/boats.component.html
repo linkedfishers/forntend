@@ -82,15 +82,15 @@
         >
           <!-- PRODUCT PREVIEW IMAGE -->
           <a [routerLink]="['/details-boat', boat._id]">
-            <figure class="product-preview-image liquid">
-              <img
-                [src]="
-                  boat.image[1]
-                    ? API + boat.image
-                    : '../../../../assets/img/fishing-boat-header.png'
-                "
-                alt="item-01"
-              />
+            <figure
+              class="product-preview-image liquid"
+              style="
+                border-radius: 2%;
+                background: url('img/marketplace/items/01.jpg') center center /
+                  cover no-repeat;
+              "
+            >
+              <img src="{{ boat?.image | picture }}" alt="item-01" />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->

@@ -281,17 +281,22 @@
                 </div>
                 <!-- /FORM INPUT -->
               </div>
-                 <div class="form-item">
-                                <!-- FORM INPUT -->
-                                <div class="form-input small active">
-                                    <label for="capacity_excluding_crew">
-                                        {{'capacity_excluding_crew' |translate}}
-                                    </label>
-                                    <input min="0" [(ngModel)]="newHome.details.capacity" type="number"
-                                        id="capacity_excluding_crew" name="capacity_excluding_crew">
-                                </div>
-                                <!-- /FORM INPUT -->
-                            </div>
+              <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                  <label for="capacity_excluding_crew">
+                    {{ "capacity_excluding_crew" | translate }}
+                  </label>
+                  <input
+                    min="0"
+                    [(ngModel)]="newHome.details.capacity"
+                    type="number"
+                    id="capacity_excluding_crew"
+                    name="capacity_excluding_crew"
+                  />
+                </div>
+                <!-- /FORM INPUT -->
+              </div>
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->

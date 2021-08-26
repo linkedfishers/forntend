@@ -68,6 +68,7 @@ export class HebergementsComponent implements OnInit {
 
   fileChange(event) {
     let fileList: FileList = event.target.files;
+    console.log(event.target.files);
     if (fileList.length > 0) {
       let file: File = fileList[0];
       this.formData = new FormData();
@@ -177,7 +178,6 @@ export class HebergementsComponent implements OnInit {
         },
         (err) => {
           this.imageSrc = '';
-          console.log(err);
           this.toastr.error(err.error.message);
         },
         () => {}

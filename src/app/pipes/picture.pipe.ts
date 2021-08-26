@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Pipe({
-  name: 'picture'
+  name: 'picture',
 })
 export class PicturePipe implements PipeTransform {
   readonly API: string = environment.apiUrl + '/';
@@ -11,7 +11,7 @@ export class PicturePipe implements PipeTransform {
     if (this.isValidHttpUrl(value)) {
       return value;
     }
-    return this.API + value
+    return this.API + value;
   }
 
   isValidHttpUrl(string: string) {
@@ -23,8 +23,6 @@ export class PicturePipe implements PipeTransform {
       return false;
     }
 
-    return url.protocol === "http:" || url.protocol === "https:";
+    return url.protocol === 'http:' || url.protocol === 'https:';
   }
-
-
 }
