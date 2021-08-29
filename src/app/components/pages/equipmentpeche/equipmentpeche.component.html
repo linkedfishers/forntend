@@ -238,7 +238,7 @@
       <!-- WIDGET BOX -->
       <div class="widget-box fixedpop">
         <!-- WIDGET BOX TITLE -->
-        <p class="widget-box-title">Hebergement Details</p>
+        <p class="widget-box-title">Equipment Details</p>
         <!-- /WIDGET BOX TITLE -->
 
         <!-- WIDGET BOX CONTENT -->
@@ -251,7 +251,7 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">Hebergement Name</label>
+                  <label for="item-name">Equipment Name</label>
                   <input
                     [(ngModel)]="newEquipement.name"
                     type="text"
@@ -270,7 +270,7 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">Hebergement Price</label>
+                  <label for="item-name">Equipment Price</label>
                   <input
                     min="0"
                     [(ngModel)]="newEquipement.price"
@@ -281,22 +281,7 @@
                 </div>
                 <!-- /FORM INPUT -->
               </div>
-              <div class="form-item">
-                <!-- FORM INPUT -->
-                <div class="form-input small active">
-                  <label for="capacity_excluding_crew">
-                    {{ "capacity_excluding_crew" | translate }}
-                  </label>
-                  <input
-                    min="0"
-                    [(ngModel)]="newEquipement.details.capacity"
-                    type="number"
-                    id="capacity_excluding_crew"
-                    name="capacity_excluding_crew"
-                  />
-                </div>
-                <!-- /FORM INPUT -->
-              </div>
+
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
@@ -306,12 +291,12 @@
               <div class="form-item">
                 <!-- FORM SELECT -->
                 <div class="form-select">
-                  <label for="item-description">Hebergement type</label>
+                  <label for="item-description">Equipment type</label>
                   <select
                     [(ngModel)]="newEquipement.type"
                     name="hebergement-name"
                   >
-                    <option value="" selected>Select Hebergement type</option>
+                    <option value="" selected>Select Equipment type</option>
                     <option
                       *ngFor="let type of equipmentTypes"
                       value="{{ type._id }}"
@@ -328,119 +313,17 @@
                 <!-- /FORM SELECT -->
               </div>
               <!-- /FORM ITEM -->
-              <div class="form-item">
-                <!-- CHECKBOX WRAP -->
-                <div class="checkbox-wrap">
-                  <input
-                    [(ngModel)]="newEquipement.details.internet"
-                    type="checkbox"
-                    id="internet"
-                    name="internet"
-                    checked
-                  />
-                  <!-- CHECKBOX BOX -->
-                  <div class="checkbox-box">
-                    <!-- ICON CROSS -->
-                    <svg class="icon-cross">
-                      <use xlink:href="#svg-cross"></use>
-                    </svg>
-                    <!-- /ICON CROSS -->
-                  </div>
-                  <!-- /CHECKBOX BOX -->
-                  <label for="internet">{{ "internet" | translate }}</label>
-                </div>
-                <!-- /CHECKBOX WRAP -->
-              </div>
+
             </div>
 
             <!-- /FORM ROW -->
-            <div class="form-row space-between">
-              <!-- FORM ITEM -->
-              <div class="form-item">
-                <!-- CHECKBOX WRAP -->
-                <div class="checkbox-wrap">
-                  <input
-                    [(ngModel)]="newEquipement.details.alcoholAllowed"
-                    type="checkbox"
-                    id="alcoholAllowed"
-                    name="alcoholAllowed"
-                    checked
-                  />
-                  <!-- CHECKBOX BOX -->
-                  <div class="checkbox-box">
-                    <!-- ICON CROSS -->
-                    <svg class="icon-cross">
-                      <use xlink:href="#svg-cross"></use>
-                    </svg>
-                    <!-- /ICON CROSS -->
-                  </div>
-                  <!-- /CHECKBOX BOX -->
-                  <label for="alcoholAllowed">{{
-                    "alcohol_allowed" | translate
-                  }}</label>
-                </div>
-                <!-- /CHECKBOX WRAP -->
-              </div>
-              <div class="form-item">
-                <!-- CHECKBOX WRAP -->
-                <div class="checkbox-wrap">
-                  <input
-                    [(ngModel)]="newEquipement.details.partyAllowed"
-                    type="checkbox"
-                    id="partyAllowed"
-                    name="partyAllowed"
-                    checked
-                  />
-                  <!-- CHECKBOX BOX -->
-                  <div class="checkbox-box">
-                    <!-- ICON CROSS -->
-                    <svg class="icon-cross">
-                      <use xlink:href="#svg-cross"></use>
-                    </svg>
-                    <!-- /ICON CROSS -->
-                  </div>
-                  <!-- /CHECKBOX BOX -->
-                  <label for="partyAllowed">{{
-                    "party_allowed" | translate
-                  }}</label>
-                </div>
-                <!-- /CHECKBOX WRAP -->
-              </div>
-              <!-- /FORM ITEM -->
-              <!-- FORM ITEM -->
-              <div class="form-item">
-                <!-- CHECKBOX WRAP -->
-                <div class="checkbox-wrap">
-                  <input
-                    [(ngModel)]="newEquipement.details.equipmentIncluded"
-                    type="checkbox"
-                    id="equipment_included"
-                    name="equipment_included"
-                    checked
-                  />
-                  <!-- CHECKBOX BOX -->
-                  <div class="checkbox-box">
-                    <!-- ICON CROSS -->
-                    <svg class="icon-cross">
-                      <use xlink:href="#svg-cross"></use>
-                    </svg>
-                    <!-- /ICON CROSS -->
-                  </div>
-                  <!-- /CHECKBOX BOX -->
-                  <label for="equipment_included">{{
-                    "equipment_included" | translate
-                  }}</label>
-                </div>
-                <!-- /CHECKBOX WRAP -->
-              </div>
-              <!-- /FORM ITEM -->
-            </div>
+
             <div class="form-row">
               <!-- FORM ITEM -->
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-description">Hebergement description</label>
+                  <label for="item-description">Equipment description</label>
                   <input
                     [(ngModel)]="newEquipement.description"
                     type="text"
