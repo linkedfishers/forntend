@@ -15,7 +15,7 @@ export class ListBoatsComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
 
   boats: Boat[];
-  boatTypes:BoatType[]
+  boatTypes: BoatType[];
   visiblebotas: Boat[];
   content: Boat[] = [];
   ngOnInit(): void {
@@ -25,11 +25,11 @@ export class ListBoatsComponent implements OnInit {
     loadSvg();
     this.equipmentService.getBoats().subscribe((res) => {
       this.boats = res.data;
-      this.visiblebotas = this.boats;
+      console.log(this.boats);
     });
-    this.equipmentService.getServiceTypes().subscribe(res=>{
-          this.boatTypes=res.data
-          console.log(this.boatTypes)
-    })
+    this.equipmentService.getServiceTypes().subscribe((res) => {
+      this.boatTypes = res.data;
+      console.log(this.boatTypes);
+    });
   }
 }

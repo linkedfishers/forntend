@@ -215,7 +215,7 @@
             <!-- PRODUCT PREVIEW TEXT -->
             <p class="product-preview-text">
               {{
-                product?.description.length > 100
+                product?.description?.length > 100
                   ? (product?.description | slice: 0:100) + "..."
                   : product?.description
               }}

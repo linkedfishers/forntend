@@ -32,12 +32,9 @@
       <!-- GRID -->
       <div class="grid grid-3-3-3 centered displayflef">
         <!-- PRODUCT PREVIEW -->
-        <div
-          *ngFor="let boat of visiblebotas"
-          class="product-preview widthprod"
-        >
+        <div *ngFor="let boat of boats" class="product-preview widthprod">
           <!-- PRODUCT PREVIEW IMAGE -->
-          <a [routerLink]="['/details-boat', boat?._id]">
+          <a [routerLink]="['/details-boat', boat._id]">
             <figure class="product-preview-image liquid">
               <img
                 [src]="
@@ -78,7 +75,7 @@
             <!-- PRODUCT PREVIEW TEXT -->
             <p class="product-preview-text">
               {{
-                boat?.description.length > 100
+                boat?.description?.length > 100
                   ? (boat?.description | slice: 0:100) + "..."
                   : boat?.description
               }}
