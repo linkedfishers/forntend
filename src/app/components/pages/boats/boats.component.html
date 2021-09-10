@@ -187,7 +187,8 @@
             id="postPhoto"
             type="file"
             style="display: none"
-            (change)="fileChange($event)"
+            multiple
+            (change)="onFileChange($event)"
           />
 
           <!-- /PRODUCT PREVIEW TITLE -->
