@@ -108,8 +108,8 @@
           "options": {
             "browserTarget": "seven-seas-frontend:build",
             "ssl": true,
-            "sslCert": "ssl/www.linkedfishers.crt",
-            "sslKey": "ssl/www.linkedfishers.key"
+            "sslCert": "/etc/ssl/private/www.linkedfishers.com.pem",
+            "sslKey": "/etc/ssl/private/www.linkedfishers.com.key"
           },
 
           "configurations": {
