@@ -51,7 +51,7 @@ textarea {
 label {
   display: block;
   margin: 0;
-  color: #3e3f5e;
+  color:#dd8502;;
   line-height: 1em;
 }
 button,
@@ -221,6 +221,7 @@ textarea::placeholder {
 }
 .form-input-decorated input[type="text"] {
   padding-right: 60px;
+  
 }
 .form-input-decorated .form-input-icon {
   fill: #adafca;
@@ -327,6 +328,9 @@ textarea::placeholder {
 }
 .form-input.medium-textarea textarea {
   height: 160px;
+}
+a:not([href]):not([tabindex]) {
+  color: #adafca;
 }
 .form-input.active label {
   background-color: #fff;
@@ -449,12 +453,12 @@ textarea::placeholder {
 }
 .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box,
 .checkbox-wrap input[type="radio"]:checked + .checkbox-box {
-  background-color: #23d2e2;
-  border-color: #23d2e2;
+  background-color: #2596be;
+  border-color: #2596be;
 }
 .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box.round,
 .checkbox-wrap input[type="radio"]:checked + .checkbox-box.round {
-  border: 6px solid #23d2e2;
+  border: 6px solid #2596be;
   background-color: #fff;
 }
 .checkbox-wrap input[type="checkbox"]:checked + .checkbox-box .icon-cross,
@@ -1382,7 +1386,7 @@ h6 {
   font-weight: 700;
 }
 p a {
-  color: #00c7d9;
+  color: #3678b1;
   font-weight: 600;
 }
 p .reaction {
@@ -1396,7 +1400,7 @@ p .reaction:first-child {
   margin-left: 0;
 }
 a:hover {
-  color: #00c7d9;
+  color: #2596be;
   text-decoration: none;
 }
 figure > img {
@@ -1458,10 +1462,10 @@ figure > img {
   fill: #fff;
 }
 .button.void.void-primary:hover {
-  background-color: #23d2e2;
+  background-color: #2596be;
 }
 .button.void.void-secondary:hover {
-  background-color: #615dfa;
+  background-color: #2596be;
 }
 .button.white-solid {
   background-color: #fff;
@@ -1477,9 +1481,9 @@ figure > img {
   fill: #adafca;
 }
 .button.white:hover {
-  color: #fff;
-  background-color: #2e2e47;
-  border-color: #2e2e47;
+  color: #3678b1;
+  background-color: #fff;
+  border-color:#3678b1;
 }
 .button.white.white-tertiary:hover {
   background-color: #fd4350;
@@ -1487,18 +1491,21 @@ figure > img {
   box-shadow: 4px 7px 12px 0 rgba(253, 67, 80, 0.2);
 }
 .button.primary {
-  background-color: #23d2e2;
+  background-color: #2596be;
   box-shadow: 4px 7px 12px 0 rgba(35, 210, 226, 0.2);
 }
 .button.primary:hover {
-  background-color: #1bc5d4;
+  background-color: #fff;
+  color:#3678b1 ;
 }
 .button.secondary {
-  background-color: #615dfa;
+  background-color: #fff;
+  color:#3678b1;
   box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
 }
 .button.secondary:hover {
-  background-color: #5753e4;
+  background-color: #3678b1;
+  color:#fff
 }
 .button.tertiary {
   background-color: #fd4350;
@@ -1702,17 +1709,35 @@ figure > img {
   width: 180px;
   height: 54px;
   border: 1px solid #fff;
+  color: #DAA520;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 54px;
+  text-align: center;
+  cursor: pointer;
+  background-color:#fff; 
+}
+.tab-switch-button:hover {
+  width: 180px;
+  height: 54px;
+  border: 1px solid #fff;
   color: #fff;
   font-size: 1rem;
   font-weight: 700;
   line-height: 54px;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+   background-color:#DAA520; 
+
 }
 .tab-switch-button.active {
-  color: #3e3f5e;
-  background-color: #fff;
+  color: #fff;
+  background-color: #DAA520;;
+  cursor: auto;
+}
+.tab-switch-button.active:hover {
+  color:#DAA520;;
+  background-color:#fff;
   cursor: auto;
 }
 .action-request-list {
@@ -7251,12 +7276,17 @@ figure > img {
 .form-box .form-box-title {
   font-size: 1.625rem;
   text-align: center;
+  color: #dd8502;
 }
 .form-box .form {
   margin-top: 76px;
 }
 .form-box .lined-text {
   margin-top: 40px;
+  color: #adafca;
+}
+.form-box .form-text{
+color: #adafca;
 }
 .form-box .form-text,
 .form-box .social-links {
@@ -7270,14 +7300,15 @@ figure > img {
 .landing {
   width: 100%;
   height: 100%;
-  background: url(../img/landing/fishing-tackle-fishing-spinning-hooks-lures-blue-wooden-background.jpg)
-    no-repeat 0;
+  background: url(../img/landing/fish.jpg) no-repeat;
+
   background-size: cover;
   position: fixed;
   top: 0;
   left: 0;
 }
-.landing .landing-decoration {
+ .landing .landing-decoration {
+   display: none !important;
   width: 64%;
   height: 140%;
   border-radius: 50%;
@@ -7286,7 +7317,7 @@ figure > img {
   top: -20%;
   right: -32%;
   pointer-events: none;
-}
+} 
 .landing-info {
   width: 584px;
   position: absolute;
@@ -7310,9 +7341,11 @@ figure > img {
   text-transform: uppercase;
 }
 .landing-info .landing-info-pretitle {
-  margin-top: 36px;
-  font-size: 1.5rem;
-  font-weight: 500;
+
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 27px;
+    margin-top: -66px;
 }
 .landing-info .landing-info-title {
   font-family: Titillium Web, sans-serif;
@@ -7342,7 +7375,7 @@ figure > img {
   position: absolute;
   top: 50%;
   left: 0;
-}
+  }
 .landing-form .form-box:first-child {
   margin-top: -313px;
 }
@@ -11744,7 +11777,7 @@ figure > img {
   justify-content: space-between;
   width: 100%;
   height: 80px;
-  background: #104777;
+  background: #3678b1;
   position: fixed;
   top: 0;
   left: 0;
@@ -12901,7 +12934,7 @@ figure > img {
 }
 .image-carousel {
   width: 100%;
-  height: 500px;
+  height: 574px;
 }
 .picsum-img-wrapper {
   text-align: center;

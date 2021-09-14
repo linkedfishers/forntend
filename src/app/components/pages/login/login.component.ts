@@ -10,6 +10,10 @@ import { User } from 'src/app/interfaces/users.interface';
 import { DatePipe } from '@angular/common';
 import * as data from "../../../interfaces/countries.json";
 
+
+
+
+
 declare var initForm: any;
 declare var initLoginTabs: any;
 declare var loadSvg: any;

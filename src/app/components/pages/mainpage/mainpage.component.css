@@ -46,8 +46,8 @@ body {
   text-align: center;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background: url(https://unsplash.it/600/800?image=1061) center no-repeat;
-  background-size: 100%;
+ 
+
 }
 
 .blog-card a {
@@ -355,7 +355,8 @@ em {
 /* ignore this bit :P */
 #profile-badges:after {
   content: "BRO";
-  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma,
+ Sans-Serif;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;

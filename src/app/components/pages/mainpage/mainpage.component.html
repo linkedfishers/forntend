@@ -5,35 +5,35 @@
 </div>
 <!-- <app-na></app-na> -->
 
-<div class="blog-card spring-fever">
+<div class="blog-card spring-fever" style=" height:500;">
   <div class="title-content">
-    <h3><a href="#">Qui Sommes Nous</a></h3>
-    <div class="intros">
+    <h3  style="font-weight: bold; "><a href="#">Qui Sommes Nous</a></h3>
+    <div class="intros"style=" line-height: 59px;">
       <a href="#">
-        linkedfishers.com est une solution digitale globale totalement dédiée à
-        la communauté internationale de la pêche récréative et du Nautisme</a
-      >
+        linkedfishers.com est une solution digitale globale totalement ddiée à
+        la communauté internationale de la pêche récréative et du Nautisme</a>
     </div>
   </div>
   <div class="card-info">
     <h4>LinkedFishers &copy;</h4>
     <h6><em>by Hookedup</em></h6>
   </div>
-  <div class="gradient-overlay"></div>
-  <div class="color-overlay"></div>
+  
+ 
 </div>
 
-<div class="flex-card">
-  <div class="blog-cards spring-fevers" [routerLink]="['/main']">
+<div class="flex-card" style="margin-top: 91px;margin-bottom: 145px;">
+  <div class="blog-cards spring-fevers" [routerLink]="['/main']"  style="background-image: url(../../../../assets/img/card.png);background-color: #fdfdfd">
     <div class="title-contents">
-      <h3>Looking for a service, a product or a tailor-made outing?</h3>
+      <h3 style="color:#3678b1;font-weight: bold; line-height: 20px;">Looking for a service, a product or a tailor-made outing?</h3>
       <hr />
-      <div class="intro">
-        linkedfishers.com is your indispensable tool, your unique space where
-        the offer is available inclusively and the outing is 100% customizable!
-        Products and services Events and tournaments Fishing tips and techniques
-        Hot spots Social media content ratings Sharing experience Weather
-        forecast
+      <div class="intro" style="color: #7f8184;
+      line-height: 30px;
+      font-weight: bold;">
+        Linkedfishers.com is the only platform in the world that offers this
+        collaborative economic intermediation and co-sharing features !
+        Equipment and services Coastal accommodation Boats, yachts and yawls
+        Monitoring
       </div>
     </div>
     <!-- /.title-content -->
@@ -44,13 +44,15 @@
     <div class="gradient-overlays"></div>
     <div class="color-overlays"></div>
   </div>
-  <div class="blog-cards spring-fevers" [routerLink]="['/map']">
+  <div class="blog-cards spring-fevers" [routerLink]="['/map']"style="background-image: url(../../../../assets/img/card.png);background-color: #fdfdfd">
     <div class="title-contents">
-      <h3>
+      <h3 style="color:#3678b1;font-weight: bold; line-height: 20px;">
         Looking for additional income and better optimization of your assets ?
       </h3>
       <hr />
-      <div class="intro">
+      <div class="intro" style="color: #7f8184;
+      line-height: 30px;
+      font-weight: bold;">
         Linkedfishers.com is the only platform in the world that offers this
         collaborative economic intermediation and co-sharing features !
         Equipment and services Coastal accommodation Boats, yachts and yawls
@@ -69,32 +71,28 @@
   <div
     class="blog-cards spring-fevers"
     [routerLink]="['/marketplace/products-list']"
-  >
+    style="background-image: url(../../../../assets/img/card.png);background-color: #fdfdfd">
     <div class="title-contents">
-      <h3>
+      <h3 style="color:#3678b1;font-weight: bold; line-height: 20px;">
         Professional or Freelancer aiming to maximize your customers number ?
       </h3>
       <hr />
-      <div class="intro">
-        Likedfisher.com promotes your visibility thanks to its community power.
-        Place your product and services on our platform and you will see your
-        sales take off! A dedicated market place A free professional and
-        freelancer accounts. Large catalogue of products sorted by type, price
-        and date Huge connections to a large potential partners
+      <div class="intro" style="color: #7f8184;
+      line-height: 30px;
+      font-weight: bold;">
+        Linkedfishers.com is the only platform in the world that offers this
+        collaborative economic intermediation and co-sharing features !
+        Equipment and services Coastal accommodation Boats, yachts and yawls
+        Monitoring
       </div>
     </div>
-    <!-- /.title-content -->
-
-    <!-- /.card-info -->
-
-    <!-- /.utility-info -->
-    <!-- overlays -->
+    
     <div class="gradient-overlays"></div>
     <div class="color-overlays"></div>
   </div>
-  <!-- /.blog-card -->
+  
 </div>
-<div class="map-container">
+<div class="map-container" style="background-color:#fff;">
   <div class="title-map">
     <h4>Map Services</h4>
   </div>
@@ -104,10 +102,10 @@
 </div>
 
 <div class="title-map">
-  <h4>MarketPlace</h4>
+  <h4 >MarketPlace</h4>
 </div>
 <div class="marketplace-content mrg">
-  <!-- GRID -->
+
   <div class="grid grid-3-3-3 centered">
     <!-- PRODUCT PREVIEW -->
     <div *ngFor="let product of visibleProducts" class="product-preview">

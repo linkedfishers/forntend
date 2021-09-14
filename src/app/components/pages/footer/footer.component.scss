@@ -1,5 +1,5 @@
 $link-light-grey: #6c757d;
-$primary-orange: #fec503; //before: fed136
+$primary-orange: #d5c280; //before: fed136
 $footer-background-light-grey: #212529;
 $footer-background-grey: #1a1d20;
 $social-buttons-circle-dark-grey: #1a1d20;
@@ -13,6 +13,12 @@ $social-buttons-circle-dark-grey: #1a1d20;
 
 a {
   color: $link-light-grey;
+  color:#979b9f;
+    font-size: 20px;
+    font-weight: 40px;
+    line-height: 38px;
+    font-weight: bolder;
+
 }
 a:hover {
   color: $primary-orange;
@@ -51,10 +57,16 @@ footer {
     }
     span.footer-title {
       font-size: 14px;
-      font-weight: 700;
+      
       color: #fff;
-      text-transform: uppercase;
+      font-size: 21px;
+      font-weight: bold;
+    
     }
+    span.footer-title:hover{
+      color:#9b8a4f ;
+    }
+
     .fas {
       margin-right: 0.5rem;
     }
@@ -76,6 +88,7 @@ ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
   background-color: $primary-orange;
+  color:#104777;
 }
 
 ul.social-buttons li a {
@@ -91,6 +104,11 @@ ul.social-buttons li a {
   border-radius: 100%;
   outline: 0;
   background-color: $footer-background-grey;
+
+  color: #c0c0d0;
+    line-height: 43px;
+    font-weight: bolder;
+    font-size: 20px;
 }
 
 footer .quick-links {
