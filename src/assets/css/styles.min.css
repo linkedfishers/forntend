@@ -20,6 +20,22 @@ ul {
 a {
   text-decoration: none;
 }
+
+.flex {
+  display: flex !important;
+  flex-direction: column-reverse !important;
+}
+body
+  > app-root
+  > app-layout
+  > app-home
+  > div
+  > div
+  > div.grid-column.flex
+  > div.test2
+  > div {
+  position: Static !important;
+}
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -51,7 +67,7 @@ textarea {
 label {
   display: block;
   margin: 0;
-  color:#dd8502;;
+  color: #dd8502;
   line-height: 1em;
 }
 button,
@@ -221,7 +237,6 @@ textarea::placeholder {
 }
 .form-input-decorated input[type="text"] {
   padding-right: 60px;
-  
 }
 .form-input-decorated .form-input-icon {
   fill: #adafca;
@@ -855,10 +870,11 @@ a:not([href]):not([tabindex]) {
 .icon-logo-vikinger {
   fill: #fff;
   width: 115px;
-  height: 155px;
+  height: 115px;
   position: absolute;
-  top: -5px;
+  top: 16px;
   left: 15px;
+  filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
 }
 .icon-logo-vikinger.small {
   width: 28px;
@@ -1483,7 +1499,7 @@ figure > img {
 .button.white:hover {
   color: #3678b1;
   background-color: #fff;
-  border-color:#3678b1;
+  border-color: #3678b1;
 }
 .button.white.white-tertiary:hover {
   background-color: #fd4350;
@@ -1496,16 +1512,16 @@ figure > img {
 }
 .button.primary:hover {
   background-color: #fff;
-  color:#3678b1 ;
+  color: #3678b1;
 }
 .button.secondary {
   background-color: #fff;
-  color:#3678b1;
+  color: #3678b1;
   box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
 }
 .button.secondary:hover {
   background-color: #3678b1;
-  color:#fff
+  color: #fff;
 }
 .button.tertiary {
   background-color: #fd4350;
@@ -1709,13 +1725,13 @@ figure > img {
   width: 180px;
   height: 54px;
   border: 1px solid #fff;
-  color: #DAA520;
+  color: #daa520;
   font-size: 1rem;
   font-weight: 700;
   line-height: 54px;
   text-align: center;
   cursor: pointer;
-  background-color:#fff; 
+  background-color: #fff;
 }
 .tab-switch-button:hover {
   width: 180px;
@@ -1727,17 +1743,16 @@ figure > img {
   line-height: 54px;
   text-align: center;
   cursor: pointer;
-   background-color:#DAA520; 
-
+  background-color: #daa520;
 }
 .tab-switch-button.active {
   color: #fff;
-  background-color: #DAA520;;
+  background-color: #daa520;
   cursor: auto;
 }
 .tab-switch-button.active:hover {
-  color:#DAA520;;
-  background-color:#fff;
+  color: #daa520;
+  background-color: #fff;
   cursor: auto;
 }
 .action-request-list {
@@ -7285,8 +7300,8 @@ figure > img {
   margin-top: 40px;
   color: #adafca;
 }
-.form-box .form-text{
-color: #adafca;
+.form-box .form-text {
+  color: #adafca;
 }
 .form-box .form-text,
 .form-box .social-links {
@@ -7307,8 +7322,8 @@ color: #adafca;
   top: 0;
   left: 0;
 }
- .landing .landing-decoration {
-   display: none !important;
+.landing .landing-decoration {
+  display: none !important;
   width: 64%;
   height: 140%;
   border-radius: 50%;
@@ -7317,7 +7332,7 @@ color: #adafca;
   top: -20%;
   right: -32%;
   pointer-events: none;
-} 
+}
 .landing-info {
   width: 584px;
   position: absolute;
@@ -7341,11 +7356,10 @@ color: #adafca;
   text-transform: uppercase;
 }
 .landing-info .landing-info-pretitle {
-
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 27px;
-    margin-top: -66px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 27px;
+  margin-top: -66px;
 }
 .landing-info .landing-info-title {
   font-family: Titillium Web, sans-serif;
@@ -7375,7 +7389,7 @@ color: #adafca;
   position: absolute;
   top: 50%;
   left: 0;
-  }
+}
 .landing-form .form-box:first-child {
   margin-top: -313px;
 }

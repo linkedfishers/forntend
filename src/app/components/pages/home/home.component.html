@@ -279,9 +279,10 @@
     <!-- /GRID COLUMN -->
 
     <!-- GRID COLUMN -->
-    <div class="grid-column">
+    <div class="grid-column flex ">
       <!-- WIDGET BOX -->
-      <a [routerLink]="['/weather']">
+    <div class="displaybloc">
+        <a [routerLink]="['/weather']">
         <div class="widget-box no-padding">
           <p class="widget-box-title">{{ "weather" | translate }}</p>
           <div class="widget-box-content">
@@ -289,6 +290,7 @@
           </div>
         </div>
       </a>
+    </div>
 
       <!-- WIDGET BOX -->
 
@@ -303,7 +305,8 @@
       <!-- WIDGET BOX -->
 
       <!-- WIDGET BOX -->
-      <div *ngIf="(upcomingEvents | json) != '{}'" class="widget-box no-padding">
+      <div class="test2">
+ <div *ngIf="(upcomingEvents | json) != '{}'" class="widget-box no-padding">
         <!-- WIDGET BOX TITLE -->
         <a [routerLink]="['/events']">
           <p class="widget-box-title">Upcoming events</p>
@@ -362,6 +365,8 @@
         </div>
         <!-- /WIDGET BOX CONTENT -->
       </div>
+      </div>
+
       <!-- /WIDGET BOX -->
     </div>
     <!-- /GRID COLUMN -->

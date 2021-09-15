@@ -95,6 +95,7 @@ export class ServiceListComponent implements OnInit {
         this.services.unshift(res.data);
         this.toastr.success(res.message);
         this.newService = new Service();
+        console.log(this.newService);
       },
       (err) => {
         console.log(err);
