@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 
 declare var initHeader, initHexagons: any;
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',

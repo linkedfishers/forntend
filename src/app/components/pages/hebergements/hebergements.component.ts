@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 
 declare var initSidebar, initPopups, loadSvg: any;
 declare var initForm, $: any;
+declare var initAnimation, $: any;
 
 @Component({
   selector: 'app-hebergements',
@@ -40,6 +41,7 @@ export class HebergementsComponent implements OnInit {
   selectedHome = -1;
 
   ngOnInit(): void {
+    initAnimation();
     initSidebar();
     initPopups();
     initForm();

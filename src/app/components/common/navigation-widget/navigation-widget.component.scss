@@ -6,7 +6,7 @@ a.menu-item-link {
   display: flex;
   width: 100% !important;
   justify-content: center;
-  background-color:#fff ;
+  background-color: #fff;
 }
 
 #navigation-widget {
@@ -18,19 +18,21 @@ a.menu-item-link {
   margin-top: 20px;
   width: auto !important;
   text-align: center !important;
-  margin: 20px 20px;
+  margin: 20px 08px;
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 .menus li a {
-  color: #104777 ;
+  color: #104777;
   padding: 10px;
   width: 100%;
   font-weight: 700;
-  
 }
 
 .menus li a:hover {
- 
-    color: #104777 !important;
+  color: #104777 !important;
 }
 .colortxt {
   color: black !important;

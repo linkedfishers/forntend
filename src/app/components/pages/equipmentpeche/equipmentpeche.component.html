@@ -21,7 +21,7 @@
         <!-- SECTION HEADER INFO -->
         <div class="section-header-info">
           <!-- SECTION PRETITLE -->
-          <p class="section-pretitle">My Equipements/p>
+          <p class="section-pretitle">My Equipements</p>
           <!-- /SECTION PRETITLE -->
 
           <!-- SECTION TITLE -->
@@ -65,7 +65,7 @@
 
             <!-- BUTTON -->
             <p class="button primary full popup-manage-item-trigger">
-              Add new Hosting!
+             {{" Add_new_Equipment" | translate}}!
             </p>
             <!-- /BUTTON -->
 
@@ -462,7 +462,7 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">EquipmentName</label>
+                  <label for="item-name">{{"EquipmentName" | translate}}</label>
                   <input
                     *ngIf="selectedEquipment >= 0"
                     [(ngModel)]="userEquipment[selectedEquipment].name"
