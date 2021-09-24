@@ -74,20 +74,6 @@ a.menu-main-item-link {
 .flexnav {
   display: flex !important;
 }
-@media (max-width: 991px) {
-  .flexnav {
-    width: 100% !important;
-    margin-top: 20px;
-    justify-content: flex-end !important;
-  }
-  .navabso {
-    position: initial !important;
-    top: initial !important;
-    left: initial !important;
-    box-shadow: initial !important;
-    background: initial !important;
-  }
-}
 
 .navabso {
   position: absolute !important;
@@ -97,6 +83,21 @@ a.menu-main-item-link {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   background: white;
+}
+
+@media (max-width: 991px) {
+  .flexnav {
+    width: 100% !important;
+    margin-top: 20px;
+    justify-content: flex-end !important;
+  }
+  .navabso {
+    position: relative !important;
+    top: initial !important;
+    left: initial !important;
+    box-shadow: initial !important;
+    background: initial !important;
+  }
 }
 
 .dropdown {
@@ -137,14 +138,24 @@ header {
   background: white;
 }
 .btnwidth {
+  position: absolute;
+  top: 7px;
+  left: 158px;
   width: 200px !important;
   margin: 0 auto;
   padding: 10px !important;
 }
+@media (max-width: 991px) {
+  .btnwidth {
+    position: initial !important;
+    top: initial !important;
+    left: initial !important;
+  }
+}
 
 @media (max-width: 990px) {
   .fork {
-    margin-top: 40px !important;
+    margin-top: 80px !important;
   }
 }
 .navbar-expand-lg .navbar-nav .nav-link {
