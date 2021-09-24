@@ -7270,8 +7270,7 @@ figure > img {
 .landing {
   width: 100%;
   height: 100%;
-  background: url(../img/landing/fishing-tackle-fishing-spinning-hooks-lures-blue-wooden-background.jpg)
-    no-repeat 0;
+  background: url(../img/landing/fish.jpg) no-repeat 0;
   background-size: cover;
   position: fixed;
   top: 0;
