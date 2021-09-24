@@ -454,9 +454,7 @@
  -->
 
 <header class="test">
-  <nav
-    class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default"
-  >
+  <nav class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default">
     <div>
       <a [routerLink]="['/']">
         <div class="header-brand">
@@ -482,9 +480,9 @@
       ...
     </button>
     <div class="collapse navbar-collapse" id="navbar-default">
-      <div class="navbar-collapse-header">
+      <!-- <div class="navbar-collapse-header">
         <div class="row">
-          <!--   <div class="col-6 collapse-close">
+            <div class="col-6 collapse-close">
             <button
               type="button"
               class="navbar-toggler"
@@ -497,9 +495,9 @@
               <span></span>
               <span></span>
             </button>
-          </div> -->
+          </div>
         </div>
-      </div>
+      </div> -->
 
       <ul class="navbar-nav ml-lg-auto fork">
         <li class="nav-item">
@@ -524,10 +522,10 @@
         </li>
       </ul>
       <!-- ******************** -->
-      <nav
+      <div
         class="
           navbar navbar-horizontal navbar-expand-lg navbar-primary
-          bg-default
+          bg-default navabso
         "
       >
         <ul class="navbar-nav ml-lg-auto">
@@ -632,110 +630,11 @@
             </div>
           </li>
         </ul>
-      </nav>
+      </div>
 
       <!-- ****************** -->
     </div>
-    <!--  <div class="action-item-wrap">
-      <div class="action-item dark header-settings-dropdown-trigger">
-        <svg class="action-item-icon icon-settings">
-          <use xlink:href="#svg-settings"></use>
-        </svg>
-      </div>
 
-      <div class="dropdown-navigation header-settings-dropdown">
-        <div class="dropdown-navigation-header">
-          <div class="user-status">
-            <div class="user-status-avatar">
-              <div class="user-avatar small no-outline">
-                <figure>
-                  <img
-                    [src]="currentUser?.profilePicture | picture"
-                    alt="avatar-01"
-                  />
-                </figure>
-              </div>
-            </div>
-
-            <p class="user-status-title">
-              <span class="bold">Hi {{ firstname }}!</span>
-            </p>
-          </div>
-        </div>
-
-        <p class="dropdown-navigation-category">Account</p>
-
-        <a class="dropdown-navigation-link" [routerLink]="['/settings']"
-          >Account Info</a
-        >
-
-
-        <p class="dropdown-navigation-category">Reservations</p>
-        <a
-          class="dropdown-navigation-link"
-          [routerLink]="['/booking-requests']"
-          >{{ "manage_res_req" | translate }}</a
-        >
-        <p
-          *ngIf="!isProvider"
-          class="dropdown-navigation-link"
-          routerLinkActive="active"
-        >
-          <a class="menu-item-link" [routerLink]="['/services']">
-
-            {{ "my_services" | translate }}
-          </a>
-        </p>
-        <p
-          *ngIf="!isProvider"
-          class="dropdown-navigation-link"
-          routerLinkActive="active"
-        >
-          <a class="menu-item-link" [routerLink]="['/equipments']">
-
-            {{ "my_equipments" | translate }}
-          </a>
-        </p>
-
-        <p
-          *ngIf="!isProvider"
-          class="dropdown-navigation-link"
-          routerLinkActive="active"
-        >
-
-          <a class="menu-item-link" [routerLink]="['/boats']">
-
-            {{ "my_boats" | translate }}
-          </a>
-        </p>
-
-        <p
-          *ngIf="!isProvider"
-          class="dropdown-navigation-link"
-          routerLinkActive="active"
-        >
-          <a class="menu-item-link" [routerLink]="['/homes']">
-
-            {{ "my_homes" | translate }}
-          </a>
-        </p>
-        <p
-          *ngIf="isAdmin"
-          class="dropdown-navigation-link"
-          routerLinkActive="active"
-        >
-          <a class="menu-item-link" [routerLink]="['/admin']">
-            Administration
-          </a>
-        </p>
-
-        <a (click)="logout()" [routerLink]="">
-          <p class="dropdown-navigation-button button small secondary">
-            {{ "logout" | translate }}
-          </p>
-        </a>
-      </div>
-    </div> -->
     <div [hidden]="isGuest" class="header-actions flexnav">
       <div class="action-list dark">
         <div class="action-list-item-wrap">
@@ -1077,26 +976,6 @@
       </div>
     </div>
   </div>
-
-  <!--   <div *ngIf="isGuest" class="header-actions">
-
-    <form class="login-form">
-
-      <div class="form-row split">
-
-        <button
-          [routerLink]="['/login']"
-          style="width: 200px; margin-right: 52px"
-          class="button medium secondary"
-        >
-          {{ "login" | translate
-        }}
-        </button>
-      </div>
-    </form>
-
-  </div> -->
-
   <div *ngIf="isGuest" class="header-actions btnwidth">
     <form class="login-form">
       <div class="form-row split">

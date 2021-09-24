@@ -529,13 +529,14 @@ textarea::placeholder {
 .interactive-input.dark input {
   background-color: rgba(255, 255, 255, 0.562);
   color: rgb(250, 248, 248);
+  border-radius: 0 !important;
 }
 .interactive-input.dark input::-webkit-input-placeholder {
-  color: black;
+  color: rgb(255, 255, 255);
   opacity: 0.6;
 }
 .interactive-input.dark input::-moz-placeholder {
-  color: black;
+  color: rgb(0, 0, 0);
   opacity: 0.6;
 }
 .interactive-input.dark input:-ms-input-placeholder {
@@ -1845,7 +1846,7 @@ figure > img {
   fill: #000000;
 }
 .action-list.dark .action-list-item .action-list-item-icon {
-  fill: rgb(255, 255, 255);
+  fill: #226ab2;
 }
 .action-list .action-list-item {
   display: -ms-flexbox;
@@ -1891,7 +1892,7 @@ figure > img {
   fill: #adafca;
 }
 .action-item.dark .action-item-icon {
-  fill: rgb(255, 255, 255);
+  fill: #226ab2;
 }
 .user-stats {
   display: -ms-flexbox;
