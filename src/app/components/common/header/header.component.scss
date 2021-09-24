@@ -76,6 +76,7 @@ a.menu-main-item-link {
 @media (max-width: 991px) {
   .flexnav {
     width: 100% !important;
+    margin-top: 20px;
     justify-content: flex-end !important;
   }
 }
@@ -116,9 +117,13 @@ header {
   background-position: center;
   position: fixed;
   width: 100%;
-  z-index: 999999999999999999999;
+  z-index: 9999999999999 !important;
 }
-
+.btnwidth {
+  width: 200px !important;
+  margin: 0 auto;
+  padding: 10px !important;
+}
 .nav-link {
   color: white !important;
 }

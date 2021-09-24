@@ -619,7 +619,7 @@
                 class="nav-link nav-link-icon"
                 [routerLink]="['/list-equipments']"
               >
-                {{ "equipment" | translate }}
+                {{ "Equipements" | translate }}
               </a>
               <div class="dropdown-content">
                 <a
@@ -736,7 +736,6 @@
         </a>
       </div>
     </div> -->
-
     <div [hidden]="isGuest" class="header-actions flexnav">
       <div class="action-list dark">
         <div class="action-list-item-wrap">
@@ -1098,10 +1097,10 @@
 
   </div> -->
 
-  <div *ngIf="isGuest" class="header-actions">
+  <div *ngIf="isGuest" class="header-actions btnwidth">
     <form class="login-form">
       <div class="form-row split">
-        <button [routerLink]="['/login']" class="btn btn-default">
+        <button [routerLink]="['/login']" class="btn btn-primary" type="button">
           {{ "login" | translate }}
         </button>
       </div>
