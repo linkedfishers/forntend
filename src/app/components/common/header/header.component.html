@@ -1,131 +1,80 @@
-<!-- HEADER -->
-<header class="header">
-  <!-- HEADER ACTIONS -->
+<!-- <header class="header">
+
   <div class="header-actions">
-    <!-- HEADER BRAND -->
+
     <a [routerLink]="['/']">
       <div class="header-brand">
-        <!-- LOGO -->
+
         <div class="logo">
-          <!-- ICON LOGO VIKINGER -->
+
           <img
             id="logo"
             class="icon-logo-vikinger"
             src="../../../../assets/img/logo silver & blanc-ai.png"
           />
-          <!-- /ICON LOGO VIKINGER -->
+
         </div>
-        <!-- /LOGO -->
+
       </div>
     </a>
-    <!-- /HEADER BRAND -->
-  </div>
-  <!-- /HEADER ACTIONS -->
 
-  <!-- HEADER ACTIONS -->
+  </div>
+
   <div class="header-actions">
-    <!-- SIDEMENU TRIGGER -->
+
     <div class="sidemenu-trigger navigation-widget-trigger">
-      <!-- ICON GRID -->
+
       <svg class="icon-grid">
         <use xlink:href="#svg-grid"></use>
       </svg>
-      <!-- /ICON GRID -->
+
     </div>
-    <!-- /SIDEMENU TRIGGER -->
-
-    <!-- MOBILEMENU TRIGGER -->
-    <div class="mobilemenu-trigger navigation-widget-mobile-trigger">
-      <!-- BURGER ICON -->
-      <div class="burger-icon inverted">
-        <!-- BURGER ICON BAR -->
-        <div class="burger-icon-bar"></div>
-        <!-- /BURGER ICON BAR -->
-
-        <!-- BURGER ICON BAR -->
-        <div class="burger-icon-bar"></div>
-        <!-- /BURGER ICON BAR -->
-
-        <!-- BURGER ICON BAR -->
-        <div class="burger-icon-bar"></div>
-        <!-- /BURGER ICON BAR -->
-      </div>
-      <!-- /BURGER ICON -->
-    </div>
-    <!-- /MOBILEMENU TRIGGER -->
-
-    <!-- NAVIGATION -->
     <nav class="navigation">
-      <!-- MENU MAIN -->
+
       <ul class="menu-main custommargin">
-        <!-- MENU MAIN ITEM -->
+
         <li class="menu-main-item">
-          <!-- MENU MAIN ITEM LINK -->
+
           <a class="menu-main-item-link" [routerLink]="['/']">{{
             "home" | translate
           }}</a>
-          <!-- /MENU MAIN ITEM LINK -->
+
         </li>
         <li *ngIf="isAdmin" class="menu-main-item">
           <a class="menu-main-item-link" [routerLink]="['/admin']">
             {{ "admin" | translate }}</a
           >
         </li>
-        <!-- /MENU MAIN ITEM -->
 
-        <!-- MENU MAIN ITEM -->
         <li class="menu-main-item">
-          <!-- MENU MAIN ITEM LINK -->
+
           <a class="menu-main-item-link" [routerLink]="['/reglement']">{{
             "rules" | translate
           }}</a>
-          <!-- /MENU MAIN ITEM LINK -->
+
         </li>
         <li class="menu-main-item">
-          <!-- MENU MAIN ITEM LINK -->
+
           <a class="menu-main-item-link" [routerLink]="['/about-us']">{{
             "about_us" | translate
           }}</a>
-          <!-- /MENU MAIN ITEM LINK -->
+
         </li>
         <li *ngIf="!isProvider" class="menu-main-item">
-          <!-- MENU ITEM LINK -->
-          <a class="menu-main-item-link" [routerLink]="['/map']">
-            <!-- MENU ITEM LINK ICON -->
 
-            <!-- /MENU ITEM LINK ICON -->
+          <a class="menu-main-item-link" [routerLink]="['/map']">
+
             {{ "map" | translate }}
           </a>
-          <!-- /MENU ITEM LINK -->
+
         </li>
-        <!-- /MENU MAIN ITEM -->
 
-        <!-- MENU MAIN ITEM -->
-        <!-- <li class="menu-main-item">
-          <a class="menu-main-item-link" [routerLink]="['/']">{{
-            "About_us" | translate
-          }}</a>
-        </li> -->
-        <!-- /MENU MAIN ITEM -->
-
-        <!-- MENU MAIN ITEM -->
-        <!-- <li class="menu-main-item">
-          <a class="menu-main-item-link" [routerLink]="['/']">{{
-            "rules" | translate
-          }}</a>
-        </li> -->
-
-        <!-- /MENU MAIN ITEM -->
       </ul>
-      <!-- /MENU MAIN -->
     </nav>
-    <!-- /NAVIGATION -->
   </div>
-  <!-- /HEADER ACTIONS -->
 
-  <!-- HEADER ACTIONS -->
+
   <div class="header-actions search-bar">
-    <!-- INTERACTIVE INPUT -->
     <div class="interactive-input dark">
       <input
         (keyup)="search()"
@@ -135,50 +84,44 @@
         name="search_main"
         placeholder="Search here for people or groups"
       />
-      <!-- INTERACTIVE INPUT ICON WRAP -->
+
       <div class="interactive-input-icon-wrap">
-        <!-- INTERACTIVE INPUT ICON -->
+
         <svg class="interactive-input-icon icon-magnifying-glass">
           <use xlink:href="#svg-magnifying-glass"></use>
         </svg>
-        <!-- /INTERACTIVE INPUT ICON -->
-      </div>
-      <!-- /INTERACTIVE INPUT ICON WRAP -->
 
-      <!-- INTERACTIVE INPUT ACTION -->
+      </div>
+
       <div class="interactive-input-action">
-        <!-- INTERACTIVE INPUT ACTION ICON -->
+
         <svg class="interactive-input-action-icon icon-cross-thin">
           <use xlink:href="#svg-cross-thin"></use>
         </svg>
-        <!-- /INTERACTIVE INPUT ACTION ICON -->
+
       </div>
-      <!-- /INTERACTIVE INPUT ACTION -->
+
     </div>
-    <!-- /INTERACTIVE INPUT -->
 
-    <!-- DROPDOWN BOX -->
     <div class="dropdown-box padding-bottom-small header-search-dropdown">
-      <!-- DROPDOWN BOX CATEGORY -->
-      <div class="dropdown-box-category">
-        <!-- DROPDOWN BOX CATEGORY TITLE -->
-        <p class="dropdown-box-category-title">Members</p>
-        <!-- /DROPDOWN BOX CATEGORY TITLE -->
-      </div>
-      <!-- /DROPDOWN BOX CATEGORY -->
 
-      <!-- DROPDOWN BOX LIST -->
+      <div class="dropdown-box-category">
+
+        <p class="dropdown-box-category-title">Members</p>
+
+      </div>
+
       <div class="dropdown-box-list small no-scroll">
-        <!-- DROPDOWN BOX LIST ITEM -->
+
         <a
           *ngFor="let user of searchedUsers"
           [routerLink]="['/profile', user?.slug]"
           routerLinkActive="router-link-active"
           class="dropdown-box-list-item"
         >
-          <!-- USER STATUS -->
+
           <div class="user-status notification">
-            <!-- USER STATUS AVATAR -->
+
             <div class="user-status-avatar">
               <div class="user-avatar small no-outline">
                 <figure class="picture round liquid small">
@@ -190,43 +133,35 @@
                 </figure>
               </div>
             </div>
-            <!-- /USER STATUS AVATAR -->
 
-            <!-- USER STATUS TITLE -->
             <p class="user-status-title">
               <span class="bold">{{ user?.fullName }}</span>
             </p>
-            <!-- /USER STATUS TITLE -->
 
-            <!-- USER STATUS TEXT -->
-            <!-- /USER STATUS TEXT -->
-
-            <!-- USER STATUS ICON -->
             <div class="user-status-icon">
-              <!-- ICON FRIEND -->
               <svg class="icon-friend">
                 <use xlink:href="#svg-friend"></use>
               </svg>
-              <!-- /ICON FRIEND -->
+
             </div>
-            <!-- /USER STATUS ICON -->
+
           </div>
-          <!-- /USER STATUS -->
+
         </a>
-        <!-- /DROPDOWN BOX LIST ITEM -->
+
       </div>
-      <!-- /DROPDOWN BOX LIST -->
+
     </div>
-    <!-- /DROPDOWN BOX -->
+
   </div>
-  <!-- /HEADER ACTIONS -->
+
 
   <div *ngIf="isGuest" class="header-actions">
-    <!-- LOGIN FORM -->
+
     <form class="login-form">
-      <!-- FORM ROW -->
+
       <div class="form-row split">
-        <!-- BUTTON -->
+
         <button
           [routerLink]="['/login']"
           style="width: 200px; margin-right: 52px"
@@ -234,83 +169,56 @@
         >
           {{ "login" | translate }}
         </button>
-        <!-- /BUTTON -->
       </div>
-      <!-- /FORM ROW -->
     </form>
-    <!-- /LOGIN FORM -->
+
   </div>
 
-  <!-- HEADER ACTIONS -->
+
   <div [hidden]="isGuest" class="header-actions">
-    <!-- ACTION LIST -->
     <div class="action-list dark">
-      <!-- ACTION LIST ITEM WRAP -->
       <div class="action-list-item-wrap">
-        <!-- ACTION LIST ITEM -->
         <div class="action-list-item header-dropdown-trigger">
-          <!-- ACTION LIST ITEM ICON -->
           <svg class="action-list-item-icon icon-friend">
             <use xlink:href="#svg-translate"></use>
           </svg>
-          <!-- /ACTION LIST ITEM ICON -->
         </div>
-        <!-- /ACTION LIST ITEM -->
 
-        <!-- DROPDOWN BOX -->
         <div class="dropdown-box header-dropdown language heig">
-          <!-- DROPDOWN BOX HEADER -->
           <div class="dropdown-box-header">
-            <!-- DROPDOWN BOX HEADER TITLE -->
             <p class="dropdown-box-header-title">
               {{ "language" | translate }}
             </p>
-            <!-- /DROPDOWN BOX HEADER TITLE -->
           </div>
-          <!-- /DROPDOWN BOX HEADER -->
 
-          <!-- DROPDOWN BOX LIST -->
           <div class="dropdown-box-list" data-simplebar>
-            <!-- DROPDOWN BOX LIST ITEM -->
             <a [routerLink]="" (click)="setLanguage('en')">
               <div
                 class="dropdown-box-list-item"
                 [ngClass]="{ active: currentUser?.language == 'en' }"
               >
-                <!-- USER STATUS -->
                 <div class="user-status request">
-                  <!-- USER STATUS AVATAR -->
                   <a class="user-status-avatar" href="profile-timeline.html">
-                    <!-- USER AVATAR -->
                     <div class="user-avatar small no-outline">
                       <figure>
                         <img src="./assets/img/flag/GB.png" alt="avatar-01" />
                       </figure>
                     </div>
-                    <!-- /USER AVATAR -->
                   </a>
-                  <!-- /USER STATUS AVATAR -->
 
-                  <!-- USER STATUS TITLE -->
                   <p class="user-status-title"><a class="bold">English</a></p>
-                  <!-- /USER STATUS TITLE -->
                 </div>
-                <!-- /USER STATUS -->
               </div>
             </a>
             <br />
-            <!-- /DROPDOWN BOX LIST ITEM -->
-            <!-- DROPDOWN BOX LIST ITEM -->
+
             <a [routerLink]="" (click)="setLanguage('fr')">
               <div
                 class="dropdown-box-list-item"
                 [ngClass]="{ active: currentUser?.language == 'fr' }"
               >
-                <!-- USER STATUS -->
                 <div class="user-status request">
-                  <!-- USER STATUS AVATAR -->
                   <a class="user-status-avatar" href="profile-timeline.html">
-                    <!-- USER AVATAR -->
                     <div class="user-avatar small no-outline">
                       <div class="user-avatar small no-outline">
                         <figure>
@@ -318,15 +226,10 @@
                         </figure>
                       </div>
                     </div>
-                    <!-- /USER AVATAR -->
                   </a>
-                  <!-- /USER STATUS AVATAR -->
 
-                  <!-- USER STATUS TITLE -->
                   <p class="user-status-title"><a class="bold">Français</a></p>
-                  <!-- /USER STATUS TITLE -->
                 </div>
-                <!-- /USER STATUS -->
               </div>
             </a>
             <br />
@@ -335,11 +238,8 @@
                 class="dropdown-box-list-item"
                 [ngClass]="{ active: currentUser?.language == 'ar' }"
               >
-                <!-- USER STATUS -->
                 <div class="user-status request">
-                  <!-- USER STATUS AVATAR -->
                   <a class="user-status-avatar" href="profile-timeline.html">
-                    <!-- USER AVATAR -->
                     <div class="user-avatar small no-outline">
                       <div class="user-avatar small no-outline">
                         <figure>
@@ -347,68 +247,41 @@
                         </figure>
                       </div>
                     </div>
-                    <!-- /USER AVATAR -->
                   </a>
-                  <!-- /USER STATUS AVATAR -->
 
-                  <!-- USER STATUS TITLE -->
                   <p class="user-status-title"><a class="bold">عربي</a></p>
-                  <!-- /USER STATUS TITLE -->
                 </div>
-                <!-- /USER STATUS -->
               </div>
             </a>
-            <!-- /DROPDOWN BOX LIST ITEM -->
           </div>
-          <!-- /DROPDOWN BOX LIST -->
         </div>
-        <!-- /DROPDOWN BOX -->
       </div>
-      <!-- /ACTION LIST ITEM WRAP -->
 
-      <!-- ACTION LIST ITEM WRAP -->
       <div class="action-list-item-wrap">
-        <!-- ACTION LIST ITEM -->
         <div
           [ngClass]="{ unread: notifications?.length }"
           class="action-list-item header-dropdown-trigger"
         >
-          <!-- ACTION LIST ITEM ICON -->
           <svg class="action-list-item-icon icon-notification">
             <use xlink:href="#svg-notification"></use>
           </svg>
-          <!-- /ACTION LIST ITEM ICON -->
         </div>
-        <!-- /ACTION LIST ITEM -->
 
-        <!-- DROPDOWN BOX -->
         <div class="dropdown-box header-dropdown">
-          <!-- DROPDOWN BOX HEADER -->
           <div class="dropdown-box-header">
-            <!-- DROPDOWN BOX HEADER TITLE -->
             <p class="dropdown-box-header-title">Notifications</p>
-            <!-- /DROPDOWN BOX HEADER TITLE -->
 
-            <!-- DROPDOWN BOX HEADER ACTIONS -->
             <div class="dropdown-box-header-actions">
-              <!-- DROPDOWN BOX HEADER ACTION -->
               <p class="dropdown-box-header-action">Mark all as Read</p>
-              <!-- /DROPDOWN BOX HEADER ACTION -->
             </div>
-            <!-- /DROPDOWN BOX HEADER ACTIONS -->
           </div>
-          <!-- /DROPDOWN BOX HEADER -->
 
-          <!-- DROPDOWN BOX LIST -->
           <div class="dropdown-box-list" data-simplebar>
-            <!-- DROPDOWN BOX LIST ITEM -->
             <div
               *ngFor="let notification of notifications; let i = index"
               class="dropdown-box-list-item unread"
             >
-              <!-- USER STATUS -->
               <div class="user-status notification">
-                <!-- USER STATUS AVATAR -->
                 <div class="user-status-avatar">
                   <div class="user-avatar small no-outline">
                     <figure>
@@ -420,9 +293,7 @@
                     </figure>
                   </div>
                 </div>
-                <!-- /USER STATUS AVATAR -->
 
-                <!-- USER STATUS TITLE -->
                 <p class="user-status-title">
                   <a
                     [routerLink]="['/profile', notification.sender.slug]"
@@ -434,26 +305,20 @@
                     notification?.type | translate
                   }}</a>
                 </p>
-                <!-- /USER STATUS TITLE -->
 
-                <!-- USER STATUS TIMESTAMP -->
                 <p class="user-status-timestamp">
                   {{ notification?.createdAt | timeAgo: language }}
                 </p>
-                <!-- /USER STATUS TIMESTAMP -->
 
-                <!-- USER STATUS ICON -->
                 <div
                   [hidden]="notification.type != 'commented_post'"
                   class="user-status-icon"
                 >
-                  <!-- ICON COMMENT -->
                   <svg class="icon-comment">
                     <use xlink:href="#svg-comment"></use>
                   </svg>
                 </div>
 
-                <!-- USER STATUS ICON -->
                 <div
                   [hidden]="notification.type != 'liked_post'"
                   class="user-status-icon"
@@ -462,7 +327,6 @@
                     <use xlink:href="#svg-thumbs-up"></use>
                   </svg>
                 </div>
-                <!-- USER STATUS ICON -->
                 <div
                   [hidden]="notification.type != 'followed_you'"
                   class="user-status-icon"
@@ -471,47 +335,29 @@
                     <use xlink:href="#svg-add-friend"></use>
                   </svg>
                 </div>
-                <!-- /USER STATUS ICON -->
               </div>
-              <!-- /USER STATUS -->
             </div>
-            <!-- /DROPDOWN BOX LIST ITEM -->
           </div>
-          <!-- /DROPDOWN BOX LIST -->
 
-          <!-- DROPDOWN BOX BUTTON -->
           <a
             class="dropdown-box-button secondary"
             [routerLink]="['/notifications']"
             >View all Notifications</a
           >
-          <!-- /DROPDOWN BOX BUTTON -->
         </div>
-        <!-- /DROPDOWN BOX -->
       </div>
-      <!-- /ACTION LIST ITEM WRAP -->
     </div>
-    <!-- /ACTION LIST -->
 
-    <!-- ACTION ITEM WRAP -->
     <div class="action-item-wrap">
-      <!-- ACTION ITEM -->
       <div class="action-item dark header-settings-dropdown-trigger">
-        <!-- ACTION ITEM ICON -->
         <svg class="action-item-icon icon-settings">
           <use xlink:href="#svg-settings"></use>
         </svg>
-        <!-- /ACTION ITEM ICON -->
       </div>
-      <!-- /ACTION ITEM -->
 
-      <!-- DROPDOWN NAVIGATION -->
       <div class="dropdown-navigation header-settings-dropdown">
-        <!-- DROPDOWN NAVIGATION HEADER -->
         <div class="dropdown-navigation-header">
-          <!-- USER STATUS -->
           <div class="user-status">
-            <!-- USER STATUS AVATAR -->
             <div class="user-status-avatar">
               <div class="user-avatar small no-outline">
                 <figure>
@@ -522,44 +368,21 @@
                 </figure>
               </div>
             </div>
-            <!-- /USER STATUS AVATAR -->
 
-            <!-- USER STATUS TITLE -->
             <p class="user-status-title">
               <span class="bold">Hi {{ firstname }}!</span>
             </p>
-            <!-- /USER STATUS TITLE -->
           </div>
-          <!-- /USER STATUS -->
         </div>
-        <!-- /DROPDOWN NAVIGATION HEADER -->
 
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
         <p class="dropdown-navigation-category">Account</p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
 
-        <!-- DROPDOWN NAVIGATION LINK -->
         <a class="dropdown-navigation-link" [routerLink]="['/settings']"
           >Account Info</a
         >
-        <!-- /DROPDOWN NAVIGATION LINK -->
 
-        <!-- DROPDOWN NAVIGATION LINK -->
-        <!--   <a
-          class="dropdown-navigation-link"
-          [routerLink]="['/settings/change-password']"
-          >Change Password</a
-        >
 
-        <a class="dropdown-navigation-link" [routerLink]="['/settings/social']"
-          >Social links</a
-        > -->
-        <!-- /DROPDOWN NAVIGATION LINK -->
-
-        <!-- DROPDOWN NAVIGATION CATEGORY -->
         <p class="dropdown-navigation-category">Reservations</p>
-        <!-- /DROPDOWN NAVIGATION CATEGORY -->
-        <!-- DROPDOWN NAVIGATION LINK -->
         <a
           class="dropdown-navigation-link"
           [routerLink]="['/booking-requests']"
@@ -571,9 +394,7 @@
           routerLinkActive="active"
         >
           <a class="menu-item-link" [routerLink]="['/services']">
-            <!-- MENU ITEM LINK ICON -->
 
-            <!-- /MENU ITEM LINK ICON -->
             {{ "my_services" | translate }}
           </a>
         </p>
@@ -582,80 +403,708 @@
           class="dropdown-navigation-link"
           routerLinkActive="active"
         >
-          <!-- MENU ITEM LINK -->
           <a class="menu-item-link" [routerLink]="['/equipments']">
-            <!-- MENU ITEM LINK ICON -->
 
-            <!-- /MENU ITEM LINK ICON -->
             {{ "my_equipments" | translate }}
           </a>
-          <!-- /MENU ITEM LINK -->
         </p>
-        <!-- /MENU ITEM -->
 
-        <!-- MENU ITEM -->
         <p
           *ngIf="!isProvider"
           class="dropdown-navigation-link"
           routerLinkActive="active"
         >
-          <!-- MENU ITEM LINK -->
-          <a class="menu-item-link" [routerLink]="['/boats']">
-            <!-- MENU ITEM LINK ICON -->
 
-            <!-- /MENU ITEM LINK ICON -->
+          <a class="menu-item-link" [routerLink]="['/boats']">
+
             {{ "my_boats" | translate }}
           </a>
-          <!-- /MENU ITEM LINK -->
         </p>
-        <!-- /MENU ITEM -->
 
-        <!-- MENU ITEM -->
         <p
           *ngIf="!isProvider"
           class="dropdown-navigation-link"
           routerLinkActive="active"
         >
-          <!-- MENU ITEM LINK -->
           <a class="menu-item-link" [routerLink]="['/homes']">
-            <!-- MENU ITEM LINK ICON -->
 
-            <!-- /MENU ITEM LINK ICON -->
             {{ "my_homes" | translate }}
           </a>
-          <!-- /MENU ITEM LINK -->
         </p>
         <p
           *ngIf="isAdmin"
           class="dropdown-navigation-link"
           routerLinkActive="active"
         >
-          <!-- MENU ITEM LINK -->
           <a class="menu-item-link" [routerLink]="['/admin']">
             Administration
           </a>
-          <!-- /MENU ITEM LINK -->
         </p>
-        <!-- /DROPDOWN NAVIGATION LINK -->
 
-        <!-- DROPDOWN NAVIGATION BUTTON -->
         <a (click)="logout()" [routerLink]="">
           <p class="dropdown-navigation-button button small secondary">
             {{ "logout" | translate }}
           </p>
         </a>
-        <!-- /DROPDOWN NAVIGATION BUTTON -->
       </div>
-      <!-- /DROPDOWN NAVIGATION -->
     </div>
-    <!-- /ACTION ITEM WRAP -->
   </div>
-  <!-- /HEADER ACTIONS -->
 </header>
-<!-- /HEADER -->
-<!-- <ul class="navba">
-  <li class="it"><a href="#home">Home</a></li>
-  <li class="it"><a href="#news">News</a></li>
-  <li class="it"><a href="#contact">Contact</a></li>
-  <li class="it"><a href="#about">About</a></li>
-</ul> -->
+
+ -->
+
+<header class="test">
+  <nav
+    class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default"
+  >
+    <div>
+      <a [routerLink]="['/']">
+        <div class="header-brand">
+          <div class="logo">
+            <img
+              id="logo"
+              class="icon-logo-vikinger"
+              src="../../../../assets/img/logo silver & blanc-ai.png"
+            />
+          </div>
+        </div>
+      </a>
+    </div>
+    <button
+      class="navbar-toggler mb"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbar-default"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      ...
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-default">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <!--   <div class="col-6 collapse-close">
+            <button
+              type="button"
+              class="navbar-toggler"
+              data-toggle="collapse"
+              data-target="#navbar-default"
+              aria-controls="navbar-default"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span></span>
+              <span></span>
+            </button>
+          </div> -->
+        </div>
+      </div>
+
+      <ul class="navbar-nav ml-lg-auto fork">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/']"
+            >{{ "home" | translate }}
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link nav-link-icon" [routerLink]="['/admin']">
+            {{ "admin" | translate }}
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon" [routerLink]="['/reglement']">
+            {{ "rules" | translate }}
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="!isProvider">
+          <a class="nav-link nav-link-icon" [routerLink]="['/map']">
+            {{ "map" | translate }}
+          </a>
+        </li>
+      </ul>
+      <!-- ******************** -->
+      <nav
+        class="
+          navbar navbar-horizontal navbar-expand-lg navbar-primary
+          bg-default
+        "
+      >
+        <ul class="navbar-nav ml-lg-auto">
+          <li
+            class="nav-item"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+          >
+            <a class="nav-link nav-link-icon" [routerLink]="['/main']"
+              >{{ "feed" | translate }}
+            </a>
+          </li>
+          <li
+            class="nav-item"
+            *ngIf="isProvider"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+          >
+            <a
+              class="nav-link nav-link-icon"
+              [routerLink]="['/provider/add-product']"
+            >
+              Product
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="!isProvider">
+            <a class="nav-link nav-link-icon" [routerLink]="['/weather']">
+              {{ "weather" | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link nav-link-icon"
+              [routerLink]="['/marketplace/products-list']"
+            >
+              {{ "marketplace" | translate }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link nav-link-icon" [routerLink]="['/list-home']">
+                {{ "homes" | translate }}
+              </a>
+              <div class="dropdown-content">
+                <a
+                  [routerLink]="['/hebergements/type/', item?._id]"
+                  *ngFor="let item of hebergementTypes"
+                  >{{ item?.name }}</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a class="nav-link nav-link-icon" [routerLink]="['/list-boats']">
+                {{ "boats" | translate }}
+              </a>
+              <div class="dropdown-content">
+                <a
+                  class="color41eff"
+                  [routerLink]="['/boats/type/', item?._id]"
+                  *ngFor="let item of boatTypes"
+                  >{{ item?.name }}</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                class="nav-link nav-link-icon"
+                [routerLink]="['/list-services']"
+              >
+                {{ "freelancer" | translate }}
+              </a>
+              <div class="dropdown-content">
+                <a
+                  class="color41eff"
+                  [routerLink]="['/freelancer/type/', item?._id]"
+                  *ngFor="let item of serviceTypes"
+                  >{{ item?.name }}</a
+                >
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
+              <a
+                class="nav-link nav-link-icon"
+                [routerLink]="['/list-equipments']"
+              >
+                {{ "equipment" | translate }}
+              </a>
+              <div class="dropdown-content">
+                <a
+                  class="color41eff"
+                  [routerLink]="['/equipments/type/', item?._id]"
+                  *ngFor="let item of equipmentTypes"
+                  >{{ item?.name }}</a
+                >
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- ****************** -->
+    </div>
+    <!--  <div class="action-item-wrap">
+      <div class="action-item dark header-settings-dropdown-trigger">
+        <svg class="action-item-icon icon-settings">
+          <use xlink:href="#svg-settings"></use>
+        </svg>
+      </div>
+
+      <div class="dropdown-navigation header-settings-dropdown">
+        <div class="dropdown-navigation-header">
+          <div class="user-status">
+            <div class="user-status-avatar">
+              <div class="user-avatar small no-outline">
+                <figure>
+                  <img
+                    [src]="currentUser?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
+                </figure>
+              </div>
+            </div>
+
+            <p class="user-status-title">
+              <span class="bold">Hi {{ firstname }}!</span>
+            </p>
+          </div>
+        </div>
+
+        <p class="dropdown-navigation-category">Account</p>
+
+        <a class="dropdown-navigation-link" [routerLink]="['/settings']"
+          >Account Info</a
+        >
+
+
+        <p class="dropdown-navigation-category">Reservations</p>
+        <a
+          class="dropdown-navigation-link"
+          [routerLink]="['/booking-requests']"
+          >{{ "manage_res_req" | translate }}</a
+        >
+        <p
+          *ngIf="!isProvider"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+          <a class="menu-item-link" [routerLink]="['/services']">
+
+            {{ "my_services" | translate }}
+          </a>
+        </p>
+        <p
+          *ngIf="!isProvider"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+          <a class="menu-item-link" [routerLink]="['/equipments']">
+
+            {{ "my_equipments" | translate }}
+          </a>
+        </p>
+
+        <p
+          *ngIf="!isProvider"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+
+          <a class="menu-item-link" [routerLink]="['/boats']">
+
+            {{ "my_boats" | translate }}
+          </a>
+        </p>
+
+        <p
+          *ngIf="!isProvider"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+          <a class="menu-item-link" [routerLink]="['/homes']">
+
+            {{ "my_homes" | translate }}
+          </a>
+        </p>
+        <p
+          *ngIf="isAdmin"
+          class="dropdown-navigation-link"
+          routerLinkActive="active"
+        >
+          <a class="menu-item-link" [routerLink]="['/admin']">
+            Administration
+          </a>
+        </p>
+
+        <a (click)="logout()" [routerLink]="">
+          <p class="dropdown-navigation-button button small secondary">
+            {{ "logout" | translate }}
+          </p>
+        </a>
+      </div>
+    </div> -->
+
+    <div [hidden]="isGuest" class="header-actions flexnav">
+      <div class="action-list dark">
+        <div class="action-list-item-wrap">
+          <div class="action-list-item header-dropdown-trigger">
+            <svg class="action-list-item-icon icon-friend">
+              <use xlink:href="#svg-translate"></use>
+            </svg>
+          </div>
+
+          <div class="dropdown-box header-dropdown language heig">
+            <div class="dropdown-box-header">
+              <p class="dropdown-box-header-title">
+                {{ "language" | translate }}
+              </p>
+            </div>
+
+            <div class="dropdown-box-list" data-simplebar>
+              <a [routerLink]="" (click)="setLanguage('en')">
+                <div
+                  class="dropdown-box-list-item"
+                  [ngClass]="{ active: currentUser?.language == 'en' }"
+                >
+                  <div class="user-status request">
+                    <a class="user-status-avatar" href="profile-timeline.html">
+                      <div class="user-avatar small no-outline">
+                        <figure>
+                          <img src="./assets/img/flag/GB.png" alt="avatar-01" />
+                        </figure>
+                      </div>
+                    </a>
+
+                    <p class="user-status-title"><a class="bold">English</a></p>
+                  </div>
+                </div>
+              </a>
+              <br />
+
+              <a [routerLink]="" (click)="setLanguage('fr')">
+                <div
+                  class="dropdown-box-list-item"
+                  [ngClass]="{ active: currentUser?.language == 'fr' }"
+                >
+                  <div class="user-status request">
+                    <a class="user-status-avatar" href="profile-timeline.html">
+                      <div class="user-avatar small no-outline">
+                        <div class="user-avatar small no-outline">
+                          <figure>
+                            <img
+                              src="./assets/img/flag/FR.png"
+                              alt="avatar-01"
+                            />
+                          </figure>
+                        </div>
+                      </div>
+                    </a>
+
+                    <p class="user-status-title">
+                      <a class="bold">Français</a>
+                    </p>
+                  </div>
+                </div>
+              </a>
+              <br />
+              <a [routerLink]="" (click)="setLanguage('ar')">
+                <div
+                  class="dropdown-box-list-item"
+                  [ngClass]="{ active: currentUser?.language == 'ar' }"
+                >
+                  <div class="user-status request">
+                    <a class="user-status-avatar" href="profile-timeline.html">
+                      <div class="user-avatar small no-outline">
+                        <div class="user-avatar small no-outline">
+                          <figure>
+                            <img
+                              src="./assets/img/flag/TN.png"
+                              alt="avatar-01"
+                            />
+                          </figure>
+                        </div>
+                      </div>
+                    </a>
+
+                    <p class="user-status-title"><a class="bold">عربي</a></p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-list-item-wrap">
+          <div
+            [ngClass]="{ unread: notifications?.length }"
+            class="action-list-item header-dropdown-trigger"
+          >
+            <svg class="action-list-item-icon icon-notification">
+              <use xlink:href="#svg-notification"></use>
+            </svg>
+          </div>
+
+          <div class="dropdown-box header-dropdown">
+            <div class="dropdown-box-header">
+              <p class="dropdown-box-header-title">Notifications</p>
+
+              <div class="dropdown-box-header-actions">
+                <p class="dropdown-box-header-action">Mark all as Read</p>
+              </div>
+            </div>
+
+            <div class="dropdown-box-list" data-simplebar>
+              <div
+                *ngFor="let notification of notifications; let i = index"
+                class="dropdown-box-list-item unread"
+              >
+                <div class="user-status notification">
+                  <div class="user-status-avatar">
+                    <div class="user-avatar small no-outline">
+                      <figure>
+                        <img
+                          class="round"
+                          [src]="notification?.sender?.profilePicture | picture"
+                          alt="avatar-01"
+                        />
+                      </figure>
+                    </div>
+                  </div>
+
+                  <p class="user-status-title">
+                    <a
+                      [routerLink]="['/profile', notification.sender.slug]"
+                      class="bold"
+                    >
+                      {{ notification?.sender?.fullName }}
+                    </a>
+                    <a (click)="goToNotification(i)" [routerLink]="">{{
+                      notification?.type | translate
+                    }}</a>
+                  </p>
+
+                  <p class="user-status-timestamp">
+                    {{ notification?.createdAt | timeAgo: language }}
+                  </p>
+
+                  <div
+                    [hidden]="notification.type != 'commented_post'"
+                    class="user-status-icon"
+                  >
+                    <svg class="icon-comment">
+                      <use xlink:href="#svg-comment"></use>
+                    </svg>
+                  </div>
+
+                  <div
+                    [hidden]="notification.type != 'liked_post'"
+                    class="user-status-icon"
+                  >
+                    <svg class="icon-thumbs-up">
+                      <use xlink:href="#svg-thumbs-up"></use>
+                    </svg>
+                  </div>
+                  <div
+                    [hidden]="notification.type != 'followed_you'"
+                    class="user-status-icon"
+                  >
+                    <svg class="icon-thumbs-up">
+                      <use xlink:href="#svg-add-friend"></use>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a
+              class="dropdown-box-button secondary"
+              [routerLink]="['/notifications']"
+              >View all Notifications</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="action-item-wrap">
+        <div class="action-item dark header-settings-dropdown-trigger">
+          <svg class="action-item-icon icon-settings">
+            <use xlink:href="#svg-settings"></use>
+          </svg>
+        </div>
+
+        <div class="dropdown-navigation header-settings-dropdown">
+          <div class="dropdown-navigation-header">
+            <div class="user-status">
+              <div class="user-status-avatar">
+                <div class="user-avatar small no-outline">
+                  <figure>
+                    <img
+                      [src]="currentUser?.profilePicture | picture"
+                      alt="avatar-01"
+                    />
+                  </figure>
+                </div>
+              </div>
+
+              <p class="user-status-title">
+                <span class="bold">Hi {{ firstname }}!</span>
+              </p>
+            </div>
+          </div>
+
+          <p class="dropdown-navigation-category">Account</p>
+
+          <a class="dropdown-navigation-link" [routerLink]="['/settings']"
+            >Account Info</a
+          >
+
+          <p class="dropdown-navigation-category">Reservations</p>
+          <a
+            class="dropdown-navigation-link"
+            [routerLink]="['/booking-requests']"
+            >{{ "manage_res_req" | translate }}</a
+          >
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/services']">
+              {{ "my_services" | translate }}
+            </a>
+          </p>
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/equipments']">
+              {{ "my_equipments" | translate }}
+            </a>
+          </p>
+
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/boats']">
+              {{ "my_boats" | translate }}
+            </a>
+          </p>
+
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/homes']">
+              {{ "my_homes" | translate }}
+            </a>
+          </p>
+          <p
+            *ngIf="isAdmin"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/admin']">
+              Administration
+            </a>
+          </p>
+
+          <a (click)="logout()" [routerLink]="">
+            <p class="dropdown-navigation-button button small secondary">
+              {{ "logout" | translate }}
+            </p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="header-actions search-bar">
+    <div class="interactive-input dark">
+      <input
+        (keyup)="search()"
+        [(ngModel)]="searchKeyword"
+        type="text"
+        id="search-main"
+        name="search_main"
+        placeholder="Search here for people or groups"
+        class="form-control"
+      />
+
+      <div class="interactive-input-icon-wrap">
+        <svg class="interactive-input-icon icon-magnifying-glass">
+          <use xlink:href="#svg-magnifying-glass"></use>
+        </svg>
+      </div>
+
+      <div class="interactive-input-action">
+        <svg class="interactive-input-action-icon icon-cross-thin">
+          <use xlink:href="#svg-cross-thin"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="dropdown-box padding-bottom-small header-search-dropdown">
+      <div class="dropdown-box-category">
+        <p class="dropdown-box-category-title">Members</p>
+      </div>
+
+      <div class="dropdown-box-list small no-scroll">
+        <a
+          *ngFor="let user of searchedUsers"
+          [routerLink]="['/profile', user?.slug]"
+          routerLinkActive="router-link-active"
+          class="dropdown-box-list-item"
+        >
+          <div class="user-status notification">
+            <div class="user-status-avatar">
+              <div class="user-avatar small no-outline">
+                <figure class="picture round liquid small">
+                  <img
+                    class="round"
+                    [src]="user?.profilePicture | picture"
+                    alt="avatar-01"
+                  />
+                </figure>
+              </div>
+            </div>
+
+            <p class="user-status-title">
+              <span class="bold">{{ user?.fullName }}</span>
+            </p>
+
+            <div class="user-status-icon">
+              <svg class="icon-friend">
+                <use xlink:href="#svg-friend"></use>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!--   <div *ngIf="isGuest" class="header-actions">
+
+    <form class="login-form">
+
+      <div class="form-row split">
+
+        <button
+          [routerLink]="['/login']"
+          style="width: 200px; margin-right: 52px"
+          class="button medium secondary"
+        >
+          {{ "login" | translate
+        }}
+        </button>
+      </div>
+    </form>
+
+  </div> -->
+
+  <div *ngIf="isGuest" class="header-actions">
+    <form class="login-form">
+      <div class="form-row split">
+        <button [routerLink]="['/login']" class="btn btn-default">
+          {{ "login" | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</header>

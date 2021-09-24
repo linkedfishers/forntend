@@ -1,8 +1,13 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
-import { EquipmentType } from 'src/app/interfaces/equipments.interface';
+import {
+  EquipmentType,
+  BoatType,
+  HebergementType,
+  ServiceType,
+} from 'src/app/interfaces/equipments.interface';
 import { Notification } from 'src/app/interfaces/posts.interface';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
@@ -14,7 +19,6 @@ import { environment } from 'src/environments/environment';
 
 declare var initHeader, initHexagons: any;
 
-
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -25,6 +29,7 @@ export class HeaderComponent implements OnInit {
     private translate: TranslateService,
     private toastr: ToastrService,
     private router: Router,
+    private route: ActivatedRoute,
     private authService: AuthService,
     private userService: UserService,
     private equipmentService: EquipmentService,
@@ -34,20 +39,19 @@ export class HeaderComponent implements OnInit {
 
   currentUser: User;
   firstname: string;
-
+  selected: string = '';
   notifications: Notification[];
   isAdmin = false;
   isProvider = false;
-
   language: string;
-
   searchKeyword: string;
-
   searchedUsers: User[] = [];
-
   isGuest = true;
   fullName: string = '';
   equipmentTypes: EquipmentType[];
+  boatTypes: BoatType[];
+  hebergementTypes: HebergementType[];
+  serviceTypes: ServiceType[];
   ngOnInit(): void {
     initHeader();
     this.language = this.translate.currentLang;
@@ -101,6 +105,39 @@ export class HeaderComponent implements OnInit {
     }
     initHexagons();
     this.isAdmin = this.authService.isAdmin();
+    this.equipmentService.getEquipmentTypes().subscribe(
+      (result) => {
+        this.equipmentTypes = result.data;
+      },
+      (err) => {
+        this.toastr.error('Error while Loading Equipments Types');
+      }
+    );
+    this.equipmentService.getBoatTypes().subscribe(
+      (rslt) => {
+        this.boatTypes = rslt.data;
+        console.log(this.boatTypes);
+      },
+      (err) => {
+        this.toastr.error('Error while Loading BoatType');
+      }
+    );
+    this.equipmentService.getHebergementTypes().subscribe(
+      (rslt) => {
+        this.hebergementTypes = rslt.data;
+      },
+      (err) => {
+        this.toastr.error('Error while loading HebergementType');
+      }
+    );
+    this.equipmentService.getServiceTypes().subscribe(
+      (rsl) => {
+        this.serviceTypes = rsl.data;
+      },
+      (err) => {
+        this.toastr.error('Error while loading ServiceType');
+      }
+    );
   }
 
   setLanguage(language: string) {

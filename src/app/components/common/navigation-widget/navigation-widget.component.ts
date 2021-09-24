@@ -41,7 +41,6 @@ export class NavigationWidgetComponent implements OnInit {
   hebergementType: HebergementType[];
   serviceTypes: ServiceType[];
   ngOnInit(): void {
-  
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
     if (this.currentUser) {

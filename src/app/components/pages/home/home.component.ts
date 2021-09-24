@@ -9,15 +9,14 @@ import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 declare var initContent, initSidebar, initHexagons, $: any;
-import { OwlOptions } from "ngx-owl-carousel-o"
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-
   constructor(
     private postService: PostService,
     private toastr: ToastrService,
@@ -25,14 +24,12 @@ export class HomeComponent implements OnInit {
     private eventService: EventService,
     private userService: UserService,
     private translate: TranslateService,
-    private authService: AuthService,
-
-  ) { }
+    private authService: AuthService
+  ) {}
 
   readonly API: string = environment.apiUrl + '/';
 
-
-  posts: Post[] = []
+  posts: Post[] = [];
   newPost: Post;
   imageSrc: any;
   formData: FormData;
@@ -46,9 +43,11 @@ export class HomeComponent implements OnInit {
 
   isGuest = true;
 
-  carousselPictures = ["assets/img/banner/fishing-rod-wheel-close-up.jpg",
-    "assets/img/banner/angler-holds-trophy-fish-carp.jpg",
-    "assets/img/banner/group-unrecognizable-adult-men-fishing.jpg"]
+  carousselPictures = [
+    'assets/img/banner/fishing-rod-wheel-close-up.jpg',
+    'assets/img/banner/angler-holds-trophy-fish-carp.jpg',
+    'assets/img/banner/group-unrecognizable-adult-men-fishing.jpg',
+  ];
 
   ngOnInit(): void {
     const currentUser = this.authService.getCurrentUser();
@@ -60,34 +59,30 @@ export class HomeComponent implements OnInit {
     initSidebar();
     initHexagons();
     this.postService.getPosts().subscribe(
-      res => {
+      (res) => {
         this.posts.push(...res.data);
       },
-      err => {
+      (err) => {
         this.toastr.error(err.error.message);
       }
     );
     this.eventService.getUpcoming().subscribe(
-      res => {
-        res.data.forEach(
-          event => {
-            let day = new Date(event.startDate).toISOString().split('T')[0];
-            if (!this.upcomingEvents[day]) this.upcomingEvents[day] = [];
-            this.upcomingEvents[day].push(event)
-          }
-        );
+      (res) => {
+        res.data.forEach((event) => {
+          let day = new Date(event.startDate).toISOString().split('T')[0];
+          if (!this.upcomingEvents[day]) this.upcomingEvents[day] = [];
+          this.upcomingEvents[day].push(event);
+        });
       },
-      err => {
+      (err) => {
         console.log(err);
       }
     );
-    this.userService.getFeedUsers().subscribe(
-      res => {
-        this.popularUsers = res.data.popularUsers;
-        this.activeUsers = res.data.activeUsers;
-        this.newestUsers = res.data.newestUsers;
-      }
-    )
+    this.userService.getFeedUsers().subscribe((res) => {
+      this.popularUsers = res.data.popularUsers;
+      this.activeUsers = res.data.activeUsers;
+      this.newestUsers = res.data.newestUsers;
+    });
   }
 
   createPost() {
@@ -101,22 +96,24 @@ export class HomeComponent implements OnInit {
       }
     }
     this.postService.createPost(this.formData).subscribe(
-      res => {
+      (res) => {
         this.posts.unshift(res.data);
         this.discardPost();
       },
-      err => { console.log(err) }
-    )
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   discardPost() {
     this.newPost = new Post();
     this.formData = null;
-    this.imageSrc = "";
+    this.imageSrc = '';
   }
 
   openFileInput() {
-    $("#postPhoto").click();
+    $('#postPhoto').click();
   }
 
   fileChange(event) {
@@ -126,7 +123,7 @@ export class HomeComponent implements OnInit {
       this.formData = new FormData();
       this.formData.append('file', file, file.name);
       const reader = new FileReader();
-      reader.onload = e => {
+      reader.onload = (e) => {
         this.imageSrc = e.target['result'];
       };
       reader.readAsDataURL(fileList[0]);
@@ -140,19 +137,19 @@ export class HomeComponent implements OnInit {
     this.posts = [];
     if (tabIndex == 0) {
       this.postService.getPosts().subscribe(
-        res => {
+        (res) => {
           this.posts = res.data;
         },
-        err => {
+        (err) => {
           this.toastr.error(err.error.message);
         }
       );
     } else if (tabIndex == 1) {
       this.postService.getFollowingPosts().subscribe(
-        res => {
+        (res) => {
           this.posts = res.data;
         },
-        err => {
+        (err) => {
           this.toastr.error(err.error.message);
         }
       );
@@ -167,9 +164,8 @@ export class HomeComponent implements OnInit {
   }
 
   deletePost(postId) {
-    let pos = this.posts.findIndex(post => post._id == postId);
+    let pos = this.posts.findIndex((post) => post._id == postId);
     if (pos < 0) return;
     this.posts.splice(pos, 1);
   }
-
 }
