@@ -1012,7 +1012,7 @@ textarea::placeholder {
   margin-top: 30px;
 }
 .content-grid .grid {
-  margin-top: 32px;
+  margin-top: 0px;
 }
 .content-grid .grid.medium-space {
   margin-top: 64px;
