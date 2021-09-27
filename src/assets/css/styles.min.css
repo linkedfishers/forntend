@@ -850,10 +850,10 @@ textarea::placeholder {
 }
 .icon-logo-vikinger {
   fill: #fff;
-  width: 115px;
-  height: 110px;
-  position: absolute;
-  top: 9px;
+  width: 108px;
+  height: 88px;
+  position: relative;
+  top: 0px;
   left: 15px;
 }
 .icon-logo-vikinger.small {
@@ -11759,6 +11759,7 @@ figure > img {
 }
 .header .header-actions.search-bar {
   width: 30%;
+  display: none !important;
 }
 .header .header-actions.search-bar .header-search-dropdown {
   width: 100%;

@@ -69,6 +69,7 @@ a.menu-main-item-link {
 
 .header-actions.search-bar {
   margin: 10px auto !important;
+  display: none !important;
 }
 
 .flexnav {
@@ -77,12 +78,13 @@ a.menu-main-item-link {
 
 .navabso {
   position: absolute !important;
-  left: 377px;
-  top: 98px;
+  left: 26%;
+  top: 77px;
   background: rgba(50, 78, 170, 0.295);
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  background: white;
+  background: #226ab2;
+  border-radius: 4px;
 }
 
 @media (max-width: 991px) {
@@ -123,7 +125,7 @@ a.menu-main-item-link {
 
 .dropdown-content a:hover {
   background-color: rgb(33, 61, 138);
-  border-radius: 8px;
+
   color: #ffffff !important;
 }
 .dropdown:hover .dropdown-content {
@@ -152,7 +154,10 @@ header {
     left: initial !important;
   }
 }
-
+.fork {
+  width: 100% !important;
+  justify-content: center !important;
+}
 @media (max-width: 990px) {
   .fork {
     margin-top: 80px !important;
@@ -160,4 +165,8 @@ header {
 }
 .navbar-expand-lg .navbar-nav .nav-link {
   font-weight: 700 !important;
+}
+
+.navabso .navbar-nav .nav-item .nav-link {
+  color: white !important;
 }

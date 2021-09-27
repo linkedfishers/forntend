@@ -454,7 +454,9 @@
  -->
 
 <header class="test">
-  <nav class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default">
+  <nav
+    class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default"
+  >
     <div>
       <a [routerLink]="['/']">
         <div class="header-brand">
@@ -525,7 +527,8 @@
       <div
         class="
           navbar navbar-horizontal navbar-expand-lg navbar-primary
-          bg-default navabso
+          bg-default
+          navabso
         "
       >
         <ul class="navbar-nav ml-lg-auto">
@@ -536,6 +539,15 @@
           >
             <a class="nav-link nav-link-icon" [routerLink]="['/main']"
               >{{ "feed" | translate }}
+            </a>
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="active"
+          >
+            <a class="nav-link nav-link-icon" [routerLink]="['/events']"
+              >{{ "events" | translate }}
             </a>
           </li>
           <li
