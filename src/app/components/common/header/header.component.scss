@@ -75,7 +75,9 @@ a.menu-main-item-link {
 .flexnav {
   display: flex !important;
 }
-
+.navabso .navbar-nav .nav-item .nav-link {
+  color: white;
+}
 .navabso {
   position: relative !important;
   /*   left: 26%; */
@@ -167,15 +169,24 @@ header {
 }
 @media (max-width: 992px) {
   .fork {
-    margin-top: 80px !important;
+    margin-top: 20px !important;
+  }
+  .navabso {
+    background: rgba(255, 255, 255, 0);
+  }
+  .navabso .navbar-nav .nav-item .nav-link {
+    color: rgb(56, 51, 51) !important;
+    font-size: 22px;
+  }
+  .navbar-collapse.collapse.show {
+    background-image: url("../../../../assets/img/logo silver & blanc-ai.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
   }
 }
 .navbar-expand-lg .navbar-nav .nav-link {
   font-weight: 700 !important;
-}
-
-.navabso .navbar-nav .nav-item .nav-link {
-  color: rgb(252, 249, 249) !important;
 }
 
 .zero-auto {
