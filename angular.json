@@ -106,10 +106,12 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-  
-          "options": {
-            "browserTarget": "seven-seas-frontend:build"
 
+          "options": {
+            "browserTarget": "seven-seas-frontend:build",
+            "ssl": true,
+            "sslKey": "ssl/www.linkedfishers.com.key",
+            "sslCert": "ssl/www.linkedfishers.com.pem"
           },
 
           "configurations": {
