@@ -850,11 +850,11 @@ textarea::placeholder {
 }
 .icon-logo-vikinger {
   fill: #fff;
-  width: 108px;
+
   height: 88px;
   position: relative;
   top: 0px;
-  left: 15px;
+  left: 0px;
 }
 .icon-logo-vikinger.small {
   width: 85px !important;

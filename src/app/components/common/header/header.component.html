@@ -464,7 +464,7 @@
             <img
               id="logo"
               class="icon-logo-vikinger"
-              src="../../../../assets/img/logo silver & blanc-ai.png"
+              src="../../../../assets/img/Nouveau projet (8).png"
             />
           </div>
         </div>
@@ -507,15 +507,59 @@
             >{{ "home" | translate }}
           </a>
         </li>
-        <li class="nav-item" *ngIf="isAdmin">
+        <!--   <li class="nav-item" *ngIf="isAdmin">
           <a class="nav-link nav-link-icon" [routerLink]="['/admin']">
             {{ "admin" | translate }}
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-icon" [routerLink]="['/reglement']">
-            {{ "rules" | translate }}
+        </li> -->
+        <li
+          class="nav-item"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+        >
+          <a class="nav-link nav-link-icon" [routerLink]="['/main']"
+            >{{ "feed" | translate }}
           </a>
+        </li>
+        <li
+          class="nav-item"
+          [routerLinkActiveOptions]="{ exact: true }"
+          routerLinkActive="active"
+        >
+          <a class="nav-link nav-link-icon" [routerLink]="['/events']"
+            >{{ "events" | translate }}
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="nav-link nav-link-icon" [routerLink]="['/list-boats']">
+              {{ "boats" | translate }}
+            </a>
+            <div class="dropdown-content">
+              <a
+                class="color41eff"
+                [routerLink]="['/boats/type/', item?._id]"
+                *ngFor="let item of boatTypes"
+                >{{ item?.name }}</a
+              >
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div class="dropdown">
+            <a class="nav-link nav-link-icon" [routerLink]="['/list-home']">
+              {{ "homes" | translate }}
+            </a>
+            <div class="dropdown-content">
+              <a
+                [routerLink]="['/hebergements/type/', item?._id]"
+                *ngFor="let item of hebergementTypes"
+                >{{ item?.name }}</a
+              >
+            </div>
+          </div>
         </li>
         <li class="nav-item" *ngIf="!isProvider">
           <a class="nav-link nav-link-icon" [routerLink]="['/map']">
@@ -534,24 +578,6 @@
         <ul class="navbar-nav ml-lg-auto zero-auto">
           <li
             class="nav-item"
-            [routerLinkActiveOptions]="{ exact: true }"
-            routerLinkActive="active"
-          >
-            <a class="nav-link nav-link-icon" [routerLink]="['/main']"
-              >{{ "feed" | translate }}
-            </a>
-          </li>
-          <li
-            class="nav-item"
-            [routerLinkActiveOptions]="{ exact: true }"
-            routerLinkActive="active"
-          >
-            <a class="nav-link nav-link-icon" [routerLink]="['/events']"
-              >{{ "events" | translate }}
-            </a>
-          </li>
-          <li
-            class="nav-item"
             *ngIf="isProvider"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="active"
@@ -563,11 +589,7 @@
               Product
             </a>
           </li>
-          <li class="nav-item" routerLinkActive="active" *ngIf="!isProvider">
-            <a class="nav-link nav-link-icon" [routerLink]="['/weather']">
-              {{ "weather" | translate }}
-            </a>
-          </li>
+
           <li class="nav-item">
             <a
               class="nav-link nav-link-icon"
@@ -576,20 +598,7 @@
               {{ "marketplace" | translate }}
             </a>
           </li>
-          <li class="nav-item">
-            <div class="dropdown">
-              <a class="nav-link nav-link-icon" [routerLink]="['/list-home']">
-                {{ "homes" | translate }}
-              </a>
-              <div class="dropdown-content">
-                <a
-                  [routerLink]="['/hebergements/type/', item?._id]"
-                  *ngFor="let item of hebergementTypes"
-                  >{{ item?.name }}</a
-                >
-              </div>
-            </div>
-          </li>
+
           <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link nav-link-icon" [routerLink]="['/list-boats']">
@@ -640,6 +649,11 @@
                 >
               </div>
             </div>
+          </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="!isProvider">
+            <a class="nav-link nav-link-icon" [routerLink]="['/weather']">
+              {{ "weather" | translate }}
+            </a>
           </li>
         </ul>
       </div>
@@ -988,7 +1002,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="isGuest" class="header-actions btnwidth">
+  <!--   <div *ngIf="isGuest" class="header-actions btnwidth">
     <form class="login-form">
       <div class="form-row split">
         <button [routerLink]="['/login']" class="btn btn-primary" type="button">
@@ -996,5 +1010,5 @@
         </button>
       </div>
     </form>
-  </div>
+  </div> -->
 </header>

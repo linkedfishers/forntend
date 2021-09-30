@@ -76,19 +76,19 @@ a.menu-main-item-link {
   display: flex !important;
 }
 .navabso .navbar-nav .nav-item .nav-link {
-  color: white;
+  color: #555672;
 }
 .navabso {
   position: relative !important;
   /*   left: 26%; */
   margin: 0 auto !important;
-  top: 35px;
-  max-width: 800px !important;
-  background: rgba(50, 78, 170, 0.295);
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  background: #226ab2;
-  border-radius: 4px;
+  top: 0px;
+  max-width: 600px !important;
+  /*   background: rgba(50, 78, 170, 0.295); */
+  /*  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px; */
+  /* background: #226ab2; */
+  /* border-radius: 4px; */
 }
 .collapse {
   display: block !important;
@@ -118,7 +118,7 @@ a.menu-main-item-link {
 .dropdown-content {
   display: none;
   position: fixed;
-  background-color: rgba(245, 245, 220, 0);
+  background-color: rgba(247, 247, 241, 0.829);
   border-radius: 8px;
   min-width: 160px;
   z-index: 9999999999999999999999999999;
@@ -133,7 +133,7 @@ a.menu-main-item-link {
 }
 
 .dropdown-content a:hover {
-  background-color: rgb(33, 61, 138);
+  background-color: #226ab2;
 
   color: #ffffff !important;
 }
@@ -144,14 +144,14 @@ header {
   width: 100%;
   z-index: 9999999999999 !important;
   position: fixed;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  background: white;
+  /*   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;*/
+  background: #f8f8fb;
 }
 .btnwidth {
   position: absolute;
-  top: 7px;
-  left: 158px;
+  top: 0px;
+  right: 158px;
   width: 200px !important;
   margin: 0 auto;
   padding: 10px !important;
@@ -186,9 +186,16 @@ header {
   }
 }
 .navbar-expand-lg .navbar-nav .nav-link {
-  font-weight: 700 !important;
+  /*  font-weight: 400 !important; */
+  letter-spacing: 3px;
+  font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .zero-auto {
   margin: 0 auto !important;
+}
+
+.nav-item {
+  margin: 0 3px 0 3px;
 }
