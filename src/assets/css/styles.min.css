@@ -329,7 +329,7 @@ textarea::placeholder {
   height: 160px;
 }
 .form-input.active label {
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.61);
   padding: 0 6px;
   font-size: 0.75rem;
   top: -6px;
@@ -1494,7 +1494,7 @@ figure > img {
   background-color: #1bc5d4;
 }
 .button.secondary {
-  background-color: #615dfa;
+  background-color: #226ab2;
   box-shadow: 4px 7px 12px 0 rgba(97, 93, 250, 0.2);
 }
 .button.secondary:hover {
@@ -1549,7 +1549,7 @@ figure > img {
   text-align: center;
   position: relative;
 }
-.lined-text:after,
+/* .lined-text:after,
 .lined-text:before {
   content: "";
   width: 70px;
@@ -1563,7 +1563,7 @@ figure > img {
 }
 .lined-text:after {
   right: 0;
-}
+} */
 .social-links {
   display: -ms-flexbox;
   display: flex;
@@ -7254,7 +7254,7 @@ figure > img {
   text-align: center;
 }
 .form-box .form {
-  margin-top: 76px;
+  margin-top: 0px;
 }
 .form-box .lined-text {
   margin-top: 40px;
@@ -7344,7 +7344,7 @@ figure > img {
   left: 0;
 }
 .landing-form .form-box:first-child {
-  margin-top: -313px;
+  margin-top: -260px;
 }
 .landing-form .form-box:last-child {
   margin-top: -370px;

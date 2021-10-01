@@ -661,7 +661,7 @@
       <!-- ****************** -->
     </div>
 
-    <div [hidden]="isGuest" class="header-actions flexnav">
+    <div [hidden]="isGuest" class="header-actions">
       <!-- ACTION LIST -->
       <div class="action-list dark">
         <!-- ACTION LIST ITEM WRAP -->
@@ -1079,13 +1079,13 @@
       </div>
     </div>
   </div>
-  <!--   <div *ngIf="isGuest" class="header-actions btnwidth">
+   <div *ngIf="isGuest" class="header-actions btnwidth">
     <form class="login-form">
       <div class="form-row split">
-        <button [routerLink]="['/login']" class="btn btn-primary" type="button">
+        <button [routerLink]="['/login']" class=" btn btn-outline-primary" type="button">
           {{ "login" | translate }}
         </button>
       </div>
     </form>
-  </div> -->
+  </div>
 </header>
