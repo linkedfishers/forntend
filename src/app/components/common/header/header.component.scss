@@ -4,7 +4,7 @@
 }
 
 .dropdown-box.header-dropdown.language {
-  height: 250px;
+  height: 360px;
 }
 
 img.round {
@@ -77,6 +77,7 @@ a.menu-main-item-link {
 }
 .navabso .navbar-nav .nav-item .nav-link {
   color: #555672;
+  text-transform: uppercase;
 }
 .navabso {
   position: relative !important;
@@ -177,6 +178,7 @@ header {
   .navabso .navbar-nav .nav-item .nav-link {
     color: rgb(56, 51, 51) !important;
     font-size: 22px;
+    text-transform: uppercase;
   }
   .navbar-collapse.collapse.show {
     background-image: url("../../../../assets/img/logo silver & blanc-ai.png");
@@ -190,6 +192,7 @@ header {
   letter-spacing: 3px;
   font-size: 13px;
   font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
 }
 
 .zero-auto {

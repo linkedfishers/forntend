@@ -662,49 +662,74 @@
     </div>
 
     <div [hidden]="isGuest" class="header-actions flexnav">
+      <!-- ACTION LIST -->
       <div class="action-list dark">
+        <!-- ACTION LIST ITEM WRAP -->
         <div class="action-list-item-wrap">
+          <!-- ACTION LIST ITEM -->
           <div class="action-list-item header-dropdown-trigger">
+            <!-- ACTION LIST ITEM ICON -->
             <svg class="action-list-item-icon icon-friend">
               <use xlink:href="#svg-translate"></use>
             </svg>
+            <!-- /ACTION LIST ITEM ICON -->
           </div>
+          <!-- /ACTION LIST ITEM -->
 
-          <div class="dropdown-box header-dropdown language heig">
+          <!-- DROPDOWN BOX -->
+          <div class="dropdown-box header-dropdown language">
+            <!-- DROPDOWN BOX HEADER -->
             <div class="dropdown-box-header">
+              <!-- DROPDOWN BOX HEADER TITLE -->
               <p class="dropdown-box-header-title">
                 {{ "language" | translate }}
               </p>
+              <!-- /DROPDOWN BOX HEADER TITLE -->
             </div>
+            <!-- /DROPDOWN BOX HEADER -->
 
+            <!-- DROPDOWN BOX LIST -->
             <div class="dropdown-box-list" data-simplebar>
+              <!-- DROPDOWN BOX LIST ITEM -->
               <a [routerLink]="" (click)="setLanguage('en')">
                 <div
                   class="dropdown-box-list-item"
                   [ngClass]="{ active: currentUser?.language == 'en' }"
                 >
+                  <!-- USER STATUS -->
                   <div class="user-status request">
+                    <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
+                      <!-- USER AVATAR -->
                       <div class="user-avatar small no-outline">
                         <figure>
                           <img src="./assets/img/flag/GB.png" alt="avatar-01" />
                         </figure>
                       </div>
+                      <!-- /USER AVATAR -->
                     </a>
+                    <!-- /USER STATUS AVATAR -->
 
+                    <!-- USER STATUS TITLE -->
                     <p class="user-status-title"><a class="bold">English</a></p>
+                    <!-- /USER STATUS TITLE -->
                   </div>
+                  <!-- /USER STATUS -->
                 </div>
               </a>
               <br />
-
+              <!-- /DROPDOWN BOX LIST ITEM -->
+              <!-- DROPDOWN BOX LIST ITEM -->
               <a [routerLink]="" (click)="setLanguage('fr')">
                 <div
                   class="dropdown-box-list-item"
                   [ngClass]="{ active: currentUser?.language == 'fr' }"
                 >
+                  <!-- USER STATUS -->
                   <div class="user-status request">
+                    <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
+                      <!-- USER AVATAR -->
                       <div class="user-avatar small no-outline">
                         <div class="user-avatar small no-outline">
                           <figure>
@@ -715,22 +740,32 @@
                           </figure>
                         </div>
                       </div>
+                      <!-- /USER AVATAR -->
                     </a>
+                    <!-- /USER STATUS AVATAR -->
 
+                    <!-- USER STATUS TITLE -->
                     <p class="user-status-title">
                       <a class="bold">Français</a>
                     </p>
+                    <!-- /USER STATUS TITLE -->
                   </div>
+                  <!-- /USER STATUS -->
                 </div>
               </a>
+
               <br />
+
               <a [routerLink]="" (click)="setLanguage('ar')">
                 <div
                   class="dropdown-box-list-item"
                   [ngClass]="{ active: currentUser?.language == 'ar' }"
                 >
+                  <!-- USER STATUS -->
                   <div class="user-status request">
+                    <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
+                      <!-- USER AVATAR -->
                       <div class="user-avatar small no-outline">
                         <div class="user-avatar small no-outline">
                           <figure>
@@ -741,41 +776,70 @@
                           </figure>
                         </div>
                       </div>
+                      <!-- /USER AVATAR -->
                     </a>
+                    <!-- /USER STATUS AVATAR -->
 
-                    <p class="user-status-title"><a class="bold">عربي</a></p>
+                    <!-- USER STATUS TITLE -->
+                    <p class="user-status-title">
+                      <a class="bold">Français</a>
+                    </p>
+                    <!-- /USER STATUS TITLE -->
                   </div>
+                  <!-- /USER STATUS -->
                 </div>
               </a>
+              <!-- /DROPDOWN BOX LIST ITEM -->
             </div>
+            <!-- /DROPDOWN BOX LIST -->
           </div>
+          <!-- /DROPDOWN BOX -->
         </div>
+        <!-- /ACTION LIST ITEM WRAP -->
 
+        <!-- ACTION LIST ITEM WRAP -->
         <div class="action-list-item-wrap">
+          <!-- ACTION LIST ITEM -->
           <div
             [ngClass]="{ unread: notifications?.length }"
             class="action-list-item header-dropdown-trigger"
           >
+            <!-- ACTION LIST ITEM ICON -->
             <svg class="action-list-item-icon icon-notification">
               <use xlink:href="#svg-notification"></use>
             </svg>
+            <!-- /ACTION LIST ITEM ICON -->
           </div>
+          <!-- /ACTION LIST ITEM -->
 
+          <!-- DROPDOWN BOX -->
           <div class="dropdown-box header-dropdown">
+            <!-- DROPDOWN BOX HEADER -->
             <div class="dropdown-box-header">
+              <!-- DROPDOWN BOX HEADER TITLE -->
               <p class="dropdown-box-header-title">Notifications</p>
+              <!-- /DROPDOWN BOX HEADER TITLE -->
 
+              <!-- DROPDOWN BOX HEADER ACTIONS -->
               <div class="dropdown-box-header-actions">
+                <!-- DROPDOWN BOX HEADER ACTION -->
                 <p class="dropdown-box-header-action">Mark all as Read</p>
+                <!-- /DROPDOWN BOX HEADER ACTION -->
               </div>
+              <!-- /DROPDOWN BOX HEADER ACTIONS -->
             </div>
+            <!-- /DROPDOWN BOX HEADER -->
 
+            <!-- DROPDOWN BOX LIST -->
             <div class="dropdown-box-list" data-simplebar>
+              <!-- DROPDOWN BOX LIST ITEM -->
               <div
                 *ngFor="let notification of notifications; let i = index"
                 class="dropdown-box-list-item unread"
               >
+                <!-- USER STATUS -->
                 <div class="user-status notification">
+                  <!-- USER STATUS AVATAR -->
                   <div class="user-status-avatar">
                     <div class="user-avatar small no-outline">
                       <figure>
@@ -787,7 +851,9 @@
                       </figure>
                     </div>
                   </div>
+                  <!-- /USER STATUS AVATAR -->
 
+                  <!-- USER STATUS TITLE -->
                   <p class="user-status-title">
                     <a
                       [routerLink]="['/profile', notification.sender.slug]"
@@ -799,20 +865,26 @@
                       notification?.type | translate
                     }}</a>
                   </p>
+                  <!-- /USER STATUS TITLE -->
 
+                  <!-- USER STATUS TIMESTAMP -->
                   <p class="user-status-timestamp">
                     {{ notification?.createdAt | timeAgo: language }}
                   </p>
+                  <!-- /USER STATUS TIMESTAMP -->
 
+                  <!-- USER STATUS ICON -->
                   <div
                     [hidden]="notification.type != 'commented_post'"
                     class="user-status-icon"
                   >
+                    <!-- ICON COMMENT -->
                     <svg class="icon-comment">
                       <use xlink:href="#svg-comment"></use>
                     </svg>
                   </div>
 
+                  <!-- USER STATUS ICON -->
                   <div
                     [hidden]="notification.type != 'liked_post'"
                     class="user-status-icon"
@@ -821,6 +893,7 @@
                       <use xlink:href="#svg-thumbs-up"></use>
                     </svg>
                   </div>
+                  <!-- USER STATUS ICON -->
                   <div
                     [hidden]="notification.type != 'followed_you'"
                     class="user-status-icon"
@@ -829,29 +902,47 @@
                       <use xlink:href="#svg-add-friend"></use>
                     </svg>
                   </div>
+                  <!-- /USER STATUS ICON -->
                 </div>
+                <!-- /USER STATUS -->
               </div>
+              <!-- /DROPDOWN BOX LIST ITEM -->
             </div>
+            <!-- /DROPDOWN BOX LIST -->
 
+            <!-- DROPDOWN BOX BUTTON -->
             <a
               class="dropdown-box-button secondary"
               [routerLink]="['/notifications']"
               >View all Notifications</a
             >
+            <!-- /DROPDOWN BOX BUTTON -->
           </div>
+          <!-- /DROPDOWN BOX -->
         </div>
+        <!-- /ACTION LIST ITEM WRAP -->
       </div>
+      <!-- /ACTION LIST -->
 
+      <!-- ACTION ITEM WRAP -->
       <div class="action-item-wrap">
+        <!-- ACTION ITEM -->
         <div class="action-item dark header-settings-dropdown-trigger">
+          <!-- ACTION ITEM ICON -->
           <svg class="action-item-icon icon-settings">
             <use xlink:href="#svg-settings"></use>
           </svg>
+          <!-- /ACTION ITEM ICON -->
         </div>
+        <!-- /ACTION ITEM -->
 
+        <!-- DROPDOWN NAVIGATION -->
         <div class="dropdown-navigation header-settings-dropdown">
+          <!-- DROPDOWN NAVIGATION HEADER -->
           <div class="dropdown-navigation-header">
+            <!-- USER STATUS -->
             <div class="user-status">
+              <!-- USER STATUS AVATAR -->
               <div class="user-status-avatar">
                 <div class="user-avatar small no-outline">
                   <figure>
@@ -862,80 +953,66 @@
                   </figure>
                 </div>
               </div>
+              <!-- /USER STATUS AVATAR -->
 
+              <!-- USER STATUS TITLE -->
               <p class="user-status-title">
                 <span class="bold">Hi {{ firstname }}!</span>
               </p>
+              <!-- /USER STATUS TITLE -->
             </div>
+            <!-- /USER STATUS -->
           </div>
+          <!-- /DROPDOWN NAVIGATION HEADER -->
 
+          <!-- DROPDOWN NAVIGATION CATEGORY -->
           <p class="dropdown-navigation-category">Account</p>
+          <!-- /DROPDOWN NAVIGATION CATEGORY -->
 
+          <!-- DROPDOWN NAVIGATION LINK -->
           <a class="dropdown-navigation-link" [routerLink]="['/settings']"
             >Account Info</a
           >
+          <!-- /DROPDOWN NAVIGATION LINK -->
 
+          <!-- DROPDOWN NAVIGATION LINK -->
+          <a
+            class="dropdown-navigation-link"
+            [routerLink]="['/settings/change-password']"
+            >Change Password</a
+          >
+          <!-- /DROPDOWN NAVIGATION LINK -->
+
+          <!-- DROPDOWN NAVIGATION LINK -->
+          <a
+            class="dropdown-navigation-link"
+            [routerLink]="['/settings/social']"
+            >Social links</a
+          >
+          <!-- /DROPDOWN NAVIGATION LINK -->
+
+          <!-- DROPDOWN NAVIGATION CATEGORY -->
           <p class="dropdown-navigation-category">Reservations</p>
+          <!-- /DROPDOWN NAVIGATION CATEGORY -->
+          <!-- DROPDOWN NAVIGATION LINK -->
           <a
             class="dropdown-navigation-link"
             [routerLink]="['/booking-requests']"
-            >{{ "manage_res_req" | translate }}</a
+            >Manage reservations requests</a
           >
-          <p
-            *ngIf="!isProvider"
-            class="dropdown-navigation-link"
-            routerLinkActive="active"
-          >
-            <a class="menu-item-link" [routerLink]="['/services']">
-              {{ "my_services" | translate }}
-            </a>
-          </p>
-          <p
-            *ngIf="!isProvider"
-            class="dropdown-navigation-link"
-            routerLinkActive="active"
-          >
-            <a class="menu-item-link" [routerLink]="['/equipments']">
-              {{ "my_equipments" | translate }}
-            </a>
-          </p>
+          <!-- /DROPDOWN NAVIGATION LINK -->
 
-          <p
-            *ngIf="!isProvider"
-            class="dropdown-navigation-link"
-            routerLinkActive="active"
-          >
-            <a class="menu-item-link" [routerLink]="['/boats']">
-              {{ "my_boats" | translate }}
-            </a>
-          </p>
-
-          <p
-            *ngIf="!isProvider"
-            class="dropdown-navigation-link"
-            routerLinkActive="active"
-          >
-            <a class="menu-item-link" [routerLink]="['/homes']">
-              {{ "my_homes" | translate }}
-            </a>
-          </p>
-          <p
-            *ngIf="isAdmin"
-            class="dropdown-navigation-link"
-            routerLinkActive="active"
-          >
-            <a class="menu-item-link" [routerLink]="['/admin']">
-              Administration
-            </a>
-          </p>
-
+          <!-- DROPDOWN NAVIGATION BUTTON -->
           <a (click)="logout()" [routerLink]="">
             <p class="dropdown-navigation-button button small secondary">
-              {{ "logout" | translate }}
+              Logout
             </p>
           </a>
+          <!-- /DROPDOWN NAVIGATION BUTTON -->
         </div>
+        <!-- /DROPDOWN NAVIGATION -->
       </div>
+      <!-- /ACTION ITEM WRAP -->
     </div>
   </nav>
   <div class="header-actions search-bar">
