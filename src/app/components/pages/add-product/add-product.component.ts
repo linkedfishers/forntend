@@ -73,14 +73,13 @@ export class AddProductComponent implements OnInit {
     );
   }
   fileChange(event) {
-    
     this.imageSrc = '';
     let fileList: FileList = event.target.files;
     this.formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
       const el = fileList[i];
       console.log(el);
-      this.formData.append('file', el);
+      this.formData.append('files', el);
     }
 
     const reader = new FileReader();
