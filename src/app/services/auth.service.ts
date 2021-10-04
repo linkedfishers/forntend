@@ -8,53 +8,68 @@ import { Provider as Seller } from '../interfaces/provider.interface';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   readonly API: string = environment.apiUrl;
 
-  constructor(private httpClient: HttpClient, private translate: TranslateService) { }
+  constructor(
+    private httpClient: HttpClient,
+    private translate: TranslateService
+  ) {}
 
   readonly ID_TOKEN = 'acessToken';
 
   public authenticate(email: string, password: string) {
-    return this.httpClient.post<any>(this.API + "/auth/signin", { email, password })
-      .pipe(tap(res => this.setSession(res.data)));
+    return this.httpClient
+      .post<any>(this.API + '/auth/signin', { email, password })
+      .pipe(tap((res) => this.setSession(res.data)));
   }
 
   public authenticateWithGoogle(user: any) {
-    return this.httpClient.post<any>(this.API + "/auth/google", user)
-      .pipe(tap(res => this.setSession(res.data)));
+    return this.httpClient
+      .post<any>(this.API + '/auth/google', user)
+      .pipe(tap((res) => this.setSession(res.data)));
   }
 
   public signUp(user: any) {
-    return this.httpClient.post<any>(this.API + "/auth/signup", user)
+    return this.httpClient.post<any>(this.API + '/auth/signup', user);
   }
 
   public authenticateAsProvider(email: string, password: string) {
-    return this.httpClient.post<any>(this.API + "/auth/provider/signin", { email, password })
-      .pipe(tap(res => this.setProviderSession(res.data)));
+    return this.httpClient
+      .post<any>(this.API + '/auth/provider/signin', { email, password })
+      .pipe(tap((res) => this.setProviderSession(res.data)));
   }
 
   public signUpAsProvider(provider: any) {
-    return this.httpClient.post<any>(this.API + "/auth/provider/signup", provider)
+    return this.httpClient.post<any>(
+      this.API + '/auth/provider/signup',
+      provider
+    );
   }
 
   verifyActivationToken(token: string) {
-    return this.httpClient.get<any>(this.API + "/auth/activate/" + token)
+    return this.httpClient.get<any>(this.API + '/auth/activate/' + token);
   }
 
   public resetPasswordRequest(email: string) {
-    return this.httpClient.post<any>(this.API + "/auth/password-reset-request", { email });
+    return this.httpClient.post<any>(
+      this.API + '/auth/password-reset-request',
+      { email }
+    );
   }
   public resetPassword(password: string, passwordToken: string) {
-    return this.httpClient.post<any>(this.API + "/auth/reset-password", { password, passwordToken });
+    return this.httpClient.post<any>(this.API + '/auth/reset-password', {
+      password,
+      passwordToken,
+    });
   }
 
   updateUser(user: User) {
-    return this.httpClient.put<any>(`${this.API}/auth/user/${user._id}`, user)
-      .pipe(tap(res => this.setSession(res.data)));
+    return this.httpClient
+      .put<any>(`${this.API}/auth/user/${user._id}`, user)
+      .pipe(tap((res) => this.setSession(res.data)));
   }
 
   private setSession(authResponse) {
@@ -84,14 +99,12 @@ export class AuthService {
   public isAuthenticated() {
     try {
       const token = localStorage.getItem(this.ID_TOKEN);
-      return token ? !(new JwtHelperService().isTokenExpired(token)) : false;
-    }
-    catch (e) {
+      return token ? !new JwtHelperService().isTokenExpired(token) : false;
+    } catch (e) {
       localStorage.clear();
       return false;
     }
   }
-
 
   public getCurrentUser() {
     const token = localStorage.getItem(this.ID_TOKEN);
@@ -99,26 +112,36 @@ export class AuthService {
     return user;
   }
 
+  public getToken() {
+    const token = localStorage.getItem(this.ID_TOKEN);
+    console.log(token);
+    return token;
+  }
+
   public isAdmin() {
     if (!this.isAuthenticated()) return false;
     let token = localStorage.getItem(this.ID_TOKEN);
     let role = new JwtHelperService().decodeToken(token)['role'] as string;
-    return role === "admin"
+    return role === 'admin';
   }
 
   public isProvider() {
     if (!this.isAuthenticated()) return false;
     let token = localStorage.getItem(this.ID_TOKEN);
     let role = new JwtHelperService().decodeToken(token)['role'] as string;
-    return role === "provider"
+    return role === 'provider';
   }
 
   public verifyRestPasswordToken(passwordToken: string) {
-    return this.httpClient.get<any>(this.API + "/auth/verify-password-token/" + passwordToken);
+    return this.httpClient.get<any>(
+      this.API + '/auth/verify-password-token/' + passwordToken
+    );
   }
 
   updatePassword(oldPassword: string, newPassword: string) {
-    return this.httpClient.put<any>(this.API + "/auth/password", { oldPassword, newPassword });
+    return this.httpClient.put<any>(this.API + '/auth/password', {
+      oldPassword,
+      newPassword,
+    });
   }
-
 }
