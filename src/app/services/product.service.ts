@@ -16,7 +16,7 @@ export class ProductService {
   createProduct(formData: FormData) {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Bearer' + this.authService.isAuthenticated,
+      Authorization: 'Bearer' + this.authService.isAuthenticated(),
     });
     return this.httpClient.post<any>(`${this.API}/product/new`, formData, {
       headers: headers,
