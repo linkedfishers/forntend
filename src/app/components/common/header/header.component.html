@@ -500,7 +500,7 @@
           </div>
         </div>
       </div> -->
-
+        
       <ul class="navbar-nav ml-lg-auto fork">
         <li class="nav-item">
           <a class="nav-link nav-link-icon" [routerLink]="['/']"
@@ -1000,6 +1000,77 @@
             [routerLink]="['/booking-requests']"
             >Manage reservations requests</a
           >
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <a class="menu-item-link" [routerLink]="['/services']">
+              <!-- MENU ITEM LINK ICON -->
+
+              <!-- /MENU ITEM LINK ICON -->
+              My Services
+            </a>
+          </p>
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link" [routerLink]="['/equipments']">
+              <!-- MENU ITEM LINK ICON -->
+
+              <!-- /MENU ITEM LINK ICON -->
+              My Equipment
+            </a>
+            <!-- /MENU ITEM LINK -->
+          </p>
+          <!-- /MENU ITEM -->
+
+          <!-- MENU ITEM -->
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link" [routerLink]="['/boats']">
+              <!-- MENU ITEM LINK ICON -->
+
+              <!-- /MENU ITEM LINK ICON -->
+              My Boats
+            </a>
+            <!-- /MENU ITEM LINK -->
+          </p>
+          <!-- /MENU ITEM -->
+
+          <!-- MENU ITEM -->
+          <p
+            *ngIf="!isProvider"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link" [routerLink]="['/homes']">
+              <!-- MENU ITEM LINK ICON -->
+
+              <!-- /MENU ITEM LINK ICON -->
+              My Homes
+            </a>
+            <!-- /MENU ITEM LINK -->
+          </p>
+          <p
+            *ngIf="isAdmin"
+            class="dropdown-navigation-link"
+            routerLinkActive="active"
+          >
+            <!-- MENU ITEM LINK -->
+            <a class="menu-item-link" [routerLink]="['/admin']">
+              Administration
+            </a>
+            <!-- /MENU ITEM LINK -->
+          </p>
           <!-- /DROPDOWN NAVIGATION LINK -->
 
           <!-- DROPDOWN NAVIGATION BUTTON -->
@@ -1079,10 +1150,14 @@
       </div>
     </div>
   </div>
-   <div *ngIf="isGuest" class="header-actions btnwidth">
+  <div *ngIf="isGuest" class="header-actions btnwidth">
     <form class="login-form">
       <div class="form-row split">
-        <button [routerLink]="['/login']" class=" btn btn-outline-primary" type="button">
+        <button
+          [routerLink]="['/login']"
+          class="btn btn-outline-primary"
+          type="button"
+        >
           {{ "login" | translate }}
         </button>
       </div>
