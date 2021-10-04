@@ -92,6 +92,7 @@ export class AuthService {
     }
   }
 
+
   public getCurrentUser() {
     const token = localStorage.getItem(this.ID_TOKEN);
     let user: User = new JwtHelperService().decodeToken(token);

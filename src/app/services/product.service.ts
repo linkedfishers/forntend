@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,18 @@ import { environment } from 'src/environments/environment';
 export class ProductService {
   readonly API: string = environment.apiUrl + '/products';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService
+  ) {}
   createProduct(formData: FormData) {
-    return this.httpClient.post<any>(`${this.API}/product/new`, formData);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer' + this.authService.isAuthenticated,
+    });
+    return this.httpClient.post<any>(`${this.API}/product/new`, formData, {
+      headers: headers,
+    });
   }
   getProductByProvider(providerId: string) {
     return this.httpClient.get<any>(`${this.API}/provider/${providerId}`);
