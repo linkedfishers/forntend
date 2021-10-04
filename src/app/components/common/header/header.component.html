@@ -500,7 +500,7 @@
           </div>
         </div>
       </div> -->
-        
+
       <ul class="navbar-nav ml-lg-auto fork">
         <li class="nav-item">
           <a class="nav-link nav-link-icon" [routerLink]="['/']"
@@ -659,6 +659,19 @@
       </div>
 
       <!-- ****************** -->
+    </div>
+    <div *ngIf="isGuest" class="header-actions btnwidth">
+      <form class="login-form">
+        <div class="form-row split">
+          <button
+            [routerLink]="['/login']"
+            class="btn btn-outline-primary"
+            type="button"
+          >
+            {{ "login" | translate }}
+          </button>
+        </div>
+      </form>
     </div>
 
     <div [hidden]="isGuest" class="header-actions">
@@ -1149,18 +1162,5 @@
         </a>
       </div>
     </div>
-  </div>
-  <div *ngIf="isGuest" class="header-actions btnwidth">
-    <form class="login-form">
-      <div class="form-row split">
-        <button
-          [routerLink]="['/login']"
-          class="btn btn-outline-primary"
-          type="button"
-        >
-          {{ "login" | translate }}
-        </button>
-      </div>
-    </form>
   </div>
 </header>

@@ -45,9 +45,10 @@ a.menu-main-item-link {
 
 @media (max-width: 700px) {
   .logo .icon-logo-vikinger {
-    width: 85px !important;
+    width: 210px !important;
     height: 75px !important;
     left: 0px !important;
+    object-fit: cover;
   }
 }
 @media (max-width: 1400px) {
@@ -147,10 +148,10 @@ header {
   position: fixed;
   /*   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;*/
-  background: #f8f8fb;
+  background: #ffffffe7;
 }
 .btnwidth {
-  position: absolute;
+  position: relative;
   top: 0px;
   right: 20px;
   width: 142px !important;
@@ -177,14 +178,19 @@ header {
   }
   .navabso .navbar-nav .nav-item .nav-link {
     color: rgb(56, 51, 51) !important;
-    font-size: 22px;
+    font-size: 13px;
     text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
   }
-  .navbar-collapse.collapse.show {
+  /*  .navbar-collapse.collapse.show {
     background-image: url("../../../../assets/img/logo silver & blanc-ai.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;
+  } */
+
+  .zero-auto {
+    margin: 0 !important;
   }
 }
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -196,7 +202,7 @@ header {
 }
 
 .zero-auto {
-  margin: 0 auto !important;
+  margin: 0 auto;
 }
 
 .nav-item {

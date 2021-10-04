@@ -17,11 +17,17 @@
     <!-- /LOGO -->
 
     <!-- LANDING INFO PRETITLE -->
-    <h2 class="landing-info-pretitle">{{ "welcome_to" | translate }}</h2>
+
     <!-- /LANDING INFO PRETITLE -->
 
     <!-- LANDING INFO TITLE -->
-    <h1 class="landing-info-title">Linkedfishers</h1>
+    <h1 class="landing-info-title">
+      <span class="colortxtone">Linkedfishers</span>
+    </h1>
+    <h2 class="landing-info-pretitle">
+      <!-- {{ "welcome_to" | translate }} -->
+      <span class="colortxt">is glad to have you !</span>
+    </h2>
     <!-- /LANDING INFO TITLE -->
 
     <!-- TAB SWITCH -->
@@ -51,8 +57,9 @@
       <!-- /FORM BOX DECORATION -->
 
       <!-- FORM BOX TITLE -->
-<!--       <h2 class="form-box-title">Account Login</h2>
- -->      <!-- /FORM BOX TITLE -->
+      <!--       <h2 class="form-box-title">Account Login</h2>
+ -->
+      <!-- /FORM BOX TITLE -->
 
       <!-- FORM -->
       <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -223,7 +230,7 @@
       <!-- /FORM BOX DECORATION -->
 
       <!-- FORM BOX TITLE -->
-      <h2 class="form-box-title">Create your Account</h2>
+      <!-- <h2 class="form-box-title">Create your Account</h2> -->
       <!-- /FORM BOX TITLE -->
 
       <!-- FORM -->
