@@ -8,7 +8,6 @@ declare var $;
 })
 export class WeatherComponent implements OnInit {
   width = 280;
-
   weatherDat: any;
   constructor() {}
   ngOnInit(): void {
