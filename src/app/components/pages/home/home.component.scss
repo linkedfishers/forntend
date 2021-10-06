@@ -1,5 +1,5 @@
 .button.disabled {
-  background-color: gray;
+  background-color: #5753e4;
 }
 
 img.round {
@@ -22,5 +22,9 @@ p.option-item-title {
 
 } */
 .widget-box.custompos {
+  position: relative !important;
+}
+
+.testtest {
   position: relative !important;
 }

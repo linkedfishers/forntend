@@ -3645,6 +3645,7 @@ figure > img {
   .quick-post-footer
   .quick-post-footer-action
   .quick-post-footer-action-icon {
+    fill: #53af31;
   transition: fill 0.2s ease-in-out;
 }
 .option-items {
