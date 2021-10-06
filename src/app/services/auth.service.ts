@@ -106,19 +106,18 @@ export class AuthService {
     }
   }
 
-
   public getCurrentUser() {
     const token = localStorage.getItem(this.ID_TOKEN);
     let user: User = new JwtHelperService().decodeToken(token);
     return user;
   }
 
-  public getToken() {
+ /*  public getToken() {
     const token = localStorage.getItem(this.ID_TOKEN);
     console.log(token);
     return token;
   }
-
+ */
   public isAdmin() {
     if (!this.isAuthenticated()) return false;
     let token = localStorage.getItem(this.ID_TOKEN);

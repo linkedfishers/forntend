@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { AuthService } from './auth.service';
 
@@ -14,14 +15,7 @@ export class ProductService {
     private authService: AuthService
   ) {}
   createProduct(formData: FormData) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.authService.getToken()}`,
-    });
-
-    return this.httpClient.post<any>(`${this.API}/product/new`, formData, {
-      headers: headers,
-    });
+    return this.httpClient.post<any>(`${this.API}/product/new`, formData);
   }
   getProductByProvider(providerId: string) {
     return this.httpClient.get<any>(`${this.API}/provider/${providerId}`);
