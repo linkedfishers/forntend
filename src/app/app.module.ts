@@ -214,7 +214,7 @@ export function HttpLoaderFactory(http: HttpClient) {
           let access_token = localStorage.getItem('acessToken');
           return access_token;
         },
-        allowedDomains: [environment.apiUrl],
+        allowedDomains: [environment.apiDomain],
         disallowedRoutes: ['https://linkedfishers.com:3000/auth/signin'],
       },
     }),
