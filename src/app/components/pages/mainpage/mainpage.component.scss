@@ -632,28 +632,30 @@ hr {
   content: " ";
   flex: 1 1;
   margin: auto;
-  border-bottom: 3px solid black;
+  border-bottom: 2px solid black;
 }
 .title-map h4::after {
   position: relative;
   content: " ";
   margin: auto;
   flex: 1 1;
-  border-bottom: 3px solid black;
+  border-bottom: 2px solid black;
 }
 
 .title-map h4 {
+  font-weight: 400;
+  text-transform: uppercase;
   text-align: center;
   font-family: "Open Sans", sans-serif;
   margin-top: 30px;
   margin-bottom: 40px;
   display: flex;
   align-items: center;
-  color: #3678b1;
+  color: #4d4f52;
   text-decoration: none;
   transition: all 0.2s;
   line-height: 59px;
-  font-size: 18px;
+  font-size: 20px;
 }
 .mrg {
   margin-top: 30px;

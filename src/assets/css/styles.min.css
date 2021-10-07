@@ -850,7 +850,7 @@ textarea::placeholder {
 }
 .icon-logo-vikinger {
   fill: #fff;
-
+  width: 140px;
   height: 88px;
   position: relative;
   top: 0px;
@@ -1701,8 +1701,9 @@ figure > img {
 .tab-switch-button {
   width: 180px;
   height: 54px;
-  border: 1px solid #50b74c;
-  color: #50b74c;
+  /* border: 1px solid #50b74c; */
+  background: #54af32;
+  color: white;
   font-size: 1rem;
   font-weight: 700;
   line-height: 54px;
@@ -3645,7 +3646,7 @@ figure > img {
   .quick-post-footer
   .quick-post-footer-action
   .quick-post-footer-action-icon {
-    fill: #53af31;
+  fill: #53af31;
   transition: fill 0.2s ease-in-out;
 }
 .option-items {
@@ -7312,7 +7313,7 @@ figure > img {
   text-transform: uppercase;
 }
 .landing-info .landing-info-pretitle {
-  margin-top: 36px;
+  font-family: "Open Sans", sans-serif;
   font-size: 1.5rem;
   font-weight: 500;
 }
