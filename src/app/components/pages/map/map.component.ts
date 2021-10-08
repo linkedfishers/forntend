@@ -107,7 +107,7 @@ export class MapComponent implements AfterViewInit {
   boat: Boat[];
   equipments: Equipment[];
   events: Event[];
-  showFilters = true;
+  showFilters = false;
   showPosts = true;
   showEvents = true;
   showHomes = true;
