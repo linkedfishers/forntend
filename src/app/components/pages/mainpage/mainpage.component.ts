@@ -25,9 +25,11 @@ export class MainpageComponent implements OnInit {
   visibleProducts: Product[];
   content: Product[] = [];
   carousselPictures = [
-    'assets/img/cover/slider2.png',
-    'assets/img/cover/slider3.png',
-    'assets/img/cover/slider4.png',
+    'assets/img/cover/1.png',
+    'assets/img/cover/2.png',
+    'assets/img/cover/3.png',
+    'assets/img/cover/4.png',
+    'assets/img/cover/5.png',
   ];
   ngOnInit(): void {
     this.productService.getProducts().subscribe((response) => {

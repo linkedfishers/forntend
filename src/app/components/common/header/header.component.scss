@@ -102,6 +102,9 @@ a.menu-main-item-link {
     margin-top: 20px;
     justify-content: flex-end !important;
   }
+  .color-blue {
+    display: none;
+  }
   .collapse:not(.show) {
     display: none !important;
   }
@@ -211,4 +214,13 @@ header {
 
 .nav-item {
   margin: 0 3px 0 3px;
+}
+
+.color-blue {
+  position: absolute;
+  top: 65px;
+  left: 115px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(36, 108, 179);
 }

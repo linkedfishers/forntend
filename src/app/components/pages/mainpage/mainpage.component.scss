@@ -696,12 +696,19 @@ hr {
 
 .top {
   top: 85px !important ;
-  height: 500px;
+  height: 600px;
   padding: 0px !important;
 }
 
 .height-caroussel {
   height: 500px;
+  position: relative;
+  top: 100px;
+}
+@media (max-width: 992px) {
+  .height-caroussel {
+    top: 0 !important;
+  }
 }
 .carousel {
   height: 500px !important;
