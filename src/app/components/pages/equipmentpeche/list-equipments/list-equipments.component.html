@@ -1,5 +1,5 @@
 <div
-  class="content-grid"
+  class="content-grid pa"
   style="
     transform: translate(360.5px, 0px);
     transition: transform 0.4s ease-in-out 0s;
@@ -10,7 +10,7 @@
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info">
       <!-- SECTION PRETITLE -->
-      <p class="section-pretitle">Browse equipments</p>
+      <p class="section-pretitle">Browse Equipments</p>
       <!-- /SECTION PRETITLE -->
     </div>
     <!-- /SECTION HEADER INFO -->
@@ -22,22 +22,19 @@
   <!-- /SECTION FILTERS BAR -->
 
   <!-- GRID -->
-  <div class="grid grid-3-9 small-space">
+  <div class="grid grid-12 small-space">
     <!-- MARKETPLACE SIDEBAR -->
 
     <!-- /MARKETPLACE SIDEBAR -->
 
     <!-- MARKETPLACE CONTENT -->
-    <div class="marketplace-content maxw">
+    <div class="marketplace-content">
       <!-- GRID -->
-      <div class="grid grid-3-3-3 centered displayflef">
+      <div class="grid grid-3-3-3 centered">
         <!-- PRODUCT PREVIEW -->
-        <div
-          *ngFor="let boat of visibleequipments"
-          class="product-preview widthprod"
-        >
+        <div *ngFor="let eq of equipments" class="product-preview">
           <!-- PRODUCT PREVIEW IMAGE -->
-          <a [routerLink]="['/details-home', boat?._id]">
+          <a [routerLink]="['/details-equipment', eq?._id]">
             <figure
               class="product-preview-image liquid"
               style="
@@ -46,7 +43,7 @@
                   cover no-repeat;
               "
             >
-              <img src="{{ boat?.image | picture }}" alt="item-01" />
+              <img src="{{ eq?.image | picture }}" alt="item-01" />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
@@ -55,14 +52,14 @@
           <div class="product-preview-info">
             <!-- TEXT STICKER -->
             <p class="text-sticker">
-              <span class="highlighted">DT</span> {{ boat?.price }}
+              <span class="highlighted">DT</span> {{ eq?.price }}
             </p>
             <!-- /TEXT STICKER -->
 
             <!-- PRODUCT PREVIEW TITLE -->
             <p class="product-preview-title">
-              <a [routerLink]="['/details-home', boat?._id]">{{
-                boat?.name
+              <a [routerLink]="['/details-equipment', eq?._id]">{{
+                eq?.name
               }}</a>
             </p>
             <!-- /PRODUCT PREVIEW TITLE -->
@@ -70,7 +67,7 @@
             <!-- PRODUCT PREVIEW CATEGORY -->
             <p class="product-preview-category digital">
               <a [routerLink]="" routerLinkActive="router-link-active">{{
-                boat?.type?.name
+                eq?.type?.name
               }}</a>
             </p>
             <!-- /PRODUCT PREVIEW CATEGORY -->
@@ -78,9 +75,9 @@
             <!-- PRODUCT PREVIEW TEXT -->
             <p class="product-preview-text">
               {{
-                boat?.description.length > 100
-                  ? (boat?.description | slice: 0:100) + "..."
-                  : boat?.description
+                eq?.description?.length > 100
+                  ? (eq?.description | slice: 0:100) + "..."
+                  : eq?.description
               }}
             </p>
             <!-- /PRODUCT PREVIEW TEXT -->
@@ -94,7 +91,7 @@
               <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
               <a
                 class="product-preview-author-image user-avatar micro no-border"
-                [routerLink]="['/details-home', boat?._id]"
+                [routerLink]="['/details-equipment', eq?._id]"
               >
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
@@ -117,12 +114,10 @@
               <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
 
               <!-- PRODUCT PREVIEW AUTHOR TITLE -->
-              <!--    <p class="product-preview-author-title">Posted By</p> -->
-              <!-- /PRODUCT PREVIEW AUTHOR TITLE -->
+            <!--   <p class="product-preview-author-title">Posted By</p>
 
-              <!-- PRODUCT PREVIEW AUTHOR TEXT -->
-              <!--  <p class="product-preview-author-text">
-                <a [routerLink]="">{{ boat?.owner?.companyName }}</a>
+              <p class="product-preview-author-text">
+                <a [routerLink]="">{{ eq?.owner }}</a>
               </p> -->
               <!-- /PRODUCT PREVIEW AUTHOR TEXT -->
             </div>
@@ -189,7 +184,87 @@
       <!-- /GRID -->
 
       <!-- SECTION PAGER BAR WRAP -->
+      <div class="section-pager-bar-wrap align-right">
+        <!-- SECTION PAGER BAR -->
+        <div class="section-pager-bar">
+          <!-- SECTION PAGER -->
+          <div class="section-pager">
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item active">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">01</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
 
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">02</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">03</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">04</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">05</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+
+            <!-- SECTION PAGER ITEM -->
+            <div class="section-pager-item">
+              <!-- SECTION PAGER ITEM TEXT -->
+              <p class="section-pager-item-text">06</p>
+              <!-- /SECTION PAGER ITEM TEXT -->
+            </div>
+            <!-- /SECTION PAGER ITEM -->
+          </div>
+          <!-- /SECTION PAGER -->
+
+          <!-- SECTION PAGER CONTROLS -->
+          <div class="section-pager-controls">
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control left disabled">
+              <!-- SLIDER CONTROL ICON -->
+              <svg class="slider-control-icon icon-small-arrow">
+                <use xlink:href="#svg-small-arrow"></use>
+              </svg>
+              <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+
+            <!-- SLIDER CONTROL -->
+            <div class="slider-control right">
+              <!-- SLIDER CONTROL ICON -->
+              <svg class="slider-control-icon icon-small-arrow">
+                <use xlink:href="#svg-small-arrow"></use>
+              </svg>
+              <!-- /SLIDER CONTROL ICON -->
+            </div>
+            <!-- /SLIDER CONTROL -->
+          </div>
+          <!-- /SECTION PAGER CONTROLS -->
+        </div>
+        <!-- /SECTION PAGER BAR -->
+      </div>
       <!-- /SECTION PAGER BAR WRAP -->
     </div>
     <!-- /MARKETPLACE CONTENT -->

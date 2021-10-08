@@ -160,6 +160,10 @@ const routes: Routes = [
         component: DetailsHebergementsComponent,
       },
       {
+        path: 'details-equipment/:id',
+        component: DetailsEquipmentComponent,
+      },
+      {
         path: 'list-home',
         component: ListHebergementsComponent,
       },

@@ -65,7 +65,7 @@
 
             <!-- BUTTON -->
             <p class="button primary full popup-manage-item-trigger">
-             {{" Add_new_Equipment" | translate}}!
+              {{ " Add_new_Equipment" | translate }}!
             </p>
             <!-- /BUTTON -->
 
@@ -313,7 +313,6 @@
                 <!-- /FORM SELECT -->
               </div>
               <!-- /FORM ITEM -->
-
             </div>
 
             <!-- /FORM ROW -->
@@ -462,7 +461,9 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">{{"EquipmentName" | translate}}</label>
+                  <label for="item-name">{{
+                    "EquipmentName" | translate
+                  }}</label>
                   <input
                     *ngIf="selectedEquipment >= 0"
                     [(ngModel)]="userEquipment[selectedEquipment].name"

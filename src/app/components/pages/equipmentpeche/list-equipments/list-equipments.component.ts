@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Equipment } from 'src/app/interfaces/equipments.interface';
+import {
+  Equipment,
+  EquipmentType,
+} from 'src/app/interfaces/equipments.interface';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 declare var initForm, $: any;
@@ -14,6 +17,7 @@ export class ListEquipmentsComponent implements OnInit {
   readonly API: string = environment.apiUrl + '/';
 
   equipments: Equipment[];
+  equipmentType: EquipmentType[];
   visibleequipments: Equipment[];
   content: Equipment[] = [];
   ngOnInit(): void {
@@ -23,8 +27,10 @@ export class ListEquipmentsComponent implements OnInit {
     loadSvg();
     this.equipementService.getEquipments().subscribe((res) => {
       this.equipments = res.data;
-      console.log(res.data);
-      this.visibleequipments = this.equipments;
+   
+    });
+    this.equipementService.getEquipmentTypes().subscribe((res) => {
+      this.equipmentType = res.data;
     });
   }
 }
