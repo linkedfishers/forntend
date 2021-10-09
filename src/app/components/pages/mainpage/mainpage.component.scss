@@ -752,33 +752,6 @@ hr {
   max-width: 550px;
 }
 
-@keyframes boomerang {
-  10% {
-    z-index: 1;
-    transform: rotate(-20deg);
-  }
-  35% {
-    z-index: 1;
-    transform: translate(220%, -55%) scale(0.5) rotate(-200deg);
-  }
-  74% {
-    z-index: -1;
-  }
-  75% {
-    transform: translate(-200%, 55%) scale(0.9) rotate(-860deg);
-  }
-  80% {
-    z-index: 1;
-  }
-  90% {
-    z-index: 1;
-    transform: translate(0%, 0%) rotate(-10deg);
-  }
-}
-.max h2:hover {
-  animation-name: boomerang;
-  animation-duration: 3s;
-}
 .max h2 {
   margin-bottom: 10px;
   border-left: 3px solid rgb(56, 53, 53);
