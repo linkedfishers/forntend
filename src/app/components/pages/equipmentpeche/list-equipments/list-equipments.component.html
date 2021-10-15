@@ -10,27 +10,20 @@
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info">
       <!-- SECTION PRETITLE -->
-      <p class="section-pretitle">Browse Equipments</p>
+      <p class="section-pretitle">Browse Equipments test</p>
       <!-- /SECTION PRETITLE -->
     </div>
     <!-- /SECTION HEADER INFO -->
   </div>
-  <!-- /SECTION HEADER -->
-
-  <!-- SECTION FILTERS BAR -->
-
-  <!-- /SECTION FILTERS BAR -->
-
-  <!-- GRID -->
   <div class="grid grid-12 small-space">
-    <!-- MARKETPLACE SIDEBAR -->
-
-    <!-- /MARKETPLACE SIDEBAR -->
-
-    <!-- MARKETPLACE CONTENT -->
     <div class="marketplace-content">
       <!-- GRID -->
       <div class="grid grid-3-3-3 centered">
+        <div *ngIf="!equipments" class="m-auto" style="font-size: 36px">
+          <div class="text-center disably-3 mt-5">
+            <i class="fa fa-spinner"></i>
+          </div>
+        </div>
         <!-- PRODUCT PREVIEW -->
         <div *ngFor="let eq of equipments" class="product-preview">
           <!-- PRODUCT PREVIEW IMAGE -->
@@ -114,7 +107,7 @@
               <!-- /PRODUCT PREVIEW AUTHOR IMAGE -->
 
               <!-- PRODUCT PREVIEW AUTHOR TITLE -->
-            <!--   <p class="product-preview-author-title">Posted By</p>
+              <!--   <p class="product-preview-author-title">Posted By</p>
 
               <p class="product-preview-author-text">
                 <a [routerLink]="">{{ eq?.owner }}</a>

@@ -1,8 +1,11 @@
-<div class="content-grid" style="
+<div
+  class="content-grid"
+  style="
     transform: translate(360.5px, 0px);
     transition: transform 0.4s ease-in-out 0s;
-  ">
- <!--  <div class="section-banner">
+  "
+>
+  <!--  <div class="section-banner">
     <img class="section-banner-icon" src="../../../../assets/img/banner/marketplace-icon.png" alt="marketplace-icon" />
 
     <p class="section-banner-title">Product details!</p>
@@ -15,9 +18,26 @@
     <div class="section-header-info">
       <!-- SECTION TITLE -->
       <h2 class="section-title">{{ product?.name }}</h2>
+
       <!-- /SECTION TITLE -->
     </div>
+
+    <!--  <div
+      class="marketplace-content grid-column"
+      style="width: 200px; height: 200px"
+    >
+      <img [src]="product.pictures[0]" alt="" />
+    </div> -->
     <!-- /SECTION HEADER INFO -->
+  </div>
+  <div class="grid grid-12">
+    <div class="section-header-info">
+      <img
+        [src]="product.pictures[0]"
+        alt="test"
+        style="height: 300px; width: 200px"
+      />
+    </div>
   </div>
   <!-- /SECTION HEADER -->
 
@@ -47,7 +67,7 @@
         <!-- TAB BOX ITEMS -->
         <div class="tab-box-items">
           <!-- TAB BOX ITEM -->
-          <div class="tab-box-item" style="display: block;">
+          <div class="tab-box-item" style="display: block">
             <!-- TAB BOX ITEM CONTENT -->
             <div class="tab-box-item-content">
               <!-- TAB BOX ITEM TITLE -->
@@ -72,7 +92,10 @@
         <!-- SIDEBAR BOX ITEMS -->
         <div class="sidebar-box-items">
           <!-- PRICE TITLE -->
-          <p class="price-title big">{{product?.price| number: "1.2"}}<span class="currency"> Dt</span> </p>
+          <p class="price-title big">
+            {{ product?.price | number: "1.2"
+            }}<span class="currency"> Dt</span>
+          </p>
           <!-- /PRICE TITLE -->
 
           <!-- BUTTON -->
@@ -171,13 +194,21 @@
             <a class="user-status-avatar" [routerLink]="">
               <!-- USER AVATAR -->
               <!-- USER AVATAR -->
-              <img class="round-small" [src]="product?.owner?.profilePicture | picture" alt="avatar-01" />
+              <img
+                class="round-small"
+                [src]="product?.owner?.profilePicture | picture"
+                alt="avatar-01"
+              />
               <!-- /USER AVATAR -->
             </a>
             <!-- /USER STATUS AVATAR -->
 
             <!-- USER STATUS TITLE -->
-            <p class="user-status-title"><a class="bold" [routerLink]="[]">{{product?.owner?.companyName}}</a></p>
+            <p class="user-status-title">
+              <a class="bold" [routerLink]="[]">{{
+                product?.owner?.companyName
+              }}</a>
+            </p>
             <!-- /USER STATUS TITLE -->
 
             <!-- USER STATUS TEXT -->
@@ -187,7 +218,9 @@
           <!-- /USER STATUS -->
 
           <!-- BUTTON -->
-          <a class="button small white" [routerLink]="">View Provider's Store</a>
+          <a class="button small white" [routerLink]=""
+            >View Provider's Store</a
+          >
           <!-- /BUTTON -->
         </div>
         <!-- /SIDEBAR BOX ITEMS -->
@@ -207,7 +240,9 @@
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-              <span class="bold">{{product?.createdAt| date: " MMMM, d, y,h:mm a"}}</span>
+              <span class="bold">{{
+                product?.createdAt | date: " MMMM, d, y,h:mm a"
+              }}</span>
               <!-- /INFORMATION LINE TEXT -->
             </div>
             <!-- /INFORMATION LINE -->
@@ -219,7 +254,9 @@
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-              <p class="information-line-text"><a [routerLink]="[]">{{product?.type?.name}}</a></p>
+              <p class="information-line-text">
+                <a [routerLink]="[]">{{ product?.type?.name }}</a>
+              </p>
               <!-- /INFORMATION LINE TEXT -->
             </div>
             <!-- /INFORMATION LINE -->
@@ -231,7 +268,9 @@
               <!-- /INFORMATION LINE TITLE -->
 
               <!-- INFORMATION LINE TEXT -->
-              <p class="information-line-text">{{product?.quantity || 'out of stock'}}</p>
+              <p class="information-line-text">
+                {{ product?.quantity || "out of stock" }}
+              </p>
               <!-- /INFORMATION LINE TEXT -->
             </div>
           </div>

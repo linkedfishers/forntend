@@ -10,16 +10,7 @@ import ProductService from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 import { PicturePipe } from 'src/app/pipes/picture.pipe';
 
-declare var app,
-  loadSvg,
-  initTooltips,
-  initCharts,
-  initHexagons,
-  initPopups,
-  initHeader,
-  initContent,
-  initLoader,
-  loadSvg: any;
+declare var app, loadSvg, initPopups, initContent, loadSvg: any;
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
 @Component({
@@ -58,6 +49,7 @@ export class DetailsProductComponent implements OnInit {
         this.product.pictures = this.product.pictures.map((picture) => {
           return picturePipe.transform(picture);
         });
+        console.log('test', this.product.pictures[0]);
         this.isOwner = response.data.isOwner || false;
       });
     });
