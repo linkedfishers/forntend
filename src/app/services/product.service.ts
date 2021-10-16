@@ -17,6 +17,9 @@ export class ProductService {
   createProduct(formData: FormData) {
     return this.httpClient.post<any>(`${this.API}/product/new`, formData);
   }
+  getSomeProducts() {
+    return this.httpClient.get<any>(`${this.API}/some`);
+  }
   getProductByProvider(providerId: string) {
     return this.httpClient.get<any>(`${this.API}/provider/${providerId}`);
   }

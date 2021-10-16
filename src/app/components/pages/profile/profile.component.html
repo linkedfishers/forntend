@@ -1,5 +1,11 @@
-<ng-image-fullscreen-view [infinite]="true" [paginationShow]="true" [images]="coverImageObject"
-  [imageIndex]="selectedCoverImageIndex" [show]="showCoversFlag" (close)="closeFullScreenEventHandler()">
+<ng-image-fullscreen-view
+  [infinite]="true"
+  [paginationShow]="true"
+  [images]="coverImageObject"
+  [imageIndex]="selectedCoverImageIndex"
+  [show]="showCoversFlag"
+  (close)="closeFullScreenEventHandler()"
+>
 </ng-image-fullscreen-view>
 
 <!-- CONTENT GRID -->
@@ -7,13 +13,20 @@
   <!-- PROFILE HEADER -->
   <div class="profile-header">
     <!-- PROFILE HEADER COVER -->
-    <figure *ngIf="!(user?.coverPicture)" class="profile-header-cover liquid">
-      <img src="../../../../assets/img/cover/01.jpg" alt="cover-01">
+    <figure *ngIf="!user?.coverPicture" class="profile-header-cover liquid">
+      <img
+        src="../../../../assets/img/cover/default-cover-6.png"
+        alt="cover-01"
+      />
     </figure>
     <!-- /PROFILE HEADER COVER -->
-    <a *ngIf="user?.coverPicture" [routerLink]="" (click)="showCoverFullScreen(0)">
+    <a
+      *ngIf="user?.coverPicture"
+      [routerLink]=""
+      (click)="showCoverFullScreen(0)"
+    >
       <figure class="profile-header-cover liquid">
-        <img [src]="user.coverPicture" alt="cover-01">
+        <img [src]="user.coverPicture" alt="cover-01" />
       </figure>
     </a>
     <!-- /PROFILE HEADER COVER -->
@@ -22,7 +35,10 @@
       <!-- USER SHORT DESCRIPTION -->
       <div class="user-short-description big">
         <!-- USER SHORT DESCRIPTION AVATAR -->
-        <a class="user-short-description-avatar user-avatar big" [routerLink]="">
+        <a
+          class="user-short-description-avatar user-avatar big"
+          [routerLink]=""
+        >
           <!-- USER AVATAR BORDER -->
           <div class="user-avatar-border">
             <!-- HEXAGON -->
@@ -34,9 +50,11 @@
           <!-- USER AVATAR CONTENT -->
           <div class="user-avatar-content">
             <!-- HEXAGON -->
-            <div class="hexagon-image-100-110" id="profilePicture"
-              data-src="../../../../assets/img/default-profile.png">
-            </div>
+            <div
+              class="hexagon-image-100-110"
+              id="profilePicture"
+              data-src="../../../../assets/img/default-profile.png"
+            ></div>
             <!-- /HEXAGON -->
           </div>
           <!-- /USER AVATAR CONTENT -->
@@ -52,11 +70,16 @@
         <!-- /USER SHORT DESCRIPTION AVATAR -->
 
         <!-- USER SHORT DESCRIPTION TITLE -->
-        <p class="user-short-description-title"><a [routerLink]="">{{user?.fullName}}</a></p>
+        <p class="user-short-description-title">
+          <a [routerLink]="">{{ user?.fullName }}</a>
+        </p>
         <!-- /USER SHORT DESCRIPTION TITLE -->
 
         <!-- USER SHORT DESCRIPTION TEXT -->
-        <p class="user-short-description-text"><a href="{{urlify(user?.website)}}" target="_blank">{{user?.website}}</a>
+        <p class="user-short-description-text">
+          <a href="{{ urlify(user?.website) }}" target="_blank">{{
+            user?.website
+          }}</a>
         </p>
         <!-- /USER SHORT DESCRIPTION TEXT -->
       </div>
@@ -65,10 +88,17 @@
       <!-- PROFILE HEADER SOCIAL LINKS WRAP -->
       <div class="profile-header-social-links-wrap">
         <!-- PROFILE HEADER SOCIAL LINKS -->
-        <div id="profile-header-social-links-slider" class="profile-header-social-links">
+        <div
+          id="profile-header-social-links-slider"
+          class="profile-header-social-links"
+        >
           <div *ngIf="user?.facebook" class="profile-header-social-link">
             <!-- SOCIAL LINK -->
-            <a class="social-link facebook" href="{{urlify(user?.facebook)}}" target="_blank">
+            <a
+              class="social-link facebook"
+              href="{{ urlify(user?.facebook) }}"
+              target="_blank"
+            >
               <!-- ICON FACEBOOK -->
               <svg class="icon-facebook">
                 <use xlink:href="#svg-facebook"></use>
@@ -101,12 +131,14 @@
             </a>
             <!-- /SOCIAL LINK -->
           </div>
-
         </div>
         <!-- /PROFILE HEADER SOCIAL LINKS -->
 
         <!-- SLIDER CONTROLS -->
-        <div id="profile-header-social-links-slider-controls" class="slider-controls">
+        <div
+          id="profile-header-social-links-slider-controls"
+          class="slider-controls"
+        >
           <!-- SLIDER CONTROL -->
           <div class="slider-control left">
             <!-- SLIDER CONTROL ICON -->
@@ -136,7 +168,7 @@
         <!-- USER STAT -->
         <div class="user-stat big">
           <!-- USER STAT TITLE -->
-          <p class="user-stat-title">{{user?.following.length || 0}}</p>
+          <p class="user-stat-title">{{ user?.following.length || 0 }}</p>
           <!-- /USER STAT TITLE -->
 
           <!-- USER STAT TEXT -->
@@ -148,7 +180,7 @@
         <!-- USER STAT -->
         <div class="user-stat big">
           <!-- USER STAT TITLE -->
-          <p class="user-stat-title">{{user?.followers.length || 0}}</p>
+          <p class="user-stat-title">{{ user?.followers.length || 0 }}</p>
           <!-- /USER STAT TITLE -->
 
           <!-- USER STAT TEXT -->
@@ -160,12 +192,16 @@
         <!-- USER STAT -->
         <div class="user-stat big">
           <!-- USER STAT IMAGE -->
-          <img *ngIf="user?.country" class="user-stat-image" src="../../../../assets/img/flag/{{user?.country}}.png"
-            alt="flag-usa">
+          <img
+            *ngIf="user?.country"
+            class="user-stat-image"
+            src="../../../../assets/img/flag/{{ user?.country }}.png"
+            alt="flag-usa"
+          />
           <!-- /USER STAT IMAGE -->
 
           <!-- USER STAT TEXT -->
-          <p class="user-stat-text">{{user?.country}}</p>
+          <p class="user-stat-text">{{ user?.country }}</p>
           <!-- /USER STAT TEXT -->
         </div>
         <!-- /USER STAT -->
@@ -173,10 +209,19 @@
       <!-- /USER STATS -->
 
       <!-- PROFILE HEADER INFO ACTIONS -->
-      <div *ngIf="currentUser?._id!=user?._id" class="profile-header-info-actions">
+      <div
+        *ngIf="currentUser?._id != user?._id"
+        class="profile-header-info-actions"
+      >
         <!-- PROFILE HEADER INFO ACTION -->
-        <p (click)="follow()" class="profile-header-info-action button secondary"><span class="hide-text-mobile">
-            {{isFollowing ? 'Unfollow' : 'Follow'}} </span></p>
+        <p
+          (click)="follow()"
+          class="profile-header-info-action button secondary"
+        >
+          <span class="hide-text-mobile">
+            {{ isFollowing ? "Unfollow" : "Follow" }}
+          </span>
+        </p>
         <!-- /PROFILE HEADER INFO ACTION -->
 
         <!-- PROFILE HEADER INFO ACTION -->
@@ -184,20 +229,32 @@
         <!-- /PROFILE HEADER INFO ACTION -->
 
         <!-- PROFILE HEADER INFO ACTION -->
-        <p *ngIf="!isGuest && currentUser?._id!=user?._id" (click)="OpenReportSwal()" class="profile-header-info-action button"><span class="hide-text-mobile">{{'report' | translate}}</span></p>
+        <p
+          *ngIf="!isGuest && currentUser?._id != user?._id"
+          (click)="OpenReportSwal()"
+          class="profile-header-info-action button"
+        >
+          <span class="hide-text-mobile">{{ "report" | translate }}</span>
+        </p>
         <!-- /PROFILE HEADER INFO ACTION -->
       </div>
       <!-- /PROFILE HEADER INFO ACTIONS -->
 
       <!-- PROFILE HEADER INFO ACTIONS -->
-      <div *ngIf="currentUser?._id===user?._id" class="profile-header-info-actions">
+      <div
+        *ngIf="currentUser?._id === user?._id"
+        class="profile-header-info-actions"
+      >
         <!-- PROFILE HEADER INFO ACTION -->
-        <p [routerLink]="['/settings']" class="profile-header-info-action button info"><span
-            class="hide-text-mobile">{{'settings' | translate}}</span></p>
+        <p
+          [routerLink]="['/settings']"
+          class="profile-header-info-action button info"
+        >
+          <span class="hide-text-mobile">{{ "settings" | translate }}</span>
+        </p>
         <!-- /PROFILE HEADER INFO ACTION -->
       </div>
       <!-- /PROFILE HEADER INFO ACTIONS -->
-
     </div>
     <!-- /PROFILE HEADER INFO -->
   </div>
@@ -206,16 +263,34 @@
   <nav class="section-navigation">
     <!-- SECTION MENU -->
     <div class="tns-outer" id="section-navigation-slider-ow">
-      <div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span
-          class="current">1 to 9</span> of 11</div>
+      <div
+        class="tns-liveregion tns-visually-hidden"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        slide <span class="current">1 to 9</span> of 11
+      </div>
       <div id="section-navigation-slider-mw" class="tns-ovh">
         <div class="tns-inner" id="section-navigation-slider-iw">
-          <div id="section-navigation-slider"
-            class="section-menu tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal"
-            style="transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+          <div
+            id="section-navigation-slider"
+            class="
+              section-menu
+              tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal
+            "
+            style="
+              transition-duration: 0s;
+              transform: translate3d(0px, 0px, 0px);
+            "
+          >
             <!-- SECTION MENU ITEM -->
-            <a (click)="setActiveTab(0)" [routerLink]="" [ngClass]="{active: activeTab==0}"
-              class="section-menu-item tns-item tns-slide-active" id="section-navigation-slider-item1">
+            <a
+              (click)="setActiveTab(0)"
+              [routerLink]=""
+              [ngClass]="{ active: activeTab == 0 }"
+              class="section-menu-item tns-item tns-slide-active"
+              id="section-navigation-slider-item1"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-timeline">
                 <use xlink:href="#svg-timeline"></use>
@@ -229,8 +304,14 @@
             <!-- /SECTION MENU ITEM -->
 
             <!-- SECTION MENU ITEM -->
-            <a hidden (click)="setActiveTab(1)" [ngClass]="{active: activeTab==1}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item2">
+            <a
+              hidden
+              (click)="setActiveTab(1)"
+              [ngClass]="{ active: activeTab == 1 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item2"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-friend">
                 <use xlink:href="#svg-friend"></use>
@@ -243,8 +324,14 @@
             </a>
             <!-- /SECTION MENU ITEM -->
             <!-- SECTION MENU ITEM -->
-            <a hidden (click)="setActiveTab(2)" [ngClass]="{active: activeTab==2}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item2">
+            <a
+              hidden
+              (click)="setActiveTab(2)"
+              [ngClass]="{ active: activeTab == 2 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item2"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-friend">
                 <use xlink:href="#svg-friend"></use>
@@ -257,8 +344,13 @@
             </a>
             <!-- /SECTION MENU ITEM -->
             <!-- SECTION MENU ITEM -->
-            <a (click)="setActiveTab(3)" [ngClass]="{active: activeTab==3}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item3">
+            <a
+              (click)="setActiveTab(3)"
+              [ngClass]="{ active: activeTab == 3 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item3"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-group">
                 <use xlink:href="#svg-equipment"></use>
@@ -270,8 +362,13 @@
               <!-- /SECTION MENU ITEM TEXT -->
             </a>
 
-            <a (click)="setActiveTab(4)" [ngClass]="{active: activeTab==4}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item3">
+            <a
+              (click)="setActiveTab(4)"
+              [ngClass]="{ active: activeTab == 4 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item3"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-group">
                 <use xlink:href="#svg-boat"></use>
@@ -283,8 +380,13 @@
               <!-- /SECTION MENU ITEM TEXT -->
             </a>
 
-            <a (click)="setActiveTab(5)" [ngClass]="{active: activeTab==5}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item3">
+            <a
+              (click)="setActiveTab(5)"
+              [ngClass]="{ active: activeTab == 5 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item3"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-group">
                 <use xlink:href="#svg-home"></use>
@@ -295,8 +397,13 @@
               <p class="section-menu-item-text">Homes</p>
               <!-- /SECTION MENU ITEM TEXT -->
             </a>
-            <a (click)="setActiveTab(6)" [ngClass]="{active: activeTab==6}"
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item4">
+            <a
+              (click)="setActiveTab(6)"
+              [ngClass]="{ active: activeTab == 6 }"
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item4"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-photos">
                 <use xlink:href="#svg-photos"></use>
@@ -307,8 +414,14 @@
               <p class="section-menu-item-text">Photos</p>
               <!-- /SECTION MENU ITEM TEXT -->
             </a>
-            <a (click)="setActiveTab(7)" [ngClass]="{active: activeTab==7}" hidden
-              class="section-menu-item tns-item tns-slide-active" [routerLink]="" id="section-navigation-slider-item5">
+            <a
+              (click)="setActiveTab(7)"
+              [ngClass]="{ active: activeTab == 7 }"
+              hidden
+              class="section-menu-item tns-item tns-slide-active"
+              [routerLink]=""
+              id="section-navigation-slider-item5"
+            >
               <!-- SECTION MENU ITEM ICON -->
               <svg class="section-menu-item-icon icon-videos">
                 <use xlink:href="#svg-videos"></use>
@@ -326,10 +439,20 @@
       </div>
     </div>
     <!-- /SECTION MENU -->
-    <div id="section-navigation-slider-controls" class="slider-controls" aria-label="Carousel Navigation" tabindex="0">
+    <div
+      id="section-navigation-slider-controls"
+      class="slider-controls"
+      aria-label="Carousel Navigation"
+      tabindex="0"
+    >
       <!-- SLIDER CONTROL -->
-      <div class="slider-control left" aria-controls="section-navigation-slider" tabindex="-1" data-controls="prev"
-        aria-disabled="true">
+      <div
+        class="slider-control left"
+        aria-controls="section-navigation-slider"
+        tabindex="-1"
+        data-controls="prev"
+        aria-disabled="true"
+      >
         <!-- SLIDER CONTROL ICON -->
         <svg class="slider-control-icon icon-small-arrow">
           <use xlink:href="#svg-small-arrow"></use>
@@ -339,7 +462,12 @@
       <!-- /SLIDER CONTROL -->
 
       <!-- SLIDER CONTROL -->
-      <div class="slider-control right" aria-controls="section-navigation-slider" tabindex="-1" data-controls="next">
+      <div
+        class="slider-control right"
+        aria-controls="section-navigation-slider"
+        tabindex="-1"
+        data-controls="next"
+      >
         <!-- SLIDER CONTROL ICON -->
         <svg class="slider-control-icon icon-small-arrow">
           <use xlink:href="#svg-small-arrow"></use>
@@ -350,10 +478,13 @@
     </div>
   </nav>
 
-  <app-timeline *ngIf="user && activeTab==0" [user]="user"></app-timeline>
-  <app-photos *ngIf="user && activeTab==6" [user]="user"></app-photos>
-  <app-hebergement-list [hebergements]="hebergements" *ngIf="activeTab==5"></app-hebergement-list>
-  <app-boats-list [boats]="boats" *ngIf="activeTab==4"></app-boats-list>
-  <app-categories *ngIf="activeTab==3 "></app-categories>
+  <app-timeline *ngIf="user && activeTab == 0" [user]="user"></app-timeline>
+  <app-photos *ngIf="user && activeTab == 6" [user]="user"></app-photos>
+  <app-hebergement-list
+    [hebergements]="hebergements"
+    *ngIf="activeTab == 5"
+  ></app-hebergement-list>
+  <app-boats-list [boats]="boats" *ngIf="activeTab == 4"></app-boats-list>
+  <app-categories *ngIf="activeTab == 3"></app-categories>
 </div>
 <!-- /CONTENT GRID -->

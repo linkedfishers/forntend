@@ -68,18 +68,18 @@ export class EquipmentService {
       `${this.API}/service/type/${typeId}/user/${userId}`
     );
   }
-getBoatsByType(typeId:string){
-  return this.httpClient.get<any>(`${this.API}/boats/type/${typeId}`)
-}
-getServicessByType(typeId:string){
-  return this.httpClient.get<any>(`${this.API}/freelancer/type/${typeId}`)
-}
-getEquipmentssByType(typeId:string){
-  return this.httpClient.get<any>(`${this.API}/equipments/type/${typeId}`)
-}
-getHebergementsByType(typeId:string){
-  return this.httpClient.get<any>(`${this.API}/hebergements/type/${typeId}`)
-}
+  getBoatsByType(typeId: string) {
+    return this.httpClient.get<any>(`${this.API}/boats/type/${typeId}`);
+  }
+  getServicessByType(typeId: string) {
+    return this.httpClient.get<any>(`${this.API}/freelancer/type/${typeId}`);
+  }
+  getEquipmentssByType(typeId: string) {
+    return this.httpClient.get<any>(`${this.API}/equipments/type/${typeId}`);
+  }
+  getHebergementsByType(typeId: string) {
+    return this.httpClient.get<any>(`${this.API}/hebergements/type/${typeId}`);
+  }
   getBoatsByUser(userId: string) {
     return this.httpClient.get<any>(`${this.API}/boats/user/${userId}`);
   }
@@ -91,6 +91,10 @@ getHebergementsByType(typeId:string){
   }
   getHebergements() {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
+  }
+
+  getEuipmentWithLimit() {
+    return this.httpClient.get<any>(`${this.API}/limit`);
   }
 
   getEquipments() {

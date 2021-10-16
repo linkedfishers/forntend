@@ -10,7 +10,7 @@ import {
 import { Categorie, Product } from 'src/app/interfaces/product.interface';
 import { AdminService } from 'src/app/services/admin.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
-import ProductService from 'src/app/services/product.service';
+import { ProductService } from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -43,11 +43,13 @@ export class MainpageComponent implements OnInit {
     'assets/img/cover/5.png',
   ];
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((response) => {
-      this.products = response.data;
-      this.visibleProducts = this.products;
-    });
-    this.equipmentService.getEquipments().subscribe((response) => {
+    this.productService
+      ./* getProducts */ getSomeProducts()
+      .subscribe((response) => {
+        this.products = response.data;
+        this.visibleProducts = this.products;
+      });
+    this.equipmentService.getEuipmentWithLimit().subscribe((response) => {
       this.equipments = response.data;
       console.log(this.equipments);
     });
