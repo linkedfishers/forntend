@@ -44,6 +44,7 @@ import { ServicesbycatComponent } from './components/pages/servicesbycat/service
 import { HebergementsbycatComponent } from './components/pages/hebergementsbycat/hebergementsbycat.component';
 import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
 import { NaComponent } from './components/common/na/na.component';
+import { CartComponent } from './components/pages/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -75,6 +76,11 @@ const routes: Routes = [
         path: 'events',
         component: EventsComponent,
       },
+      {
+        path: 'cart',
+        component: CartComponent,
+      },
+
       {
         path: 'map',
         component: MapComponent,

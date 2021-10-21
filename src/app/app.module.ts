@@ -215,7 +215,10 @@ export function HttpLoaderFactory(http: HttpClient) {
           return access_token;
         },
         allowedDomains: [environment.apiDomain],
-        disallowedRoutes: ['https://linkedfishers.com:3000/auth/signin'],
+        disallowedRoutes: [
+          'https://linkedfishers.com:3000/auth/signin',
+          'http://localhost:3000/auth/signin',
+        ],
       },
     }),
     BrowserAnimationsModule,

@@ -41,8 +41,8 @@ export class HebergementsComponent implements OnInit {
   selectedHome = -1;
 
   ngOnInit(): void {
-    initAnimation();
-    initSidebar();
+/*     initAnimation();
+ */    initSidebar();
     initPopups();
     initForm();
     loadSvg();
