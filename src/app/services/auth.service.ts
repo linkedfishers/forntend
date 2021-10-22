@@ -32,6 +32,12 @@ export class AuthService {
       .pipe(tap((res) => this.setSession(res.data)));
   }
 
+  public authericateWithFacebook(user: any) {
+    return this.httpClient
+      .post<any>(this.API + '/auth/facebook', user)
+      .pipe(tap((res) => this.setSession(res.data)));
+  }
+
   public signUp(user: any) {
     return this.httpClient.post<any>(this.API + '/auth/signup', user);
   }
@@ -112,7 +118,7 @@ export class AuthService {
     return user;
   }
 
- /*  public getToken() {
+  /*  public getToken() {
     const token = localStorage.getItem(this.ID_TOKEN);
     console.log(token);
     return token;

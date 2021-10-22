@@ -63,7 +63,7 @@ import { DetailsBoatComponent } from './components/pages/details-boat/details-bo
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { CarouselComponent } from './components/pages/carousel/carousel.component';
-import { SocialLoginModule, GoogleLoginProvider } from 'angularx-social-login';
+import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { PicturePipe } from './pipes/picture.pipe';
 import { DatePipe } from '@angular/common';
 import { ServicesComponent } from './components/pages/services/services.component';
@@ -248,6 +248,11 @@ export function HttpLoaderFactory(http: HttpClient) {
             provider: new GoogleLoginProvider(
               '108417378352-9o4n67jsc1rd3mqcmgoobr7b6ns2ep55.apps.googleusercontent.com'
             ), // your client id
+          },
+
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('958837471642583'),
           },
         ],
       },

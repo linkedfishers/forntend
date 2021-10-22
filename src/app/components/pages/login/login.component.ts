@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { TranslateService } from '@ngx-translate/core';
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import {
+  FacebookLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthService,
+} from 'angularx-social-login';
 import { User } from 'src/app/interfaces/users.interface';
 import { DatePipe } from '@angular/common';
-import * as data from "../../../interfaces/countries.json";
-
-
-
-
+import * as data from '../../../interfaces/countries.json';
 
 declare var initForm: any;
 declare var initLoginTabs: any;
@@ -20,7 +25,7 @@ declare var loadSvg: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
@@ -33,32 +38,40 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService,
     private translate: TranslateService,
     private socialAuthService: SocialAuthService,
-    public datepipe: DatePipe,
-  ) { }
+    public datepipe: DatePipe
+  ) {}
 
   ngOnInit(): void {
     initForm();
     initLoginTabs();
     loadSvg();
-    this.loginForm = this.fb.group({
-      email: [null, [Validators.email, Validators.required]],
-      password: [null, [Validators.required]],
-      remember: new FormControl(true)
-    }, { updateOn: 'blur' });
+    this.loginForm = this.fb.group(
+      {
+        email: [null, [Validators.email, Validators.required]],
+        password: [null, [Validators.required]],
+        remember: new FormControl(true),
+      },
+      { updateOn: 'blur' }
+    );
 
-    this.signUpForm = this.fb.group({
-      email: [null, [Validators.email, Validators.required]],
-      //Password pattern : 
-      //Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
-      password: [null, [Validators.required]],
-      checkPassword: [null, [Validators.required, this.confirmationValidator]],
-      lastName: [null, [Validators.required]],
-      firstName : [null, [Validators.required]],
-      birthDate: [null, [Validators.required]],
-      country: [null, [Validators.required]],
-    }, { updateOn: 'blur' });
+    this.signUpForm = this.fb.group(
+      {
+        email: [null, [Validators.email, Validators.required]],
+        //Password pattern :
+        //Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")
+        password: [null, [Validators.required]],
+        checkPassword: [
+          null,
+          [Validators.required, this.confirmationValidator],
+        ],
+        lastName: [null, [Validators.required]],
+        firstName: [null, [Validators.required]],
+        birthDate: [null, [Validators.required]],
+        country: [null, [Validators.required]],
+      },
+      { updateOn: 'blur' }
+    );
   }
-
 
   login() {
     for (const i in this.loginForm.controls) {
@@ -67,21 +80,27 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.loginForm.invalid) {
-      this.toastr.error("Verify your inputs!");
+      this.toastr.error('Verify your inputs!');
       return;
     }
-    this.authService.authenticate(this.loginForm.controls.email.value,
-      this.loginForm.controls.password.value)
-      .subscribe(res => {
-        this.toastr.success('Login Successful!', res.message);
-        this.router.navigate(['/']);
-      }, (err: any) => {
-        if (err.error.message == 'Email not verified') {
-          this.toastr.warning('Verify your email adress!');
-          return;
+    this.authService
+      .authenticate(
+        this.loginForm.controls.email.value,
+        this.loginForm.controls.password.value
+      )
+      .subscribe(
+        (res) => {
+          this.toastr.success('Login Successful!', res.message);
+          this.router.navigate(['/']);
+        },
+        (err: any) => {
+          if (err.error.message == 'Email not verified') {
+            this.toastr.warning('Verify your email adress!');
+            return;
+          }
+          this.toastr.error("Can't login!", err.error.message);
         }
-        this.toastr.error("Can't login!", err.error.message);
-      });
+      );
   }
 
   signUp() {
@@ -92,32 +111,33 @@ export class LoginComponent implements OnInit {
 
     if (this.signUpForm.invalid) {
       if (this.signUpForm.controls?.checkPassword?.errors?.confirm) {
-        this.toastr.error("Passwords does not match!");
+        this.toastr.error('Passwords does not match!');
         return;
       }
-      this.toastr.error("Verify your inputs!");
+      this.toastr.error('Verify your inputs!');
       return;
     }
-    this.authService.signUp({
-      'email': this.signUpForm.controls.email.value,
-      'password': this.signUpForm.controls.password.value,
-      'firstName': this.signUpForm.controls.firstName.value,
-      'lastName': this.signUpForm.controls.lastName.value,
-      'birthDate': this.formatDate(this.signUpForm.controls.birthDate.value),
-      'country': this.signUpForm.controls.country.value
-    })
+    this.authService
+      .signUp({
+        email: this.signUpForm.controls.email.value,
+        password: this.signUpForm.controls.password.value,
+        firstName: this.signUpForm.controls.firstName.value,
+        lastName: this.signUpForm.controls.lastName.value,
+        birthDate: this.formatDate(this.signUpForm.controls.birthDate.value),
+        country: this.signUpForm.controls.country.value,
+      })
       .subscribe(
-        response => {
+        (response) => {
           Swal.fire({
             title: this.translate.instant('verification_email_sent'),
-            icon: 'info'
+            icon: 'info',
           });
           this.signUpForm.reset();
         },
-        err => {
+        (err) => {
           this.toastr.error(err.error.message);
         }
-      )
+      );
   }
 
   formatDate(date) {
@@ -134,7 +154,8 @@ export class LoginComponent implements OnInit {
   };
 
   loginWithGoogle() {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    this.socialAuthService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((response) => {
         let user: User = {
           googleId: response.id,
@@ -142,15 +163,41 @@ export class LoginComponent implements OnInit {
           lastName: response.lastName,
           profilePicture: response.photoUrl,
           fullName: response.name,
-          email: response.email
-        } as User
-        this.authService.authenticateWithGoogle(user).subscribe(res => {
-          this.toastr.success('Login Successful!', res.message);
-          this.router.navigate(['/']);
-        }, (err: any) => {
-          this.toastr.error("Can't login!", err.error.message);
-        });
+          email: response.email,
+        } as User;
+        this.authService.authenticateWithGoogle(user).subscribe(
+          (res) => {
+            this.toastr.success('Login Successful!', res.message);
+            this.router.navigate(['/']);
+          },
+          (err: any) => {
+            this.toastr.error("Can't login!", err.error.message);
+          }
+        );
       });
   }
 
+  loginWithFacebook() {
+    this.socialAuthService
+      .signIn(FacebookLoginProvider.PROVIDER_ID)
+      .then((response) => {
+        let user: User = {
+          facebook: response.id,
+          firstName: response.firstName,
+          lastName: response.lastName,
+          profilePicture: response.photoUrl,
+          fullName: response.name,
+          email: response.email,
+        } as User;
+        this.authService.authericateWithFacebook(user).subscribe(
+          (res) => {
+            this.toastr.success('Login Successful!', res.message);
+            this.router.navigate(['/']);
+          },
+          (err: any) => {
+            this.toastr.error("Can't login!", err.error.message);
+          }
+        );
+      });
+  }
 }
