@@ -99,6 +99,11 @@ export class PostComponent implements OnInit {
     )
   }
 
+  /* togglebtn(){
+    let x = document.querySelector('.simple-dropdown');
+    if(x.style.display ==='none')
+  } */
+
   toggleComments() {
     this.commentsVisible = !this.commentsVisible;
     if (!this.commentsVisible) {
