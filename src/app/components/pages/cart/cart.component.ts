@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { cartItemDetail } from 'src/app/interfaces/cart-items.interface';
 import { CartService } from 'src/app/services/cart.service';
 import ProductService from 'src/app/services/product.service';
@@ -15,7 +16,8 @@ export class CartComponent implements OnInit {
   constructor(
     private router: Router,
     private cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private toast: ToastrService
   ) {}
 
   cartCount = 0;
@@ -29,20 +31,16 @@ export class CartComponent implements OnInit {
 
   private _getCartDetails() {
     this.cartService.cart$.pipe().subscribe((res) => {
+      this.cartItemDetail = [];
+      this.cartCount = res?.items.length ?? 0;
       res.items.forEach((cartItem) => {
         this.productService
           .getProduct(cartItem.productId)
           .subscribe((resproduct) => {
-            console.log(resproduct);
-
             this.cartItemDetail.push({
               product: resproduct.data,
               quantity: cartItem.quantity,
             });
-
-            console.log(this.cartItemDetail);
-            this.subTotal = resproduct.data.product.price * cartItem.quantity;
-            console.log(resproduct.data.product.price);
           });
       });
     });
@@ -53,8 +51,7 @@ export class CartComponent implements OnInit {
   }
 
   deleteCartItem(cartItem: cartItemDetail) {
-    console.log('hello');
-
     this.cartService.deleteCartItem(cartItem.product._id);
+    this.toast.warning('Your Product was Deleted');
   }
 }

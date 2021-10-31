@@ -25,10 +25,7 @@
               {{ item.product.product.price | currency }}
             </div>
             <div class="cart-item-remove">
-              <i
-                class="fa fa-trash"
-                (click)="deleteCartItem(item.product.product._id)"
-              ></i>
+              <i class="fa fa-trash" (click)="deleteCartItem(item.product)"></i>
             </div>
           </div>
           <div class="col-md-3">
