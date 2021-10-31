@@ -5,7 +5,10 @@
       <div>
         <button class="back" (click)="backToShop()">Back</button>
       </div>
-      <div>
+      <div *ngIf="cartCount > 1">
+        <h4 class="title">My Cart : {{ cartCount }} Items</h4>
+      </div>
+      <div *ngIf="cartCount === 1">
         <h4 class="title">My Cart : {{ cartCount }} Item</h4>
       </div>
       <div class="cart-shipping">
