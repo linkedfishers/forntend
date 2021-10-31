@@ -1,1 +1,51 @@
-<p>cart works!</p>
+<div style="height: 200px"></div>
+<div class="cart-page">
+  <div class="p-grid">
+    <div class="p-col-8">
+      <div>
+        <button (click)="backToShop()">back To Shop</button>
+      </div>
+      <div>
+        <h4>My Cart : {{ cartCount }} Item</h4>
+      </div>
+      <div class="cart-shipping">
+        Shipping after the payment , Delivery time : 1 to 4
+      </div>
+      <div class="container cart-item" *ngFor="let item of cartItemDetail">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="../../../../assets/img/icons/icons10d.png" alt="alt" />
+          </div>
+          <div class="col-md-7">
+            <div class="cart-item-name">{{ item.product.product.name }}</div>
+            <div class="cart-item-price">
+              {{ item.product.product.price | currency }}
+            </div>
+            <div class="cart-item-remove">
+              <i
+                class="fa fa-trash"
+                (click)="deleteCartItem(item.product.product._id)"
+              ></i>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="cart-item-Input">
+              <input
+                min="1"
+                type="number"
+                [id]="item.product.product._id"
+                name="quantity"
+                class="cart-item-Input-textInput"
+              />
+            </div>
+            <div class="cart-item-subtotal">
+              <div class="cart-item-subtotal-value">
+                {{ item.product.product.price * item.quantity | currency }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

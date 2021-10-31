@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
+import { Cart, CartItem } from 'src/app/interfaces/cart-items.interface';
 import {
   EquipmentType,
   BoatType,
@@ -13,6 +14,7 @@ import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
 import { PicturePipe } from 'src/app/pipes/picture.pipe';
 import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { UserService } from 'src/app/services/user.service';
 import { environment } from 'src/environments/environment';
@@ -26,6 +28,7 @@ declare var initHeader, initHexagons: any;
 })
 export class HeaderComponent implements OnInit {
   constructor(
+    private cartService: CartService,
     private translate: TranslateService,
     private toastr: ToastrService,
     private router: Router,
@@ -36,7 +39,8 @@ export class HeaderComponent implements OnInit {
     private el: ElementRef
   ) {}
   readonly API: string = environment.apiUrl + '/';
-
+  test: CartItem[];
+  cartCount = 0;
   currentUser: User;
   firstname: string;
   selected: string = '';
@@ -54,11 +58,13 @@ export class HeaderComponent implements OnInit {
   serviceTypes: ServiceType[];
   ngOnInit(): void {
     initHeader();
+    console.log(this.cartCount);
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
       console.log(this.language);
     });
+
     this.currentUser = this.authService.getCurrentUser();
     if (this.currentUser) {
       this.isGuest = false;
@@ -79,6 +85,7 @@ export class HeaderComponent implements OnInit {
         }
       );
     }
+
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
     if (this.currentUser) {
@@ -138,6 +145,9 @@ export class HeaderComponent implements OnInit {
         this.toastr.error('Error while loading ServiceType');
       }
     );
+    this.cartService.cart$.subscribe((cart) => {
+      this.cartCount = cart?.items.length ?? 0;
+    });
   }
 
   setLanguage(language: string) {

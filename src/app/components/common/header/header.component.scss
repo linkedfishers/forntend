@@ -231,3 +231,21 @@ header {
   right: -9px !important;
   top: -20px !important;
 }
+
+.small-notif {
+  font-weight: 400;
+  color: white;
+  background-color: rgb(36, 108, 179);
+  font-size: small;
+}
+
+.notifDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(36, 108, 179);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}

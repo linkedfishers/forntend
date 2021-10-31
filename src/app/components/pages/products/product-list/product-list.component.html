@@ -270,7 +270,11 @@
             <!-- /RATING LIST -->
           </div>
           <div class="product-preview-meta justify-content-center">
-            <button type="button" class="btn btn-outline-primary widthmid">
+            <button
+              type="button"
+              class="btn btn-outline-primary widthmid"
+              (click)="addToCart(product._id)"
+            >
               Add to Cart
             </button>
           </div>

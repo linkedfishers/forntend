@@ -11,6 +11,9 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { CartService } from 'src/app/services/cart.service';
+import { CartItem } from 'src/app/interfaces/cart-items.interface';
+import { ToastrService } from 'ngx-toastr';
 
 declare var initSidebar, initPopups: any;
 declare var initForm, $: any;
@@ -21,16 +24,23 @@ declare var initForm, $: any;
   styleUrls: ['./product-list.component.scss'],
 })
 export class ProductListComponent implements OnInit {
-  constructor(private productService: ProductService, private fb: FormBuilder) {
+  constructor(
+    private toast: ToastrService,
+    private productService: ProductService,
+    private fb: FormBuilder,
+    private cartService: CartService
+  ) {
     this.form = this.fb.group({
       isArray: this.fb.array([], [Validators.required]),
     });
+    cartService.initCartLocalStorage();
   }
   currentProvider: Provider;
   readonly API: string = environment.apiUrl + '/';
   searchKeyword: string;
   searchedProduct: Product[] = [];
   formData: FormData;
+  productCart: Product;
   imageSrc: any;
   newProduct: Product;
   categories: Categorie[];
@@ -39,6 +49,7 @@ export class ProductListComponent implements OnInit {
   productCat: Categorie[];
   visibleProducts: Product[];
   content: Product[] = [];
+  cartItem: CartItem;
 
   minPrice: number = 0;
   maxPrice: number = 1000;
@@ -121,5 +132,14 @@ export class ProductListComponent implements OnInit {
           break;
       }
     });
+  }
+
+  addToCart(id) {
+    const cart: CartItem = {
+      productId: id,
+      quantity: 1,
+    };
+    this.cartService.setCartItem(cart);
+    this.toast.success('Your Product is Added To Cart');
   }
 }

@@ -63,7 +63,11 @@ import { DetailsBoatComponent } from './components/pages/details-boat/details-bo
 import { DetailsEquipmentComponent } from './components/pages/details-equipment/details-equipment.component';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { CarouselComponent } from './components/pages/carousel/carousel.component';
-import { SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import {
+  SocialLoginModule,
+  GoogleLoginProvider,
+  FacebookLoginProvider,
+} from 'angularx-social-login';
 import { PicturePipe } from './pipes/picture.pipe';
 import { DatePipe } from '@angular/common';
 import { ServicesComponent } from './components/pages/services/services.component';
@@ -101,7 +105,6 @@ import { ApiweatherComponent } from './components/common/apiweather/apiweather.c
 import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
-
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -189,9 +192,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     CartComponent,
     GalleryComponent,
   ],
+
   imports: [
     BrowserModule,
-
     CommonModule,
     CarouselModule,
     IvyCarouselModule,
