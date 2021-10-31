@@ -1,16 +1,21 @@
 .cart-page {
   min-height: 500px !important;
   max-width: 500px;
+  margin-left: 10px;
+  .title {
+    color: #555672;
+  }
   .cart {
     &-shipping {
       color: rgb(94, 184, 94);
       padding-bottom: 15px;
     }
     &-item {
-      background-color: rgb(240, 234, 234);
+      background-color: rgb(255, 255, 255);
       border: 1px solid #d3c5c5;
       padding: 15px;
       border-radius: 15px;
+      margin-bottom: 15px;
       &-image {
         img {
           height: 120px;
@@ -21,6 +26,7 @@
         font-weight: 600;
         font-size: 1.2em;
         margin-bottom: 15px;
+        color: #555672;
       }
       &-price {
         font-weight: 600;
@@ -40,8 +46,24 @@
       &-Input {
         &-textInput {
           width: 100%;
+          border-radius: 5px;
+          padding: 3px;
+          text-align: center;
+          background-color: #f7f7f7;
         }
       }
     }
   }
+}
+.back {
+  max-width: 125px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #246cb3;
+  margin: 15px auto;
+}
+
+.back:hover {
+  background-color: #246cb3;
+  color: white;
 }

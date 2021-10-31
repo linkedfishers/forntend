@@ -49,7 +49,7 @@ export class CartComponent implements OnInit {
   }
 
   backToShop() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/marketplace/products-list']);
   }
 
   deleteCartItem(cartItem: cartItemDetail) {
