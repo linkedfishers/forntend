@@ -38,11 +38,6 @@ img.round {
   color: #e4e5e6;
 }
 
-.widthcustom {
-  max-width: 882px;
-  margin: 170px auto 10px auto !important;
-}
-
 .txt {
   position: relative;
   background: -webkit-gradient(linear, left top, right top, from(#24243e), color-stop(#141e30), to(#0f0c29));

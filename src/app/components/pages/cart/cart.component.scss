@@ -1,7 +1,7 @@
 .cart-page {
   min-height: 500px !important;
-  max-width: 500px;
-  margin-left: 10px;
+  /* max-width: 500px; */
+  /*   margin-left: 10px; */
   .title {
     color: #555672;
   }
@@ -9,6 +9,7 @@
     &-shipping {
       color: rgb(94, 184, 94);
       padding-bottom: 15px;
+      margin-top: 15px;
     }
     &-item {
       background-color: rgb(255, 255, 255);
@@ -16,6 +17,7 @@
       padding: 15px;
       border-radius: 15px;
       margin-bottom: 15px;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
       &-image {
         img {
           height: 120px;
@@ -71,4 +73,5 @@
 .fa-trash {
   color: rgb(235, 34, 34);
   cursor: pointer;
+  font-size: 22px;
 }

@@ -8,10 +8,10 @@ export class Cart {
 
 export class CartItem {
   productId?: string;
-  quantity?: number;
+  quantity: number;
 }
 
 export class cartItemDetail {
-  product?: any;
-  quantity?: number;
+  product: Product;
+  quantity: number;
 }

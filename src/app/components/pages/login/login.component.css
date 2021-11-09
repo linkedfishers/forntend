@@ -1,39 +1,16 @@
-.landing-info-title {
+/* .landing-info-title {
   text-transform: capitalize;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 4.5rem;
+  font-size: 3.5rem;
 }
-.landing-info .logo {
-  display: flex;
-  justify-content: center;
 
-}
-.landing-info .landing-info-pretitle {
-  margin-top: -57px;
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 25px;
-    color: #DAA520;
-}
 .form-text.error {
   margin-top: 0px !important;
-  color: darkred;
-}
-
-.tab-switch-button.active {
-  background-color: red;
-  cursor: auto;
-  color: #fff;
-}
-.tab-switch-button.active:hover {
-  background-color: #fff;
-  cursor: auto;
-  color: red;
-}
+  color: #dedeea;
+ }
 .scrollbar-pink {
   scrollbar-color: #ec407a #f5f5f5;
 }
-
 .example-viewport {
   height: 200px;
   width: 200px;
@@ -53,30 +30,92 @@
 }
 
 .widthfive {
-  width: 50%;
+
+  width: 75%;
+  color:#adafca;
 }
 
 .social-links {
-  -webkit-box-align: center !important;
-      -ms-flex-align: center !important;
-          align-items: center !important;
-  -webkit-box-pack: justify !important;
-      -ms-flex-pack: justify !important;
-          justify-content: space-between !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   vertical-align: baseline;
 }
 
 .form-box .pp {
   margin-top: 10px !important;
-}
 
-.lined-text:after, .lined-text:before {
+}
+.lined-text:after, .lined-text:before{
   display: none !important;
 }
 
-@media (max-width: 700px) {
-  .form-box.login-register-form-element {
+
+@media(max-width:700px)
+{
+  .form-box.login-register-form-element{
     width: 64vw !important;
   }
+} */
+.landing-info-title {
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+  font-size: 32px;
+}
+
+.form-text.error {
+  margin-top: 0px !important;
+  color: darkred;
+}
+
+.scrollbar-pink {
+  scrollbar-color: #ec407a #f5f5f5;
+}
+
+.example-viewport {
+  height: 200px;
+  width: 200px;
+  border: 1px solid black;
+}
+
+.example-item-detail {
+  height: 18px;
+}
+
+.example-alternate {
+  background: rgba(127, 127, 127, 0.3);
+}
+
+.colortxtone {
+  color: #226ab2;
+}
+
+.colortxt {
+  color: #3784d1;
+  text-transform: lowercase !important;
+}
+
+.force-overflow {
+  padding: 10px !important;
+}
+
+.landing-info {
+  top: 0px !important;
+}
+
+.zeromargintop {
+  margin-top: 5px !important;
+}
+
+.pp {
+  margin-top: 0px !important;
+}
+
+.spacebetween {
+  -webkit-box-pack: justify !important;
+      -ms-flex-pack: justify !important;
+          justify-content: space-between !important;
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
 }
 /*# sourceMappingURL=login.component.css.map */

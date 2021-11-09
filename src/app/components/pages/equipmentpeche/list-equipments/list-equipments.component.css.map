@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,SAAS;EACjB,eAAe,EAAE,qBAAqB;EACtC,SAAS,EAAE,IAAI;CAChB;;AACD,AAAA,UAAU,CAAC;EACT,KAAK,EAAE,gBAAgB;CACxB;;AACD,AAAA,KAAK,CAAC;EACJ,KAAK,EAAE,MAAM;CACd",
+    "mappings": "AAAA;;;;;;;;;;;;;GAaG",
     "sources": [
         "list-equipments.component.scss"
     ],

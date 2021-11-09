@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+          <!-- SECTION PRETITLE -->
+          <p class="section-pretitle">Manage Orders</p>
+          <!-- /SECTION PRETITLE -->
+
+          <!-- SECTION TITLE -->
+          <h2 class="section-title">Order List</h2>
+          <!-- /SECTION TITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Users</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Date Ordred</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let order of orders">
+          <tr>
+            <td>{{ order.user?.fullName }}</td>
+            <td>{{ order.totalPrice }}</td>
+            <td>{{ order.dateOrdered | date: "short" }}</td>
+            <td>
+              <h6>{{ order.status }}</h6>
+            </td>
+            <td>
+              <!--   <tag
+                  [value]="orderStatus[order.status].label"
+                  [severity]="orderStatus[order.status].color"
+                ></tag> -->
+            </td>
+            <td>
+              <i (click)="showOrder(order._id)" class="fa fa-eye"></i>
+              <i
+                (click)="deleteOrder()"
+                styleClass="p-button-success"
+                class="fa fa-trash"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- <p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></confirmDialog> -->

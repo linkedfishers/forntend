@@ -9,4 +9,8 @@
   width: -moz-max-content;
   width: max-content;
 }
+
+.test {
+  position: relative !important;
+}
 /*# sourceMappingURL=profile-info.component.css.map */

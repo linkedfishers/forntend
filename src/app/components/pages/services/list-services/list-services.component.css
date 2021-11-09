@@ -1,20 +1,15 @@
-.displayflef {
-  display: -webkit-box;
-  display: -ms-flexbox;
+/* .displayflef {
   display: flex;
   max-width: 1200px;
   margin: 20px auto;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-
 .widthprod {
   width: 375px !important;
 }
-
 .maxw {
   width: 1200px;
 }
+ */
 /*# sourceMappingURL=list-services.component.css.map */

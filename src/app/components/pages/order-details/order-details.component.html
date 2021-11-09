@@ -1,0 +1,96 @@
+<div class="admin-page" *ngIf="order">
+  <div class="container mb-4">
+    <div class="title-larg"><h3 class="large-title">Order Details</h3></div>
+
+    <div class="row">
+      <div class="col-3">
+        <h5 class="title">Order Id</h5>
+        <p>{{ order._id }}</p>
+      </div>
+
+      <div class="col-3">
+        <h5 class="title">Order Date</h5>
+        <p>{{ order.dateOfOrder }}</p>
+      </div>
+
+      <div class="col-3">
+        <h5 class="title">Order Status</h5>
+        <div class="btn-group">
+     <!--    <select [(ngModel)]="selectedValue">
+          <option *ngFor="let c of countries" value="c.id">{{c.name}}</option>
+       </select> -->
+        </div>
+        <!--  <p-dropdown
+            [options]="orderStatuses"
+            optionLabel="name"
+            optionValue="id"
+            (onChange)="onStatusChange($event)"
+            [(ngModel)]="selectedStatus"
+          >
+          </p-dropdown> -->
+      </div>
+
+      <div class="col-3">
+        <h5 class="title">Order Total Price</h5>
+        <p>{{ order.totalPrice | currency }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mb-5 mt-5">
+    <div class="title-larg"><h3 class="large-title">Order Items</h3></div>
+
+    <div class="row">
+      <div class="col-3 text-bold">Name</div>
+      <div class="col-3 text-bold">Price</div>
+      <div class="col-3 text-bold">Quantity</div>
+      <div class="col-3 text-bold">Subtotal</div>
+    </div>
+  </div>
+  <div class="container mb-5 mt-5" *ngFor="let orderItem of orderItem">
+    <div class="row">
+      <div class="col-3">{{ orderItem.product.name }}</div>
+      <div class="col-3">{{ orderItem.product.price | currency }}</div>
+      <div class="col-3">{{ orderItem.quantity }}</div>
+      <div class="col-3">
+        {{ orderItem.product.price * orderItem.quantity | currency }}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-2 offset-8 text-bold" style="color: green">
+        Total Price
+      </div>
+
+      <div class="col-2 text-bold" style="color: green">
+        {{ order.totalPrice | currency }}
+      </div>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="title-larg"><h3 class="large-title">Order Adresse</h3></div>
+    <div class="row">
+      <div class="col-4">
+        <h5 class="title">Order Address</h5>
+        <p>
+          {{ order.shippingAdresse1 }}
+          {{ order.shippingAdresse2 }}
+          {{ order.zip }} {{ order.city }}<br />
+          {{ order.country }}
+        </p>
+      </div>
+
+      <div class="col-4">
+        <h5 class="title">Customer Info</h5>
+        <p>{{ orderUser.fullName }}</p>
+      </div>
+
+      <div class="col-4">
+        <h5 class="title">Contact Info</h5>
+        <p>{{ order.phone }}</p>
+      </div>
+    </div>
+  </div>
+</div>

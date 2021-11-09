@@ -34,7 +34,7 @@ body {
   height: 500px;
   position: relative;
   font-family: "Droid Serif", serif;
-  color: #fff;
+  color: #3678b1;
   top: 20%;
   right: 0;
   left: 0;
@@ -46,19 +46,24 @@ body {
   text-align: center;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
- 
-
+  background-size: 100%;
 }
 
 .blog-card a {
-  color: #fff;
+  color: #3678b1;
   text-decoration: none;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
+  line-height: 59px;
+  font-size: 68px;
+}
+
+.blog-card[_ngcontent-gig-c304] a[_ngcontent-gig-c304] {
+  color: #3678b1;
+  line-height: 59px;
 }
 
 .blog-card .color-overlay {
-  background: rgba(64, 84, 94, 0.5);
   width: 1920px;
   height: 500px;
   position: absolute;
@@ -70,8 +75,6 @@ body {
 }
 
 .blog-card .gradient-overlay {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(21%, rgba(0, 0, 0, 0.6)));
-  background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
   width: 1920px;
   height: 500px;
   position: absolute;
@@ -355,8 +358,7 @@ em {
 /* ignore this bit :P */
 #profile-badges:after {
   content: "BRO";
-  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma,
- Sans-Serif;
+  font-family: "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
   font-size: 13px;
   font-weight: 500;
   text-transform: uppercase;
@@ -548,7 +550,6 @@ em {
 
 .blog-cards .color-overlays {
   /* Rectangle 11: */
-  background: rgba(84, 104, 110, 0.4);
   width: 350px;
   height: 500px;
   position: absolute;
@@ -561,8 +562,6 @@ em {
 
 .blog-cards .gradient-overlays {
   /* bg-gradient: */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(21%, rgba(0, 0, 0, 0.6)));
-  background-image: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 21%);
   width: 350px;
   height: 500px;
   position: absolute;
@@ -690,6 +689,8 @@ hr {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  margin-top: 130px !important;
+  margin-bottom: 20px !important;
 }
 
 .map-container {
@@ -698,14 +699,55 @@ hr {
 }
 
 .title-map {
-  max-width: 500px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
+.title-map h4::before,
+.title-map h4::after {
+  margin-left: 40px !important;
+  margin-right: 40px !important;
+}
+
+.title-map h4::before {
+  position: relative;
+  content: " ";
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  margin: auto;
+  border-bottom: 2px solid black;
+}
+
+.title-map h4::after {
+  position: relative;
+  content: " ";
+  margin: auto;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1;
+          flex: 1 1;
+  border-bottom: 2px solid black;
+}
+
 .title-map h4 {
+  font-weight: 400;
+  text-transform: uppercase;
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #4d4f52;
+  text-decoration: none;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  line-height: 59px;
+  font-size: 20px;
 }
 
 .mrg {
@@ -721,7 +763,7 @@ hr {
 }
 
 .framemap {
-  max-width: 800px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
 }
 
@@ -747,15 +789,27 @@ hr {
   }
 }
 
+.mari h4 {
+  margin-top: 15px !important;
+  margin-bottom: 40px !important;
+}
+
 .top {
-  position: relative !important;
-  top: 150px !important;
-  height: 500px !important;
+  top: 85px !important;
+  height: 600px;
   padding: 0px !important;
 }
 
 .height-caroussel {
-  height: 500px !important;
+  height: 500px;
+  position: relative;
+  top: 100px;
+}
+
+@media (max-width: 992px) {
+  .height-caroussel {
+    top: 0 !important;
+  }
 }
 
 .carousel {
@@ -772,5 +826,61 @@ hr {
 
 .image-carousel {
   height: 500px !important;
+}
+
+.backatt {
+  padding: 20px;
+}
+
+.test {
+  background: rgba(226, 209, 209, 0.25);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.background {
+  background-image: url("../../../../assets/img/degrade-effet-bokeh-arriere-plan_23-2148381459.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+}
+
+.images-reb img {
+  width: 100%;
+  height: 100%;
+}
+
+.max {
+  max-width: 550px;
+}
+
+.max h2 {
+  margin-bottom: 10px;
+  border-left: 3px solid #383535;
+  padding-left: 10px;
+}
+
+.max p {
+  color: black;
+  font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.max ul li {
+  list-style: circle;
+  font-size: 20px;
+  font-family: "Open Sans", sans-serif;
+  color: #1f1e1e;
 }
 /*# sourceMappingURL=mainpage.component.css.map */

@@ -48,7 +48,6 @@ export class CartService {
     return cart;
   }
 
-
   deleteCartItem(productId: string) {
     const cart = this.getCart();
     const newCart = cart.items.filter((item) => item.productId !== productId);

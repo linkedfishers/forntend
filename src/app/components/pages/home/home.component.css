@@ -1,5 +1,5 @@
 .button.disabled {
-  background-color: gray;
+  background-color: #5753e4;
 }
 
 img.round {
@@ -14,7 +14,18 @@ p.option-item-title {
   display: block !important;
 }
 
-.custompos {
+/* .custompos {
+  position: relative !important;
+}
+.test2 .widget-box.no-padding {
+  position: initial !important;
+
+} */
+.widget-box.custompos {
+  position: relative !important;
+}
+
+.testtest {
   position: relative !important;
 }
 /*# sourceMappingURL=home.component.css.map */

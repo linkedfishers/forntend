@@ -105,6 +105,9 @@ import { ApiweatherComponent } from './components/common/apiweather/apiweather.c
 import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { GalleryComponent } from './components/pages/gallery/gallery.component';
+import { OrderListComponent } from './components/pages/order-list/order-list.component';
+import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
+import { OrderCheckComponent } from './components/pages/order-check/order-check.component';
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -191,6 +194,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NaComponent,
     CartComponent,
     GalleryComponent,
+    OrderListComponent,
+    OrderDetailsComponent,
+    OrderCheckComponent,
   ],
 
   imports: [

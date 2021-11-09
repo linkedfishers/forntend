@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/users.interface';
 import { roundToNearestMinutesWithOptions } from 'date-fns/fp';
+import { Observable } from 'rxjs';
+import { Order } from '../interfaces/order.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +13,10 @@ export class AdminService {
   readonly API: string = environment.apiUrl + '/admin';
 
   constructor(private httpClient: HttpClient) {}
+
+  getOrders() {
+    return this.httpClient.get<any>(`${this.API}/order/all`);
+  }
 
   getUsers(count: number, skip: number) {
     return this.httpClient.get<any>(`${this.API}/users/${count}/${skip}`);

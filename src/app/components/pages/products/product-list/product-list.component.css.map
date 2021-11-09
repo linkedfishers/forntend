@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,gBAAgB;CAC1B;;AACD,AAAA,cAAc,CAAC;EACb,aAAa,EAAE,eAAe;EAC9B,OAAO,EAAE,eAAe;CACzB",
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACZ,OAAO,EAAE,gBAAgB;CAC1B;;AACD,AAAA,cAAc,CAAC;EACb,aAAa,EAAE,eAAe;EAC9B,OAAO,EAAE,eAAe;CACzB;;AAED,AAAA,SAAS,CAAC;EACR,SAAS,EAAE,cAAc;CAC1B",
     "sources": [
         "product-list.component.scss"
     ],

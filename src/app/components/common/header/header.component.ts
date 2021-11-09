@@ -160,7 +160,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.cartService.getCart().items = [];
+ /*    this.cartService.getCart().items = []; */
     localStorage.clear();
     this.router.navigate(['/login']);
   }

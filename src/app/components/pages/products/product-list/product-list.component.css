@@ -6,4 +6,8 @@
   margin-bottom: 10px !important;
   padding: 10px !important;
 }
+
+.widthmid {
+  max-width: 50% !important;
+}
 /*# sourceMappingURL=product-list.component.css.map */

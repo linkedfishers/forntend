@@ -13,12 +13,11 @@ $social-buttons-circle-dark-grey: #1a1d20;
 
 a {
   color: $link-light-grey;
-  color:#979b9f;
-    font-size: 20px;
-    font-weight: 40px;
-    line-height: 38px;
-    font-weight: bolder;
-
+  color: #979b9f;
+  font-size: 20px;
+  font-weight: 40px;
+  line-height: 38px;
+  font-weight: bolder;
 }
 a:hover {
   color: $primary-orange;
@@ -57,14 +56,13 @@ footer {
     }
     span.footer-title {
       font-size: 14px;
-      
+
       color: #fff;
       font-size: 21px;
       font-weight: bold;
-    
     }
-    span.footer-title:hover{
-      color:#9b8a4f ;
+    span.footer-title:hover {
+      color: #9b8a4f;
     }
 
     .fas {
@@ -88,7 +86,7 @@ ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
   background-color: $primary-orange;
-  color:#104777;
+  color: #104777;
 }
 
 ul.social-buttons li a {
@@ -106,9 +104,9 @@ ul.social-buttons li a {
   background-color: $footer-background-grey;
 
   color: #c0c0d0;
-    line-height: 43px;
-    font-weight: bolder;
-    font-size: 20px;
+  line-height: 43px;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 footer .quick-links {
@@ -126,4 +124,12 @@ footer .quick-links {
 .fa-ellipsis-h {
   color: white;
   padding: 2rem 0;
+}
+
+.nav-item .image-lsit {
+  text-align: center;
+}
+
+.image-lsit {
+  width: 35%;
 }

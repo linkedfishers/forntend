@@ -45,6 +45,7 @@ import { HebergementsbycatComponent } from './components/pages/hebergementsbycat
 import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplistcat.component';
 import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
+import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 
 const routes: Routes = [
   {
@@ -73,13 +74,24 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       {
+        path: 'admin/order/:id',
+        component: OrderDetailsComponent,
+       
+      },
+      {
         path: 'events',
         component: EventsComponent,
       },
       {
         path: 'cart',
         component: CartComponent,
+        canActivate: [AuthGuard],
       },
+
+ /*      {
+        path: 'order/:id',
+        component: OrderDetailsComponent,
+      }, */
 
       {
         path: 'map',

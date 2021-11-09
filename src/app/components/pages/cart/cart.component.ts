@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { cartItemDetail } from 'src/app/interfaces/cart-items.interface';
+import {
+  CartItem,
+  cartItemDetail,
+} from 'src/app/interfaces/cart-items.interface';
 import { CartService } from 'src/app/services/cart.service';
 import ProductService from 'src/app/services/product.service';
 
@@ -54,4 +57,10 @@ export class CartComponent implements OnInit {
     this.cartService.deleteCartItem(cartItem.product._id);
     this.toast.warning('Your Product was Deleted');
   }
+ /*  updateCartItem(evnt, cartItem: cartItemDetail) {
+    this.cartService.setCartItem({
+      productId: cartItem.product._id,
+      quantity: cartItem.quantity,
+    });
+  } */
 }

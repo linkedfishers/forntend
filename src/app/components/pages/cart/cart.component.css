@@ -1,1 +1,80 @@
-/* No CSS *//*# sourceMappingURL=cart.component.css.map */
+.cart-page {
+  min-height: 500px !important;
+  max-width: 500px;
+  margin-left: 10px;
+}
+
+.cart-page .title {
+  color: #555672;
+}
+
+.cart-page .cart-shipping {
+  color: #5eb85e;
+  padding-bottom: 15px;
+}
+
+.cart-page .cart-item {
+  background-color: white;
+  border: 1px solid #d3c5c5;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.cart-page .cart-item-image img {
+  height: 120px;
+  max-width: 100%;
+}
+
+.cart-page .cart-item-name {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #555672;
+}
+
+.cart-page .cart-item-price {
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: indianred;
+}
+
+.cart-page .cart-item-quantity {
+  margin: 15px 0;
+}
+
+.cart-page .cart-item-subtotal {
+  font-weight: 600;
+}
+
+.cart-page .cart-item-subtotal-value {
+  color: indianred;
+}
+
+.cart-page .cart-item-Input-textInput {
+  width: 100%;
+  border-radius: 5px;
+  padding: 3px;
+  text-align: center;
+  background-color: #f7f7f7;
+}
+
+.back {
+  max-width: 125px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #246cb3;
+  margin: 15px auto;
+}
+
+.back:hover {
+  background-color: #246cb3;
+  color: white;
+}
+
+.fa-trash {
+  color: #eb2222;
+  cursor: pointer;
+}
+/*# sourceMappingURL=cart.component.css.map */

@@ -1,0 +1,22 @@
+.admin-page {
+  position: relative;
+  top: 120px;
+}
+.title {
+  margin-bottom: 10px;
+}
+.text-bold {
+  font-weight: 600;
+}
+.title-larg {
+  display: flex;
+  justify-content: center;
+}
+.large-title {
+  margin-bottom: 15px;
+  border-radius: 6px;
+  padding: 5px;
+  width: 40%;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  text-align: center;
+}

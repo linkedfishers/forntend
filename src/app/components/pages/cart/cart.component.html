@@ -1,50 +1,60 @@
 <div style="height: 100px"></div>
 <div class="cart-page">
-  <div class="p-grid">
-    <div class="p-col-8">
-      <div>
-        <button class="back" (click)="backToShop()">Back</button>
-      </div>
-      <div *ngIf="cartCount > 1">
-        <h4 class="title">My Cart : {{ cartCount }} Items</h4>
-      </div>
-      <div *ngIf="cartCount === 1">
-        <h4 class="title">My Cart : {{ cartCount }} Item</h4>
-      </div>
-      <div class="cart-shipping">
-        Shipping after the payment , Delivery time : 1 to 4
-      </div>
-      <div class="container cart-item" *ngFor="let item of cartItemDetail">
-        <div class="row">
-          <div class="col-md-2">
-            <img src="../../../../assets/img/icons/icons10d.png" alt="alt" />
-          </div>
-          <div class="col-md-7">
-            <div class="cart-item-name">{{ item.product.product.name }}</div>
-            <div class="cart-item-price">
-              {{ item.product.product.price | currency }}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div>
+          <button class="back" (click)="backToShop()">Back</button>
+        </div>
+        <div *ngIf="cartCount > 1">
+          <h4 class="title">My Cart : {{ cartCount }} Items</h4>
+        </div>
+        <div *ngIf="cartCount === 1">
+          <h4 class="title">My Cart : {{ cartCount }} Item</h4>
+        </div>
+        <div class="cart-shipping">
+          Shipping after the payment , Delivery time : 1 to 4
+        </div>
+        <div class="container cart-item" *ngFor="let item of cartItemDetail">
+          <div class="row">
+            <div class="col-md-2">
+              <img src="../../../../assets/img/icons/icons10d.png" alt="alt" />
             </div>
-            <div class="cart-item-remove">
-              <i class="fa fa-trash" (click)="deleteCartItem(item.product)"></i>
+            <div class="col-md-7">
+              <div class="cart-item-name">{{ item.product.product.name }}</div>
+              <div class="cart-item-price">
+                {{ item.product.product.price | currency }}
+              </div>
+              <div class="cart-item-remove">
+                <i
+                  class="fa fa-trash"
+                  (click)="deleteCartItem(item.product)"
+                ></i>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="cart-item-Input">
-              <input
-                min="1"
-                type="number"
-                [id]="item.product.product._id"
-                name="quantity"
-                class="cart-item-Input-textInput"
-              />
-            </div>
-            <div class="cart-item-subtotal">
-              <div class="cart-item-subtotal-value">
-                {{ item.product.product.price * item.quantity | currency }}
+            <div class="col-md-3">
+              <div class="cart-item-Input">
+                <!-- <input
+                  [min]="1"
+                  type="number"
+                  [id]="item.product.product._id"
+                  name="quantity"
+                  class="cart-item-Input-textInput"
+                  [(ngModel)]="item.quantity"
+                  (onInput)="updateCartItem($event)"
+                /> -->
+              </div>
+              <div class="cart-item-subtotal">
+                <div class="cart-item-subtotal-value">
+                  {{ item.product.product.price * item.quantity | currency }}
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <app-order-check></app-order-check>
       </div>
     </div>
   </div>
