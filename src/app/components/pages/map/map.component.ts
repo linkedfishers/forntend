@@ -246,7 +246,7 @@ export class MapComponent implements AfterViewInit {
     this.eventService.getAll().subscribe(
       (res) => {
         this.events = res.data;
-        console.log(this.events);
+       /*  console.log(this.events); */
         let i = 0;
         this.events.forEach((event) => {
           if (!event.position) return;

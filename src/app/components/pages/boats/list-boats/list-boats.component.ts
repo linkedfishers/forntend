@@ -25,11 +25,11 @@ export class ListBoatsComponent implements OnInit {
     loadSvg();
     this.equipmentService.getBoats().subscribe((res) => {
       this.boats = res.data;
-      console.log(this.boats);
+      /* console.log(this.boats); */
     });
     this.equipmentService.getServiceTypes().subscribe((res) => {
       this.boatTypes = res.data;
-      console.log(this.boatTypes);
+     /*  console.log(this.boatTypes); */
     });
   }
 }

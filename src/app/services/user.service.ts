@@ -16,8 +16,8 @@ export class UserService {
   public isAuthenticated() {
     try {
       const token = localStorage.getItem(this.ID_TOKEN);
-      console.log(token);
-      return token ? !new JwtHelperService().isTokenExpired(token) : false;
+/*       console.log(token);
+ */      return token ? !new JwtHelperService().isTokenExpired(token) : false;
     } catch (e) {
       localStorage.clear();
       return false;

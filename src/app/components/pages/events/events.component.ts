@@ -71,7 +71,7 @@ export class EventsComponent implements OnInit {
     this.eventService.getUpcoming().subscribe(
       res => {
         this.upcomingEvents = res.data;
-        console.log(this.upcomingEvents);
+        /* console.log(this.upcomingEvents); */
       },
       err => {
         this.toastr.error(err.error.message);
@@ -83,8 +83,8 @@ export class EventsComponent implements OnInit {
     this.eventService.getEventByMonth(date.getMonth()).subscribe(
       res => {
         const events: Event[] = res.data;
-        console.log(events);
-        console.log(this.monthEvents);
+      /*   console.log(events);
+        console.log(this.monthEvents); */
         events.forEach(event => {
           if (this.monthEvents.findIndex((e) => { return e._id == event._id; }) == -1) {
             this.monthEvents.push(event);
@@ -209,7 +209,7 @@ export class EventsComponent implements OnInit {
       cancelButtonText: this.translate.instant('discard')
     }).then((result) => {
       if (result.value) {
-        console.log(this.upcomingEvents[i]._id);
+      /*   console.log(this.upcomingEvents[i]._id); */
 
         this.eventService.deleteEvent(this.upcomingEvents[i]._id).subscribe(
           res => {

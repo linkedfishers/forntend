@@ -16,7 +16,7 @@
       <div class="col-3">
         <h5 class="title">Order Status</h5>
         <div class="btn-group">
-     <!--    <select [(ngModel)]="selectedValue">
+          <!--    <select [(ngModel)]="selectedValue">
           <option *ngFor="let c of countries" value="c.id">{{c.name}}</option>
        </select> -->
         </div>
@@ -69,27 +69,29 @@
     </div>
   </div>
 
-  <div class="container mt-5">
-    <div class="title-larg"><h3 class="large-title">Order Adresse</h3></div>
-    <div class="row">
-      <div class="col-4">
-        <h5 class="title">Order Address</h5>
-        <p>
-          {{ order.shippingAdresse1 }}
-          {{ order.shippingAdresse2 }}
-          {{ order.zip }} {{ order.city }}<br />
-          {{ order.country }}
-        </p>
-      </div>
+  <div class="footer-details">
+    <div class="container mt-5">
+      <div class="title-larg"><h3 class="large-title">Order Adresse</h3></div>
+      <div class="row">
+        <div class="col-4">
+          <h5 class="title">Order Address</h5>
+          <p>
+            {{ order.shippingAdresse1 }}
+            {{ order.shippingAdresse2 }}
+            {{ order.zip }} {{ order.city }}<br />
+            {{ order.country }}
+          </p>
+        </div>
 
-      <div class="col-4">
-        <h5 class="title">Customer Info</h5>
-        <p>{{ orderUser.fullName }}</p>
-      </div>
+        <div class="col-4">
+          <h5 class="title">Customer Info</h5>
+          <p>{{ orderUser.fullName }}</p>
+        </div>
 
-      <div class="col-4">
-        <h5 class="title">Contact Info</h5>
-        <p>{{ order.phone }}</p>
+        <div class="col-4">
+          <h5 class="title">Contact Info</h5>
+          <p>{{ order.phone }}</p>
+        </div>
       </div>
     </div>
   </div>

@@ -51,7 +51,7 @@ export class MainpageComponent implements OnInit {
       });
     this.equipmentService.getEuipmentWithLimit().subscribe((response) => {
       this.equipments = response.data;
-      console.log(this.equipments);
+     
     });
     this.equipmentService.getBoats().subscribe((reponse) => {
       this.boats = reponse.data;

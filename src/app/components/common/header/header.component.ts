@@ -58,7 +58,7 @@ export class HeaderComponent implements OnInit {
   serviceTypes: ServiceType[];
   ngOnInit(): void {
     initHeader();
-    console.log(this.cartCount);
+
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
@@ -123,7 +123,6 @@ export class HeaderComponent implements OnInit {
     this.equipmentService.getBoatTypes().subscribe(
       (rslt) => {
         this.boatTypes = rslt.data;
-        console.log(this.boatTypes);
       },
       (err) => {
         this.toastr.error('Error while Loading BoatType');
@@ -153,16 +152,17 @@ export class HeaderComponent implements OnInit {
   setLanguage(language: string) {
     this.currentUser.language = language;
     this.authService.updateUser(this.currentUser).subscribe((res) => {
-      console.log(res);
+      
       localStorage.setItem('language', language);
       this.translate.use(language);
     });
   }
 
   logout() {
- /*    this.cartService.getCart().items = []; */
+    /*    this.cartService.getCart().items = []; */
     localStorage.clear();
     this.router.navigate(['/login']);
+    /*    this.cartService.getCart().items = []; */
   }
 
   goToNotification(i) {
@@ -184,7 +184,7 @@ export class HeaderComponent implements OnInit {
   search() {
     if (!this.searchKeyword) return;
     this.userService.search(this.searchKeyword).subscribe((res) => {
-      console.log(res);
+
 
       this.searchedUsers = res.data;
     });

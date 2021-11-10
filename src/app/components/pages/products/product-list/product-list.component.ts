@@ -77,7 +77,8 @@ export class ProductListComponent implements OnInit {
     });
     this.productService.getProductCategories().subscribe((response) => {
       this.productCat = response.data;
-      console.log(this.productCat);
+      /*       console.log(this.productCat);
+       */
     });
     initSidebar();
     initPopups();
