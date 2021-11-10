@@ -7,6 +7,9 @@ import {
 } from 'src/app/interfaces/cart-items.interface';
 import { CartService } from 'src/app/services/cart.service';
 import ProductService from 'src/app/services/product.service';
+import { environment } from 'src/environments/environment';
+
+
 
 @Component({
   selector: 'app-cart',
@@ -22,6 +25,7 @@ export class CartComponent implements OnInit {
     private productService: ProductService,
     private toast: ToastrService
   ) {}
+  readonly API: string = environment.apiUrl + '/';
 
   cartCount = 0;
 
@@ -36,6 +40,8 @@ export class CartComponent implements OnInit {
     this.cartService.cart$.pipe().subscribe((res) => {
       this.cartItemDetail = [];
       this.cartCount = res?.items.length ?? 0;
+      console.log(res.items);
+
       res.items.forEach((cartItem) => {
         this.productService
           .getProduct(cartItem.productId)
@@ -46,6 +52,7 @@ export class CartComponent implements OnInit {
             });
           });
       });
+      console.log(this.cartItemDetail);
     });
   }
 
@@ -57,10 +64,11 @@ export class CartComponent implements OnInit {
     this.cartService.deleteCartItem(cartItem.product._id);
     this.toast.warning('Your Product was Deleted');
   }
- /*  updateCartItem(evnt, cartItem: cartItemDetail) {
+  updateCartItem(event, cartItem: cartItemDetail) {
+    console.log(event);
     this.cartService.setCartItem({
       productId: cartItem.product._id,
-      quantity: cartItem.quantity,
+      quantity: event.value,
     });
-  } */
+  }
 }

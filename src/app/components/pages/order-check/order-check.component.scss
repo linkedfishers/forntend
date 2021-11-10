@@ -1,10 +1,15 @@
 .order-summary {
-  background-color: whitesmoke;
+  background-color: #ffffff;
+  background-image: url("../../../../assets/img/Nouveau projet (15).png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   padding: 15px;
   border: 1px solid rgb(182, 182, 182);
-  position: relative;
-  top: 100px;
+
+  margin-top: 20px;
   border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   .summary-price {
     display: flex;
     margin: 15px 0;
@@ -24,18 +29,26 @@
   }
 
   .checkout-button {
-    max-width: 200px;
+    max-width: 160px;
     button {
       width: 100%;
       padding: 5px;
       padding: 5px;
+      color: #246cb3;
       background-color: white;
-      border: 2px solid #246cb3;
+      border: 1px solid #246cb3;
+      border-radius: 2px !important;
     }
     button:hover {
       color: white;
       background-color: #246cb3;
-      border: 2px solid #246cb3;
     }
   }
+}
+
+.fa-credit-card-alt {
+  margin-right: 5px;
+}
+h3 {
+  text-transform: uppercase;
 }
