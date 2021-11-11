@@ -56,15 +56,17 @@
             </div>
             <div class="col-md-3">
               <div class="cart-item-Input">
-                <!-- <input
+                <input
                   [min]="1"
                   type="number"
                   [id]="item.product.product._id"
                   name="quantity"
                   class="cart-item-Input-textInput"
                   [(ngModel)]="item.quantity"
-                  (onInput)="updateCartItem($event)"
-                /> -->
+                  (onInput)="updateCartItem($event, item)"
+                />
+                <!--               (onInput)="updateCartItem($event)"
+ -->
               </div>
               <div class="cart-item-subtotal">
                 <div class="cart-item-subtotal-value">
