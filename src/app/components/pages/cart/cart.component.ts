@@ -6,10 +6,9 @@ import {
   cartItemDetail,
 } from 'src/app/interfaces/cart-items.interface';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import ProductService from 'src/app/services/product.service';
 import { environment } from 'src/environments/environment';
-
-
 
 @Component({
   selector: 'app-cart',
@@ -23,7 +22,8 @@ export class CartComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private productService: ProductService,
-    private toast: ToastrService
+    private toast: ToastrService,
+    private orderService: OrderService
   ) {}
   readonly API: string = environment.apiUrl + '/';
 
@@ -43,7 +43,7 @@ export class CartComponent implements OnInit {
       console.log(res.items);
 
       res.items.forEach((cartItem) => {
-        this.productService
+        this.orderService
           .getProduct(cartItem.productId)
           .subscribe((resproduct) => {
             this.cartItemDetail.push({
@@ -66,9 +66,12 @@ export class CartComponent implements OnInit {
   }
   updateCartItem(event, cartItem: cartItemDetail) {
     console.log(event);
-    this.cartService.setCartItem({
-      productId: cartItem.product._id,
-      quantity: event.value,
-    });
+    this.cartService.setCartItem(
+      {
+        productId: cartItem.product.product._id,
+        quantity: event.target.value,
+      },
+      true
+    );
   }
 }

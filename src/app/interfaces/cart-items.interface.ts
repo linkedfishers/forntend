@@ -12,6 +12,6 @@ export class CartItem {
 }
 
 export class cartItemDetail {
-  product: Product;
+  product: any;
   quantity: number;
 }

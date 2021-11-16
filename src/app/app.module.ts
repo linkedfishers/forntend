@@ -108,6 +108,7 @@ import { GalleryComponent } from './components/pages/gallery/gallery.component';
 import { OrderListComponent } from './components/pages/order-list/order-list.component';
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 import { OrderCheckComponent } from './components/pages/order-check/order-check.component';
+import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -197,6 +198,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderListComponent,
     OrderDetailsComponent,
     OrderCheckComponent,
+    ChekoutPageComponent,
   ],
 
   imports: [

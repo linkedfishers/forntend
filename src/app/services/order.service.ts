@@ -25,7 +25,7 @@ export class OrderService {
   createOrder(order: Order): Observable<Order> {
     return this.http.post<any>(`${this.API}/new`, order);
   }
-  getProduct(id: string): Observable<any> {
+  getProduct(id: string){
     return this.http.get<any>(`${this.API_PROD}/product/${id}`);
   }
 }

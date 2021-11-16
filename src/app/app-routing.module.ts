@@ -46,6 +46,7 @@ import { EquiplistcatComponent } from './components/pages/equiplistcat/equiplist
 import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
+import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
 
 const routes: Routes = [
   {
@@ -76,7 +77,6 @@ const routes: Routes = [
       {
         path: 'admin/order/:id',
         component: OrderDetailsComponent,
-       
       },
       {
         path: 'events',
@@ -87,8 +87,13 @@ const routes: Routes = [
         component: CartComponent,
         canActivate: [AuthGuard],
       },
+      {
+        path: 'checkout',
+        component: ChekoutPageComponent,
+        
+      },
 
- /*      {
+      /*      {
         path: 'order/:id',
         component: OrderDetailsComponent,
       }, */

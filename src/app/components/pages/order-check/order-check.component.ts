@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { take, takeUntil } from 'rxjs/operators';
 import { OrderItem } from 'src/app/interfaces/orderItems.interface';
@@ -16,6 +17,7 @@ export class OrderCheckComponent implements OnInit {
   totalPrice: number;
 
   constructor(
+    private router: Router,
     private cartService: CartService,
     private orderService: OrderService,
     private productService: ProductService
@@ -43,5 +45,8 @@ export class OrderCheckComponent implements OnInit {
         });
       }
     });
+  }
+  navigateToCheckout() {
+    this.router.navigate(['/checkout']);
   }
 }
