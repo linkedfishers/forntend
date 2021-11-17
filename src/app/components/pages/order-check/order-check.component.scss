@@ -52,3 +52,9 @@
 h3 {
   text-transform: uppercase;
 }
+
+@media (max-width: 968px) {
+  .order-summary {
+    margin-bottom: 20px;
+  }
+}

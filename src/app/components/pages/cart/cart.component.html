@@ -22,7 +22,11 @@
         <div *ngIf="cartCount == 0">
           <div class="container">
             <div>
-              <img src="../../../../assets//img/no-product.jpg" alt="" />
+              <img
+                src="../../../../assets//img/no-product.jpg"
+                alt=""
+                class="image-prod"
+              />
             </div>
           </div>
         </div>
@@ -45,7 +49,7 @@
             <div class="col-md-7">
               <div class="cart-item-name">{{ item.product.product.name }}</div>
               <div class="cart-item-price">
-                {{ item.product.product.price | currency }}
+                {{ item.product.product.price | currency: "DT " }}
               </div>
               <div class="cart-item-remove">
                 <i
@@ -63,14 +67,17 @@
                   name="quantity"
                   class="cart-item-Input-textInput"
                   [(ngModel)]="item.quantity"
-                  (click)="updateCartItem($event, item)"
+                  (input)="updateCartItem($event, item)"
                 />
                 <!--               (onInput)="updateCartItem($event)"
  -->
               </div>
               <div class="cart-item-subtotal">
                 <div class="cart-item-subtotal-value">
-                  {{ item.product.product.price * item.quantity | currency }}
+                  {{
+                    item.product.product.price * item.quantity
+                      | currency: "DT "
+                  }}
                 </div>
               </div>
             </div>
