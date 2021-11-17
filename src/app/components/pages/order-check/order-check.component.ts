@@ -15,13 +15,17 @@ import ProductService from 'src/app/services/product.service';
 export class OrderCheckComponent implements OnInit {
   endSub$: Subject<any> = new Subject();
   totalPrice: number;
-
+  isCheckout: boolean = false;
   constructor(
     private router: Router,
     private cartService: CartService,
     private orderService: OrderService,
     private productService: ProductService
-  ) {}
+  ) {
+    this.router.url.includes('checkout')
+      ? (this.isCheckout = true)
+      : (this.isCheckout = false);
+  }
 
   ngOnInit(): void {
     this.getSummery();

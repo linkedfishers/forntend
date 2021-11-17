@@ -12,3 +12,54 @@
   background-color: #246cb3;
   color: white;
 }
+
+.checkout-page {
+  min-height: 500px;
+
+  .checkout {
+    &-form {
+      margin-top: 25px;
+    }
+
+    /*    &-button {
+      margin-top: 20px;
+      button {
+        width: 100%;
+      }
+    } */
+  }
+}
+.checkout-button {
+  max-width: 160px;
+  margin: 15px auto;
+}
+.checkout-button button {
+  width: 100% !important;
+  padding: 5px;
+  padding: 5px;
+  color: #246cb3;
+  background-color: white;
+  border: 1px solid #246cb3;
+  border-radius: 2px !important;
+}
+.checkout-button button:hover {
+  color: white;
+  background-color: #246cb3;
+}
+
+.fa-shopify {
+  margin-right: 5px;
+}
+
+.field {
+  margin-bottom: 35px;
+}
+
+.field input {
+  border-radius: 0px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+small {
+  color: red;
+}

@@ -13,7 +13,7 @@
       <span>Items Price</span>
       <span>{{ totalPrice | currency: "DT " }}</span>
     </div>
-    <div class="checkout-button">
+    <div class="checkout-button" *ngIf="!isCheckout">
       <button (click)="navigateToCheckout()">
         <i class="fa fa-credit-card-alt" aria-hidden="true"></i> Checkout
       </button>
