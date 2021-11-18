@@ -47,7 +47,7 @@
       <div class="col-3 text-bold">Subtotal</div>
     </div>
   </div>
-  <div class="container mb-5 mt-5" *ngFor="let orderItem of orderItem">
+  <div class="container mb-5 mt-5" *ngFor="let orderItem of orderItems">
     <div class="row">
       <div class="col-3">{{ orderItem.product.name }}</div>
       <div class="col-3">{{ orderItem.product.price | currency }}</div>
@@ -85,7 +85,10 @@
 
         <div class="col-4">
           <h5 class="title">Customer Info</h5>
-          <p>{{ orderUser.fullName }}</p>
+          <p>
+            <!-- {{ orderUser.fullName }} -->
+            test
+          </p>
         </div>
 
         <div class="col-4">

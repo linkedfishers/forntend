@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Key } from 'selenium-webdriver';
 import { Order } from 'src/app/interfaces/order.interface';
 import { OrderItem } from 'src/app/interfaces/orderItems.interface';
+import { Product } from 'src/app/interfaces/product.interface';
 import { User } from 'src/app/interfaces/users.interface';
-import { AdminService } from 'src/app/services/admin.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ORDER_STATUS } from '../order-details/orderConstant';
 
@@ -15,9 +15,10 @@ import { ORDER_STATUS } from '../order-details/orderConstant';
 })
 export class OrderDetailsComponent implements OnInit {
   order: Order;
-  orderItem: OrderItem[] = [];
+  orderItems: OrderItem[] = [];
   orderUser: User;
   orderStatus = [];
+  product: Product;
 
   constructor(
     private orderService: OrderService,
@@ -29,12 +30,12 @@ export class OrderDetailsComponent implements OnInit {
     this.route.params.subscribe((params) => {
       let id = params.id;
       this.orderService.getOrder(id).subscribe((res) => {
-        console.log(res.data);
-
         this.order = res.data;
-        this.orderItem = res.data.orderItems;
-        console.log(this.orderItem);
+        this.orderItems = this.order.orderItems;
 
+        this.orderItems.map((item) => {
+          console.log(item.product.name);
+        });
         this.orderUser = res.data.user;
       });
     });

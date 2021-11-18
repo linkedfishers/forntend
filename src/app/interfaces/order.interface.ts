@@ -2,7 +2,7 @@ import { OrderItem } from './orderItems.interface';
 
 export class Order {
   _id?: string;
-  orderItems?: any[];
+  orderItems?: OrderItem[];
   shippingAddress1?: string;
   shippingAddress2?: string;
   city?: string;

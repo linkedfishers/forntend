@@ -1,4 +1,6 @@
+import { Product } from './product.interface';
+
 export class OrderItem {
-  product?: string;
+  product?: any;
   quantity?: number;
 }
