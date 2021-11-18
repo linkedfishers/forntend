@@ -12,6 +12,7 @@ import { Product } from '../interfaces/product.interface';
 export class OrderService {
   readonly API: string = environment.apiUrl + '/admin';
   readonly API_PROD: string = environment.apiUrl + '/products';
+  readonly API2: string = environment.apiUrl + '/equipments';
   orders: Order[] = [];
   constructor(private http: HttpClient) {}
 
@@ -23,9 +24,9 @@ export class OrderService {
     return this.http.get<any>(`${this.API}/order/${id}`);
   }
   createOrder(order: Order): Observable<Order> {
-    return this.http.post<any>(`${this.API}/new`, order);
+    return this.http.post<Order>(`${this.API2}/order/new`, order);
   }
-  getProduct(id: string){
+  getProduct(id: string) {
     return this.http.get<any>(`${this.API_PROD}/product/${id}`);
   }
 }

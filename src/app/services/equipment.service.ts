@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Order } from '../interfaces/order.interface';
 import { Review } from '../interfaces/reviews.interface';
 
 @Injectable({
@@ -10,6 +12,9 @@ export class EquipmentService {
   readonly API: string = environment.apiUrl + '/equipments';
 
   constructor(private httpClient: HttpClient) {}
+  createOrder(order: Order): Observable<any> {
+    return this.httpClient.post<any>(`${this.API}/order/new`, order);
+  }
   createService(FormData: FormData) {
     return this.httpClient.post<any>(`${this.API}/service/new`, FormData);
   }
