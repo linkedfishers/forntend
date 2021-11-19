@@ -5,6 +5,7 @@ import { Order } from 'src/app/interfaces/order.interface';
 import { OrderItem } from 'src/app/interfaces/orderItems.interface';
 import { Product } from 'src/app/interfaces/product.interface';
 import { User } from 'src/app/interfaces/users.interface';
+import { AdminService } from 'src/app/services/admin.service';
 import { OrderService } from 'src/app/services/order.service';
 import { ORDER_STATUS } from '../order-details/orderConstant';
 
@@ -23,7 +24,8 @@ export class OrderDetailsComponent implements OnInit {
 
   constructor(
     private orderService: OrderService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
@@ -38,6 +40,8 @@ export class OrderDetailsComponent implements OnInit {
           console.log(item.product.name);
         });
         this.orderUser = res.data.user;
+        this.selectedValue = this.order.status;
+        console.log(this.selectedValue);
       });
     });
   }
@@ -51,5 +55,12 @@ export class OrderDetailsComponent implements OnInit {
     });
     console.log(ORDER_STATUS[0]);
     console.log(Object.keys(ORDER_STATUS));
+  }
+  onChangeStatus(event) {
+    this.adminService
+      .updateOrder({ status: event.target.value }, this.order._id)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }

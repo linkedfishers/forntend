@@ -16,8 +16,12 @@
       <div class="col-3">
         <h5 class="title">Order Status</h5>
         <div class="btn-group">
-       <select [(ngModel)]="selectedValue">
-            <option *ngFor="let c of orderStatus" value="id">
+          <select
+            [(ngModel)]="selectedValue"
+            [value]="selectedValue"
+            (change)="onChangeStatus($event)"
+          >
+            <option *ngFor="let c of orderStatus">
               {{ c.name }}
             </option>
           </select>

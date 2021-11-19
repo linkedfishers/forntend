@@ -17,7 +17,15 @@ export class AdminService {
   getOrders() {
     return this.httpClient.get<any>(`${this.API}/order/all`);
   }
-
+  updateOrder(
+    orderStatus: { status: string },
+    orderId: string
+  ): Observable<any> {
+    return this.httpClient.put<any>(
+      `${this.API}/order/${orderId}`,
+      orderStatus
+    );
+  }
   getUsers(count: number, skip: number) {
     return this.httpClient.get<any>(`${this.API}/users/${count}/${skip}`);
   }
