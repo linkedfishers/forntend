@@ -62,6 +62,11 @@ export class AdminComponent implements OnInit {
   newBoatType: BoatType;
   userBoat: BoatType[] = [];
   ngOnInit(): void {
+
+  /*  this.adminService.getUsers(count : Number,).subscribe(res=>{
+     this.usersList=res.data
+   }) */
+
     this.newEquipmentType = new EquipmentType();
     this.newContent = new Content();
     initSidebar();

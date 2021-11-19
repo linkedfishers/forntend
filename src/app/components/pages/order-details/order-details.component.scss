@@ -4,18 +4,20 @@
 }
 .title {
   margin-bottom: 10px;
+  padding: 5px;
 }
 .text-bold {
   font-weight: 600;
 }
 .title-larg {
   display: flex;
-  justify-content: center;
 }
 .large-title {
-  margin-bottom: 15px;
+  margin-bottom: 40px;
   border-radius: 6px;
-  padding: 5px;
+  background-color: rgb(69, 142, 184);
+  color: white;
+  padding: 20px;
   width: 40%;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   text-align: center;
@@ -24,4 +26,12 @@
 .footer-details {
   position: relative;
   margin-bottom: 150px;
+}
+
+.select-item-drop {
+  padding: 5px;
+  color: rgb(69, 142, 184);
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
 }

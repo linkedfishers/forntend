@@ -21,6 +21,7 @@ export class OrderDetailsComponent implements OnInit {
   orderStatus = [];
   product: Product;
   selectedValue: any;
+  dateOrder: any;
 
   constructor(
     private orderService: OrderService,
@@ -42,6 +43,7 @@ export class OrderDetailsComponent implements OnInit {
         this.orderUser = res.data.user;
         this.selectedValue = this.order.status;
         console.log(this.selectedValue);
+        this.dateOrder= this.order.dateOfOrder
       });
     });
   }

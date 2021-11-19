@@ -10,7 +10,7 @@
 
       <div class="col-3">
         <h5 class="title">Order Date</h5>
-        <p>{{ order.dateOfOrder }}</p>
+        <p>{{ dateOrder }}</p>
       </div>
 
       <div class="col-3">
@@ -20,6 +20,7 @@
             [(ngModel)]="selectedValue"
             [value]="selectedValue"
             (change)="onChangeStatus($event)"
+            class="select-item-drop"
           >
             <option *ngFor="let c of orderStatus">
               {{ c.name }}
