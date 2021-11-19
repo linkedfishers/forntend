@@ -19,6 +19,7 @@ export class OrderDetailsComponent implements OnInit {
   orderUser: User;
   orderStatus = [];
   product: Product;
+  selectedValue: any;
 
   constructor(
     private orderService: OrderService,
@@ -42,7 +43,7 @@ export class OrderDetailsComponent implements OnInit {
   }
 
   private statusOrder() {
-    Object.keys(ORDER_STATUS).map((key) => {
+    this.orderStatus = Object.keys(ORDER_STATUS).map((key) => {
       return {
         id: key,
         name: ORDER_STATUS[key].label,

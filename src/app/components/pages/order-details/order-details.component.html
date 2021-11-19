@@ -16,9 +16,11 @@
       <div class="col-3">
         <h5 class="title">Order Status</h5>
         <div class="btn-group">
-          <!--    <select [(ngModel)]="selectedValue">
-          <option *ngFor="let c of countries" value="c.id">{{c.name}}</option>
-       </select> -->
+       <select [(ngModel)]="selectedValue">
+            <option *ngFor="let c of orderStatus" value="id">
+              {{ c.name }}
+            </option>
+          </select>
         </div>
         <!--  <p-dropdown
             [options]="orderStatuses"
