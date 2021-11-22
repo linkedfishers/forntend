@@ -10,6 +10,8 @@ import { OrderService } from 'src/app/services/order.service';
 import { ORDER_STATUS } from '../order-details/orderConstant';
 import { map } from 'rxjs/operators';
 import { EquipmentService } from 'src/app/services/equipment.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { User } from 'src/app/interfaces/users.interface';
 
 declare const require;
 @Component({
@@ -21,17 +23,24 @@ export class ChekoutPageComponent implements OnInit {
   checkouFormGroup: FormGroup;
   isSubmitted = false;
   orderItems: OrderItem[] = [];
-  userId = '61080c366ac942002bcee1b2';
+  userId: any;
+  currentUser: User;
   countries = [];
   constructor(
     private router: Router,
     private formBuider: FormBuilder,
     private cartService: CartService,
     private orderService: OrderService,
-    private equipmentService: EquipmentService
+    private equipmentService: EquipmentService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
+    this.currentUser = this.authService.getCurrentUser();
+    console.log(this.currentUser);
+    this.userId = this.currentUser._id;
+    console.log(typeof this.userId);
+
     this._getCountires();
     this._getCartItems();
     this._initCheckoutForm();
