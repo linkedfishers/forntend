@@ -23,7 +23,6 @@ export class ListServicesComponent implements OnInit {
     initPopups();
     this.equipmentService.getServices().subscribe((res) => {
       this.services = res.data;
-      console.log(res.data);
       this.visibleservices = this.services;
     });
   }
