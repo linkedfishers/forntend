@@ -36,3 +36,13 @@ img.round-small {
   max-width: 800px !important;
   margin: 20px auto !important;
 }
+
+.product-box-slider-items-iw {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.product-box-slider-items {
+  width: 50%;
+  text-align: center;
+}
