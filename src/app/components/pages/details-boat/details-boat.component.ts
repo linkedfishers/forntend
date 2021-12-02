@@ -41,6 +41,7 @@ export class DetailsBoatComponent implements OnInit {
   newReview: Review = new Review();
   isOwner = false;
   images: any;
+  image: any;
 
   ngOnInit(): void {
     initSidebar();
@@ -55,6 +56,9 @@ export class DetailsBoatComponent implements OnInit {
         this.boat = response.data.boat;
         this.isOwner = response.data.isOwner;
         this.images = response.data.boat.images;
+        this.image = response.data.boat.image;
+        console.log(this.image);
+
         console.log(this.images);
         this.boat.reviews = this.boat.reviews || [];
         this.boat.owner.reviews = this.boat.owner.reviews || [];
