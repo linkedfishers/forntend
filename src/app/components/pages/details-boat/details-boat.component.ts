@@ -58,7 +58,6 @@ export class DetailsBoatComponent implements OnInit {
         this.images = response.data.boat.images;
         this.image = response.data.boat.image;
         console.log(this.image);
-
         console.log(this.images);
         this.boat.reviews = this.boat.reviews || [];
         this.boat.owner.reviews = this.boat.owner.reviews || [];
