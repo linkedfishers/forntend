@@ -39,7 +39,7 @@ img.round-small {
 
 .testimage {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .testtimage {
@@ -52,6 +52,11 @@ img.round-small {
   transition: transform 0.2s; /* Animation */
   height: 200px;
   position: relative;
+  cursor: pointer;
+}
+
+.section-title {
+  text-transform: uppercase;
 }
 
 .image-zoom:hover {
