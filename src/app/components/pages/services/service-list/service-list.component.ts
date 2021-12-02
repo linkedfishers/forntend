@@ -63,7 +63,8 @@ export class ServiceListComponent implements OnInit {
         this.services = res.data.services;
       });
   }
-  fileChange(event) {
+  /*   fileChange(event) {
+    this.imageSrc = '';
     let fileList: FileList = event.target.files;
     console.log(event.target.files);
     if (fileList.length > 0) {
@@ -76,6 +77,23 @@ export class ServiceListComponent implements OnInit {
       };
       reader.readAsDataURL(fileList[0]);
     }
+  } */
+
+  fileChange(event) {
+    this.imageSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+      this.formData.append('files', el);
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
   }
   createService() {
     if (!this.newService.name) {

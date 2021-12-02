@@ -68,7 +68,7 @@ export class BoatsComponent implements OnInit {
     });
   }
 
-  fileChange(event) {
+  /*   fileChange(event) {
     let fileList: FileList = event.target.files;
     if (fileList.length > 0) {
       let file: File = fileList[0];
@@ -80,9 +80,25 @@ export class BoatsComponent implements OnInit {
       };
       reader.readAsDataURL(fileList[0]);
     }
+  } */
+  fileChange(event) {
+    this.imageSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+      this.formData.append('files', el);
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
   }
 
-  onFileChange(event) {
+  /*   onFileChange(event) {
     if (event.target.files && event.target.files[0]) {
       var filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
@@ -96,7 +112,7 @@ export class BoatsComponent implements OnInit {
         reader.readAsDataURL(event.target.files[i]);
       }
     }
-  }
+  } */
 
   /* fileChange(event) {
     this.imageSrc = '';
@@ -136,6 +152,8 @@ export class BoatsComponent implements OnInit {
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newBoat = new Boat();
+        console.log(this.newBoat);
+
         this.imageSrc = '';
       },
       (err) => {

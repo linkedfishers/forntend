@@ -47,6 +47,7 @@ import { NaComponent } from './components/common/na/na.component';
 import { CartComponent } from './components/pages/cart/cart.component';
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
+import { DetailServices } from './interfaces/equipments.interface';
 
 const routes: Routes = [
   {
@@ -90,7 +91,7 @@ const routes: Routes = [
       {
         path: 'checkout',
         component: ChekoutPageComponent,
-        
+
       },
 
       /*      {
@@ -213,6 +214,10 @@ const routes: Routes = [
       {
         path: 'details-equipment/:id',
         component: DetailsEquipmentComponent,
+      },
+      {
+        path: "details-service/:id",
+        component:DetailServices
       },
       {
         path: 'my-booking-requests',

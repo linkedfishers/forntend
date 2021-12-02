@@ -37,7 +37,7 @@
           class="product-preview widthprod"
         >
           <!-- PRODUCT PREVIEW IMAGE -->
-          <a [routerLink]="['/details-boat', boat?._id]">
+          <a [routerLink]="['/details-service', boat?._id]">
             <figure
               class="product-preview-image liquid"
               style="
@@ -76,7 +76,7 @@
             <!-- /PRODUCT PREVIEW CATEGORY -->
 
             <!-- PRODUCT PREVIEW TEXT -->
-    <!--         <p class="product-preview-text">
+            <!--         <p class="product-preview-text">
               {{
                 boat?.description.length > 100
                   ? (boat?.description | slice: 0:100) + "..."

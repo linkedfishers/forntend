@@ -196,8 +196,12 @@
             <use xlink:href="#svg-facebook"></use>
           </svg>
         </a> -->
-        <a [routerLink]="['/provider/login']" class="widthfive">
-          <p class="lined-text pp">{{ "login_as_provider" | translate }}</p>
+        <a [routerLink]="['/provider/login']" class="social-link admin">
+          <!--           <p class="lined-text pp">{{ "login_as_provider" | translate }}</p>
+ -->
+          <svg class="icon-admin">
+            <use xlink:href="#svg-admin"></use>
+          </svg>
         </a>
         <!-- /SOCIAL LINK -->
 
@@ -214,7 +218,7 @@
           <!-- /ICON google -->
         </a>
 
- <a
+        <a
           (click)="loginWithFacebook()"
           class="social-link facebook"
           [routerLink]=""

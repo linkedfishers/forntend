@@ -46,12 +46,13 @@
                 slider-panel-slides
                 tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
               "
+              *ngFor="let item of images"
             >
               <img
                 style="border-radius: 2%"
                 src="{{
-                  boat?.image
-                    ? API + boat?.image
+                  item
+                    ? API + item
                     : '../../../../assets/img/default-profile.png'
                 }}"
                 alt="item-10"

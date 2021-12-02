@@ -22,8 +22,10 @@ export class ListServicesComponent implements OnInit {
     initSidebar();
     initPopups();
     this.equipmentService.getServices().subscribe((res) => {
+      console.log(res.data);
       this.services = res.data;
       this.visibleservices = this.services;
+      console.log(this.visibleservices);
     });
   }
 }
