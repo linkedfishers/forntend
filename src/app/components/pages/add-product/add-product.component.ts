@@ -65,6 +65,8 @@ export class AddProductComponent implements OnInit {
         this.formData = new FormData();
         this.newProduct = new Product();
         this.imageSrc = '';
+   
+
       },
       (err) => {
         console.log(err);

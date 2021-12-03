@@ -41,6 +41,8 @@ export class DetailsHebergementsComponent implements OnInit {
   reviews: Review[] = [];
   newReview: Review = new Review();
   isOwner = true;
+  images: any;
+  image: any;
 
   ngOnInit(): void {
     initSidebar();
@@ -52,6 +54,10 @@ export class DetailsHebergementsComponent implements OnInit {
       let id = params.id;
       this.equipmentService.getHebergement(id).subscribe((response) => {
         this.hebergement = response.data;
+        console.log(this.hebergement);
+        this.images = response.data.images;
+        console.log(this.images);
+
         this.hebergement.reviews = this.hebergement.reviews || [];
         this.isOwner = this.hebergement.owner._id === this.currentUser._id;
       });

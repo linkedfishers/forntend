@@ -31,3 +31,30 @@ img.round-small {
   max-width: 800px !important;
   margin: 20px auto !important;
 }
+
+.testimage {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.testtimage {
+  width: 50%;
+  text-align: center;
+}
+
+.image-zoom {
+  width: 90%;
+  transition: transform 0.2s; /* Animation */
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+}
+
+.section-title {
+  text-transform: uppercase;
+}
+
+.image-zoom:hover {
+  transform: scale(1.5);
+  z-index: 99999999999999;
+}

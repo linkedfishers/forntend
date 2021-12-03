@@ -41,8 +41,8 @@ export class HebergementsComponent implements OnInit {
   selectedHome = -1;
 
   ngOnInit(): void {
-/*     initAnimation();
- */    initSidebar();
+    /*     initAnimation();
+     */ initSidebar();
     initPopups();
     initForm();
     loadSvg();
@@ -68,7 +68,7 @@ export class HebergementsComponent implements OnInit {
     );
   }
 
-  fileChange(event) {
+  /* fileChange(event) {
     let fileList: FileList = event.target.files;
     console.log(event.target.files);
     if (fileList.length > 0) {
@@ -81,6 +81,23 @@ export class HebergementsComponent implements OnInit {
       };
       reader.readAsDataURL(fileList[0]);
     }
+  } */
+
+  fileChange(event) {
+    this.imageSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+
+      this.formData.append('files', el);
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
   }
 
   createHebergement() {
@@ -105,6 +122,8 @@ export class HebergementsComponent implements OnInit {
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newHome = new Hebergement();
+        console.log(this.newHome);
+
         this.imageSrc = '';
       },
       (err) => {

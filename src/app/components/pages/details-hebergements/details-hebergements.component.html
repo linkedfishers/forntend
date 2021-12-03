@@ -43,23 +43,26 @@
           >
             slide <span class="current">8</span> of 7
           </div>
-          <div class="tns-inner" id="product-box-slider-items-iw">
+          <div
+            class="tns-inner testimage"
+            id="product-box-slider-items-iw"
+            *ngIf="images"
+          >
             <div
               id="product-box-slider-items"
               class="
                 slider-panel-slides
                 tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
+                testtimage
               "
+              *ngFor="let item of images"
             >
               <!-- SLIDER PANEL SLIDE -->
               <img
                 style="border-radius: 2%"
-                src="{{
-                  hebergement?.image
-                    ? API + hebergement?.image
-                    : '../../../../assets/img/default-profile.png'
-                }}"
+                src="{{ item ? API + item : API + image }}"
                 alt="item-10"
+                class="image-zoom"
               />
               <!-- /SLIDER PANEL SLIDE -->
             </div>

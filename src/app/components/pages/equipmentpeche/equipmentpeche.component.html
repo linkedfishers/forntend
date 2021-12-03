@@ -65,7 +65,7 @@
 
             <!-- BUTTON -->
             <p class="button primary full popup-manage-item-trigger">
-              {{ " Add_new_Equipment" | translate }}!
+              {{ " Add_new_Equipment" | translate }}
             </p>
             <!-- /BUTTON -->
 
@@ -483,7 +483,7 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">Hebergement Price</label>
+                  <label for="item-name">Equipment Price</label>
                   <input
                     min="0"
                     *ngIf="selectedEquipment >= 0"
@@ -504,13 +504,13 @@
               <div class="form-item">
                 <!-- FORM SELECT -->
                 <div class="form-select">
-                  <label for="item-description">Hebergement type</label>
+                  <label for="item-description">Equipment type</label>
                   <select
                     *ngIf="selectedEquipment >= 0"
                     [(ngModel)]="userEquipment[selectedEquipment].type"
                     name="hebergement-name"
                   >
-                    <option value="" selected>Select Hebergement type</option>
+                    <option value="" selected>Select Equipment type</option>
                     <option
                       *ngFor="let type of equipmentTypes"
                       value="{{ type._id }}"
@@ -535,7 +535,7 @@
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-description">Hebergement description</label>
+                  <label for="item-description">Equipment description</label>
                   <input
                     *ngIf="selectedEquipment >= 0"
                     [(ngModel)]="userEquipment[selectedEquipment].description"
