@@ -18,6 +18,7 @@ export class ListHebergementsComponent implements OnInit {
   hebergements: Hebergement[];
   visiblehebrgements: Hebergement[];
   content: Hebergement[] = [];
+  imgaes: any;
   ngOnInit(): void {
     initPopups();
     initSidebar();

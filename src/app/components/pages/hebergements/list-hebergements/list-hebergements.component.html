@@ -17,7 +17,6 @@
   </div>
 
   <div class="grid grid-12 small-space">
-
     <div class="marketplace-content">
       <!-- GRID -->
       <div class="grid grid-3-3-3 centered">
@@ -36,7 +35,7 @@
                   cover no-repeat;
               "
             >
-              <img src="{{ boat?.image | picture }}" alt="item-01" />
+              <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
@@ -66,7 +65,7 @@
             <!-- /PRODUCT PREVIEW CATEGORY -->
 
             <!-- PRODUCT PREVIEW TEXT -->
-       <!--      <p class="product-preview-text">
+            <!--      <p class="product-preview-text">
               {{
                 boat?.description.length > 100
                   ? (boat?.description | slice: 0:100) + "..."
