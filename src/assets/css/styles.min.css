@@ -6023,6 +6023,9 @@ figure > img {
   left: 20;
   z-index: 999 !important;
 }
+
+
+
 .widget-box.no-padding {
   padding: 20px;
 }
@@ -12954,3 +12957,11 @@ figure > img {
 .customwidth {
   width: 300px !important;
 }
+
+
+.widget-box.custompos{
+  position: relative !important;
+}
+
+
+
