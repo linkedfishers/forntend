@@ -1046,7 +1046,15 @@
             <div class="user-status">
               <!-- USER STATUS AVATAR -->
               <div class="user-status-avatar">
-                <div class="user-avatar small no-outline">
+                <div class="user-avatar small no-outline" *ngIf="isProvider">
+                  <figure>
+                    <img
+                      src="../../../../assets/img/default-company.jpg"
+                      alt="avatar-01"
+                    />
+                  </figure>
+                </div>
+                <div class="user-avatar small no-outline" *ngIf="!isProvider">
                   <figure>
                     <img
                       [src]="currentUser?.profilePicture | picture"

@@ -1,6 +1,5 @@
 export class Content {
   _id: string;
-  image: string;
-  content: string;
+  images: string[];
   owner: any;
 }

@@ -1,6 +1,6 @@
 <div class="container top">
   <div class="height-caroussel">
-    <app-carousel [pictures]="carousselPictures"></app-carousel>
+    <app-carousel [pictures]="photoss"></app-carousel>
   </div>
 </div>
 
@@ -314,7 +314,7 @@
               cover no-repeat;
           "
         >
-          <img src="{{ heb?.image | picture }}" alt="item-01" />
+          <img src="{{ heb?.images[0] | picture }}" alt="item-01" />
         </figure>
       </a>
       <!-- /PRODUCT PREVIEW IMAGE -->

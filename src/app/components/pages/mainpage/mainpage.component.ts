@@ -1,6 +1,8 @@
-import { Content } from '@angular/compiler/src/render3/r3_ast';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Content } from 'src/app/interfaces/content.interface';
+
 import {
   Boat,
   Equipment,
@@ -27,6 +29,8 @@ export class MainpageComponent implements OnInit {
   ) {}
   readonly API: string = environment.apiUrl + '/';
   boats: Boat[];
+  contents: Content[];
+  cont: Content;
   equipments: Equipment[];
   hebergements: Hebergement[];
   services: Service[];
@@ -42,6 +46,9 @@ export class MainpageComponent implements OnInit {
     'assets/img/cover/4.png',
     'assets/img/cover/5.png',
   ];
+
+  photos: any;
+  photoss: any = [];
   ngOnInit(): void {
     this.productService
       ./* getProducts */ getSomeProducts()
@@ -49,15 +56,28 @@ export class MainpageComponent implements OnInit {
         this.products = response.data;
         this.visibleProducts = this.products;
       });
+    this.equipmentService.getContent().subscribe((res) => {
+      this.contents = res.data;
+      this.contents.map((item) => {
+        this.cont = item;
+        this.photos = item.images;
+        this.photos.map((item) => {
+          item = this.API + item;
+          this.photoss.push(item);
+          return this.photoss;
+        });
+      });
+    });
     this.equipmentService.getEuipmentWithLimit().subscribe((response) => {
       this.equipments = response.data;
-     
     });
     this.equipmentService.getBoats().subscribe((reponse) => {
       this.boats = reponse.data;
     });
     this.equipmentService.getHebergements().subscribe((reponse) => {
       this.hebergements = reponse.data;
+      console.log();
+
     });
     this.equipmentService.getServices().subscribe((reponse) => {
       this.services = reponse.data;

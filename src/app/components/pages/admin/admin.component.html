@@ -1169,9 +1169,7 @@
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{
-                boatType?.updating ? "save" : ("update_category" | translate)
-              }}
+              {{ boatType?.updating ? "save" : "Update Boat" }}
             </p>
           </div>
           <!-- /CREATE ENTITY BOX INFO -->
@@ -1300,7 +1298,7 @@
     <p class="promo-line-text">Add a new Content!</p>
 
     <div class="promo-line-actions">
-      <div class="form-input small">
+      <!--  <div class="form-input small">
         <label for="promo-code">Service name</label>
         <input
           [(ngModel)]="newContent.content"
@@ -1308,7 +1306,7 @@
           id="equipment-name"
           name="promo_code"
         />
-      </div>
+      </div> -->
 
       <a (click)="openFileInput()" [routerLink]="">
         <div class="form-input small">
@@ -1326,10 +1324,11 @@
         </div>
       </a>
       <input
-        (change)="fileChange($event)"
+        (change)="filesChange($event)"
         id="postPhoto"
         type="file"
         style="display: none"
+        multiple
       />
 
       <p (click)="createContent()" class="button secondary">Add Service</p>

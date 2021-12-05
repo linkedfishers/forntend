@@ -84,10 +84,7 @@ export class AdminService {
     return this.httpClient.get<any>(`${this.API}/providers/`);
   }
   createContent(formData: FormData) {
-    return this.httpClient.post<any>(
-      `${this.API}/content/addContent`,
-      formData
-    );
+    return this.httpClient.post<any>(`${this.API}/content/new`, formData);
   }
 
   getContent(id: string) {

@@ -118,12 +118,6 @@ export class AuthService {
     return user;
   }
 
-  /*  public getToken() {
-    const token = localStorage.getItem(this.ID_TOKEN);
-    console.log(token);
-    return token;
-  }
- */
   public isAdmin() {
     if (!this.isAuthenticated()) return false;
     let token = localStorage.getItem(this.ID_TOKEN);

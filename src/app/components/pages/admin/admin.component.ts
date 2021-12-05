@@ -58,12 +58,12 @@ export class AdminComponent implements OnInit {
   reports: Report[] = [];
   categories: Categorie[];
   contents: Content[];
+  newContents: Content[] = [];
   newContent: Content;
   newBoatType: BoatType;
   userBoat: BoatType[] = [];
   ngOnInit(): void {
-
-  /*  this.adminService.getUsers(count : Number,).subscribe(res=>{
+    /*  this.adminService.getUsers(count : Number,).subscribe(res=>{
      this.usersList=res.data
    }) */
 
@@ -138,6 +138,23 @@ export class AdminComponent implements OnInit {
     return country.name;
   }
 
+  filesChange(event) {
+    this.imageSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+      this.formData.append('files', el);
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imageSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
+  }
+
   fileChange(event) {
     let fileList: FileList = event.target.files;
     if (fileList.length > 0) {
@@ -153,9 +170,6 @@ export class AdminComponent implements OnInit {
   }
   //Post home Page
   createContent() {
-    if (!this.newContent.content) {
-      return;
-    }
     this.formData = this.formData || new FormData();
 
     for (const key in this.newContent) {
@@ -165,7 +179,9 @@ export class AdminComponent implements OnInit {
     }
     this.adminService.createContent(this.formData).subscribe(
       (res) => {
-        this.contents.unshift(res.data);
+        console.log('hamza test');
+
+        this.newContents.unshift(res.data);
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newContent = new Content();

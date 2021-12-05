@@ -94,6 +94,10 @@ export class EquipmentService {
   getServices() {
     return this.httpClient.get<any>(`${this.API}/services/all/`);
   }
+
+  getContent() {
+    return this.httpClient.get<any>(`${this.API}/contents/all`);
+  }
   getHebergements() {
     return this.httpClient.get<any>(`${this.API}/hebergements/all/`);
   }
