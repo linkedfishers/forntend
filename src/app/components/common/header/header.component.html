@@ -504,7 +504,11 @@
 
       <ul class="navbar-nav ml-lg-auto fork">
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" [routerLink]="['/']"
+          <a
+            class="nav-link nav-link-icon"
+            [routerLink]="['/']"
+            [routerLinkActiveOptions]="{ exact: true }"
+            routerLinkActive="activeted"
             >{{ "home" | translate }}
           </a>
         </li>
@@ -513,28 +517,30 @@
             {{ "admin" | translate }}
           </a>
         </li> -->
-        <li
-          class="nav-item"
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="active"
-        >
-          <a class="nav-link nav-link-icon" [routerLink]="['/main']"
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            [routerLink]="['/main']"
+            routerLinkActive="activeted"
             >{{ "feed" | translate }}
           </a>
         </li>
-        <li
-          class="nav-item"
-          [routerLinkActiveOptions]="{ exact: true }"
-          routerLinkActive="active"
-        >
-          <a class="nav-link nav-link-icon" [routerLink]="['/events']"
+        <li class="nav-item">
+          <a
+            class="nav-link nav-link-icon"
+            [routerLink]="['/events']"
+            routerLinkActive="activeted"
             >{{ "events" | translate }}
           </a>
         </li>
 
         <li class="nav-item">
           <div class="dropdown">
-            <a class="nav-link nav-link-icon" [routerLink]="['/list-boats']">
+            <a
+              class="nav-link nav-link-icon"
+              [routerLink]="['/list-boats']"
+              routerLinkActive="activeted"
+            >
               {{ "boats" | translate }}
             </a>
             <div class="dropdown-content">
@@ -550,7 +556,11 @@
 
         <li class="nav-item">
           <div class="dropdown">
-            <a class="nav-link nav-link-icon" [routerLink]="['/list-home']">
+            <a
+              class="nav-link nav-link-icon"
+              [routerLink]="['/list-home']"
+              routerLinkActive="activeted"
+            >
               {{ "homes" | translate }}
             </a>
             <div class="dropdown-content">
@@ -563,7 +573,11 @@
           </div>
         </li>
         <li class="nav-item" *ngIf="!isProvider">
-          <a class="nav-link nav-link-icon" [routerLink]="['/map']">
+          <a
+            class="nav-link nav-link-icon"
+            [routerLink]="['/map']"
+            routerLinkActive="activeted"
+          >
             {{ "map" | translate }}
           </a>
         </li>
@@ -577,15 +591,11 @@
         "
       >
         <ul class="navbar-nav ml-lg-auto zero-auto">
-          <li
-            class="nav-item"
-            *ngIf="isProvider"
-            [routerLinkActiveOptions]="{ exact: true }"
-            routerLinkActive="active"
-          >
+          <li class="nav-item" *ngIf="isProvider">
             <a
               class="nav-link nav-link-icon"
               [routerLink]="['/provider/add-product']"
+              routerLinkActive="activeted"
             >
               Product
             </a>
@@ -595,6 +605,7 @@
             <a
               class="nav-link nav-link-icon"
               [routerLink]="['/marketplace/products-list']"
+              routerLinkActive="activeted"
             >
               {{ "marketplace" | translate }}
             </a>
@@ -620,6 +631,7 @@
               <a
                 class="nav-link nav-link-icon"
                 [routerLink]="['/list-services']"
+                routerLinkActive="activeted"
               >
                 {{ "freelancer" | translate }}
               </a>
@@ -638,6 +650,7 @@
               <a
                 class="nav-link nav-link-icon"
                 [routerLink]="['/list-equipments']"
+                routerLinkActive="activeted"
               >
                 {{ "Equipements" | translate }}
               </a>
@@ -652,7 +665,11 @@
             </div>
           </li>
           <li class="nav-item" routerLinkActive="active" *ngIf="!isProvider">
-            <a class="nav-link nav-link-icon" [routerLink]="['/weather']">
+            <a
+              class="nav-link nav-link-icon"
+              [routerLink]="['/weather']"
+              routerLinkActive="activeted"
+            >
               {{ "weather" | translate }}
             </a>
           </li>

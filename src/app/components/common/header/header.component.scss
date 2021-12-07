@@ -249,3 +249,13 @@ header {
   width: 20px;
   height: 20px;
 }
+
+.activeted {
+  background-color: rgb(36, 108, 179);
+  border-radius: 2px;
+  color: white !important;
+}
+
+nav {
+  transition: 0.6s;
+}
