@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 declare const require;
 @Component({
@@ -32,7 +33,8 @@ export class ChekoutPageComponent implements OnInit {
     private cartService: CartService,
     private orderService: OrderService,
     private equipmentService: EquipmentService,
-    private authService: AuthService
+    private authService: AuthService,
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {
@@ -47,7 +49,6 @@ export class ChekoutPageComponent implements OnInit {
   }
   _getCartItems() {
     const cart: Cart = this.cartService.getCart();
-    console.log('test-hamza');
 
     this.orderItems = cart.items.map((item) => {
       return {
@@ -64,14 +65,14 @@ export class ChekoutPageComponent implements OnInit {
   }
   private _initCheckoutForm() {
     this.checkouFormGroup = this.formBuider.group({
-      name: ['', Validators.required],
-      email: ['', [Validators.email, Validators.required]],
-      phone: ['', Validators.required],
-      city: ['', Validators.required],
+      name: ['hamza', Validators.required],
+      email: ['a@gmail.com', [Validators.email, Validators.required]],
+      phone: ['99999', Validators.required],
+      city: ['TUNIS', Validators.required],
       country: ['' /* , Validators.required */],
-      zip: ['', Validators.required],
-      apartment: ['', Validators.required],
-      street: ['', Validators.required],
+      zip: ['123', Validators.required],
+      apartment: ['azz', Validators.required],
+      street: ['aze', Validators.required],
     });
   }
 
@@ -108,7 +109,24 @@ export class ChekoutPageComponent implements OnInit {
       dateOfOrder: `${Date.now()}`,
     };
     this.equipmentService.createOrder(order).subscribe(() => {
-      //redirect to thank you page // to payment page
+      const url = 'https://sandbox.paymee.tn/api/v1/payments/create';
+      let body = JSON.stringify({
+        vendor: 2102,
+        ammount: order.totalPrice,
+        note: 'Order #1000132',
+      });
+      const headers = new HttpHeaders({
+        Authorization: 'Token b5b60a5ecec5f0262d6cb47ea17124e945326d90',
+        'Content-Type': 'application/json; charset=utf-8',
+      });
+
+      this.httpClient
+        .post(url, body, {
+          headers: headers,
+        })
+        .subscribe((data) => {
+          console.log(data);
+        });
       console.log('succefully added');
     });
   }
