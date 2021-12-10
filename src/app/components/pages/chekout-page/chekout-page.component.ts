@@ -13,6 +13,7 @@ import { EquipmentService } from 'src/app/services/equipment.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
 
 declare const require;
 @Component({
@@ -27,6 +28,9 @@ export class ChekoutPageComponent implements OnInit {
   userId: any;
   currentUser: User;
   countries = [];
+  orders: Order;
+  token: string = '';
+  cookieValue: string;
   constructor(
     private router: Router,
     private formBuider: FormBuilder,
@@ -34,7 +38,8 @@ export class ChekoutPageComponent implements OnInit {
     private orderService: OrderService,
     private equipmentService: EquipmentService,
     private authService: AuthService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {
@@ -90,6 +95,18 @@ export class ChekoutPageComponent implements OnInit {
     });
     console.log(this.countries);
   }
+  public prepareFrame = (token: string) => {
+    var ifrm = document.createElement('iframe');
+    ifrm.setAttribute(
+      'src',
+      `https://sandbox.paymee.tn/gateway/${this.cookieValue}`
+    );
+    ifrm.style.width = '100%';
+    ifrm.style.height = '480px';
+
+    var test = document.querySelector('.frame');
+    test.appendChild(ifrm);
+  };
 
   placeOrder() {
     this.isSubmitted = true;
@@ -108,26 +125,15 @@ export class ChekoutPageComponent implements OnInit {
       user: this.userId,
       dateOfOrder: `${Date.now()}`,
     };
-    this.equipmentService.createOrder(order).subscribe(() => {
-      const url = 'https://sandbox.paymee.tn/api/v1/payments/create';
-      let body = JSON.stringify({
-        vendor: 2102,
-        ammount: order.totalPrice,
-        note: 'Order #1000132',
-      });
-      const headers = new HttpHeaders({
-        Authorization: 'Token b5b60a5ecec5f0262d6cb47ea17124e945326d90',
-        'Content-Type': 'application/json; charset=utf-8',
-      });
 
-      this.httpClient
-        .post(url, body, {
-          headers: headers,
-        })
-        .subscribe((data) => {
-          console.log(data);
-        });
-      console.log('succefully added');
+    this.equipmentService.createOrder(order).subscribe((res) => {
+      this.token = res.data.token;
+      this.cookieService.set('tokenPay', this.token, {
+        sameSite: 'None',
+        secure: true,
+      });
+      this.cookieValue = this.cookieService.get('tokenPay');
+      this.prepareFrame(this.cookieValue);
     });
   }
 

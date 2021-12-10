@@ -15,6 +15,8 @@ export class OrderService {
   readonly API: string = environment.apiUrl + '/admin';
   readonly API_PROD: string = environment.apiUrl + '/products';
   readonly API2: string = environment.apiUrl + '/equipments';
+  readonly SenbBoxApi: string = 'https://sandbox.paymee.tn/gateway/';
+
   orders: Order[] = [];
   constructor(private http: HttpClient) {}
   readonly ID_TOKEN = 'acessToken';
@@ -28,6 +30,10 @@ export class OrderService {
   }
   createOrder(order: Order): Observable<Order> {
     return this.http.post<Order>(`${this.API2}/order/new`, order);
+  }
+
+  loadGatwayiframe(token: string) {
+    return this.http.get<any>(`${this.SenbBoxApi}${token}`);
   }
 
   getProduct(id: string) {

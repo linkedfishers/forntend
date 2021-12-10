@@ -109,6 +109,7 @@ import { OrderListComponent } from './components/pages/order-list/order-list.com
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 import { OrderCheckComponent } from './components/pages/order-check/order-check.component';
 import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
+import { CookieService } from 'ngx-cookie-service';
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -249,6 +250,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SocialLoginModule,
   ],
   providers: [
+    [CookieService],
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
