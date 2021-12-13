@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import * as countriesLib from 'i18n-iso-countries';
@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { ToastrService } from 'ngx-toastr';
 
 declare const require;
 @Component({
@@ -31,6 +32,7 @@ export class ChekoutPageComponent implements OnInit {
   orders: Order;
   token: string = '';
   cookieValue: string;
+
   constructor(
     private router: Router,
     private formBuider: FormBuilder,
@@ -39,7 +41,8 @@ export class ChekoutPageComponent implements OnInit {
     private equipmentService: EquipmentService,
     private authService: AuthService,
     private httpClient: HttpClient,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private toast: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -52,6 +55,7 @@ export class ChekoutPageComponent implements OnInit {
     this._getCartItems();
     this._initCheckoutForm();
   }
+
   _getCartItems() {
     const cart: Cart = this.cartService.getCart();
 
@@ -70,14 +74,14 @@ export class ChekoutPageComponent implements OnInit {
   }
   private _initCheckoutForm() {
     this.checkouFormGroup = this.formBuider.group({
-      name: ['hamza', Validators.required],
-      email: ['a@gmail.com', [Validators.email, Validators.required]],
-      phone: ['99999', Validators.required],
-      city: ['TUNIS', Validators.required],
+      name: [this.currentUser.fullName, Validators.required],
+      email: ['', [Validators.email, Validators.required]],
+      phone: [, Validators.required],
+      city: ['', Validators.required],
       country: ['' /* , Validators.required */],
-      zip: ['123', Validators.required],
-      apartment: ['azz', Validators.required],
-      street: ['aze', Validators.required],
+      zip: [, Validators.required],
+      apartment: ['', Validators.required],
+      street: ['', Validators.required],
     });
   }
 
@@ -95,6 +99,7 @@ export class ChekoutPageComponent implements OnInit {
     });
     console.log(this.countries);
   }
+
   public prepareFrame = (token: string) => {
     var ifrm = document.createElement('iframe');
     ifrm.setAttribute(
@@ -128,12 +133,38 @@ export class ChekoutPageComponent implements OnInit {
 
     this.equipmentService.createOrder(order).subscribe((res) => {
       this.token = res.data.token;
+      console.log(res);
+
       this.cookieService.set('tokenPay', this.token, {
         sameSite: 'None',
         secure: true,
       });
       this.cookieValue = this.cookieService.get('tokenPay');
       this.prepareFrame(this.cookieValue);
+
+      window.addEventListener(
+        'message',
+        (event) => {
+          if (event.data.event_id === 'paymee.complete') {
+            this.toast.success(
+              'Your Payment was successfully completed',
+              'By Linkedfishers',
+              {
+                timeOut: 5000,
+                positionClass: 'toast-bottom-center',
+              }
+            );
+            window.location.replace('/marketplace/products-list');
+          } else {
+            this.toast.warning('you payment not complete', 'By Linkedfishers', {
+              timeOut: 5000,
+              positionClass: 'toast-bottom-center',
+            });
+            window.location.replace('/checkout');
+          }
+        },
+        false
+      );
     });
   }
 
