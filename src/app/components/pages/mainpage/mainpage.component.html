@@ -8,12 +8,18 @@
   <div class="row test" style="max-width: 1200px; margin: 0 auto">
     <div class="col col-md-6">
       <div class="images-reb">
-        <img src="../../../../assets/img/Nouveau projet (16).png" alt="" />
+        <img
+          src="../../../../assets/img/Nouveau projet (16).png"
+          alt=""
+          class="slit-in-vertical"
+        />
       </div>
     </div>
     <div class="col-md-6">
       <div class="max">
-        <h2>Il est temps de revenir à la nature !</h2>
+        <h2 class="tracking-in-expand">
+          Il est temps de revenir à la nature !
+        </h2>
         <p style="padding: 10px">
           Marre de la routine quotidienne?Vous voulez acquérir une nouvelle
           compétence ou simplement vous amuser avec vos amis?Linkedfishers croit
@@ -45,7 +51,9 @@
   <div class="row test" style="max-width: 1200px; margin: 0 auto">
     <div class="col-md-6">
       <div class="max">
-        <h2>Quand la passion rime avec prospérité!</h2>
+        <h2 class="tracking-in-expand">
+          Quand la passion rime avec prospérité!
+        </h2>
         <p style="padding: 10px">
           Offrez vos services sur Linkedfishers et rentabilisez vos actifs!
           Faites-en une source de revenu additionnel! Si vous possédez un
@@ -60,7 +68,11 @@
     </div>
     <div class="col col-md-6">
       <div class="images-reb">
-        <img src="../../../../assets/img/Nouveau projet (20).png" alt="" />
+        <img
+          src="../../../../assets/img/Nouveau projet (20).png"
+          alt=""
+          class="slit-in-vertical"
+        />
       </div>
     </div>
   </div>
@@ -168,6 +180,10 @@
 <div class="title-map mari">
   <h4>Our Boats</h4>
 </div>
+<div class="spinner" *ngIf="!boats">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
+</div>
 <div class="marketplace-content mrg">
   <div class="grid grid-3-3-3 centered">
     <!-- PRODUCT PREVIEW -->
@@ -234,6 +250,10 @@
 <div class="title-map mari">
   <h4>Our Equipments</h4>
 </div>
+<div class="spinner" *ngIf="!equipments">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
+</div>
 <div class="marketplace-content mrg">
   <div class="grid grid-3-3-3 centered">
     <!-- PRODUCT PREVIEW -->
@@ -299,6 +319,10 @@
 </div>
 <div class="title-map mari">
   <h4>Our accommodation</h4>
+</div>
+<div class="spinner" *ngIf="!hebergements">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
 </div>
 <div class="marketplace-content mrg">
   <div class="grid grid-3-3-3 centered">
@@ -370,6 +394,10 @@
 
 <div class="title-map mari">
   <h4>Marketplace</h4>
+</div>
+<div class="spinner" *ngIf="!visibleProducts">
+  <div class="dot1"></div>
+  <div class="dot2"></div>
 </div>
 <div class="marketplace-content mrg">
   <div class="grid grid-3-3-3 centered">

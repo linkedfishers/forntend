@@ -174,6 +174,8 @@ export class ReservationsRequestComponent implements OnInit {
     this.reservationService.createReservation(this.newReservation).subscribe(
       (response) => {
         const reservation: Reservation = response.data;
+        console.log(response.data);
+
         this.displayedReservations.push({
           start: new Date(reservation.dateStart),
           end: new Date(reservation.dateEnd),
