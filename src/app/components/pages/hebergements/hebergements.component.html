@@ -228,7 +228,8 @@
         </p>
         <!-- /BUTTON -->
       </div>
-      <!-- /POPUP BOX SIDEBAR FOOTER -->
+      <!-- /POPUP 
+        BOX SIDEBAR FOOTER -->
     </div>
     <!-- /POPUP BOX SIDEBAR -->
 
@@ -296,9 +297,53 @@
                 </div>
                 <!-- /FORM INPUT -->
               </div>
+
+              <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                  <label for="capacity_excluding_crew"> Lits </label>
+                  <input
+                    min="0"
+                    [(ngModel)]="newHome.details.lits"
+                    type="number"
+                    id="capacity_excluding_crew"
+                    name="capacity_excluding_crew"
+                  />
+                </div>
+              </div>
+
               <!-- /FORM ITEM -->
             </div>
-            <!-- /FORM ROW -->
+
+            <div class="form-row split">
+              <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                  <label for="item-name">Salle De Bain</label>
+                  <input
+                    min="0"
+                    [(ngModel)]="newHome.details.salleDeBain"
+                    type="number"
+                    id="item-name"
+                    name="item_price"
+                  />
+                </div>
+                <!-- /FORM INPUT -->
+              </div>
+              <div class="form-item">
+                <!-- FORM INPUT -->
+                <div class="form-input small active">
+                  <label for="cuisines"> cuisines </label>
+                  <input
+                    min="0"
+                    [(ngModel)]="newHome.details.cuisines"
+                    type="number"
+                    id="cuisines"
+                    name="cuisines"
+                  />
+                </div>
+              </div>
+            </div>
 
             <div class="form-row">
               <!-- FORM ITEM -->
@@ -323,30 +368,6 @@
                 </div>
                 <!-- /FORM SELECT -->
               </div>
-              <!-- /FORM ITEM -->
-              <div class="form-item">
-                <!-- CHECKBOX WRAP -->
-                <div class="checkbox-wrap">
-                  <input
-                    [(ngModel)]="newHome.details.internet"
-                    type="checkbox"
-                    id="internet"
-                    name="internet"
-                    checked
-                  />
-                  <!-- CHECKBOX BOX -->
-                  <div class="checkbox-box">
-                    <!-- ICON CROSS -->
-                    <svg class="icon-cross">
-                      <use xlink:href="#svg-cross"></use>
-                    </svg>
-                    <!-- /ICON CROSS -->
-                  </div>
-                  <!-- /CHECKBOX BOX -->
-                  <label for="internet">{{ "internet" | translate }}</label>
-                </div>
-                <!-- /CHECKBOX WRAP -->
-              </div>
             </div>
 
             <!-- /FORM ROW -->
@@ -356,13 +377,12 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.alcoholAllowed"
+                    [(ngModel)]="newHome.details.piscine"
                     type="checkbox"
-                    id="alcoholAllowed"
-                    name="alcoholAllowed"
+                    id="piscine"
+                    name="piscine"
                     checked
                   />
-                  <!-- CHECKBOX BOX -->
                   <div class="checkbox-box">
                     <!-- ICON CROSS -->
                     <svg class="icon-cross">
@@ -371,9 +391,7 @@
                     <!-- /ICON CROSS -->
                   </div>
                   <!-- /CHECKBOX BOX -->
-                  <label for="alcoholAllowed">{{
-                    "alcohol_allowed" | translate
-                  }}</label>
+                  <label for="piscine">Piscine</label>
                 </div>
                 <!-- /CHECKBOX WRAP -->
               </div>
@@ -381,10 +399,10 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.partyAllowed"
+                    [(ngModel)]="newHome.details.barbecue"
                     type="checkbox"
-                    id="partyAllowed"
-                    name="partyAllowed"
+                    id="barbecue"
+                    name="barbecue"
                     checked
                   />
                   <!-- CHECKBOX BOX -->
@@ -396,9 +414,7 @@
                     <!-- /ICON CROSS -->
                   </div>
                   <!-- /CHECKBOX BOX -->
-                  <label for="partyAllowed">{{
-                    "party_allowed" | translate
-                  }}</label>
+                  <label for="barbecue">Barbecue</label>
                 </div>
                 <!-- /CHECKBOX WRAP -->
               </div>
@@ -408,10 +424,10 @@
                 <!-- CHECKBOX WRAP -->
                 <div class="checkbox-wrap">
                   <input
-                    [(ngModel)]="newHome.details.equipmentIncluded"
+                    [(ngModel)]="newHome.details.espaceRepasEnPleinAir"
                     type="checkbox"
-                    id="equipment_included"
-                    name="equipment_included"
+                    id="espaceRepasEnPleinAir"
+                    name="espaceRepasEnPleinAir"
                     checked
                   />
                   <!-- CHECKBOX BOX -->
@@ -423,14 +439,167 @@
                     <!-- /ICON CROSS -->
                   </div>
                   <!-- /CHECKBOX BOX -->
-                  <label for="equipment_included">{{
-                    "equipment_included" | translate
-                  }}</label>
+                  <label for="espaceRepasEnPleinAir"
+                    >Espace Repas En Plein Air</label
+                  >
                 </div>
                 <!-- /CHECKBOX WRAP -->
               </div>
               <!-- /FORM ITEM -->
             </div>
+
+            <div class="form-row space-between">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.wifi"
+                    type="checkbox"
+                    id="wifi"
+                    name="wifi"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="wifi">Wifi</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.television"
+                    type="checkbox"
+                    id="television"
+                    name="television"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="television">Télévision</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <!-- /FORM ITEM -->
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.laveLinge"
+                    type="checkbox"
+                    id="laveLinge"
+                    name="laveLinge"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="laveLinge">Lave Linge</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <!-- /FORM ITEM -->
+            </div>
+
+            <div class="form-row space-between">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.parking"
+                    type="checkbox"
+                    id="parking"
+                    name="parking"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="parking">Parking</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.climatisation"
+                    type="checkbox"
+                    id="climatisation"
+                    name="climatisation"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="climatisation">Climatisation</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <!-- /FORM ITEM -->
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                <!-- CHECKBOX WRAP -->
+                <div class="checkbox-wrap">
+                  <input
+                    [(ngModel)]="newHome.details.jardin"
+                    type="checkbox"
+                    id="jardin"
+                    name="jardin"
+                    checked
+                  />
+                  <!-- CHECKBOX BOX -->
+                  <div class="checkbox-box">
+                    <!-- ICON CROSS -->
+                    <svg class="icon-cross">
+                      <use xlink:href="#svg-cross"></use>
+                    </svg>
+                    <!-- /ICON CROSS -->
+                  </div>
+                  <!-- /CHECKBOX BOX -->
+                  <label for="jardin"> Jardin</label>
+                </div>
+                <!-- /CHECKBOX WRAP -->
+              </div>
+              <!-- /FORM ITEM -->
+            </div>
+
             <div class="form-row">
               <!-- FORM ITEM -->
               <div class="form-item">

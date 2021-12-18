@@ -77,7 +77,7 @@ export class Hebergement {
   type: any;
   reviews: any[];
   rating: number;
-  details: DetailServices = new DetailServices();
+  details: BoatDetails = new BoatDetails();
 }
 
 export class HebergementType {
@@ -101,6 +101,9 @@ export class BoatDetails {
   capacity: number = 0;
   size: number = 0;
   port: any;
+  lits: number = 0;
+  cuisines: number = 0;
+  salleDeBain: number = 0;
   smokingAllowed: boolean = false;
   alcoholAllowed: boolean = false;
   partyAllowed: boolean = false;
@@ -109,6 +112,14 @@ export class BoatDetails {
   parking: boolean = false;
   jardin: boolean = false;
   internet: boolean = false;
+  meuble: boolean = false;
+  piscine: boolean = false;
+  barbecue: boolean = false;
+  espaceRepasEnPleinAir: boolean = false;
+  wifi: boolean = false;
+  television: boolean = false;
+  laveLinge: boolean = false;
+  climatisation: boolean = false;
 }
 
 export class DetailServices {

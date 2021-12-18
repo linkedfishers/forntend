@@ -30,6 +30,11 @@
             </div>
           </div>
         </div>
+        <div class="spinner" *ngIf="!cartItemDetail">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+        </div>
+
         <div class="container cart-item" *ngFor="let item of cartItemDetail">
           <div class="row">
             <div class="col-md-2 test-pad">
@@ -75,8 +80,7 @@
               <div class="cart-item-subtotal">
                 <div class="cart-item-subtotal-value">
                   {{
-                    item.product.product.price * item.quantity
-                      | currency: "DT "
+                    item.product.product.price * item.quantity | currency: "DT "
                   }}
                 </div>
               </div>
