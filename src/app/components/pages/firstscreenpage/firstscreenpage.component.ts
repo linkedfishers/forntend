@@ -10,6 +10,12 @@ export class FirstscreenpageComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  playVideo = () => {
+    const vid = document.getElementById('vid')
+    
+
+  };
+
   navigateToRoute = () => {
     this.router.navigate(['/main']);
   };

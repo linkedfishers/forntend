@@ -1,11 +1,13 @@
 <app-spalshscreen></app-spalshscreen>
 <div class="container">
   <video
-    muted
-    autoplay
-    loop
+    [muted]="true"
+    [autoplay]="true"
+    [controls]="true"
+    [loop]="true"
     src="../../../../assets/video/vid.mp4"
     type="video/mp4"
+    id="video"
   ></video>
   <div class="row test">
     <div class="col-md-6 width">
