@@ -20,15 +20,22 @@ video {
   height: 100%;
   top: 0px;
   left: 0px;
-  background: rgba(31, 30, 30, 0.144);
+  background: rgb(1, 186, 235);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 186, 235, 0.4598214285714286) 0%,
+    rgba(23, 92, 164, 0.20211834733893552) 50%,
+    rgba(0, 99, 255, 0.40940126050420167) 100%
+  );
+
   z-index: 1;
 }
 
 .row {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(0.5px);
-  -webkit-backdrop-filter: blur(0.5px);
+  backdrop-filter: blur(2.5px);
+  -webkit-backdrop-filter: blur(2.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: relative;
