@@ -48,8 +48,13 @@ import { CartComponent } from './components/pages/cart/cart.component';
 import { OrderDetailsComponent } from './components/pages/order-details/order-details.component';
 import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
 import { DetailServices } from './interfaces/equipments.interface';
+import { FirstscreenpageComponent } from './components/pages/firstscreenpage/firstscreenpage.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: FirstscreenpageComponent,
+  },
   {
     path: '',
     component: LayoutComponent,
@@ -63,9 +68,10 @@ const routes: Routes = [
         component: NaComponent,
       },
       {
-        path: '',
+        path: 'acceuil',
         component: MainpageComponent,
       },
+
       {
         path: 'about-us',
         component: AboutusComponent,
@@ -91,7 +97,6 @@ const routes: Routes = [
       {
         path: 'checkout',
         component: ChekoutPageComponent,
-
       },
 
       /*      {
@@ -216,8 +221,8 @@ const routes: Routes = [
         component: DetailsEquipmentComponent,
       },
       {
-        path: "details-service/:id",
-        component:DetailServices
+        path: 'details-service/:id',
+        component: DetailServices,
       },
       {
         path: 'my-booking-requests',
@@ -265,11 +270,13 @@ const routes: Routes = [
       },
     ],
   },
+
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthGuard],
   },
+
   {
     path: 'provider/login',
     component: ProviderLoginComponent,
@@ -286,6 +293,11 @@ const routes: Routes = [
     path: 'reset-password/:token',
     component: PasswordResetComponent,
   },
+
+ /*  {
+    path: 'hello-linkedfishers',
+    component: FirstscreenpageComponent,
+  }, */
   {
     path: '**',
     redirectTo: '',

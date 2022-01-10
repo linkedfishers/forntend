@@ -110,6 +110,9 @@ import { OrderDetailsComponent } from './components/pages/order-details/order-de
 import { OrderCheckComponent } from './components/pages/order-check/order-check.component';
 import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
 import { CookieService } from 'ngx-cookie-service';
+import { SpalshscreenComponent } from './pages/spalshscreen/spalshscreen.component';
+import { FirstscreenpageComponent } from './components/pages/firstscreenpage/firstscreenpage.component';
+import { VisiteguiderComponent } from './components/pages/visiteguider/visiteguider.component';
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -200,6 +203,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderDetailsComponent,
     OrderCheckComponent,
     ChekoutPageComponent,
+    SpalshscreenComponent,
+    FirstscreenpageComponent,
+    VisiteguiderComponent,
   ],
 
   imports: [

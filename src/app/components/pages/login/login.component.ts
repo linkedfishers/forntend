@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (res) => {
           this.toastr.success('Login Successful!', res.message);
-          this.router.navigate(['/']);
+          this.router.navigate(['/main']);
         },
         (err: any) => {
           if (err.error.message == 'Email not verified') {
@@ -168,7 +168,7 @@ export class LoginComponent implements OnInit {
         this.authService.authenticateWithGoogle(user).subscribe(
           (res) => {
             this.toastr.success('Login Successful!', res.message);
-            this.router.navigate(['/']);
+            this.router.navigate(['/main']);
           },
           (err: any) => {
             this.toastr.error("Can't login!", err.error.message);
@@ -192,7 +192,7 @@ export class LoginComponent implements OnInit {
         this.authService.authericateWithFacebook(user).subscribe(
           (res) => {
             this.toastr.success('Login Successful!', res.message);
-            this.router.navigate(['/']);
+            this.router.navigate(['/main']);
           },
           (err: any) => {
             this.toastr.error("Can't login!", err.error.message);

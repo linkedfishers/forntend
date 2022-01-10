@@ -458,7 +458,7 @@
     class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default"
   >
     <div>
-      <a [routerLink]="['/']">
+      <a [routerLink]="['/acceuil']">
         <div class="header-brand">
           <div class="logo">
             <img
@@ -506,7 +506,7 @@
         <li class="nav-item">
           <a
             class="nav-link nav-link-icon"
-            [routerLink]="['/']"
+            [routerLink]="['/acceuil']"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="activeted"
             >{{ "home" | translate }}
@@ -584,11 +584,7 @@
       </ul>
       <!-- ******************** -->
       <div
-        class="
-          navbar navbar-horizontal navbar-expand-lg navbar-primary
-          bg-default
-          navabso
-        "
+        class="navbar navbar-horizontal navbar-expand-lg navbar-primary bg-default navabso"
       >
         <ul class="navbar-nav ml-lg-auto zero-auto">
           <li class="nav-item" *ngIf="isProvider">
