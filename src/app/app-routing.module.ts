@@ -49,11 +49,16 @@ import { OrderDetailsComponent } from './components/pages/order-details/order-de
 import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-page.component';
 import { DetailServices } from './interfaces/equipments.interface';
 import { FirstscreenpageComponent } from './components/pages/firstscreenpage/firstscreenpage.component';
+import { VisiteguiderComponent } from './components/pages/visiteguider/visiteguider.component';
 
 const routes: Routes = [
   {
     path: '',
     component: FirstscreenpageComponent,
+  },
+  {
+    path: 'visite-guider',
+    component: VisiteguiderComponent,
   },
   {
     path: '',
@@ -281,6 +286,7 @@ const routes: Routes = [
     path: 'provider/login',
     component: ProviderLoginComponent,
   },
+
   {
     path: 'activate/:token',
     component: ActivateAccountComponent,
@@ -294,7 +300,7 @@ const routes: Routes = [
     component: PasswordResetComponent,
   },
 
- /*  {
+  /*  {
     path: 'hello-linkedfishers',
     component: FirstscreenpageComponent,
   }, */
