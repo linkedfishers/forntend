@@ -3,15 +3,14 @@
   max-width: 1920px;
 
   /*   background: url(../../../../assets/img/fishing-boat-header.png); */
- 
 }
-
 video {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   object-fit: cover;
+  max-width: 1920px;
 }
 .container::before {
   content: "";
