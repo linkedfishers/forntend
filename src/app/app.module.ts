@@ -265,7 +265,6 @@ export function HttpLoaderFactory(http: HttpClient) {
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              //'108417378352-9o4n67jsc1rd3mqcmgoobr7b6ns2ep55.apps.googleusercontent.com'
               '182720219632-505uhb59bm9ldp53o9vnd1ejfp28u89h.apps.googleusercontent.com'
             ),
           },
