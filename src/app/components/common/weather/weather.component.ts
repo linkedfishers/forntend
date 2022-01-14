@@ -11,11 +11,7 @@ export class WeatherComponent implements OnInit {
   weatherDat: any;
   constructor() {}
   ngOnInit(): void {
-    /*   this.weatherDat = {
-      main: {},
-      isDay: true,
-    }; */
-    /* this.getWeatherDat(); */
+
     this.width = $('#weather-container').width();
   }
 

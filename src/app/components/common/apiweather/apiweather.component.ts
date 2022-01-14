@@ -3,13 +3,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { send } from 'process';
 import { PostService } from 'src/app/services/post.service';
 import { WeathrserviceService } from 'src/app/services/weathrservice.service';
-
+import { Chart } from 'chart.js';
 @Component({
   selector: 'app-apiweather',
   templateUrl: './apiweather.component.html',
   styleUrls: ['./apiweather.component.scss'],
 })
 export class ApiweatherComponent implements OnInit {
+  chart: any = [];
   public weatherSearchForm: FormGroup;
   public weatherData: any;
   public weathere: any;
@@ -55,14 +56,61 @@ export class ApiweatherComponent implements OnInit {
 
   fetchDataForcast(formValues) {
     this.postService.getForcastweather(formValues.location).subscribe((res) => {
-      this.weatherForcastResponse = res;
-      console.log(this.weatherForcastResponse);
+      this.weatherForcastResponse = res.data;
+      let temp_max = this.weatherForcastResponse['list'].map(
+        (res) => res.main.temp_max
+      );
+      let temp_min = this.weatherForcastResponse['list'].map(
+        (res) => res.main.temp_min
+      );
+      let allDates = this.weatherForcastResponse['list'].map((res) => res.dt);
+      let weatherDates = [];
+
+      allDates.forEach((element) => {
+        let jsDate = new Date(element * 1000);
+        weatherDates.push(jsDate.toLocaleTimeString('en'));
+      });
+
+      this.chart = new Chart('canvas', {
+        type: 'line',
+        data: {
+          labels: weatherDates,
+          datasets: [
+            {
+              data: temp_max,
+              borderColor: '#104777',
+              fill: false,
+            },
+            {
+              data: temp_min,
+              borderColor: '#d53916',
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          scales: {
+            xAxes: [
+              {
+                display: true,
+              },
+            ],
+            yAxes: [
+              {
+                display: true,
+              },
+            ],
+          },
+        },
+      });
     });
   }
   fetchData(formValues) {
     this.postService.getweatherData(formValues.location).subscribe((res) => {
       this.weatherResponse = res;
-      console.log(this.weatherResponse);
     });
   }
 

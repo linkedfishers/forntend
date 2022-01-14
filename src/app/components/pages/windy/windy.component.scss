@@ -20,7 +20,6 @@
 .txt {
   position: relative;
   background: linear-gradient(to right, #24243e, #141e30, #0f0c29);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -42,4 +41,8 @@
   text-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5),
     20px 20px 20px rgba(0, 0, 0, 0.4), 30px 30px 30px rgba(0, 0, 0, 0.1);
   mix-blend-mode: multiply;
+}
+
+.content-grid {
+  padding: 50px !important;
 }
