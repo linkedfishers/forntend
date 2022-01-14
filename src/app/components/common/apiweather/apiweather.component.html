@@ -8,11 +8,11 @@
       >
         <div class="form-group">
           <input
-            class="form-control"
+            class="form-control input-custom"
             type="text"
             id="weatherLocation"
             aria-describedby="weatherLocation"
-            placeholder="Please input a Location"
+            placeholder="Please input a Location ..."
             formControlName="location"
           />
         </div>
@@ -32,8 +32,16 @@
       </p>
     </div> -->
   </div>
-
-  <div *ngIf="chart">
-    <canvas id="canvas">{{ chart }}</canvas>
+  <div class="row" style="margin-top: 20px; margin-bottom: 20px">
+    <div class="col-md-6">
+      <div *ngIf="chart">
+        <canvas id="canvas">{{ chart }}</canvas>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="chartMintemp">
+        <canvas id="canvasTempMin">{{ chartMintemp }}</canvas>
+      </div>
+    </div>
   </div>
 </div>

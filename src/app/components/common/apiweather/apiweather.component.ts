@@ -11,6 +11,7 @@ import { Chart } from 'chart.js';
 })
 export class ApiweatherComponent implements OnInit {
   chart: any = [];
+  chartMintemp: any = [];
   public weatherSearchForm: FormGroup;
   public weatherData: any;
   public weathere: any;
@@ -71,6 +72,37 @@ export class ApiweatherComponent implements OnInit {
         weatherDates.push(jsDate.toLocaleTimeString('en'));
       });
 
+      this.chartMintemp = new Chart('canvasTempMin', {
+        type: 'line',
+        data: {
+          labels: weatherDates,
+          datasets: [
+            {
+              data: temp_min,
+              borderColor: '#104777',
+              fill: false,
+            },
+          ],
+        },
+        options: {
+          legend: {
+            display: false,
+          },
+          scales: {
+            xAxes: [
+              {
+                display: true,
+              },
+            ],
+            yAxes: [
+              {
+                display: true,
+              },
+            ],
+          },
+        },
+      });
+
       this.chart = new Chart('canvas', {
         type: 'line',
         data: {
@@ -78,12 +110,7 @@ export class ApiweatherComponent implements OnInit {
           datasets: [
             {
               data: temp_max,
-              borderColor: '#104777',
-              fill: false,
-            },
-            {
-              data: temp_min,
-              borderColor: '#d53916',
+              borderColor: '#FE1C05',
               fill: false,
             },
           ],
