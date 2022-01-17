@@ -10,13 +10,46 @@
     id="video"
   ></video>
   <div class="row test">
-    <div class="col-md-6 width">
-      <div class="title"><h4>Visite Guidée</h4></div>
+    <div *ngIf="!ishidden" class="second-div">
+      <div class="slideInRight titles"><h6>Location de Bateau</h6></div>
+      <div class="slideInRight titles">
+        <h6>Location d'un Hebergement côtier</h6>
+      </div>
+      <div class="slideInRight titles">
+        <h6>Experience de pêche personnalisée</h6>
+      </div>
+      <div class="slideInRight titles">
+        <h6>E-shop:Equippement et material de pêche</h6>
+      </div>
+      <div class="slideInRight titles">
+        <h6>Organisiation d'évenement pour entreprise et particulier</h6>
+      </div>
+    </div>
+    <div *ngIf="!isHidden2" class="second-div">
+      <div class="slideInRight titles"><h6>Propriétaire de Bateau</h6></div>
+      <div class="slideInRight titles">
+        <h6>Propriétaire d'Hébergement côtier</h6>
+      </div>
+      <div class="slideInRight titles">
+        <h6>Moniteur de péche, Freelancer</h6>
+      </div>
+      <div class="slideInRight titles">
+        <h6>Fournisseur d'équipement de pêche et du notisme</h6>
+      </div>
+    </div>
+
+    <div class="col-md-6 width" *ngIf="!isShow">
+      <div class="title">
+        <h6>A la recherche d'une expérience , un service ou un produit</h6>
+      </div>
       <div class="image">
         <img
           src="../../../../assets/img/6344d0df5327adeb2cff7d89129e3bc7--motor-boats-for-sale-yachts.jpg"
           alt=""
         />
+      </div>
+      <div class="info-div">
+        <p></p>
       </div>
       <div class="buttons">
         <button
@@ -28,9 +61,9 @@
         </button>
       </div>
     </div>
-    <div class="col-md-6 width">
+    <div class="col-md-6 width" *ngIf="!isShow">
       <div class="title">
-        <h4>Linkedfishers</h4>
+        <h6>Réaliser un revenue supplimentaire</h6>
       </div>
       <div class="image">
         <img
@@ -39,6 +72,9 @@
           class="zoomInLeft"
         />
       </div>
+      <!--   <div class="info-div">
+        <p>A la recherche d'une expérience , un service ou un produit</p>
+      </div> -->
       <div class="buttons">
         <button
           type="button"

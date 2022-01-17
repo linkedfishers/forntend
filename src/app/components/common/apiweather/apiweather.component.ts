@@ -80,7 +80,7 @@ export class ApiweatherComponent implements OnInit {
             {
               data: temp_min,
               borderColor: '#104777',
-              fill: false,
+              fill: true,
             },
           ],
         },
@@ -135,6 +135,7 @@ export class ApiweatherComponent implements OnInit {
       });
     });
   }
+  
   fetchData(formValues) {
     this.postService.getweatherData(formValues.location).subscribe((res) => {
       this.weatherResponse = res;

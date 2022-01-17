@@ -6,6 +6,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./firstscreenpage.component.scss'],
 })
 export class FirstscreenpageComponent implements OnInit {
+  isShow = false;
+  ishidden = true;
+
+  isShow2 = false;
+  isHidden2 = true;
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -15,10 +20,12 @@ export class FirstscreenpageComponent implements OnInit {
   };
 
   navigateToRoute = () => {
-    this.router.navigate(['/main']);
+    this.isShow = !this.isShow;
+    this.ishidden = !this.ishidden;
   };
 
   navigateToTogin = () => {
-    this.router.navigate(['/login']);
+    this.isShow = !this.isShow;
+    this.isHidden2 = !this.isHidden2;
   };
 }

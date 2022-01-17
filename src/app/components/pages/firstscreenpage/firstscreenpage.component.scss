@@ -40,7 +40,7 @@ video {
   position: relative;
   margin: 20px auto;
   width: 800px;
-  height: 400px;
+  height: auto;
   z-index: 3;
   -webkit-animation: mainFadeIn 2s forwards;
   -o-animation: mainFadeIn 2s forwards;
@@ -60,20 +60,29 @@ video {
 
 .buttons {
   text-align: center;
+  padding: 10px 0 10px 0;
 }
 
 .btn {
-  width: 30%;
+  width: 35%;
 }
 .title {
   max-width: 400px;
   text-align: center;
+  margin: 10px auto;
   padding: 20px;
+  background: rgba(7, 95, 146, 0.575);
+  height: 90px;
+
+  border-radius: 4px;
+  -webkit-box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
+  box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
 }
 
-.title h4 {
+.title h6 {
   font-family: "Poppins", sans-serif;
-  color: #f1eded;
+  color: #ffffff;
+  line-height: 1.5;
 }
 
 .image {
@@ -83,7 +92,12 @@ video {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-
+@media (max-width: 800px) {
+  .row {
+    width: auto;
+    height: auto;
+  }
+}
 .image::before {
   content: "";
   position: absolute;
@@ -118,4 +132,68 @@ video {
   height: 185px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+.width {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/********************** */
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+  animation-name: slideInRight;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+@keyframes slideInRight {
+  0% {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    visibility: visible;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+/* ****************** */
+
+.second-div {
+  margin: 0 auto;
+  width: 90%;
+  padding: 20px;
+}
+
+.titles {
+  max-width: 400px;
+  text-align: center;
+  padding: 20px;
+  background: rgba(7, 95, 146, 0.575);
+  height: 90px;
+  margin: 10px auto;
+
+  border-radius: 4px;
+  -webkit-box-shadow: -1px 2px 12px -1px rgba(25, 11, 156, 0.83);
+  box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
+}
+.titles h6 {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  line-height: 1.5;
 }
