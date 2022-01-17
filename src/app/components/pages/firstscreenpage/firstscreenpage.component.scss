@@ -66,6 +66,25 @@ video {
 .btn {
   width: 35%;
 }
+
+.titl {
+  max-width: 400px;
+  text-align: center;
+  margin: 10px auto;
+  padding: 20px;
+  background: rgba(7, 95, 146, 0.575);
+  height: 90px;
+  border-radius: 4px;
+  -webkit-box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
+  box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
+}
+
+.titl h6 {
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
 .title {
   max-width: 400px;
   text-align: center;
@@ -78,11 +97,21 @@ video {
   -webkit-box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
   box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
 }
+.title:hover {
+  -webkit-box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  background: rgb(240, 238, 238);
+}
 
 .title h6 {
   font-family: "Poppins", sans-serif;
   color: #ffffff;
   line-height: 1.5;
+}
+.title:hover h6 {
+  color: rgb(43, 55, 226);
 }
 
 .image {
@@ -192,8 +221,19 @@ video {
   -webkit-box-shadow: -1px 2px 12px -1px rgba(25, 11, 156, 0.83);
   box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
 }
+.titles:hover {
+  -webkit-box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  background: rgb(240, 238, 238);
+}
+
 .titles h6 {
   font-family: "Poppins", sans-serif;
   color: #ffffff;
   line-height: 1.5;
+}
+.titles:hover h6 {
+  color: rgb(43, 55, 226);
 }
