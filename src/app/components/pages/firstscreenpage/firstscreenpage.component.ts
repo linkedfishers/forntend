@@ -28,4 +28,6 @@ export class FirstscreenpageComponent implements OnInit {
     this.isShow = !this.isShow;
     this.isHidden2 = !this.isHidden2;
   };
+
+
 }
