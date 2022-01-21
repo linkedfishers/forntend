@@ -29,5 +29,15 @@ export class FirstscreenpageComponent implements OnInit {
     this.isHidden2 = !this.isHidden2;
   };
 
+  navigateTohomePage = () => {
+    this.router.navigate(['/acceuil']);
+  };
+  navigateToLoginePage = () => {
+    this.router.navigate(['/login']);
+  };
 
+
+  accederAuSite = () => {
+    this.router.navigate(['/acceuil'])
+  }
 }
