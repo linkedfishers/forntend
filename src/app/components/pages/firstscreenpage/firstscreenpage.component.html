@@ -1,4 +1,4 @@
-<app-spalshscreen></app-spalshscreen>
+<!-- <app-spalshscreen></app-spalshscreen> -->
 <div class="container">
   <video
     [muted]="true"
@@ -9,120 +9,120 @@
     type="video/mp4"
     id="video"
   ></video>
+  <!--   <div class="row">
+    <div class="col-sm-12">
+      <img src="../../../../assets/img/Nouveau projet (15).png" alt="" />
+    </div>
+  </div> -->
+
   <div class="row test">
     <div *ngIf="!ishidden" class="second-div">
-      <div class="slideInRight titles">
+      <div class="slideInRight titles" (click)="boatList()">
         <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Location de Bateau</h6>
+          <img src="../../../../assets/img/homefolder/fishing-boat.png" />
+          <h6>Bateau</h6>
+          <h5 class="text">Location de Bateau</h5>
+        </div>
+      </div>
+      <div class="slideInRight titles" (click)="homeList()">
+        <div class="list-item">
+          <img src="../../../../assets/img/homefolder/home.png" />
+          <h6>Hebergement</h6>
+          <h5 class="text">Location d'un Hebergement côtier</h5>
+        </div>
+      </div>
+      <div class="slideInRight titles" (click)="listService()">
+        <div class="list-item">
+          <img src="../../../../assets/img/homefolder/experience.png" />
+          <h6>Experience</h6>
+          <h5 class="text">Experience de pêche personnalisée</h5>
+          <a href="https://icons8.com/icon/wQi8zFqqK2Ex/tap-gesture"></a>
         </div>
       </div>
       <div class="slideInRight titles">
         <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Location d'un Hebergement côtier</h6>
+          <img
+            src="../../../../assets/img/homefolder/online-shopping.png"
+            (click)="toEshopEquip()"
+          />
+          <h6>E-shop</h6>
+          <h5 class="text">Equippement et material de pêche</h5>
         </div>
       </div>
-      <div class="slideInRight titles">
+      <div class="slideInRight titles" (click)="toEvent()">
         <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Experience de pêche personnalisée</h6>
-        </div>
-      </div>
-      <div class="slideInRight titles">
-        <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>E-shop:Equippement et material de pêche</h6>
-        </div>
-      </div>
-      <div class="slideInRight titles">
-        <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
+          <img src="../../../../assets/img/homefolder/placard.png" />
 
-          <h6>Organisiation d'évenement pour entreprise et particulier</h6>
+          <h6>Évenement</h6>
+          <h5 class="text">
+            Organisiation d'évenement pour entreprise et particulier
+          </h5>
         </div>
       </div>
     </div>
     <div *ngIf="!isHidden2" class="second-div">
-      <div class="slideInRight titles">
+      <div class="slideInRight titles" (click)="myboat()">
         <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Propriétaire de Bateau</h6>
+          <img src="../../../../assets/img/homefolder/fishing-boat.png" />
+          <h6>Propriétaire</h6>
+          <h5 class="text">Propriétaire de Bateau</h5>
+        </div>
+      </div>
+      <div class="slideInRight titles" (click)="myhome()">
+        <div class="list-item">
+          <img src="../../../../assets/img/homefolder/working-at-home.png" />
+          <h6>Propriétaire</h6>
+          <h5 class="text">Propriétaire d'Hébergement côtier</h5>
+        </div>
+      </div>
+      <div class="slideInRight titles" (click)="myservice()">
+        <div class="list-item">
+          <img src="../../../../assets/img/homefolder/coach.png" />
+          <h6>Moniteur</h6>
+          <h5 class="text">Moniteur de péche, Freelancer</h5>
         </div>
       </div>
       <div class="slideInRight titles">
         <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Propriétaire d'Hébergement côtier</h6>
-        </div>
-      </div>
-      <div class="slideInRight titles">
-        <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Moniteur de péche, Freelancer</h6>
-        </div>
-      </div>
-      <div class="slideInRight titles">
-        <div class="list-item">
-          <img src="http://fakeimg.pl/50x50/?text=linkedfisher" />
-          <h6>Fournisseur d'équipement de pêche et du notisme</h6>
+          <img
+            src="../../../../assets/img/homefolder/provider.png"
+            (click)="becomeAprovider()"
+          />
+          <h6>Fournisseur</h6>
+          <h5 class="text">Fournisseur d'équipement de pêche et du notisme</h5>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6 width" *ngIf="!isShow">
+    <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToRoute()">
       <div class="titl force-bg-color">
-        <h4>A la recherche d'une expérience , un service ou un produit</h4>
+        <h4>Je cherche d'une expérience,un service ou un produit</h4>
       </div>
       <div class="image">
-        <img
-          src="../../../../assets/img/6344d0df5327adeb2cff7d89129e3bc7--motor-boats-for-sale-yachts.jpg"
-          alt=""
-        />
-      </div>
-      <div class="info-div">
-        <p></p>
-      </div>
-      <div class="buttons">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="navigateToLoginePage()"
-        >
-          Linkedfishers
-        </button>
+        <img src="../../../../assets/img/homefolder/search.png" alt="" />
       </div>
     </div>
-    <div class="col-md-6 width" *ngIf="!isShow">
+    <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToTogin()">
       <div class="titl force-bg-color">
-        <h4>Réaliser un revenue supplimentaire</h4>
+        <h4>Je réalise un revenue supplimentaire</h4>
       </div>
       <div class="image">
         <img
-          src="../../../../assets/img/default-profile.png"
+          src="../../../../assets/img/homefolder/revenue.png"
           alt=""
           class="zoomInLeft"
         />
-      </div>
-      <!--   <div class="info-div">
-        <p>A la recherche d'une expérience , un service ou un produit</p>
-      </div> -->
-      <div class="buttons">
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="navigateTohomePage()"
-        >
-          Login
-        </button>
       </div>
     </div>
   </div>
   <div class="row bgcolorT">
     <div class="col-md-12">
       <div class="buttons disFlex">
+         <button type="button" class="btn btn-primary" (click)="backtoHome()">
+        Back
+        </button>
         <button type="button" class="btn btn-primary" (click)="accederAuSite()">
-          linkedfishers
+          Acceder au site
         </button>
       </div>
     </div>

@@ -36,8 +36,37 @@ export class FirstscreenpageComponent implements OnInit {
     this.router.navigate(['/login']);
   };
 
-
   accederAuSite = () => {
-    this.router.navigate(['/acceuil'])
-  }
+    this.router.navigate(['/acceuil']);
+  };
+
+  /* ********** */
+
+  boatList = () => {
+    this.router.navigate(['/list-boats']);
+  };
+
+  homeList = () => {
+    this.router.navigate(['/list-home']);
+  };
+
+  listService = () => {
+    this.router.navigate(['/list-services']);
+  };
+
+  toEshopEquip = () => {
+    this.router.navigate(['/marketplace/products-list']);
+  };
+
+  toEvent = () => {
+    this.router.navigate(['/events']);
+  };
+
+  becomeAprovider = () => {
+    this.router.navigate(['/provider/login']);
+  };
+  backtoHome = () => this.router.navigate(['/']);
+  myboat = () => this.router.navigate(['/boats']);
+  myhome = () => this.router.navigate(['/homes']);
+  myservice = () => this.router.navigate(['/services']);
 }
