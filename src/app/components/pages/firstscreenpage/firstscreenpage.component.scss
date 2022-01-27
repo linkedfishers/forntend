@@ -52,6 +52,9 @@ video {
   animation: mainFadeIn 2s forwards;
   animation-delay: 1.6s;
 }
+.height-div {
+  height: 380px !important;
+}
 @keyframes mainFadeIn {
   0% {
     letf: 0;
@@ -206,7 +209,7 @@ video {
 /* ****************** */
 
 .second-div {
-  margin: 40px auto;
+  margin: 20px auto;
   width: 100%;
   padding: 20px;
   display: flex;
@@ -218,14 +221,13 @@ video {
   margin-right: 10px;
   max-width: 400px;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background: rgba(7, 95, 146, 0.575);
-
   margin: 10px auto;
-
   border-radius: 4px;
   -webkit-box-shadow: -1px 2px 12px -1px rgba(25, 11, 156, 0.83);
   box-shadow: -1px 2px 12px -1px rgba(84, 150, 255, 0.83);
+  max-height: 200px !important;
 }
 .titles:hover {
   -webkit-box-shadow: -25px -3px 81px -10px rgba(0, 0, 0, 0.75);
@@ -301,12 +303,27 @@ video {
 
 .text {
   display: none;
-  color: white;
+  color: #fffcfc;
   font-family: "Open sans", sans-serif;
   line-height: 1.5;
-  font-family: 16px;
+  font-family: 14px;
+  font-weight: 600;
+  position: absolute;
+  top: 230px;
+  background: rgb(42 41 41 /50%);
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .titles:hover .list-item .text {
   display: block;
+}
+
+@media (max-width: 800px) {
+  .disFlex {
+    justify-content: center !important;
+  }
+  .btn {
+    width: 30% !important;
+  }
 }

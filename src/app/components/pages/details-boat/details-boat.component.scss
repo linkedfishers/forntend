@@ -63,3 +63,21 @@ img.round-small {
   transform: scale(1.5);
   z-index: 99999999999999;
 }
+
+.row {
+  margin-bottom: 15px !important;
+}
+
+.content-grid {
+  transition: transform 0.4s ease-in-out 0s !important;
+  max-width: 1500px !important;
+  margin: 0px !important;
+  padding: 50px !important;
+}
+
+.txt-bold {
+  font-weight: 500;
+  line-height: 1.5;
+  text-shadow: 2px 0 0 rgb(2, 2, 2), -2px 0 0 rgb(7, 7, 7), 0 2px 0 rgb(0, 0, 0), 0rgb(8, 8, 8)x 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+}

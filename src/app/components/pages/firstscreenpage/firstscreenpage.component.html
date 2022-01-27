@@ -9,33 +9,27 @@
     type="video/mp4"
     id="video"
   ></video>
-  <!--   <div class="row">
-    <div class="col-sm-12">
-      <img src="../../../../assets/img/Nouveau projet (15).png" alt="" />
-    </div>
-  </div> -->
-
-  <div class="row test">
+  <div class="row height-div">
     <div *ngIf="!ishidden" class="second-div">
       <div class="slideInRight titles" (click)="boatList()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/fishing-boat.png" />
           <h6>Bateau</h6>
-          <h5 class="text">Location de Bateau</h5>
+          <p class="text">Location de Bateau</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="homeList()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/home.png" />
-          <h6>Hebergement</h6>
-          <h5 class="text">Location d'un Hebergement côtier</h5>
+          <h6>Hébergement</h6>
+          <p class="text">Location d'un Hébergement côtier</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="listService()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/experience.png" />
-          <h6>Experience</h6>
-          <h5 class="text">Experience de pêche personnalisée</h5>
+          <h6>Éxperience</h6>
+          <p class="text">Éxperience de pêche personnalisée</p>
           <a href="https://icons8.com/icon/wQi8zFqqK2Ex/tap-gesture"></a>
         </div>
       </div>
@@ -46,7 +40,7 @@
             (click)="toEshopEquip()"
           />
           <h6>E-shop</h6>
-          <h5 class="text">Equippement et material de pêche</h5>
+          <p class="text">Équippement et material de pêche</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="toEvent()">
@@ -54,9 +48,9 @@
           <img src="../../../../assets/img/homefolder/placard.png" />
 
           <h6>Évenement</h6>
-          <h5 class="text">
+          <p class="text">
             Organisiation d'évenement pour entreprise et particulier
-          </h5>
+          </p>
         </div>
       </div>
     </div>
@@ -64,22 +58,22 @@
       <div class="slideInRight titles" (click)="myboat()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/fishing-boat.png" />
-          <h6>Propriétaire</h6>
-          <h5 class="text">Propriétaire de Bateau</h5>
+          <h6>Propriétaire de Bateau</h6>
+          <p class="text">Mettez votre Bateau</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="myhome()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/working-at-home.png" />
-          <h6>Propriétaire</h6>
-          <h5 class="text">Propriétaire d'Hébergement côtier</h5>
+          <h6>Propriétaire d'hébergement</h6>
+          <p class="text">Mettez votre d'Hébergement côtier</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="myservice()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/coach.png" />
-          <h6>Moniteur</h6>
-          <h5 class="text">Moniteur de péche, Freelancer</h5>
+          <h6>Moniteur de pêche</h6>
+          <p class="text">Moniteur de pêche, Freelancer</p>
         </div>
       </div>
       <div class="slideInRight titles">
@@ -88,15 +82,15 @@
             src="../../../../assets/img/homefolder/provider.png"
             (click)="becomeAprovider()"
           />
-          <h6>Fournisseur</h6>
-          <h5 class="text">Fournisseur d'équipement de pêche et du notisme</h5>
+          <h6>Fournisseur d'équipement</h6>
+          <p class="text">Fournisseur d'équipement de pêche et du notisme</p>
         </div>
       </div>
     </div>
 
     <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToRoute()">
       <div class="titl force-bg-color">
-        <h4>Je cherche d'une expérience,un service ou un produit</h4>
+        <h4>Je cherche une expérience,un service ou un produit</h4>
       </div>
       <div class="image">
         <img src="../../../../assets/img/homefolder/search.png" alt="" />
@@ -104,7 +98,7 @@
     </div>
     <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToTogin()">
       <div class="titl force-bg-color">
-        <h4>Je réalise un revenue supplimentaire</h4>
+        <h4>Je réalise un revenu supplimentaire</h4>
       </div>
       <div class="image">
         <img

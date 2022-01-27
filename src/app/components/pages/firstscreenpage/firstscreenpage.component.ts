@@ -65,7 +65,7 @@ export class FirstscreenpageComponent implements OnInit {
   becomeAprovider = () => {
     this.router.navigate(['/provider/login']);
   };
-  backtoHome = () => this.router.navigate(['/']);
+  backtoHome = () => window.location.reload();
   myboat = () => this.router.navigate(['/boats']);
   myhome = () => this.router.navigate(['/homes']);
   myservice = () => this.router.navigate(['/services']);
