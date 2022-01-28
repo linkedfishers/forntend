@@ -50,6 +50,7 @@ export class DetailsBoatComponent implements OnInit {
   res: any;
   restwo: any;
   changeCurrency: any;
+  code: any;
   ngOnInit(): void {
     initSidebar();
     initPopups();
@@ -77,16 +78,19 @@ export class DetailsBoatComponent implements OnInit {
       console.log(this.res);
       setTimeout(() => {
         this.changeSrevice.getGEOLocation(this.res.ip).subscribe((res) => {
-          let code: any;
           this.restwo = res;
-          code = this.restwo.currency.code;
-          this.changeSrevice.getCurrencyData(code).subscribe((res2) => {
-            this.changeCurrency = res2.rates[code].rate;
-            if (this.changeCurrency) {
+          this.code = this.restwo.currency.code;
+          this.changeSrevice.getCurrencyData(this.code).subscribe((res2) => {
+            console.log(res2);
+
+            this.changeCurrency = res2.rates[this.code].rate;
+
+            if (this.changeCurrency && this.code) {
               this.price =
                 Math.round(this.boat.price * this.changeCurrency * 100) / 100;
             } else {
               this.price = this.boat.price;
+              this.code = 'TND';
             }
             return this.price;
           });
