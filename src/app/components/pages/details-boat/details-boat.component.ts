@@ -7,6 +7,8 @@ import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 import { Review } from 'src/app/interfaces/reviews.interface';
 import { ToastrService } from 'ngx-toastr';
+import { ReservationService } from 'src/app/services/reservation.service';
+import { IpServiceService } from 'src/app/services/ip-service.service';
 declare var app,
   loadSvg,
   initTooltips,
@@ -31,7 +33,9 @@ export class DetailsBoatComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private equipmentService: EquipmentService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private reservationService: ReservationService,
+    private changeSrevice: IpServiceService
   ) {}
   readonly API: string = environment.apiUrl + '/';
 
@@ -42,7 +46,10 @@ export class DetailsBoatComponent implements OnInit {
   isOwner = false;
   images: any;
   image: any;
-
+  price: Number;
+  res: any;
+  restwo: any;
+  changeCurrency: any;
   ngOnInit(): void {
     initSidebar();
     initPopups();
@@ -65,6 +72,27 @@ export class DetailsBoatComponent implements OnInit {
       });
     });
     initContent();
+    this.changeSrevice.getIpAdresse().subscribe((res) => {
+      this.res = res;
+      console.log(this.res);
+      setTimeout(() => {
+        this.changeSrevice.getGEOLocation(this.res.ip).subscribe((res) => {
+          let code: any;
+          this.restwo = res;
+          code = this.restwo.currency.code;
+          this.changeSrevice.getCurrencyData(code).subscribe((res2) => {
+            this.changeCurrency = res2.rates[code].rate;
+            if (this.changeCurrency) {
+              this.price =
+                Math.round(this.boat.price * this.changeCurrency * 100) / 100;
+            } else {
+              this.price = this.boat.price;
+            }
+            return this.price;
+          });
+        });
+      }, 1000);
+    });
   }
 
   addReview() {

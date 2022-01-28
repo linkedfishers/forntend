@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IpServiceService } from 'src/app/services/ip-service.service';
 import { ReservationService } from 'src/app/services/reservation.service';
 
 @Component({
@@ -6,15 +7,8 @@ import { ReservationService } from 'src/app/services/reservation.service';
   templateUrl: './visiteguider.component.html',
   styleUrls: ['./visiteguider.component.scss'],
 })
-
 export class VisiteguiderComponent implements OnInit {
-  constructor(private reservationService: ReservationService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.reservationService.getReservations().subscribe((res) => {
-
-          
-
-    });
-  }
+  ngOnInit(): void {}
 }
