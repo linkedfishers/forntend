@@ -10,10 +10,12 @@ import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import * as countriesLib from 'i18n-iso-countries';
 import { TranslateService } from '@ngx-translate/core';
 
 declare var initSidebar, initPopups: any, loadSvg: any;
 declare var initForm, $: any;
+declare const require;
 @Component({
   selector: 'app-boats',
   templateUrl: './boats.component.html',
@@ -29,6 +31,7 @@ export class BoatsComponent implements OnInit {
 
   readonly API: string = environment.apiUrl + '/';
 
+  countries = [];
   currentUser: User;
   formData: FormData;
   imageSrc: any;
@@ -40,6 +43,7 @@ export class BoatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.authService.getCurrentUser();
+    this._getCoutries();
     this.newBoat = new Boat();
 
     initSidebar();
@@ -165,6 +169,19 @@ export class BoatsComponent implements OnInit {
 
   openFileInput() {
     $('#postPhoto').click();
+  }
+
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log(this.countries);
   }
 
   removeBoat(i: number) {

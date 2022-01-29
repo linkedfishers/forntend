@@ -50,6 +50,7 @@ export class ServiceType {
 export class Boat {
   _id: string;
   name: string;
+  country: string;
   owner: any;
   price: number = 0;
   image: any;
