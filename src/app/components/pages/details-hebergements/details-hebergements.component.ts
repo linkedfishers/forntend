@@ -7,6 +7,7 @@ import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 import { Review } from 'src/app/interfaces/reviews.interface';
 import { ToastrService } from 'ngx-toastr';
+import { IpServiceService } from 'src/app/services/ip-service.service';
 
 declare var app,
   loadSvg,
@@ -32,7 +33,8 @@ export class DetailsHebergementsComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private equipmentService: EquipmentService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private changeSrevice: IpServiceService
   ) {}
   readonly API: string = environment.apiUrl + '/';
 
@@ -43,6 +45,11 @@ export class DetailsHebergementsComponent implements OnInit {
   isOwner = true;
   images: any;
   image: any;
+  price: Number;
+  res: any;
+  restwo: any;
+  changeCurrency: any;
+  code: any;
 
   ngOnInit(): void {
     initSidebar();
@@ -61,6 +68,31 @@ export class DetailsHebergementsComponent implements OnInit {
         this.hebergement.reviews = this.hebergement.reviews || [];
         this.isOwner = this.hebergement.owner._id === this.currentUser._id;
       });
+    });
+    this.changeSrevice.getIpAdresse().subscribe((res) => {
+      this.res = res;
+      console.log(this.res);
+      setTimeout(() => {
+        this.changeSrevice.getGEOLocation(this.res.ip).subscribe((res) => {
+          this.restwo = res;
+          this.code = this.restwo.currency.code;
+          this.changeSrevice.getCurrencyData(this.code).subscribe((res2) => {
+            console.log(res2);
+
+            this.changeCurrency = res2.rates[this.code].rate;
+
+            if (this.changeCurrency && this.code) {
+              this.price =
+                Math.round(this.hebergement.price * this.changeCurrency * 100) /
+                100;
+            } else {
+              this.price = this.hebergement.price;
+              this.code = 'TND';
+            }
+            return this.price;
+          });
+        });
+      }, 1000);
     });
     initContent();
   }

@@ -213,9 +213,7 @@
   text-transform: uppercase;
   padding: 0px 20px;
 }
-.fusion-main-menu > .fusion-menu > li > a:hover,
-.fusion-main-menu > .fusion-menu > li.current_page_item > a {
-}
+
 .fusion-main-menu .fusion-menu .sub-menu a {
   text-transform: uppercase !important;
 }
@@ -889,8 +887,7 @@ select.wpcf7-not-valid {
   font-size: 20px !important;
 }
 /* START PAGE 404 */
-.error404 {
-}
+
 .error404 #main .fusion-row {
   max-width: 1600px !important;
 }
@@ -1023,12 +1020,9 @@ select.wpcf7-not-valid {
   transform: translateX(-100%);
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  -webkit-transform-style: preserve-3d;
 }
 
-/******************* Dev -- start *******************/
 
-/* initial -- start*/
 #content {
   min-height: 0;
 }

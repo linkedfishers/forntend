@@ -50,11 +50,7 @@
           >
             <div
               id="product-box-slider-items"
-              class="
-                slider-panel-slides
-                tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal
-                testtimage
-              "
+              class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal testtimage"
               *ngFor="let item of images"
             >
               <!-- SLIDER PANEL SLIDE -->
@@ -351,7 +347,7 @@
         <div class="sidebar-box-items">
           <!-- PRICE TITLE -->
           <p class="price-title big">
-            <span class="currency">$</span> {{ hebergement?.price }}
+            <span class="currency">{{ code }}</span> {{ price }}
           </p>
           <!-- /PRICE TITLE -->
 

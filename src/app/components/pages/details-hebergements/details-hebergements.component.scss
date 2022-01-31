@@ -17,7 +17,7 @@ img.round-small {
   color: #ffd700;
 }
 .blockcontent {
-  display: block !important;
+  display: flex !important;
 }
 .flex {
   display: flex !important;
@@ -29,7 +29,8 @@ img.round-small {
 
 .max-width {
   max-width: 800px !important;
-  margin: 20px auto !important;
+  margin: 20px;
+  width: 100%;
 }
 
 .testimage {
@@ -57,4 +58,28 @@ img.round-small {
 .image-zoom:hover {
   transform: scale(1.5);
   z-index: 99999999999999;
+}
+
+.content-grid {
+  transition: transform 0.4s ease-in-out 0s !important;
+  max-width: 1500px !important;
+  margin: 0px !important;
+  padding: 50px !important;
+}
+
+.txt-bold {
+  font-weight: 500;
+  line-height: 1.5;
+  text-shadow: 2px 0 0 rgb(2, 2, 2), -2px 0 0 rgb(7, 7, 7), 0 2px 0 rgb(0, 0, 0),
+    0rgb (8, 8, 8) x 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff;
+}
+
+@media (max-width: 800px) {
+  .blockcontent {
+    display: block !important;
+  }
+  .max-width {
+    margin: 0px 0px 10px 0px !important;
+  }
 }
