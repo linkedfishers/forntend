@@ -50,6 +50,8 @@ import { ChekoutPageComponent } from './components/pages/chekout-page/chekout-pa
 import { DetailServices } from './interfaces/equipments.interface';
 import { FirstscreenpageComponent } from './components/pages/firstscreenpage/firstscreenpage.component';
 import { VisiteguiderComponent } from './components/pages/visiteguider/visiteguider.component';
+import { MentionLegaleComponent } from './components/common/mention-legale/mention-legale.component';
+import { PConfComponent } from './components/common/p-conf/p-conf.component';
 
 const routes: Routes = [
   {
@@ -59,6 +61,14 @@ const routes: Routes = [
   {
     path: 'visite-guider',
     component: VisiteguiderComponent,
+  },
+  {
+    path: 'mention-légale',
+    component: MentionLegaleComponent,
+  },
+  {
+    path: 'politique-de-confidentialité',
+    component:PConfComponent
   },
   {
     path: '',

@@ -113,6 +113,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { SpalshscreenComponent } from './pages/spalshscreen/spalshscreen.component';
 import { FirstscreenpageComponent } from './components/pages/firstscreenpage/firstscreenpage.component';
 import { VisiteguiderComponent } from './components/pages/visiteguider/visiteguider.component';
+import { MentionLegaleComponent } from './components/common/mention-legale/mention-legale.component';
+import { PConfComponent } from './components/common/p-conf/p-conf.component';
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -206,6 +208,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SpalshscreenComponent,
     FirstscreenpageComponent,
     VisiteguiderComponent,
+    MentionLegaleComponent,
+    PConfComponent,
   ],
 
   imports: [
