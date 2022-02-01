@@ -327,3 +327,16 @@ video {
     width: 30% !important;
   }
 }
+
+@media (max-width: 770px) {
+  .height-div {
+    height: auto !important;
+  }
+  .second-div {
+    display: block !important;
+  }
+  .titles {
+    width: 60% !important;
+  }
+
+}
