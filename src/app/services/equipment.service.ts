@@ -142,6 +142,8 @@ export class EquipmentService {
     return this.httpClient.get<any>(`${this.API}/hebergement/${id}`);
   }
 
+
+
   addReview(review: Review, categoryName: string) {
     return this.httpClient.post<any>(
       `${this.API}/${categoryName}/review`,

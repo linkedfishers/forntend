@@ -20,6 +20,35 @@
         </div>
         <!-- /SECTION HEADER INFO -->
       </div>
+
+      <!-- ************************ -->
+
+      <div>
+        <h6 class="title-search">Categories :</h6>
+        <ul>
+          <li *ngFor="let cat of catList">
+            <input
+              class="input-radio"
+              type="radio"
+              id="{{ cat._id }}"
+              name="check"
+              (change)="getProdLi($event)"
+            />{{ cat?.name }}
+          </li>
+          <li>
+            <input
+              class="input-radio"
+              type="radio"
+              id=""
+              name="check"
+              (change)="getAllProducts()"
+            />
+            All boats
+          </li>
+        </ul>
+      </div>
+
+      <!-- *************** -->
     </div>
     <div class="marketplace-content">
       <div class="section-header">
