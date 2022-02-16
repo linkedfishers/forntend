@@ -20,6 +20,12 @@ import { WeatherComponent } from './components/common/weather/weather.component'
 import { TimelineComponent } from './components/pages/profile/timeline/timeline.component';
 import { AboutComponent } from './components/pages/profile/about/about.component';
 import { PhotosComponent } from './components/pages/profile/photos/photos.component';
+import {
+  MatFormFieldModule,
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+} from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -28,6 +34,7 @@ import { ProfileSocialComponent } from './components/pages/account/profile-socia
 import { ChangePasswordComponent } from './components/pages/account/change-password/change-password.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
@@ -218,6 +225,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -281,6 +290,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     },
     DatePipe,
+    {
+      provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
+      useValue: { floatLabel: 'always' },
+    },
   ],
   bootstrap: [AppComponent],
 })

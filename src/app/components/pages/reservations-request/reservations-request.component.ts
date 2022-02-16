@@ -26,6 +26,7 @@ import { colors } from 'src/app/services/utils';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
 import { ToastrService } from 'ngx-toastr';
+import { FormControl, FormGroup } from '@angular/forms';
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
 @Component({
@@ -34,6 +35,7 @@ declare var initSidebar, initPopups, loadSvg: any;
   styleUrls: ['./reservations-request.component.scss'],
 })
 export class ReservationsRequestComponent implements OnInit {
+ 
   reservations: Reservation[] = [];
   pendingReservations: Reservation[] = [];
   requestedReservations: Reservation[] = [];

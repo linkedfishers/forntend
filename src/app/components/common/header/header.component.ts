@@ -56,6 +56,7 @@ export class HeaderComponent implements OnInit {
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
   serviceTypes: ServiceType[];
+toggle :Boolean = false
   ngOnInit(): void {
     initHeader();
 
@@ -85,6 +86,8 @@ export class HeaderComponent implements OnInit {
         }
       );
     }
+
+
 
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
@@ -152,7 +155,7 @@ export class HeaderComponent implements OnInit {
   setLanguage(language: string) {
     this.currentUser.language = language;
     this.authService.updateUser(this.currentUser).subscribe((res) => {
-      
+
       localStorage.setItem('language', language);
       this.translate.use(language);
     });

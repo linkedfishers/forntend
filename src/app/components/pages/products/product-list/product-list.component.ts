@@ -115,6 +115,7 @@ export class ProductListComponent implements OnInit {
   updatePriceFilter() {
     this.visibleProducts = this.products.filter((product) => {
       return product.price <= this.maxPrice && product.price >= this.minPrice;
+      
     });
   }
 

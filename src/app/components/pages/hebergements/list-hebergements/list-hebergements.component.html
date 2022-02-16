@@ -16,13 +16,165 @@
     <!-- /SECTION HEADER INFO -->
   </div>
 
-  <div class="grid grid-12 small-space">
+  <div class="grid grid-3-9 small-space">
+    <div class="marketplace-sidebar">
+      <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+          <!-- SECTION PRETITLE -->
+          <p class="section-pretitle">Search by :</p>
+          <!-- /SECTION PRETITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+      </div>
+
+      <!-- ************************ -->
+
+      <div>
+        <h6 class="title-search">Categories :</h6>
+        <ul>
+          <li *ngFor="let cat of catList">
+            <input
+              class="input-radio"
+              type="radio"
+              id="{{ cat._id }}"
+              name="check"
+              (change)="getProli($event)"
+            />{{ cat?.name }}
+          </li>
+          <li>
+            <input
+              class="input-radio"
+              type="radio"
+              id=""
+              name="check"
+              (change)="getAllHebergementList()"
+            />
+            All Accomodations
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div>
+          <div class="section-filters-bar-actions">
+            <!-- FORM -->
+            <form class="form">
+              <!-- FORM ITEM -->
+              <div class="form-item split medium">
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-category">Filter By</label>
+                  <select
+                    [(ngModel)]="filterBy"
+                    id="items-filter-category"
+                    name="items_filter_category"
+                  >
+                    <option value="price">Price</option>
+                    <option value="createdAt">Date Published</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-order">Order By</label>
+                  <select
+                    [(ngModel)]="orderBy"
+                    id="items-filter-order"
+                    name="items_filter_order"
+                  >
+                    <option value="-1">Descending</option>
+                    <option value="1">Ascending</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- BUTTON -->
+                <button (click)="applySortFilters()" class="button secondary">
+                  Apply Filters
+                </button>
+                <!-- /BUTTON -->
+              </div>
+              <!-- /FORM ITEM -->
+            </form>
+            <!-- /FORM -->
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <!-- SIDEBAR BOX TITLE -->
+          <p class="sidebar-box-title">Price Range</p>
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items small-space">
+            <!-- FORM ITEM -->
+            <div class="form-item split">
+              <ngx-slider
+                (userChangeEnd)="updatePriceFilter()"
+                [(value)]="minPrice"
+                [(highValue)]="maxPrice"
+                [options]="options"
+              ></ngx-slider>
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+
+          <!-- SIDEBAR BOX TITLE -->
+          <!--         <p class="sidebar-box-title">categories</p>
+ -->
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items">
+            <!-- CHECKBOX LINE -->
+
+            <div class="checkbox-line display-bloc">
+              <!-- <div class="checkbox-wrap" *ngFor="let item of productCat">
+              <input
+                type="checkbox"
+                [value]="item.value"
+                (change)="onCbChange($event)"
+              />
+              <label for="{{ item.id }}"> {{ item.name }} </label>
+              <div class="checkbox-box round"></div>
+            </div> -->
+            </div>
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+        </div>
+      </div>
+
+      <!-- *************** -->
+    </div>
     <div class="marketplace-content">
       <!-- GRID -->
+      <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+          <!-- SECTION PRETITLE -->
+          <p class="section-pretitle" style="margin-bottom: 20px">
+            Browse Boats
+          </p>
+          <!-- /SECTION PRETITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+      </div>
       <div class="grid grid-3-3-3 centered">
         <!-- PRODUCT PREVIEW -->
         <div
-          *ngFor="let boat of visiblehebrgements"
+          *ngFor="let boat of hebergements"
           class="product-preview widthprod"
         >
           <!-- PRODUCT PREVIEW IMAGE -->

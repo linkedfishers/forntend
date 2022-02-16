@@ -48,6 +48,107 @@
         </ul>
       </div>
 
+      <div>
+        <div>
+          <div class="section-filters-bar-actions">
+            <!-- FORM -->
+            <form class="form">
+              <!-- FORM ITEM -->
+              <div class="form-item split medium">
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-category">Filter By</label>
+                  <select
+                    [(ngModel)]="filterBy"
+                    id="items-filter-category"
+                    name="items_filter_category"
+                  >
+                    <option value="price">Price</option>
+                    <option value="createdAt">Date Published</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-order">Order By</label>
+                  <select
+                    [(ngModel)]="orderBy"
+                    id="items-filter-order"
+                    name="items_filter_order"
+                  >
+                    <option value="-1">Descending</option>
+                    <option value="1">Ascending</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- BUTTON -->
+                <button (click)="applySortFilters()" class="button secondary">
+                  Apply Filters
+                </button>
+                <!-- /BUTTON -->
+              </div>
+              <!-- /FORM ITEM -->
+            </form>
+            <!-- /FORM -->
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <!-- SIDEBAR BOX TITLE -->
+          <p class="sidebar-box-title">Price Range</p>
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items small-space">
+            <!-- FORM ITEM -->
+            <div class="form-item split">
+              <ngx-slider
+                (userChangeEnd)="updatePriceFilter()"
+                [(value)]="minPrice"
+                [(highValue)]="maxPrice"
+                [options]="options"
+              ></ngx-slider>
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+
+          <!-- SIDEBAR BOX TITLE -->
+          <!--         <p class="sidebar-box-title">categories</p>
+ -->
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items">
+            <!-- CHECKBOX LINE -->
+
+            <div class="checkbox-line display-bloc">
+              <!-- <div class="checkbox-wrap" *ngFor="let item of productCat">
+              <input
+                type="checkbox"
+                [value]="item.value"
+                (change)="onCbChange($event)"
+              />
+              <label for="{{ item.id }}"> {{ item.name }} </label>
+              <div class="checkbox-box round"></div>
+            </div> -->
+            </div>
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+        </div>
+      </div>
+
       <!-- *************** -->
     </div>
     <div class="marketplace-content">
