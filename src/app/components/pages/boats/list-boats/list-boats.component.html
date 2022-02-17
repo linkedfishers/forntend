@@ -24,6 +24,26 @@
       <!-- ************************ -->
 
       <div>
+        <h6 class="title-search">Country:</h6>
+        <select
+          [(ngModel)]="countryName"
+          name="country-name"
+          class="scroll"
+          (click)="search()"
+        >
+          <option value="" selected>Select the Country name</option>
+          <option *ngFor="let country of countries" value="{{ country.name }}">
+            {{ country.name }}
+          </option>
+        </select>
+        <!--  <input
+          (keyup.enter)="search()"
+          [(ngModel)]="countryName"
+          type="text"
+          id="search-main"
+          name="search_main"
+          placeholder="Search For Boat By country Name"
+        /> -->
         <h6 class="title-search">Categories :</h6>
         <ul>
           <li *ngFor="let cat of catList">

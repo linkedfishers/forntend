@@ -4,6 +4,7 @@ import { EquipmentService } from 'src/app/services/equipment.service';
 import { environment } from 'src/environments/environment';
 import { Options, LabelType } from '@angular-slider/ngx-slider';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as countriesLib from 'i18n-iso-countries';
 
 import {
   FormBuilder,
@@ -14,7 +15,7 @@ import {
 } from '@angular/forms';
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
-
+declare const require;
 @Component({
   selector: 'app-list-hebergements',
   templateUrl: './list-hebergements.component.html',
@@ -31,6 +32,9 @@ export class ListHebergementsComponent implements OnInit {
     });
   }
   readonly API: string = environment.apiUrl + '/';
+  countries = [];
+  countryName: string;
+
   searchKeyword: string;
   searchedProduct: Hebergement[] = [];
   hebergements: Hebergement[];
@@ -73,6 +77,31 @@ export class ListHebergementsComponent implements OnInit {
     this.equipementService.getHebergementTypes().subscribe((res) => {
       this.catList = res.data;
       console.log(this.catList);
+    });
+    this._getCoutries();
+  }
+
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log(this.countries);
+  }
+
+  search() {
+    if (!this.countryName) return;
+    const countryName2 =
+      this.countryName.charAt(0).toUpperCase() + this.countryName.slice(1);
+    console.log(countryName2);
+    this.equipementService.searchHome(countryName2).subscribe((res) => {
+      this.hebergements = res.data;
+      console.log('heelo test', this.hebergements);
     });
   }
 

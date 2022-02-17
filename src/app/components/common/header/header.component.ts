@@ -9,6 +9,7 @@ import {
   HebergementType,
   ServiceType,
 } from 'src/app/interfaces/equipments.interface';
+
 import { Notification } from 'src/app/interfaces/posts.interface';
 import { Provider } from 'src/app/interfaces/provider.interface';
 import { User } from 'src/app/interfaces/users.interface';
@@ -56,7 +57,7 @@ export class HeaderComponent implements OnInit {
   boatTypes: BoatType[];
   hebergementTypes: HebergementType[];
   serviceTypes: ServiceType[];
-toggle :Boolean = false
+  toggle: Boolean = false;
   ngOnInit(): void {
     initHeader();
 
@@ -85,9 +86,8 @@ toggle :Boolean = false
           console.log(err);
         }
       );
+    
     }
-
-
 
     const picturePipe = new PicturePipe();
     this.currentUser = this.authService.getCurrentUser();
@@ -155,11 +155,12 @@ toggle :Boolean = false
   setLanguage(language: string) {
     this.currentUser.language = language;
     this.authService.updateUser(this.currentUser).subscribe((res) => {
-
       localStorage.setItem('language', language);
       this.translate.use(language);
     });
   }
+
+
 
   logout() {
     /*    this.cartService.getCart().items = []; */
@@ -187,8 +188,6 @@ toggle :Boolean = false
   search() {
     if (!this.searchKeyword) return;
     this.userService.search(this.searchKeyword).subscribe((res) => {
-
-
       this.searchedUsers = res.data;
     });
   }

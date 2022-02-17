@@ -11,8 +11,12 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import * as countriesLib from 'i18n-iso-countries';
+
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
+declare const require;
+
 @Component({
   selector: 'app-list-boats',
   templateUrl: './list-boats.component.html',
@@ -32,8 +36,12 @@ export class ListBoatsComponent implements OnInit {
 
   readonly API: string = environment.apiUrl + '/';
   searchKeyword: string;
+  countries = [];
+
   searchedProduct: Boat[] = [];
   boats: Boat[];
+  countryName: string;
+  countryName2: string;
   boatTypes: BoatType[];
   visiblebotas: Boat[];
   formData: FormData;
@@ -80,6 +88,31 @@ export class ListBoatsComponent implements OnInit {
     });
     this.equipmentService.getBoatTypes().subscribe((res) => {
       this.catList = res.data;
+    });
+    this._getCoutries();
+  }
+
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log(this.countries);
+  }
+
+  search() {
+    if (!this.countryName) return;
+    const countryName2 =
+      this.countryName.charAt(0).toUpperCase() + this.countryName.slice(1);
+    console.log(countryName2);
+    this.equipmentService.searchBoat(countryName2).subscribe((res) => {
+      this.boats = res.data;
+      console.log('heelo test', this.boats);
     });
   }
 

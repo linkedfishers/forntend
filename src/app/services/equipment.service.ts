@@ -15,12 +15,18 @@ export class EquipmentService {
   createOrder(order: Order): Observable<any> {
     return this.httpClient.post<any>(`${this.API}/order/new`, order);
   }
-  searchBoat(keyword: string) {
-    return this.httpClient.get<any>(`${this.API}/boats/search/${keyword}`);
+  searchBoat(country: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.API}/boat/search/${country}`);
+  }
+
+  searchHome(country: string): Observable<any> {
+    return this.httpClient.get<any>(`${this.API}/hebergement/search/${country}`);
   }
 
   searchHebergement(keyword: string) {
-    return this.httpClient.get<any>(`${this.API}/hebergements/search/${keyword}`);
+    return this.httpClient.get<any>(
+      `${this.API}/hebergements/search/${keyword}`
+    );
   }
   createService(FormData: FormData) {
     return this.httpClient.post<any>(`${this.API}/service/new`, FormData);
