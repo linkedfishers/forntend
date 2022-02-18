@@ -58,9 +58,10 @@ export class HeaderComponent implements OnInit {
   hebergementTypes: HebergementType[];
   serviceTypes: ServiceType[];
   toggle: Boolean = false;
+  isMenuCollapsed: Boolean = true;
   ngOnInit(): void {
     initHeader();
-
+    this.isMenuCollapsed = true;
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
@@ -86,7 +87,6 @@ export class HeaderComponent implements OnInit {
           console.log(err);
         }
       );
-    
     }
 
     const picturePipe = new PicturePipe();
@@ -159,8 +159,6 @@ export class HeaderComponent implements OnInit {
       this.translate.use(language);
     });
   }
-
-
 
   logout() {
     /*    this.cartService.getCart().items = []; */

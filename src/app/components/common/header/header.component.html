@@ -479,10 +479,15 @@
       aria-controls="navbar-default"
       aria-expanded="false"
       aria-label="Toggle navigation"
+      (click)="isMenuCollapsed = !isMenuCollapsed"
     >
-      ...
+      &#9776;
     </button>
-    <div class="collapse navbar-collapse" id="navbar-default">
+    <div
+      class="collapse navbar-collapse"
+      id="navbar-default"
+      [ngbCollapse]="isMenuCollapsed"
+    >
       <!-- <div class="navbar-collapse-header">
         <div class="row">
             <div class="col-6 collapse-close">
@@ -509,6 +514,7 @@
             [routerLink]="['/acceuil']"
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="activeted"
+            (click)="isMenuCollapsed = true"
             >{{ "home" | translate }}
           </a>
         </li>
@@ -522,6 +528,7 @@
             class="nav-link nav-link-icon"
             [routerLink]="['/main']"
             routerLinkActive="activeted"
+            (click)="isMenuCollapsed = true"
             >{{ "feed" | translate }}
           </a>
         </li>
@@ -530,6 +537,7 @@
             class="nav-link nav-link-icon"
             [routerLink]="['/events']"
             routerLinkActive="activeted"
+            (click)="isMenuCollapsed = true"
             >{{ "events" | translate }}
           </a>
         </li>
@@ -540,6 +548,7 @@
               class="nav-link nav-link-icon"
               [routerLink]="['/list-boats']"
               routerLinkActive="activeted"
+              (click)="isMenuCollapsed = true"
             >
               {{ "boats" | translate }}
             </a>
@@ -560,6 +569,7 @@
               class="nav-link nav-link-icon"
               [routerLink]="['/list-home']"
               routerLinkActive="activeted"
+              (click)="isMenuCollapsed = true"
             >
               {{ "homes" | translate }}
             </a>
@@ -577,6 +587,7 @@
             class="nav-link nav-link-icon"
             [routerLink]="['/map']"
             routerLinkActive="activeted"
+            (click)="isMenuCollapsed = true"
           >
             {{ "map" | translate }}
           </a>
@@ -592,6 +603,7 @@
               class="nav-link nav-link-icon"
               [routerLink]="['/provider/add-product']"
               routerLinkActive="activeted"
+              (click)="isMenuCollapsed = true"
             >
               Product
             </a>
@@ -602,6 +614,7 @@
               class="nav-link nav-link-icon"
               [routerLink]="['/marketplace/products-list']"
               routerLinkActive="activeted"
+              (click)="isMenuCollapsed = true"
             >
               {{ "marketplace" | translate }}
             </a>
@@ -628,6 +641,7 @@
                 class="nav-link nav-link-icon"
                 [routerLink]="['/list-services']"
                 routerLinkActive="activeted"
+                (click)="isMenuCollapsed = true"
               >
                 {{ "freelancer" | translate }}
               </a>
@@ -647,6 +661,7 @@
                 class="nav-link nav-link-icon"
                 [routerLink]="['/list-equipments']"
                 routerLinkActive="activeted"
+                (click)="isMenuCollapsed = true"
               >
                 {{ "Equipements" | translate }}
               </a>
@@ -665,6 +680,7 @@
               class="nav-link nav-link-icon"
               [routerLink]="['/weather']"
               routerLinkActive="activeted"
+              (click)="isMenuCollapsed = true"
             >
               {{ "weather" | translate }}
             </a>
