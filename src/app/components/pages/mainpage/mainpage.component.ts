@@ -1,8 +1,6 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Content } from 'src/app/interfaces/content.interface';
-
 import {
   Boat,
   Equipment,
@@ -25,9 +23,13 @@ export class MainpageComponent implements OnInit {
     private productService: ProductService,
     private adminservice: AdminService,
     private translate: TranslateService,
-    private equipmentService: EquipmentService
+    private equipmentService: EquipmentService,
   ) {}
   readonly API: string = environment.apiUrl + '/';
+  myStyle: object = {};
+  myParams: object = {};
+  width: number = 100;
+  height: number = 100;
   boats: Boat[];
   contents: Content[];
   cont: Content;
@@ -50,6 +52,30 @@ export class MainpageComponent implements OnInit {
   photos: any;
   photoss: any = [];
   ngOnInit(): void {
+    this.myStyle = {
+      position: 'fixed',
+      width: '100%',
+      height: '100%',
+      'z-index': -1,
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    };
+
+    this.myParams = {
+      particles: {
+        number: {
+          value: 200,
+        },
+        color: {
+          value: '#ff0000',
+        },
+        shape: {
+          type: 'triangle',
+        },
+      },
+    };
     this.productService
       ./* getProducts */ getSomeProducts()
       .subscribe((response) => {
@@ -77,7 +103,6 @@ export class MainpageComponent implements OnInit {
     this.equipmentService.getHebergements().subscribe((reponse) => {
       this.hebergements = reponse.data;
       console.log();
-
     });
     this.equipmentService.getServices().subscribe((reponse) => {
       this.services = reponse.data;

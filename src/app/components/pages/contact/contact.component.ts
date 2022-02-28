@@ -4,7 +4,7 @@ import { ContactService } from 'src/app/services/contact.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { SnotifyService } from 'ng-snotify';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -24,7 +24,8 @@ export class ContactComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private contactService: ContactService,
-    private http: HttpClient
+    private http: HttpClient,
+    private translate: TranslateService
   ) {
     this.contactForm = fb.group({
       contactFormName: ['', Validators.required],

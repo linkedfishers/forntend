@@ -617,8 +617,7 @@ hr {
 }
 
 .title-map {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1920px;
 }
 
 .title-map h4::before,
@@ -647,8 +646,6 @@ hr {
   text-transform: uppercase;
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  margin-top: 30px;
-  margin-bottom: 40px;
   display: flex;
   align-items: center;
   color: #4d4f52;
@@ -657,10 +654,23 @@ hr {
   line-height: 59px;
   font-size: 20px;
 }
+
 .mrg {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  /*  margin-top: 30px;
+  margin-bottom: 20px; */
+  background-image: url("../../../../assets/img/bgimageboat.jpg");
+  padding: 40px !important;
+  background-position: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  object-fit: fill;
 }
+
+.product-preview-image {
+  padding: 10px !important;
+}
+
 .map-container .widget-box {
   top: 50 !important;
   left: 20 !important;
@@ -689,10 +699,10 @@ hr {
   }
 }
 
-.mari h4 {
+/* .mari h4 {
   margin-top: 15px !important;
   margin-bottom: 40px !important;
-}
+} */
 
 .top {
   top: 85px !important ;
@@ -904,4 +914,16 @@ hr {
     transform: scale(1);
     -webkit-transform: scale(1);
   }
+}
+
+.imgprod {
+  border: 2px solid gray;
+  border-radius: 7px;
+}
+
+.mari {
+  position: relative;
+  background: #f5f5f5;
+  width: 100%;
+  height: auto;
 }

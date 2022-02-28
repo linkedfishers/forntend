@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit {
     private el: ElementRef
   ) {}
   readonly API: string = environment.apiUrl + '/';
+
+
+
   test: CartItem[];
   cartCount = 0;
   currentUser: User;
@@ -60,6 +63,7 @@ export class HeaderComponent implements OnInit {
   toggle: Boolean = false;
   isMenuCollapsed: Boolean = true;
   ngOnInit(): void {
+     
     initHeader();
     this.isMenuCollapsed = true;
     this.language = this.translate.currentLang;

@@ -1109,16 +1109,16 @@
           <!-- /DROPDOWN NAVIGATION CATEGORY -->
 
           <!-- DROPDOWN NAVIGATION LINK -->
-          <a class="dropdown-navigation-link" [routerLink]="['/settings']"
-            >Account Info</a
-          >
+          <a class="dropdown-navigation-link" [routerLink]="['/settings']">{{
+            "account_info" | translate
+          }}</a>
           <!-- /DROPDOWN NAVIGATION LINK -->
 
           <!-- DROPDOWN NAVIGATION LINK -->
           <a
             class="dropdown-navigation-link"
             [routerLink]="['/settings/change-password']"
-            >Change Password</a
+            >{{ "change_password" | translate }}</a
           >
           <!-- /DROPDOWN NAVIGATION LINK -->
 
@@ -1137,7 +1137,7 @@
           <a
             class="dropdown-navigation-link"
             [routerLink]="['/booking-requests']"
-            >Manage reservations requests</a
+            >{{ "manage_res_req" | translate }}</a
           >
           <p
             *ngIf="!isProvider"
@@ -1148,7 +1148,7 @@
               <!-- MENU ITEM LINK ICON -->
 
               <!-- /MENU ITEM LINK ICON -->
-              My Services
+              {{ "my_services" | translate }}
             </a>
           </p>
           <p
@@ -1161,7 +1161,7 @@
               <!-- MENU ITEM LINK ICON -->
 
               <!-- /MENU ITEM LINK ICON -->
-              My Equipment
+              {{ "my_equipments" | translate }}
             </a>
             <!-- /MENU ITEM LINK -->
           </p>
@@ -1178,7 +1178,7 @@
               <!-- MENU ITEM LINK ICON -->
 
               <!-- /MENU ITEM LINK ICON -->
-              My Boats
+              {{ "my_boats" | translate }}
             </a>
             <!-- /MENU ITEM LINK -->
           </p>
@@ -1195,7 +1195,7 @@
               <!-- MENU ITEM LINK ICON -->
 
               <!-- /MENU ITEM LINK ICON -->
-              My Accomodations
+              {{ "my_homes" | translate }}
             </a>
             <!-- /MENU ITEM LINK -->
           </p>
@@ -1206,7 +1206,7 @@
           >
             <!-- MENU ITEM LINK -->
             <a class="menu-item-link" [routerLink]="['/admin']">
-              Administration
+              {{ "administartion" | translate }}
             </a>
             <!-- /MENU ITEM LINK -->
           </p>

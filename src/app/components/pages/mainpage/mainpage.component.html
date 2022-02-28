@@ -178,13 +178,13 @@
 </div>
 </div> -->
 <div class="title-map mari">
-  <h4>Our Boats</h4>
+  <h4>{{ "OUR_BOATS" | translate }}</h4>
 </div>
 <div class="spinner" *ngIf="!boats">
   <div class="dot1"></div>
   <div class="dot2"></div>
 </div>
-<div class="marketplace-content mrg">
+<div class="marketplace-content mrg bgfixed">
   <div class="grid grid-3-3-3 centered">
     <!-- PRODUCT PREVIEW -->
     <div *ngFor="let boat of boats" class="product-preview">
@@ -198,7 +198,11 @@
               cover no-repeat;
           "
         >
-          <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
+          <img
+            src="{{ boat?.images[0] | picture }}"
+            alt="item-01"
+            class="imgprod"
+          />
         </figure>
       </a>
       <!-- /PRODUCT PREVIEW IMAGE -->
@@ -248,7 +252,7 @@
   <!-- /SECTION PAGER BAR WRAP -->
 </div>
 <div class="title-map mari">
-  <h4>Our Equipments</h4>
+  <h4>{{ "OUR_EQUIPMENTS" | translate }}</h4>
 </div>
 <div class="spinner" *ngIf="!equipments">
   <div class="dot1"></div>
@@ -268,7 +272,7 @@
               cover no-repeat;
           "
         >
-          <img src="{{ eq?.image | picture }}" alt="item-01" />
+          <img src="{{ eq?.image | picture }}" alt="item-01" class="imgprod" />
         </figure>
       </a>
       <!-- /PRODUCT PREVIEW IMAGE -->
@@ -318,7 +322,7 @@
   <!-- /SECTION PAGER BAR WRAP -->
 </div>
 <div class="title-map mari">
-  <h4>Our accommodation</h4>
+  <h4>{{ "OUR_ACCOMMODATION" | translate }}</h4>
 </div>
 <div class="spinner" *ngIf="!hebergements">
   <div class="dot1"></div>
@@ -338,7 +342,12 @@
               cover no-repeat;
           "
         >
-          <img src="{{ heb?.images[0] | picture }}" alt="item-01" />
+          <!-- [src]="{{ (heb?.images[0] | picture)} }"" -->
+          <img
+            [src]="heb.image ? API + heb.image : API + heb.images[0]"
+            alt="item-01"
+            class="imgprod"
+          />
         </figure>
       </a>
       <!-- /PRODUCT PREVIEW IMAGE -->
@@ -393,7 +402,7 @@
 </div>
 
 <div class="title-map mari">
-  <h4>Marketplace</h4>
+  <h4>{{ "Marketplace" | translate }}</h4>
 </div>
 
 <div class="spinner" *ngIf="!visibleProducts">
@@ -415,7 +424,11 @@
               cover no-repeat;
           "
         >
-          <img src="{{ product?.picture | picture }}" alt="item-01" />
+          <img
+            src="{{ product?.picture | picture }}"
+            alt="item-01"
+            class="imgprod"
+          />
         </figure>
       </a>
       <!-- /PRODUCT PREVIEW IMAGE -->
@@ -469,7 +482,7 @@
   <!-- /SECTION PAGER BAR WRAP -->
 </div>
 <div class="title-map">
-  <h4>Map Services</h4>
+  <h4>{{ "MAP_SERVICES" | translate }}</h4>
 </div>
 <div class="map-container">
   <div class="framemap">
