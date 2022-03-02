@@ -23,11 +23,31 @@ export class MainpageComponent implements OnInit {
     private productService: ProductService,
     private adminservice: AdminService,
     private translate: TranslateService,
-    private equipmentService: EquipmentService,
-  ) {}
+    private equipmentService: EquipmentService
+  ) {
+    	this.responsiveOptions = [
+        {
+          breakpoint: '1024px',
+          numVisible: 3,
+          numScroll: 3,
+        },
+        {
+          breakpoint: '768px',
+          numVisible: 2,
+          numScroll: 2,
+        },
+        {
+          breakpoint: '560px',
+          numVisible: 1,
+          numScroll: 1,
+        },
+      ];
+  }
   readonly API: string = environment.apiUrl + '/';
   myStyle: object = {};
   myParams: object = {};
+  responsiveOptions;
+
   width: number = 100;
   height: number = 100;
   boats: Boat[];

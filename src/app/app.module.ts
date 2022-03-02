@@ -2,8 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { CarouselModule } from 'ngx-owl-carousel-o';
-import { AppRoutingModule } from './app-routing.module';
+/* import { CarouselModule } from 'ngx-owl-carousel-o';
+
+
+ */ import { AppRoutingModule } from './app-routing.module';
+import { ButtonModule } from 'primeng/button';
+import { CarouselModule } from 'primeng/carousel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/pages/login/login.component';
@@ -261,6 +265,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       useFactory: momentAdapterFactory,
     }),
     NgbModalModule,
+    ButtonModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule,
     OwlTooltipModule,
