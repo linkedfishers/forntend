@@ -5,7 +5,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 /* import { CarouselModule } from 'ngx-owl-carousel-o';
 
 
- */ import { AppRoutingModule } from './app-routing.module';
+ */
+import { GalleriaModule } from 'primeng/galleria';
+
+import { AppRoutingModule } from './app-routing.module';
 import { ButtonModule } from 'primeng/button';
 import { CarouselModule } from 'primeng/carousel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -227,6 +230,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     CommonModule,
+    GalleriaModule,
     CarouselModule,
     IvyCarouselModule,
     AppRoutingModule,

@@ -12960,3 +12960,26 @@ figure > img {
 .widget-box.custompos {
   position: relative !important;
 }
+.p-galleria-thumbnail-item {
+  overflow: hidden !important;
+  width: 160px !important;
+  height: 110px !important;
+}
+
+.image-gallery-carroussel {
+  width: 50% !important;
+  height: 400px !important;
+}
+.p-galleria .p-galleria-thumbnail-container {
+  background: white !important;
+}
+
+.p-galleria-thumbnail-next,
+.p-galleria-thumbnail-prev {
+  color: black !important;
+}
+.p-carousel .p-carousel-content .p-carousel-prev,
+.p-carousel .p-carousel-content .p-carousel-next {
+  color: white !important;
+  background: rgba(0, 174, 255, 0.548) !important;
+}

@@ -93,3 +93,12 @@ img.round-small {
     margin: 0px 0px 10px 0px !important;
   }
 }
+
+img.wh-image {
+  height: 300px !important;
+  width: 300px !important;
+  overflow: hidden;
+}
+.p-items-hidden .p-galleria-thumbnail-item.p-galleria-thumbnail-item-active {
+  overflow: hidden !important;
+}

@@ -39,7 +39,7 @@
             id="product-box-slider-items-iw"
             *ngIf="images"
           >
-            <div
+            <!--   <div
               id="product-box-slider-items"
               class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal testtimage"
               *ngFor="let item of images"
@@ -50,13 +50,32 @@
                 src="{{ item ? API + item : API + image }}"
                 alt="item-10"
                 class="image-zoom"
-              />
+              /> -->
+            <p-galleria
+              [(value)]="images"
+              [responsiveOptions]="responsiveOptions"
+              [containerStyle]="{ 'max-width': '800px' }"
+              [numVisible]="7"
+            >
+              <ng-template pTemplate="item" let-item>
+                <img
+                  [src]="API + item"
+                  style="width: 100%; display: block"
+                  class="image-gallery-carroussel"
+                />
+              </ng-template>
+              <ng-template pTemplate="thumbnail" let-item id="test">
+                <div class="grid grid-nogutter justify-content-center">
+                  <img [src]="API+item" style="display: block"  class="wh-image"/>
+                </div>
+              </ng-template>
+            </p-galleria>
 
-              <!--  <app-gallery [images]="boat.image"></app-gallery> -->
-              <!-- SLIDER PANEL SLIDE -->
+            <!--  <app-gallery [images]="boat.image"></app-gallery> -->
+            <!-- SLIDER PANEL SLIDE -->
 
-              <!-- /SLIDER PANEL SLIDE -->
-            </div>
+            <!-- /SLIDER PANEL SLIDE -->
+            <!-- </div> -->
           </div>
         </div>
         <!-- /SLIDER PANEL SLIDES -->
