@@ -151,7 +151,7 @@ header {
   position: fixed;
   /*   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;*/
-  background: #ffffffe7;
+  background: #ffffff;
 }
 @media (max-width: 992px) {
   header {
@@ -260,7 +260,6 @@ nav {
   transition: 0.6s;
 }
 
-
 .icon-logo-vikinger {
   -webkit-animation: spin 5s infinite;
   animation: spin 5s infinite;
@@ -287,4 +286,29 @@ nav {
     -ms-transform: rotateY(-360deg);
     transform: rotateY(-360deg);
   }
+}
+.dropdown-box-header.ver {
+  padding: 10px 10px 10px 10px !important;
+}
+.widthdropdown {
+  width: 140px !important;
+  height: 240px !important;
+  padding-bottom: 0px !important;
+}
+.flex-class-main {
+  display: flex !important;
+  padding: 10px;
+  justify-content: center;
+}
+.flex-class {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-right: 0px !important;
+  width: 100% !important;
+  min-height: 0px !important;
+}
+
+.topTest {
+  top: 0px !important;
 }

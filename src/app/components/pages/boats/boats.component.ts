@@ -136,7 +136,7 @@ export class BoatsComponent implements OnInit {
   } */
 
   createBoat() {
-    if (!this.newBoat.name && !this.newBoat.image) {
+    if (!this.newBoat.name) {
       return;
     }
     this.formData = this.formData || new FormData();
@@ -231,6 +231,10 @@ export class BoatsComponent implements OnInit {
         this.userBoats[this.selectedBoat].position['lng']
       );
     }
+    this.formData.append(
+      'details',
+      JSON.stringify(this.userBoats[this.selectedBoat].details)
+    );
     this.equipmentService
       .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
       .subscribe(

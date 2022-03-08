@@ -720,9 +720,9 @@
           <!-- /ACTION LIST ITEM -->
 
           <!-- DROPDOWN BOX -->
-          <div class="dropdown-box header-dropdown language">
+          <div class="dropdown-box header-dropdown language widthdropdown">
             <!-- DROPDOWN BOX HEADER -->
-            <div class="dropdown-box-header">
+            <div class="dropdown-box-header ver">
               <!-- DROPDOWN BOX HEADER TITLE -->
               <p class="dropdown-box-header-title">
                 {{ "language" | translate }}
@@ -736,11 +736,11 @@
               <!-- DROPDOWN BOX LIST ITEM -->
               <a [routerLink]="" (click)="setLanguage('en')">
                 <div
-                  class="dropdown-box-list-item"
+                  class="dropdown-box-list-item flex-class-main"
                   [ngClass]="{ active: currentUser?.language == 'en' }"
                 >
                   <!-- USER STATUS -->
-                  <div class="user-status request">
+                  <div class="user-status request flex-class">
                     <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
                       <!-- USER AVATAR -->
@@ -754,7 +754,7 @@
                     <!-- /USER STATUS AVATAR -->
 
                     <!-- USER STATUS TITLE -->
-                    <p class="user-status-title">
+                    <p class="user-status-title topTest">
                       <a class="bold">{{ "language-en" | translate }}</a>
                     </p>
                     <!-- /USER STATUS TITLE -->
@@ -767,11 +767,11 @@
               <!-- DROPDOWN BOX LIST ITEM -->
               <a [routerLink]="" (click)="setLanguage('fr')">
                 <div
-                  class="dropdown-box-list-item"
+                  class="dropdown-box-list-item flex-class-main"
                   [ngClass]="{ active: currentUser?.language == 'fr' }"
                 >
                   <!-- USER STATUS -->
-                  <div class="user-status request">
+                  <div class="user-status request flex-class">
                     <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
                       <!-- USER AVATAR -->
@@ -790,7 +790,7 @@
                     <!-- /USER STATUS AVATAR -->
 
                     <!-- USER STATUS TITLE -->
-                    <p class="user-status-title">
+                    <p class="user-status-title topTest">
                       <a class="bold">{{ "language-fr" | translate }}</a>
                     </p>
                     <!-- /USER STATUS TITLE -->
@@ -803,11 +803,11 @@
 
               <a [routerLink]="" (click)="setLanguage('ar')">
                 <div
-                  class="dropdown-box-list-item"
+                  class="dropdown-box-list-item flex-class-main"
                   [ngClass]="{ active: currentUser?.language == 'ar' }"
                 >
                   <!-- USER STATUS -->
-                  <div class="user-status request">
+                  <div class="user-status request flex-class">
                     <!-- USER STATUS AVATAR -->
                     <a class="user-status-avatar" href="profile-timeline.html">
                       <!-- USER AVATAR -->
@@ -826,7 +826,7 @@
                     <!-- /USER STATUS AVATAR -->
 
                     <!-- USER STATUS TITLE -->
-                    <p class="user-status-title">
+                    <p class="user-status-title topTest">
                       <a class="bold">{{ "language-ar" | translate }}</a>
                     </p>
                     <!-- /USER STATUS TITLE -->

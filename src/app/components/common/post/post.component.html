@@ -105,6 +105,7 @@
       <p
         [innerHTML]="post?.content | linkify"
         class="widget-box-status-text"
+    
       ></p>
       <!-- /WIDGET BOX STATUS TEXT -->
     </div>
@@ -156,7 +157,7 @@
       <!-- /TAG LIST -->
 
       <!-- CONTENT ACTIONS -->
-      <div class="content-actions">
+      <div class="content-actions" style="margin-top: 0px !important">
         <!-- CONTENT ACTION -->
         <div class="content-action">
           <!-- META LINE -->
@@ -373,7 +374,7 @@
             <!-- POST SETTINGS WRAP -->
             <div class="post-settings-wrap" style="position: relative">
               <!-- POST SETTINGS -->
-             <!--  <div class="post-settings post-settings-dropdown-trigger">
+              <!--  <div class="post-settings post-settings-dropdown-trigger">
                 <svg class="post-settings-icon icon-more-dots">
                   <use xlink:href="#svg-more-dots"></use>
                 </svg>
@@ -387,9 +388,7 @@
                   class="btn btn-outline-primary"
                   id="dropdownBasic1"
                   ngbDropdownToggle
-                >
-
-                </button>
+                ></button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                   <button
                     ngbDropdownItem

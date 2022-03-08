@@ -33,3 +33,14 @@ p.option-item-title {
 .testtest {
   position: relative !important;
 }
+
+.postStickSideBar {
+  position: sticky !important;
+  left: 0 !important;
+  top: 115px !important;
+}
+.postStickSideBarywo {
+  position: sticky !important;
+  right: 0 !important;
+  top: 115px !important;
+}
