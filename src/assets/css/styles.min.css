@@ -12967,7 +12967,7 @@ figure > img {
 }
 
 .image-gallery-carroussel {
-  width: 50% !important;
+  width: auto !important;
   height: 400px !important;
 }
 .p-galleria .p-galleria-thumbnail-container {

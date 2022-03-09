@@ -17,19 +17,19 @@
   </div> -->
 
   <!-- SECTION HEADER -->
-  <div class="section-header">
+  <div class="section-header mrt">
     <!-- SECTION HEADER INFO -->
     <div class="section-header-info flex">
       <!-- SECTION TITLE -->
-      <h2 class="section-title">{{ hebergement?.name }}</h2>
-      <!-- /SECTION TITLE -->
+<!--       <h2 class="section-title">{{ hebergement?.name }}</h2>
+ -->      <!-- /SECTION TITLE -->
     </div>
     <!-- /SECTION HEADER INFO -->
   </div>
   <!-- /SECTION HEADER -->
 
   <!-- GRID -->
-  <div class="grid grid-9-3 blockcontent">
+  <div class="grid grid-8-4 blockcontent">
     <!-- MARKETPLACE CONTENT -->
     <div class="marketplace-content grid-column max-width">
       <!-- SLIDER PANEL -->
@@ -48,20 +48,58 @@
             id="product-box-slider-items-iw"
             *ngIf="images"
           >
-            <div
+<!--  -->
+
+
+
+            <!--   <div
+              id="product-box-slider-items"
+              class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal testtimage"
+              *ngFor="let item of images"
+              style="margin-bottom: 10px !important"
+            >
+              <img
+                style="border-radius: 2%"
+                src="{{ item ? API + item : API + image }}"
+                alt="item-10"
+                class="image-zoom"
+              /> -->
+            <p-galleria
+              [(value)]="images"
+              [responsiveOptions]="responsiveOptions"
+              [containerStyle]="{ 'max-width': '800px' }"
+              [numVisible]="7"
+            >
+              <ng-template pTemplate="item" let-item>
+                <img
+                  [src]="API + item"
+                  style="width: 100%; display: block"
+                  class="image-gallery-carroussel"
+                />
+              </ng-template>
+              <ng-template pTemplate="thumbnail" let-item id="test">
+                <div class="grid grid-nogutter justify-content-center">
+                  <img
+                    [src]="API + item"
+                    style="display: block"
+                    class="wh-image"
+                  />
+                </div>
+              </ng-template>
+            </p-galleria>
+
+     <!--  -->      <!--  <div
               id="product-box-slider-items"
               class="slider-panel-slides tns-slider tns-gallery tns-subpixel tns-calc tns-horizontal testtimage"
               *ngFor="let item of images"
             >
-              <!-- SLIDER PANEL SLIDE -->
               <img
                 style="border-radius: 2%"
                 src="{{ item ? API + item : API + image }}"
                 alt="item-10"
                 class="image-zoom"
               />
-              <!-- /SLIDER PANEL SLIDE -->
-            </div>
+            </div> -->
           </div>
         </div>
         <!-- /SLIDER PANEL SLIDES -->
@@ -340,7 +378,7 @@
     <!-- /MARKETPLACE CONTENT -->
 
     <!-- MARKETPLACE SIDEBAR -->
-    <div class="marketplace-sidebar">
+    <div class="marketplace-sidebar stickyForm">
       <!-- SIDEBAR BOX -->
       <div class="sidebar-box">
         <!-- SIDEBAR BOX ITEMS -->
@@ -358,97 +396,57 @@
           >
             Reserver
           </p>
-          <!-- /BUTTON -->
 
-          <!-- USER STATS -->
           <div class="user-stats">
-            <!-- USER STAT -->
             <div class="user-stat big">
-              <!-- USER STAT TITLE -->
               <p class="user-stat-title">{{ hebergement?.reviews.length }}</p>
-              <!-- /USER STAT TITLE -->
 
-              <!-- USER STAT TEXT -->
               <p class="user-stat-text">Reviews</p>
-              <!-- /USER STAT TEXT -->
             </div>
-            <!-- /USER STAT -->
 
-            <!-- USER STAT -->
             <div class="user-stat big">
-              <!-- USER STAT TITLE -->
               <p class="user-stat-title">
                 {{ hebergement?.rating | number: "1.0-2" }}/5
               </p>
-              <!-- /USER STAT TITLE -->
 
-              <!-- RATING LIST -->
               <div class="rating-list">
-                <!-- RATING -->
                 <div
                   *ngFor="let i of range(hebergement?.rating)"
                   class="rating medium filled"
                 >
-                  <!-- RATING ICON -->
                   <svg class="rating-icon medium icon-star">
                     <use xlink:href="#svg-star"></use>
                   </svg>
-                  <!-- /RATING ICON -->
                 </div>
-                <!-- /RATING -->
-
-                <!-- RATING -->
                 <div
                   *ngFor="let i of range(5 - hebergement?.rating)"
                   class="rating medium"
                 >
-                  <!-- RATING ICON -->
                   <svg class="rating-icon medium icon-star">
                     <use xlink:href="#svg-star"></use>
                   </svg>
-                  <!-- /RATING ICON -->
                 </div>
-                <!-- /RATING -->
               </div>
-              <!-- /RATING LIST -->
             </div>
-            <!-- /USER STAT -->
           </div>
-          <!-- /USER STATS -->
         </div>
-        <!-- /SIDEBAR BOX ITEMS -->
 
-        <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">Hosted by</p>
-        <!-- /SIDEBAR BOX TITLE -->
+      <!--   <p class="sidebar-box-title medium-space">Hosted by</p>
 
-        <!-- SIDEBAR BOX ITEMS -->
         <div class="sidebar-box-items">
-          <!-- USER STATUS -->
           <div class="user-status">
-            <!-- USER AVATAR -->
             <img
               class="round"
               [src]="hebergement?.owner?.profilePicture | picture"
               alt="avatar-01"
             />
-            <!-- /USER AVATAR -->
-
-            <!-- USER STATUS TITLE -->
             <p class="user-status-title">
               <a class="bold" href="profile-timeline.html">{{
                 hebergement?.owner?.fullName
               }}</a>
             </p>
-            <!-- /USER STATUS TITLE -->
 
-            <!-- USER STATUS TEXT -->
-            <!-- <p class="user-status-text small">5 items published</p> -->
-            <!-- /USER STATUS TEXT -->
           </div>
-          <!-- /USER STATUS -->
-
-          <!-- BUTTON -->
           <a
             class="button small white"
             [routerLink]="[
@@ -457,18 +455,15 @@
             ]"
             >View Owner's profile</a
           >
-          <!-- /BUTTON -->
-        </div>
-        <!-- /SIDEBAR BOX ITEMS -->
+        </div> -->
 
-        <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">
+        <p class="sidebar-box-title medium-space mrt">
           {{ "Hebergement Details" | translate }}
         </p>
         <!-- /SIDEBAR BOX TITLE -->
 
         <!-- SIDEBAR BOX ITEMS -->
-        <div class="sidebar-box-items">
+        <div class="sidebar-box-items martItems">
           <!-- INFORMATION LINE LIST -->
           <div class="information-line-list">
             <!-- INFORMATION LINE -->
@@ -554,40 +549,24 @@
         <!-- /SIDEBAR BOX ITEMS -->
 
         <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">Item Share</p>
         <!-- /SIDEBAR BOX TITLE -->
 
-        <!-- SIDEBAR BOX ITEMS -->
         <div class="sidebar-box-items">
-          <!-- SOCIAL LINKS -->
-          <div class="social-links small align-left">
-            <!-- SOCIAL LINK -->
+         <!--  <div class="social-links small align-left">
             <a class="social-link small facebook" href="#">
-              <!-- SOCIAL LINK ICON -->
               <svg class="social-link-icon icon-facebook">
                 <use xlink:href="#svg-facebook"></use>
               </svg>
-              <!-- /SOCIAL LINK ICON -->
             </a>
-            <!-- /SOCIAL LINK -->
 
-            <!-- SOCIAL LINK -->
             <a class="social-link small twitter" href="#">
-              <!-- SOCIAL LINK ICON -->
               <svg class="social-link-icon icon-twitter">
                 <use xlink:href="#svg-twitter"></use>
               </svg>
-              <!-- /SOCIAL LINK ICON -->
             </a>
-            <!-- /SOCIAL LINK -->
-          </div>
-          <!-- /SOCIAL LINKS -->
+          </div> -->
         </div>
-        <!-- /SIDEBAR BOX ITEMS -->
       </div>
-      <!-- /SIDEBAR BOX -->
     </div>
-    <!-- /MARKETPLACE SIDEBAR -->
   </div>
-  <!-- /GRID -->
 </div>

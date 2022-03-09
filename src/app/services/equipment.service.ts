@@ -21,7 +21,9 @@ export class EquipmentService {
   }
 
   searchHome(country: string): Observable<any> {
-    return this.httpClient.get<any>(`${this.API}/hebergement/search/${country}`);
+    return this.httpClient.get<any>(
+      `${this.API}/hebergement/search/${country}`
+    );
   }
 
   searchHebergement(keyword: string) {

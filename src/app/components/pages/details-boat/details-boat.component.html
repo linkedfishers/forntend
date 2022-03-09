@@ -66,22 +66,19 @@
               </ng-template>
               <ng-template pTemplate="thumbnail" let-item id="test">
                 <div class="grid grid-nogutter justify-content-center">
-                  <img [src]="API+item" style="display: block"  class="wh-image"/>
+                  <img
+                    [src]="API + item"
+                    style="display: block"
+                    class="wh-image"
+                  />
                 </div>
               </ng-template>
             </p-galleria>
-
-            <!--  <app-gallery [images]="boat.image"></app-gallery> -->
-            <!-- SLIDER PANEL SLIDE -->
-
-            <!-- /SLIDER PANEL SLIDE -->
-            <!-- </div> -->
           </div>
         </div>
-        <!-- /SLIDER PANEL SLIDES -->
       </div>
 
-      <div class="section-header">
+      <div class="section-header mrt">
         <!-- SECTION HEADER INFO -->
         <div class="section-header-info flex">
           <!-- SECTION TITLE -->
@@ -356,7 +353,7 @@
     <!-- /MARKETPLACE CONTENT -->
 
     <!-- MARKETPLACE SIDEBAR -->
-    <div class="marketplace-sidebar">
+    <div class="marketplace-sidebar stickyForm">
       <!-- SIDEBAR BOX -->
       <div class="sidebar-box">
         <!-- SIDEBAR BOX ITEMS -->
@@ -375,7 +372,7 @@
             {{ isOwner ? "Détailsreservations" : "Réserver" }}
           </p>
 
-          <div class="user-stats">
+          <div class="user-stats mrt">
             <div class="user-stat big">
               <p class="user-stat-title">{{ boat?.reviews.length }}</p>
 
@@ -426,97 +423,67 @@
         <!-- /SIDEBAR BOX ITEMS -->
 
         <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">Owner</p>
+        <!--         <p class="sidebar-box-title medium-space mrt">Owner</p>
+ -->
         <!-- /SIDEBAR BOX TITLE -->
 
         <!-- SIDEBAR BOX ITEMS -->
-        <div class="sidebar-box-items">
-          <!-- USER STATUS -->
+        <!--  <div class="sidebar-box-items martItems">
           <div class="user-status" style="padding-left: 0px !important">
-            <!-- USER AVATAR -->
             <img
               class="round"
               [src]="boat?.owner?.profilePicture | picture"
               alt="avatar-01"
-            />
-            <!-- /USER AVATAR -->
-
-            <!-- USER STATUS TITLE -->
-            <p class="user-status-title">
+            /> <p class="user-status-title">
               <a *ngIf="boat" class="bold" [routerLink]="">
                 {{ boat?.owner?.firstName }}
               </a>
             </p>
-            <!-- /USER STATUS TITLE -->
-            <!-- USER STATS -->
-            <div class="user-stats" style="padding-top: 20px">
-              <!-- USER STAT -->
-              <div class="user-stat big">
-                <!-- USER STAT TITLE -->
-                <p class="user-stat-title">{{ boat?.owner?.reviews.length }}</p>
-                <!-- /USER STAT TITLE -->
 
-                <!-- USER STAT TEXT -->
-                <p class="user-stat-text">Reviews</p>
-                <!-- /USER STAT TEXT -->
-              </div>
-              <!-- /USER STAT -->
-              <br />
-              <!-- USER STAT -->
+            <div class="user-stats" style="padding-top: 20px">
+
               <div class="user-stat big">
-                <!-- USER STAT TITLE -->
+                <p class="user-stat-title">{{ boat?.owner?.reviews.length }}</p>
+
+                <p class="user-stat-text">Reviews</p>
+              </div>
+              <br />
+              <div class="user-stat big">
                 <p class="user-stat-title">
                   {{ boat?.owner?.rating | number: "1.0-2" }}/5
                 </p>
-                <!-- /USER STAT TITLE -->
 
-                <!-- RATING LIST -->
                 <div class="rating-list">
-                  <!-- RATING -->
-                  <!-- RATING -->
+
                   <div
                     *ngFor="let i of range(boat?.owner?.rating)"
                     class="rating medium filled"
                   >
-                    <!-- RATING ICON -->
                     <svg class="rating-icon medium icon-star">
                       <use xlink:href="#svg-star"></use>
                     </svg>
-                    <!-- /RATING ICON -->
                   </div>
-                  <!-- /RATING -->
-
-                  <!-- RATING -->
                   <div
                     *ngFor="let i of range(5 - boat?.owner?.rating)"
                     class="rating medium"
                   >
-                    <!-- RATING ICON -->
                     <svg class="rating-icon medium icon-star">
                       <use xlink:href="#svg-star"></use>
                     </svg>
-                    <!-- /RATING ICON -->
                   </div>
-                  <!-- /RATING -->
                 </div>
-                <!-- /RATING LIST -->
               </div>
-              <!-- /USER STAT -->
             </div>
-            <!-- /USER STATS -->
           </div>
-          <!-- /USER STATUS -->
-        </div>
-        <!-- /SIDEBAR BOX ITEMS -->
+        </div> -->
 
-        <!-- SIDEBAR BOX TITLE -->
-        <p class="sidebar-box-title medium-space">
+        <p class="sidebar-box-title medium-space mrt">
           {{ "boat_details" | translate }}
         </p>
         <!-- /SIDEBAR BOX TITLE -->
 
         <!-- SIDEBAR BOX ITEMS -->
-        <div class="sidebar-box-items">
+        <div class="sidebar-box-items martItems">
           <!-- INFORMATION LINE LIST -->
           <div class="information-line-list">
             <!-- INFORMATION LINE -->
@@ -525,7 +492,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-md-6">
-                    <p class="txt-bold">Type</p>
+                    <p class="txt-bold">{{ "type" | translate }}</p>
                   </div>
                   <div class="col-md-6">
                     <p>
@@ -571,7 +538,12 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <p class="txt-bold">Country</p>
+                    <p class="txt-bold">{{ "Country" | translate }}</p>
+                  </div>
+                  <div class="col-md-6" *ngIf="boat.country == null">
+                    <p>
+                      <span class="bold">No specefic Country</span>
+                    </p>
                   </div>
                   <div class="col-md-6">
                     <p>
@@ -581,7 +553,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <p class="txt-bold">Created</p>
+                    <p class="txt-bold">{{ "created_at" | translate }}</p>
                   </div>
                   <div class="col-md-6">
                     <p>

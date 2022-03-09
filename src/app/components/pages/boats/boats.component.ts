@@ -214,7 +214,7 @@ export class BoatsComponent implements OnInit {
     });
   }
 
-  updateBoat() {
+  async updateBoat() {
     this.formData = this.formData || new FormData();
     for (const key in this.userBoats[this.selectedBoat]) {
       if (this.userBoats[this.selectedBoat].hasOwnProperty(key)) {
@@ -230,11 +230,13 @@ export class BoatsComponent implements OnInit {
         'lng',
         this.userBoats[this.selectedBoat].position['lng']
       );
+      if (this.userBoats[this.selectedBoat].reviews) {
+        this.formData.append(
+          'rating',
+          this.userBoats[this.selectedBoat].reviews['rating']
+        );
+      }
     }
-    this.formData.append(
-      'details',
-      JSON.stringify(this.userBoats[this.selectedBoat].details)
-    );
     this.equipmentService
       .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
       .subscribe(

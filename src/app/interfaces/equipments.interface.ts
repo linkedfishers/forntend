@@ -1,3 +1,5 @@
+import { Review } from "./reviews.interface";
+
 export class SousCatBoatType {
   _id: string;
   name: string;
@@ -76,7 +78,7 @@ export class Hebergement {
   position: any;
   createdAt: any;
   type: any;
-  reviews: any[];
+  reviews?: any[];
   rating: number;
   details: BoatDetails = new BoatDetails();
 }

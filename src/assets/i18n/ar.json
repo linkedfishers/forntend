@@ -118,10 +118,11 @@
   "Add_new_Equipment": "أضف معداتك",
   "EquipmentName": "تسمية المعدات",
   "browser_services": "قائمة الخدمات",
-  "Equipements": "معدات",
   "I_make_extra_income": "أحقق دخلاً إضافياً",
   "Boat_Owner": "مالك القارب",
-
+   "created_at": "نشر يوم",
+"type" : "نوع القارب",
+"boat_size": "الطول",
   "Lease_your_boat": "أجّر مركبك",
   "Rent_out_your_coastal_accommodation": "أجّر مسكنك الساحلي"
 }

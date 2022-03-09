@@ -31,19 +31,18 @@
       <!-- ************************ -->
 
       <div>
-         <h6 class="title-search">Country:</h6>
+        <h6 class="title-search">Country:</h6>
         <select
           [(ngModel)]="countryName"
           name="country-name"
           class="scroll"
           (click)="search()"
+          placeholder="Choose Country"
         >
-
-        <option value="" selected>Select the Country name</option>
+          <option value="" selected>Select the Country name</option>
           <option *ngFor="let country of countries" value="{{ country.name }}">
             {{ country.name }}
           </option>
-
         </select>
         <h6 class="title-search">Categories :</h6>
         <ul>
@@ -201,7 +200,12 @@
                   cover no-repeat;
               "
             >
-              <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
+              <!--  <img src="{{ boat?.images[0] | picture }}" alt="item-01" /> -->
+              <img
+                [src]="boat.image ? API + boat.image : API + boat.images[0]"
+                alt="item-01"
+                class="imgprod"
+              />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->

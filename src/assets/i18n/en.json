@@ -5,6 +5,7 @@
   "account_info": "Account info",
   "all_updates": "All updates",
   "boat": "Boat",
+  "type": "Type",
   "boats": "Boats",
   "change_password": "Change Password",
   "change_password_now": "Change Password Now!",
@@ -159,5 +160,6 @@
   "Boat_Owner": "Boat Owner",
   "I_make_extra_income": "I make extra income",
   "Rent_out_your_coastal_accommodation": "Rent out your coastal accommodation",
-  "Lease_your_boat": "Lease_your boat"
+  "Lease_your_boat": "Lease_your boat",
+  "created_at": "Created at"
 }

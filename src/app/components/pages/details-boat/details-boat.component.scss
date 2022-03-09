@@ -22,7 +22,7 @@ img.round-small {
 }
 .blockcontent {
   display: flex !important;
-  margin-top: 100px !important;
+  margin-top: 75px !important;
 }
 
 .flex {
@@ -67,7 +67,7 @@ img.round-small {
 }
 
 .row {
-  margin-bottom: 15px !important;
+  margin-bottom: 7px !important;
 }
 
 .content-grid {
@@ -101,4 +101,18 @@ img.wh-image {
 }
 .p-items-hidden .p-galleria-thumbnail-item.p-galleria-thumbnail-item-active {
   overflow: hidden !important;
+}
+
+.mrt {
+  margin-top: 25px !important;
+}
+
+.martItems {
+  margin-top: 10px !important;
+}
+
+.stickyForm {
+  position: sticky !important;
+  top: 110px !important;
+  right: 0px !important;
 }

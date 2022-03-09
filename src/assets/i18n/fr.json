@@ -165,5 +165,8 @@
   "Boat_Owner": "Propriétaire de Bateau",
   "I_make_extra_income": "Je réalise un revenu supplémentaire",
   "Rent_out_your_coastal_accommodation": "Mettez votre hébergement côtier en location",
-  "Lease_your_boat": "Mettez votre bateau en location"
+  "Lease_your_boat": "Mettez votre bateau en location",
+  "created_at": "Poster le",
+  "type": "Catégorie"
+
 }

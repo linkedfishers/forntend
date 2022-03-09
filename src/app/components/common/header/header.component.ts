@@ -41,8 +41,6 @@ export class HeaderComponent implements OnInit {
   ) {}
   readonly API: string = environment.apiUrl + '/';
 
-
-
   test: CartItem[];
   cartCount = 0;
   currentUser: User;
@@ -63,13 +61,15 @@ export class HeaderComponent implements OnInit {
   toggle: Boolean = false;
   isMenuCollapsed: Boolean = true;
   ngOnInit(): void {
-     
     initHeader();
+
     this.isMenuCollapsed = true;
     this.language = this.translate.currentLang;
     this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.language = event.lang;
+
       console.log(this.language);
+  
     });
 
     this.currentUser = this.authService.getCurrentUser();
@@ -160,6 +160,7 @@ export class HeaderComponent implements OnInit {
     this.currentUser.language = language;
     this.authService.updateUser(this.currentUser).subscribe((res) => {
       localStorage.setItem('language', language);
+
       this.translate.use(language);
     });
   }
