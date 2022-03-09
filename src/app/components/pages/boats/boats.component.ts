@@ -230,12 +230,6 @@ export class BoatsComponent implements OnInit {
         'lng',
         this.userBoats[this.selectedBoat].position['lng']
       );
-      if (this.userBoats[this.selectedBoat].reviews) {
-        this.formData.append(
-          'rating',
-          this.userBoats[this.selectedBoat].reviews['rating']
-        );
-      }
     }
     this.equipmentService
       .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
@@ -243,6 +237,7 @@ export class BoatsComponent implements OnInit {
         (res) => {
           this.toastr.success(res.message);
           this.formData = new FormData();
+          this.userBoats[this.selectedBoat] = new Boat();
           this.imageSrc = '';
         },
         (err) => {

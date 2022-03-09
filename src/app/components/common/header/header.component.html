@@ -515,6 +515,7 @@
             [routerLinkActiveOptions]="{ exact: true }"
             routerLinkActive="activeted"
             (click)="isMenuCollapsed = true"
+            ><span class="fa fa-home" aria-hidden="true"></span
             >{{ "home" | translate }}
           </a>
         </li>
@@ -523,14 +524,14 @@
             {{ "admin" | translate }}
           </a>
         </li> -->
-        <li class="nav-item">
+        <li class="nav-item" style="display: flex">
           <a
-        
             class="nav-link nav-link-icon"
             [routerLink]="['/main']"
             routerLinkActive="activeted"
             (click)="isMenuCollapsed = true"
-            >{{ "feed" | translate }}
+          >
+            <span class="fa fa-rss"></span> {{ "feed" | translate }}
           </a>
         </li>
         <li class="nav-item">
@@ -539,7 +540,7 @@
             [routerLink]="['/events']"
             routerLinkActive="activeted"
             (click)="isMenuCollapsed = true"
-            >{{ "events" | translate }}
+            ><span class="fa fa-calendar-o"></span>{{ "events" | translate }}
           </a>
         </li>
 
@@ -551,7 +552,7 @@
               routerLinkActive="activeted"
               (click)="isMenuCollapsed = true"
             >
-              {{ "boats" | translate }}
+              <span class="fa fa-ship"></span>{{ "boats" | translate }}
             </a>
             <div class="dropdown-content">
               <a
@@ -572,6 +573,7 @@
               routerLinkActive="activeted"
               (click)="isMenuCollapsed = true"
             >
+              <span class="fa fa-h-square"></span>
               {{ "homes" | translate }}
             </a>
             <div class="dropdown-content">
@@ -590,6 +592,7 @@
             routerLinkActive="activeted"
             (click)="isMenuCollapsed = true"
           >
+            <span class="fa fa-globe"></span>
             {{ "map" | translate }}
           </a>
         </li>
@@ -616,7 +619,7 @@
               [routerLink]="['/marketplace/products-list']"
               routerLinkActive="activeted"
               (click)="isMenuCollapsed = true"
-            >
+              ><span class="fa fa-shopping-bag"></span>
               {{ "marketplace" | translate }}
             </a>
           </li>
@@ -644,7 +647,7 @@
                 routerLinkActive="activeted"
                 (click)="isMenuCollapsed = true"
               >
-                {{ "freelancer" | translate }}
+                <span class="fa fa-truck"></span> {{ "freelancer" | translate }}
               </a>
               <div class="dropdown-content">
                 <a
@@ -664,6 +667,7 @@
                 routerLinkActive="activeted"
                 (click)="isMenuCollapsed = true"
               >
+                <span class="fa fa-plug"></span>
                 {{ "Equipements" | translate }}
               </a>
               <div class="dropdown-content">
@@ -683,7 +687,8 @@
               routerLinkActive="activeted"
               (click)="isMenuCollapsed = true"
             >
-              {{ "weather" | translate }}
+              <span class="fa fa-clouds-sun"></span>
+              <span class="fa fa-sun-o"></span>{{ "weather" | translate }}
             </a>
           </li>
         </ul>

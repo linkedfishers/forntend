@@ -1844,7 +1844,7 @@ figure > img {
 .action-list.dark .action-list-item.active .action-list-item-icon,
 .action-list.dark .action-list-item.unread .action-list-item-icon,
 .action-list.dark .action-list-item:hover .action-list-item-icon {
-  fill: #000000;
+  fill: #226ab2;
 }
 .action-list.dark .action-list-item .action-list-item-icon {
   fill: #226ab2;

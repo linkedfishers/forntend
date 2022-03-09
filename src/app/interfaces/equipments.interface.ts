@@ -1,4 +1,4 @@
-import { Review } from "./reviews.interface";
+import { Review } from './reviews.interface';
 
 export class SousCatBoatType {
   _id: string;
@@ -56,6 +56,7 @@ export class Boat {
   owner: any;
   price: number = 0;
   image: any;
+  images: any[];
   description: string;
   isAvailable: boolean;
   createdAt: any;
