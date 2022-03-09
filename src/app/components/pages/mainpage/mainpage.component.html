@@ -177,7 +177,28 @@
   </div>
 </div>
 </div> -->
+
 <div class="title-map mari">
+  <div
+    style="
+      height: 75px;
+      overflow: hidden;
+      position: relative;
+      top: 0px;
+      background: #e9e9e9;
+    "
+  >
+    <svg
+      viewBox="0 0 500 150"
+      preserveAspectRatio="none"
+      style="height: 100%; width: 100%"
+    >
+      <path
+        d="M0.00,92.27 C216.83,192.92 304.30,8.39 500.00,109.03 L500.00,0.00 L0.00,0.00 Z"
+        style="stroke: none; fill: #a3ccdf"
+      ></path>
+    </svg>
+  </div>
   <h4>{{ "OUR_BOATS" | translate }}</h4>
 </div>
 <div class="spinner" *ngIf="!boats">
@@ -230,12 +251,12 @@
             <div class="p-mb-3"></div>
             <div>
               <a [routerLink]="['/details-boat', boat._id]">
-              <img
-                class="product-image p-md-3"
-                src="{{
-                  boat.images ? API + boat.images[0] : API + boat.image
-                }}"
-                alt=""
+                <img
+                  class="product-image p-md-3"
+                  src="{{
+                    boat.images ? API + boat.images[0] : API + boat.image
+                  }}"
+                  alt=""
               /></a>
               <h6 class="color-pr custum p-mt-0 p-mb-3">${{ boat.price }}</h6>
 
