@@ -132,7 +132,7 @@
   "update_boat": "Update boat",
   "Back": "Back",
   "Access_the_site": "Access the site",
-  "I_am_looking_for_an_experience,_a_service_or_a_product": "I_am_looking_for_an_experience",
+  "I_am_looking_for_an_experience,_a_service_or_a_product": "I am looking for an experience",
   "Experience": "Experience",
   "E-shop": "E-shop",
   "Boat_rental": "Boat rental",
@@ -161,5 +161,11 @@
   "I_make_extra_income": "I make extra income",
   "Rent_out_your_coastal_accommodation": "Rent out your coastal accommodation",
   "Lease_your_boat": "Lease_your boat",
-  "created_at": "Created at"
+  "created_at": "Created at",
+  "Boat rental": "Boat rental",
+  "Offer_a_training_or_a_service": "Offer a training or a service",
+  "Equipment_Supplier": "Equipment Supplier",
+  "Fishing_and_nautical_equipment_supplier": "Fishing and nautical equipment supplier",
+  "Access_the_site": "Access the site",
+  "Back": "Back"
 }

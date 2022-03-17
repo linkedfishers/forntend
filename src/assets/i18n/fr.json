@@ -167,6 +167,12 @@
   "Rent_out_your_coastal_accommodation": "Mettez votre hébergement côtier en location",
   "Lease_your_boat": "Mettez votre bateau en location",
   "created_at": "Poster le",
-  "type": "Catégorie"
+  "type": "Catégorie",
+  "Coastal_Accommodation_Rental": "Coastal Accommodation Rental",
+  "Offer_a_training_or_a_service": "Proposer une formation ou un service",
+  "Equipment_Supplier": "Fournisseur d'équipement",
+  "Fishing_and_nautical_equipment_supplier": "Fournisseur d'équipement de pêche et du nautisme",
+  "Access_the_site": "Accéder au site",
 
+  "Back": "Retour"
 }

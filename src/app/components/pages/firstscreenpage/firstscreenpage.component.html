@@ -15,21 +15,23 @@
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/fishing-boat.png" />
           <h6>Bateau</h6>
-          <p class="text">Location de Bateau</p>
+          <p class="text">{{ "Boat_rental" | translate }}</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="homeList()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/home.png" />
           <h6>Hébergement</h6>
-          <p class="text">Location d'un Hébergement côtier</p>
+          <p class="text">{{ "Coastal_Accommodation_Rental" | translate }}</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="listService()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/experience.png" />
-          <h6>Expérience</h6>
-          <p class="text">Expérience de pêche personnalisée</p>
+          <h6>{{ "Expérience" | translate }}</h6>
+          <p class="text">
+            {{ "Personalised_fishing_experience" | translate }}
+          </p>
           <a href="https://icons8.com/icon/wQi8zFqqK2Ex/tap-gesture"></a>
         </div>
       </div>
@@ -40,7 +42,7 @@
             (click)="toEshopEquip()"
           />
           <h6>E-shop</h6>
-          <p class="text">Equipement et matériel de pêche</p>
+          <p class="text">{{ "Equipment_and_fishing_tackle" | translate }}</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="toEvent()">
@@ -58,22 +60,24 @@
       <div class="slideInRight titles" (click)="myboat()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/fishing-boat.png" />
-          <h6>Propriétaire de Bateau</h6>
-          <p class="text">Mettez votre bateau en location</p>
+          <h6>{{ "Boat_Owner" | translate }}</h6>
+          <p class="text">{{ "Lease_your_boat" | translate }}</p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="myhome()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/working-at-home.png" />
           <h6>Propriétaire d'hébergement</h6>
-          <p class="text">Mettez votre hébergement côtier en location</p>
+          <p class="text">
+            {{ "Rent_out_your_coastal_accommodation" | translate }}
+          </p>
         </div>
       </div>
       <div class="slideInRight titles" (click)="myservice()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/coach.png" />
           <h6>Moniteur de pêche Freelancer</h6>
-          <p class="text">Proposer une formation ou un service</p>
+          <p class="text">{{ "Offer_a_training_or_a_service" | translate }}</p>
         </div>
       </div>
       <div class="slideInRight titles">
@@ -82,15 +86,21 @@
             src="../../../../assets/img/homefolder/provider.png"
             (click)="becomeAprovider()"
           />
-          <h6>Fournisseur d'équipement</h6>
-          <p class="text">Fournisseur d'équipement de pêche et du nautisme</p>
+          <h6>{{ "Equipment_Supplier" | translate }}</h6>
+          <p class="text">
+            {{ "Fishing_and_nautical_equipment_supplier" | translate }}
+          </p>
         </div>
       </div>
     </div>
 
     <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToRoute()">
       <div class="titl force-bg-color">
-        <h4>Je cherche une expérience, un service ou un produit</h4>
+        <h4 style="padding: 20px">
+          {{
+            "I_am_looking_for_an_experience,_a_service_or_a_product" | translate
+          }}
+        </h4>
       </div>
       <div class="image">
         <img src="../../../../assets/img/homefolder/search.png" alt="" />
@@ -98,7 +108,7 @@
     </div>
     <div class="col-md-6 width" *ngIf="!isShow" (click)="navigateToTogin()">
       <div class="titl force-bg-color">
-        <h4>Je réalise un revenu supplémentaire</h4>
+        <h4>{{ "I_make_extra_income" | translate }}</h4>
       </div>
       <div class="image">
         <img
@@ -113,10 +123,10 @@
     <div class="col-md-12">
       <div class="buttons disFlex">
         <button type="button" class="btn btn-primary" (click)="backtoHome()">
-          Back
+          {{ "Back" | translate }}
         </button>
         <button type="button" class="btn btn-primary" (click)="accederAuSite()">
-          Acceder au site
+          {{ "Access_the_site" | translate }}
         </button>
       </div>
     </div>

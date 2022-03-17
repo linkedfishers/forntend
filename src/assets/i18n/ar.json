@@ -120,9 +120,15 @@
   "browser_services": "قائمة الخدمات",
   "I_make_extra_income": "أحقق دخلاً إضافياً",
   "Boat_Owner": "مالك القارب",
-   "created_at": "نشر يوم",
-"type" : "نوع القارب",
-"boat_size": "الطول",
+  "created_at": "نشر يوم",
+  "type": "نوع القارب",
+  "boat_size": "الطول",
   "Lease_your_boat": "أجّر مركبك",
-  "Rent_out_your_coastal_accommodation": "أجّر مسكنك الساحلي"
+  "Rent_out_your_coastal_accommodation": "أجّر مسكنك الساحلي",
+  "Boat_rental": "تأجير القوارب",
+  "Offer_a_training_or_a_service": "تقديم تدريب أو خدمة",
+  "Equipment_Supplier": "بائع معدات",
+  "Fishing_and_nautical_equipment_supplier": "بائع معدات الصيد والملاحة",
+  "Access_the_site": "دخول",
+  "Back": "رجوع"
 }

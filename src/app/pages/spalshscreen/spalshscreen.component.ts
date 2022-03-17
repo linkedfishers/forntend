@@ -12,7 +12,7 @@ export class SpalshscreenComponent implements OnInit {
   showSplash = true;
 
   @Input() animationDuration: number = 1;
-  @Input() duration: number = 7;
+  @Input() duration: number = 4;
   @Input() animationType: SplashAnimationType = SplashAnimationType.FadeOut;
   constructor() {}
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IpServiceService } from 'src/app/services/ip-service.service';
 import { ReservationService } from 'src/app/services/reservation.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-visiteguider',
@@ -10,5 +11,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
 export class VisiteguiderComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    AOS.init();
+  }
 }

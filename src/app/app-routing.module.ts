@@ -58,10 +58,10 @@ const routes: Routes = [
     path: '',
     component: FirstscreenpageComponent,
   },
-  {
+ /*  {
     path: 'visite-guider',
     component: VisiteguiderComponent,
-  },
+  }, */
   {
     path: 'mention-légale',
     component: MentionLegaleComponent,

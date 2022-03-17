@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-firstscreenpage',
   templateUrl: './firstscreenpage.component.html',
@@ -11,7 +12,7 @@ export class FirstscreenpageComponent implements OnInit {
 
   isShow2 = false;
   isHidden2 = true;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate:TranslateService) {}
 
   ngOnInit(): void {}
 
