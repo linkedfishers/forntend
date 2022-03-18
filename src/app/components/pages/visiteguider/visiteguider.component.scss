@@ -1043,6 +1043,11 @@ a:focus {
   width: 100%;
 }
 
+.team .team-img img:hover {
+  filter: blur(4px);
+  cursor: pointer;
+}
+
 .team .team-text {
   position: absolute;
   width: calc(100% - 30px);
@@ -1068,6 +1073,7 @@ a:focus {
 .team .team-text p {
   margin-bottom: 20px;
   color: #092a49;
+  line-height: 1.5;
 }
 
 .team .team-social {
