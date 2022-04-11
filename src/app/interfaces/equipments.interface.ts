@@ -71,6 +71,7 @@ export class Hebergement {
   _id: string;
   name: string;
   owner: any;
+  country: string;
   image: any;
   description: string;
   isAvailable: boolean;

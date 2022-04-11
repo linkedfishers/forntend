@@ -12,10 +12,12 @@ import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
+import * as countriesLib from 'i18n-iso-countries';
 
 declare var initSidebar, initPopups, loadSvg: any;
 declare var initForm, $: any;
 declare var initAnimation, $: any;
+declare const require;
 
 @Component({
   selector: 'app-hebergements',
@@ -31,7 +33,7 @@ export class HebergementsComponent implements OnInit {
   ) {}
 
   readonly API: string = environment.apiUrl + '/';
-
+  countries = [];
   currentUser: User;
   formData: FormData;
   imageSrc: any;
@@ -46,7 +48,9 @@ export class HebergementsComponent implements OnInit {
     initPopups();
     initForm();
     loadSvg();
+
     this.currentUser = this.authService.getCurrentUser();
+    this._getCoutries();
     this.newHome = new Hebergement();
     this.newHome.price = 0;
 
@@ -169,6 +173,19 @@ export class HebergementsComponent implements OnInit {
         return;
       }
     });
+  }
+
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log(this.countries);
   }
 
   updateHebergement() {

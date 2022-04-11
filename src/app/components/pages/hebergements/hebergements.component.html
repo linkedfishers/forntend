@@ -228,7 +228,7 @@
         </p>
         <!-- /BUTTON -->
       </div>
-      <!-- /POPUP 
+      <!-- /POPUP
         BOX SIDEBAR FOOTER -->
     </div>
     <!-- /POPUP BOX SIDEBAR -->
@@ -266,6 +266,35 @@
             <!-- /FORM ROW -->
 
             <!-- FORM ROW -->
+            <!--  -->
+
+            <div class="form-row" style="margin-top: 15px !important">
+              <div class="form-item">
+                <div class="form-select">
+                  <label for="item-description">Boat Country</label>
+                  <select
+                    [(ngModel)]="newHome.country"
+                    name="country-name"
+                    class="scroll"
+                    placeholder="Select a Country"
+                  >
+                    <option value="" selected>Select the Country name</option>
+                    <option
+                      *ngFor="let country of countries"
+                      value="{{ country.name }}"
+                    >
+                      {{ country.name }}
+                    </option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+              </div>
+            </div>
+            <!--  -->
             <div class="form-row split">
               <div class="form-item">
                 <!-- FORM INPUT -->
