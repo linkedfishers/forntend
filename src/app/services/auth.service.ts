@@ -17,7 +17,7 @@ export class AuthService {
     private httpClient: HttpClient,
     private translate: TranslateService
   ) {}
-
+//test
   readonly ID_TOKEN = 'acessToken';
 
   public authenticate(email: string, password: string) {
