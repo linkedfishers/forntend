@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
     private authService: AuthService
   ) {}
 
+  //readonly API
+
   readonly API: string = environment.apiUrl + '/';
 
   posts: Post[] = [];
