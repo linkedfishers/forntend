@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-/*   apiUrl: 'http://localhost:3000',
+  /* apiUrl: 'http://localhost:3000',
   apiDomain: 'localhost:3000', */
     apiUrl: 'https://linkedfishers.com:3000',
-  apiDomain: 'linkedfishers.com:3000', 
-};
+  apiDomain: 'linkedfishers.com:3000',
+}; 
 
 /*
  * For easier debugging in development mode, you can import the following file

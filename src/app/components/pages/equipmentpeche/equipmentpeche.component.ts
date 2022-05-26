@@ -3,6 +3,7 @@ import {
   Equipment,
   EquipmentType,
 } from 'src/app/interfaces/equipments.interface';
+import * as countriesLib from 'i18n-iso-countries';
 import { EquipmentService } from 'src/app/services/equipment.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -13,7 +14,7 @@ import { environment } from 'src/environments/environment';
 
 declare var initSidebar, initPopups, loadSvg: any;
 declare var initForm, $: any;
-
+declare const require;
 @Component({
   selector: 'app-equipmentpeche',
   templateUrl: './equipmentpeche.component.html',
@@ -28,6 +29,7 @@ export class EquipmentpecheComponent implements OnInit {
   ) {}
 
   readonly API: string = environment.apiUrl + '/';
+  countries = [];
   currentUser: User;
   formData: FormData;
   imgSrc: any;
@@ -40,6 +42,7 @@ export class EquipmentpecheComponent implements OnInit {
       initPopups();
       initForm();
       loadSvg();
+      this._getCoutries();
     this.currentUser = this.authService.getCurrentUser();
     this.newEquipement = new Equipment();
     this.newEquipement.price = 0;
@@ -61,7 +64,7 @@ export class EquipmentpecheComponent implements OnInit {
       }
     );
   }
-  fileChange(event) {
+/*   fileChange(event) {
     let fileList: FileList = event.target.files;
     if (fileList.length > 0) {
       let file: File = fileList[0];
@@ -73,7 +76,7 @@ export class EquipmentpecheComponent implements OnInit {
       };
       reader.readAsDataURL(fileList[0]);
     }
-  }
+  } */
   createEquipment() {
     if (!this.newEquipement.name) {
       return;
@@ -96,14 +99,15 @@ export class EquipmentpecheComponent implements OnInit {
         this.toastr.success(res.message);
         this.formData = new FormData();
         this.newEquipement = new Equipment();
+        console.log(this.newEquipement);
         this.imgSrc = '';
       },
       (err) => {
-        this.imgSrc = '';
+        /* this.imgSrc = ''; */
         console.log(err);
         this.toastr.error(err.error.message);
       },
-      () => {}
+     
     );
   }
 
@@ -178,12 +182,42 @@ export class EquipmentpecheComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-        () => {}
+   
       );
   }
   openUpdatePopup(i) {
     this.imgSrc = '';
     this.selectedEquipment = i;
     $('#updateBtn').click();
+  }
+
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log(this.countries);
+  }
+
+  fileChange(event) {
+    this.imgSrc = '';
+    let fileList: FileList = event.target.files;
+    this.formData = new FormData();
+    for (let i = 0; i < fileList.length; i++) {
+      const el = fileList[i];
+      console.log(el);
+      this.formData.append('files', el);
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.imgSrc = e.target['result'];
+    };
+    reader.readAsDataURL(fileList[0]);
   }
 }

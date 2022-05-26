@@ -53,6 +53,7 @@ export class BoatsComponent implements OnInit {
     this.equipmentService.getBoatsByUser(this.currentUser._id).subscribe(
       (res) => {
         this.userBoats = res.data;
+        console.log("user boat",this.userBoats);
       },
       (err) => {
         this.toastr.error('Error while loading boats');
@@ -61,7 +62,7 @@ export class BoatsComponent implements OnInit {
     this.equipmentService.getBoatTypes().subscribe(
       (res) => {
         this.boatTypes = res.data;
-        console.log(this.boatTypes);
+        console.log("boat type",res.data);
       },
       (err) => {
         this.toastr.error('Error while loading boat types');
@@ -69,6 +70,7 @@ export class BoatsComponent implements OnInit {
     );
     this.equipmentService.getBoatTypes().subscribe((res) => {
       this.boatTypes = res.data;
+      console.log("boat",res.data);
     });
   }
 

@@ -59,7 +59,7 @@
 
             <!-- CREATE ENTITY BOX CATEGORY -->
             <p class="create-entity-box-category">
-              {{ "describe_home" | translate }}
+              {{ "describe_Equipment" | translate }}
             </p>
             <!-- /CREATE ENTITY BOX CATEGORY -->
 
@@ -121,13 +121,13 @@
             <!-- PRODUCT PREVIEW CATEGORY -->
             <p class="product-preview-category digital">
               <a [routerLink]="['/details-home', home._id]"
-                >{{ home?.description }}u</a
+                >{{ home?.description }}</a
               >
             </p>
             <!-- /PRODUCT PREVIEW CATEGORY -->
             <!-- BUTTON -->
             <p (click)="openUpdatePopup(i)" class="button white full">
-              {{ "update_home" | translate }}
+              {{ "update_Equipment" | translate }}
             </p>
             <!-- /BUTTON -->
 
@@ -136,7 +136,7 @@
               (click)="deleteEquipement(i)"
               class="button secondary full popup-manage-item-trigger"
             >
-              {{ "delete_home" | translate }}
+              {{ "delete_Equipment" | translate }}
             </p>
             <!-- /BUTTON -->
           </div>
@@ -285,7 +285,43 @@
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
+  
+            <div class="form-row" style="margin-top: 15px !important">
+              <div class="form-item">
+                <div class="form-select">
+                  <label for="item-description">Equipment Country</label>
+                  <select
+                    [(ngModel)]="newEquipement.country"
+                    name="country-name"
+                    class="scroll"
+                    placeholder="Select a Country"
+                  >
+                    <option value="" selected>
+                      Select the Country name
+                    </option>
+                    <option
+                      *ngFor="let country of countries"
+                      value="{{ country.name }}"
+                    >
+                      {{ country.name }}
+                    </option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+              </div>
+            </div>
 
+            <!-- ************************************ -->
+
+            <!-- /FORM SELECT -->
+        
+          <!-- /FORM ITEM -->
+        
+        <!-- /FORM ROW -->
             <div class="form-row">
               <!-- FORM ITEM -->
               <div class="form-item">
@@ -386,9 +422,9 @@
           <figure class="product-preview-image liquid">
             <img
               *ngIf="!imgSrc"
-              [src]="API + userEquipment[selectedEquipment]?.image"
+              [src]="API + userEquipment[selectedEquipment]?.image" alt="item-10"
             />
-            <img *ngIf="imgSrc" [src]="imgSrc" />
+            <img *ngIf="imgSrc" [src]="imgSrc" alt="item-10" />
           </figure>
         </a>
         <!-- /PRODUCT PREVIEW IMAGE -->

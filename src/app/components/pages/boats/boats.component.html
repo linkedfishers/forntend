@@ -571,7 +571,7 @@
           <figure class="product-preview-image liquid">
             <img
               *ngIf="!imageSrc"
-              [src]="API + userBoats[selectedBoat].image"
+              [src]="API + userBoats[selectedBoat]?.images[0]"
               alt="item-10"
             />
             <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />

@@ -84,7 +84,7 @@ export class ListBoatsComponent implements OnInit {
     });
     this.equipmentService.getServiceTypes().subscribe((res) => {
       this.boatTypes = res.data;
-      /*  console.log(this.boatTypes); */
+        console.log("boat lists types",this.boatTypes); 
     });
     this.equipmentService.getBoatTypes().subscribe((res) => {
       this.catList = res.data;

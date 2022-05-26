@@ -13,6 +13,7 @@ export class Equipment {
   type: any;
   image: any;
   description: string;
+  country: string
   position: any;
   isAvailable: boolean;
   createdAt: any;
