@@ -211,7 +211,7 @@ export class ReservationsRequestComponent implements OnInit {
       this.toastr.warning('Please choose a valid date range');
       return;
     }
-    let numberOfdays = differenceInDays(endDate, startDate);
+    let numberOfdays = differenceInHours(endDate, startDate);
     if (numberOfdays <= 0) {
       this.totalPrice = 0;
       this.toastr.warning('Please choose a valid date range');

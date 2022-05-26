@@ -39,6 +39,7 @@ export class EquipmentpecheComponent implements OnInit {
   selectedEquipment = -1;
   ngOnInit(): void {
       initSidebar();
+      this._getCoutries();
       initPopups();
       initForm();
       loadSvg();
