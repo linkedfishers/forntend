@@ -158,9 +158,9 @@ export class AdminComponent implements OnInit {
   fileChange(event) {
     let fileList: FileList = event.target.files;
     if (fileList.length > 0) {
-      let file: File = fileList[0];
+      let el: File = fileList[0];
       this.formData = new FormData();
-      this.formData.append('file', file, file.name);
+      this.formData.append('files', el);
       const reader = new FileReader();
       reader.onload = (e) => {
         this.imageSrc = e.target['result'];
