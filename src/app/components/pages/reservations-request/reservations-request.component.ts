@@ -15,6 +15,10 @@ import {
 } from 'date-fns';
 import { Subject } from 'rxjs';
 import {
+  MatFormFieldModule,
+  MAT_FORM_FIELD_DEFAULT_OPTIONS,
+} from '@angular/material/form-field';
+import {
   CalendarEvent,
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
@@ -28,6 +32,8 @@ import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/interfaces/users.interface';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup } from '@angular/forms';
+import * as _moment from 'moment';
+const moment = _moment;
 declare var initForm, $: any;
 declare var initSidebar, initPopups, loadSvg: any;
 @Component({
@@ -36,7 +42,6 @@ declare var initSidebar, initPopups, loadSvg: any;
   styleUrls: ['./reservations-request.component.scss'],
 })
 export class ReservationsRequestComponent implements OnInit {
- 
   reservations: Reservation[] = [];
   pendingReservations: Reservation[] = [];
   requestedReservations: Reservation[] = [];
@@ -73,6 +78,17 @@ export class ReservationsRequestComponent implements OnInit {
   item: any;
   currentUser: User;
   ngOnInit(): void {
+    this.newReservation.dateStart = moment().add(1, 'd').toDate();
+    console.log(this.newReservation.dateStart);
+    this.newReservation.dateEnd = moment().add(2, 'd').toDate();
+    console.log(this.newReservation.dateEnd);
+    console.log(
+      differenceInDays(
+        this.newReservation.dateEnd,
+        this.newReservation.dateStart
+      )
+    );
+
     initSidebar();
     initPopups();
     initForm();
@@ -129,6 +145,10 @@ export class ReservationsRequestComponent implements OnInit {
         });
     });
   }
+  range = {
+    start: this.newReservation.dateStart,
+    end: this.newReservation.dateEnd,
+  };
 
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
     if (isSameMonth(date, this.viewDate)) {
@@ -211,7 +231,9 @@ export class ReservationsRequestComponent implements OnInit {
       this.toastr.warning('Please choose a valid date range');
       return;
     }
-    let numberOfdays = differenceInHours(endDate, startDate);
+    let numberOfdays = differenceInDays(endDate, startDate);
+    console.log(numberOfdays);
+
     if (numberOfdays <= 0) {
       this.totalPrice = 0;
       this.toastr.warning('Please choose a valid date range');

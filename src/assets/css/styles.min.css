@@ -12983,3 +12983,19 @@ figure > img {
   color: white !important;
   background: rgba(0, 174, 255, 0.548) !important;
 }
+.mat-form-field-wrapper.ng-tns-c324-5 {
+  width: 100% !important;
+}
+.mat-date-range-input-container {
+  justify-content: space-between;
+}
+.mat-date-range-input-start-wrapper {
+  width: 50% !important;
+}
+
+.mat-date-range-input-end-wrapper {
+  width: 50%;
+}
+.mat-date-range-input-start-wrapper .mat-date-range-input-inner{
+top : 9px !important
+}

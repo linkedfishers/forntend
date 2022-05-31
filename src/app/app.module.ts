@@ -32,7 +32,6 @@ import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -42,7 +41,8 @@ import { ProfileSocialComponent } from './components/pages/account/profile-socia
 import { ChangePasswordComponent } from './components/pages/account/change-password/change-password.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { ToastrModule } from 'ngx-toastr';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/moment';
@@ -235,7 +235,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     IvyCarouselModule,
     AppRoutingModule,
     MatFormFieldModule,
-
+    MatNativeDateModule,
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,

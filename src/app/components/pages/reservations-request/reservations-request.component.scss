@@ -152,7 +152,8 @@ img.round-small {
   display: -ms-flexbox !important;
   display: -webkit-flex !important;
   display: flex !important;
-  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif !important;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif !important;
   font-weight: 400 !important;
   font-size: 14px !important;
   line-height: 18px !important;
@@ -181,4 +182,25 @@ img.round-small {
   font-size: 18px !important;
   line-height: 24px !important;
   font-weight: 800 !important;
+}
+.header-range {
+  text-align: center !important;
+}
+.mat-form-field {
+  display: flex !important;
+  position: relative !important;
+  width: 50% !important;
+  margin-top: 20px !important;
+  padding: 10px !important;
+}
+.ng-tns-c324-5 {
+  width: 100% !important;
+}
+
+.mat-date-range-input-container {
+  justify-content: space-between !important;
+}
+
+.inpt-Mat {
+  position: relative !important;
 }

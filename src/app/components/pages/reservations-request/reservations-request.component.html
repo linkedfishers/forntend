@@ -75,22 +75,18 @@
         <br /><br /><br />
         <div *ngIf="item && item?.owner != currentUser?._id">
           <h3>
-            Choose dates
             <div class="clearfix"></div>
           </h3>
 
           <div class="table-responsive">
             <table class="table">
               <thead>
-                <tr>
-                  <th>Starts at</th>
-                  <th>Ends at</th>
-                </tr>
+                <tr></tr>
               </thead>
 
               <tbody>
                 <tr>
-                  <td>
+                  <!-- <td>
                     <input
                       (change)="updatePrice()"
                       class="form-control"
@@ -107,6 +103,37 @@
                       [(ngModel)]="newReservation.dateEnd"
                       (ngModelChange)="refresh.next()"
                     />
+                  </td> -->
+                  <td>
+                    <h2 class="header-range">Choose a date to make your reservation</h2>
+                    <mat-form-field appearance="fill">
+                      <mat-date-range-input
+                        [rangePicker]="picker"
+                        [(ngModel)]="range"
+                      >
+                        <input
+                          matStartDate
+                          placeholder="Start Date"
+                          [(ngModel)]="newReservation.dateStart"
+                          (dateChange)="updatePrice()"
+                          (ngModelChange)="refresh.next()"
+                          class="inpt-Mat"
+                        />
+                        <input
+                          matEndDate
+                          placeholder="End Date"
+                          [(ngModel)]="newReservation.dateEnd"
+                          (dateChange)="updatePrice()"
+                          (ngModelChange)="refresh.next()"
+                            class="inpt-Mat"
+                        />
+                      </mat-date-range-input>
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-date-range-picker #picker></mat-date-range-picker>
+                    </mat-form-field>
                   </td>
                 </tr>
               </tbody>
