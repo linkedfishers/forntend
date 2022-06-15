@@ -74,11 +74,7 @@
           <a [routerLink]="['/details-boat', boat._id]">
             <figure
               class="product-preview-image liquid"
-              style="
-                border-radius: 2%;
-                background: url('img/marketplace/items/01.jpg') center center /
-                  cover no-repeat;
-              "
+
             >
               <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
             </figure>
@@ -153,10 +149,7 @@
         <!-- PRODUCT PREVIEW IMAGE -->
         <a (click)="openFileInput()" [routerLink]="">
           <figure class="product-preview-image liquid">
-            <img
-              src="../../../../assets/img/d7463870-ca96-11ea-a7c5-6b6af13e3958-Placeholder_Motor-Yacht.jpg"
-              alt="item-10"
-            />
+
             <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
           </figure>
         </a>
@@ -277,7 +270,7 @@
                         placeholder="Select a Country"
                       >
                         <option value="" selected>
-                          Select the Country nameee
+                          Select the Country name
                         </option>
                         <option
                           *ngFor="let country of countries"
@@ -581,7 +574,6 @@
             <a (click)="openFileInput()" [routerLink]="">update picture</a>
           </p>
           <input
-          [(ngModel)]="userBoats[selectedBoat]"
             id="postPhoto"
             type="file"
             style="display: none"
@@ -653,7 +645,7 @@
               <div class="form-item">
                 <!-- FORM SELECT -->
                 <div class="form-select">
-                  <label for="item-description">Boat typeee</label>
+                  <label for="item-description">Boat type</label>
                   <select
                     *ngIf="selectedBoat >= 0"
                     [(ngModel)]="userBoats[selectedBoat].type"

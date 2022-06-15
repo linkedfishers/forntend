@@ -13,7 +13,6 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import * as countriesLib from 'i18n-iso-countries';
 import { TranslateService } from '@ngx-translate/core';
 
-
 declare var initSidebar, initPopups: any, loadSvg: any;
 declare var initForm, $: any;
 declare const require;
@@ -55,7 +54,6 @@ export class BoatsComponent implements OnInit {
       (res) => {
         this.userBoats = res.data;
         console.log("user boat",this.userBoats);
-
       },
       (err) => {
         this.toastr.error('Error while loading boats');
@@ -235,7 +233,6 @@ export class BoatsComponent implements OnInit {
         this.userBoats[this.selectedBoat].position['lng']
       );
     }
-
     this.equipmentService
       .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
       .subscribe(
@@ -256,9 +253,8 @@ export class BoatsComponent implements OnInit {
 
   openUpdatePopup(i) {
     initForm();
-    //this.imageSrc = '';
+    this.imageSrc = '';
     this.selectedBoat = i;
-    console.log('i',i);
     $('#updateBtn').click();
   }
 }
