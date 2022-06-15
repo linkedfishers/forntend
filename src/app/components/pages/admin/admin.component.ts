@@ -117,7 +117,7 @@ export class AdminComponent implements OnInit {
     this.equipmentService.getServiceTypes().subscribe(
       (res) => {
         this.serviceTypes = res.data;
-        console.log(this.serviceTypes);
+        console.log('service typeee',this.serviceTypes);
       },
       (err) => {
         this.toastr.error('Error while loading services types');
@@ -349,6 +349,81 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  updateCategoryEquipment(type: EquipmentType, categoryName: string) {
+    if (!type['updating']) {
+      type['updating'] = true;
+    } else {
+      type['updating'] = false;
+      this.formData = new FormData();
+      this.formData.append('name', type['name']);
+      this.formData.append('description', type['description']);
+      this.adminService.updateEquipmentType(this.formData, type._id).subscribe(
+        (res) => {
+          console.log('res',res);
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log('error',err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
+    }
+  }
+  updateCategoryHebergement(type: EquipmentType, categoryName: string) {
+    if (!type['updating']) {
+      type['updating'] = true;
+    } else {
+      type['updating'] = false;
+      this.formData = new FormData();
+      this.formData.append('name', type['name']);
+      this.formData.append('description', type['description']);
+      this.adminService.updateHebergementType(this.formData, type._id).subscribe(
+        (res) => {
+          console.log('res',res);
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log('error',err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
+    }
+  }
+  updateCategoryService(type: EquipmentType, categoryName: string) {
+    if (!type['updating']) {
+      type['updating'] = true;
+    } else {
+      type['updating'] = false;
+      this.formData = new FormData();
+      this.formData.append('name', type['name']);
+      this.formData.append('description', type['description']);
+      console.log('formdata',this.formData);
+      this.adminService.updateServiceType(this.formData, type._id).subscribe(
+        (res) => {
+          console.log('res',res);
+          this.toastr.success(res.message);
+          this.formData = new FormData();
+          this.imageSrc = '';
+        },
+        (err) => {
+          this.imageSrc = '';
+          console.log('error',err);
+          this.toastr.error(err.error.message);
+        },
+        () => {}
+      );
+    }
+  }
+
+
   deleteCategory(type: EquipmentType, categoryName: string) {
     Swal.fire({
       title: this.translate.instant('delete_category') + ' ' + type.name + '?',
@@ -411,10 +486,13 @@ export class AdminComponent implements OnInit {
       );
   }
   openUpdatePopup(i) {
-    this.imageSrc = '';
+    initForm();
+    //this.imageSrc = '';
     this.selectedBoat = i;
+    console.log('i',i);
     $('#updateBtn').click();
   }
+
   toggleProviderStatus(i: number) {
     this.adminService
       .updateUserStatus(
@@ -432,4 +510,5 @@ export class AdminComponent implements OnInit {
         }
       );
   }
+
 }

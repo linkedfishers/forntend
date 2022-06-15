@@ -16,7 +16,6 @@
   </div>
   <!-- /SECTION HEADER INFO -->
 </div>
-<!-- /SECTION HEADER -->
 
 <!-- GRID -->
 <div class="grid" id="grid">
@@ -154,6 +153,36 @@
       <!-- PROMO LINE ACTIONS -->
       <div class="promo-line-actions">
         <!-- FORM INPUT -->
+        <!-- /SECTION HEADER -->
+    <!--*****************************  -->
+    <div class="form-row" style="margin-top: 15px !important">
+      <div class="form-item">
+        <div class="form-select">
+          <label for="item-description">Service Country</label>
+          <select
+          [(ngModel)]="newService.country"
+            name="country-name"
+            class="scroll"
+            placeholder="Select a Country"
+          >
+            <option value="" selected>
+              Select the Country name
+            </option>
+            <option
+              *ngFor="let country of countries"
+              value="{{ country.name }}"
+            >
+              {{ country.name }}
+            </option>
+          </select>
+          <!-- FORM SELECT ICON -->
+          <svg class="form-select-icon icon-small-arrow">
+            <use xlink:href="#svg-small-arrow"></use>
+          </svg>
+          <!-- /FORM SELECT ICON -->
+        </div>
+      </div>
+    </div>
         <div class="form-input small">
           <label for="promo-code">Service name</label>
           <input

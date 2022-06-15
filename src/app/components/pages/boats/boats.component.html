@@ -80,7 +80,7 @@
                   cover no-repeat;
               "
             >
-              <img src="{{ boat?.image | picture }}" alt="item-01" />
+              <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
@@ -277,7 +277,7 @@
                         placeholder="Select a Country"
                       >
                         <option value="" selected>
-                          Select the Country name
+                          Select the Country nameee
                         </option>
                         <option
                           *ngFor="let country of countries"
@@ -581,6 +581,7 @@
             <a (click)="openFileInput()" [routerLink]="">update picture</a>
           </p>
           <input
+          [(ngModel)]="userBoats[selectedBoat]"
             id="postPhoto"
             type="file"
             style="display: none"
@@ -652,7 +653,7 @@
               <div class="form-item">
                 <!-- FORM SELECT -->
                 <div class="form-select">
-                  <label for="item-description">Boat type</label>
+                  <label for="item-description">Boat typeee</label>
                   <select
                     *ngIf="selectedBoat >= 0"
                     [(ngModel)]="userBoats[selectedBoat].type"

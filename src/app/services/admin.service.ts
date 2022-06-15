@@ -98,4 +98,13 @@ export class AdminService {
   updateBoatType(formData: FormData, id: string /* , catname:string */) {
     return this.httpClient.put<any>(`${this.API}/boat/${id}`, formData);
   }
+  updateEquipmentType(formData: FormData, id: string /* , catname:string */) {
+    return this.httpClient.put<any>(`${this.API}/equipmentType/${id}`, formData);
+  }
+  updateServiceType(formData: FormData, id: string /* , catname:string */) {
+    return this.httpClient.put<any>(`${this.API}/serviceType/${id}`, formData);
+  }
+  updateHebergementType(formData: FormData, id: string /* , catname:string */) {
+    return this.httpClient.put<any>(`${this.API}/hebrgementType/${id}`, formData);
+  }
 }

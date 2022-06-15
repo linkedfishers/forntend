@@ -916,9 +916,22 @@
           <!-- CREATE ENTITY BOX INFO -->
           <div class="create-entity-box-info">
             <!-- CREATE ENTITY BOX TITLE -->
-            <p class="create-entity-box-title">{{ productCategory?.name }}</p>
+            <p *ngIf="!productCategory?.updating" class="create-entity-box-title">
+              {{ productCategory?.name }}</p>
             <!-- /CREATE ENTITY BOX TITLE -->
-
+            <div *ngIf="productCategory?.updating" class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input small active">
+                <label for="item-name">Type name</label>
+                <input
+                  [(ngModel)]="productCategory.name"
+                  type="text"
+                  id="item-name"
+                  name="item_name"
+                />
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
             <!-- BUTTON -->
             <p
               (click)="deleteCategory(productCategory, 'productCategory')"
@@ -931,11 +944,12 @@
 
             <!-- BUTTON -->
             <p
+            (click)="updateCategory(productCategory, '')"
               id="updateBtn"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{ "update_category" | translate }}
+              {{ productCategory?.updating ? "save" : "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
           </div>
@@ -1018,17 +1032,35 @@
           <div class="create-entity-box-avatar primary">
             <!-- PRODUCT PREVIEW IMAGE -->
             <figure class="product-preview-image liquid">
-              <img [src]="API + equipmnentType.icon" alt="equipment" />
+              <img
+              *ngIf="!imageSrc"
+              [src]="API + equipmnentType?.icon"
+              alt="item-10"
+            />
             </figure>
+
             <!-- /PRODUCT PREVIEW IMAGE -->
           </div>
           <!-- /CREATE ENTITY BOX AVATAR -->
           <!-- CREATE ENTITY BOX INFO -->
           <div class="create-entity-box-info">
             <!-- CREATE ENTITY BOX TITLE -->
-            <p class="create-entity-box-title">{{ equipmnentType?.name }}</p>
+            <p *ngIf="!equipmnentType?.updating" class="create-entity-box-title">
+              {{ equipmnentType?.name }}</p>
             <!-- /CREATE ENTITY BOX TITLE -->
-
+            <div *ngIf="equipmnentType?.updating" class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input small active">
+                <label for="item-name">Type name</label>
+                <input
+                  [(ngModel)]="equipmnentType.name"
+                  type="text"
+                  id="item-name"
+                  name="item_name"
+                />
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
             <!-- BUTTON -->
             <p
               (click)="deleteCategory(equipmnentType, 'equipment')"
@@ -1042,10 +1074,11 @@
             <!-- BUTTON -->
             <p
               id="updateBtn"
+              (click)="updateCategoryEquipment(equipmnentType, '')"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{ "update_category" | translate }}
+            {{ equipmnentType?.updating ? "save" : "update_category" | translate}}
             </p>
             <!-- /BUTTON -->
           </div>
@@ -1117,8 +1150,7 @@
         <!-- CREATE ENTITY BOX -->
         <div
           *ngFor="let boatType of boatTypes; let i = index"
-          class="create-entity-box v2"
-        >
+          class="create-entity-box v2">
           <!-- CREATE ENTITY BOX COVER -->
           <div class="create-entity-box-cover"></div>
           <!-- /CREATE ENTITY BOX COVER -->
@@ -1169,7 +1201,7 @@
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{ boatType?.updating ? "save" : "Update Boat" }}
+              {{ boatType?.updating ? "save" : "update_category" | translate }}
             </p>
           </div>
           <!-- /CREATE ENTITY BOX INFO -->
@@ -1258,9 +1290,22 @@
           <!-- CREATE ENTITY BOX INFO -->
           <div class="create-entity-box-info">
             <!-- CREATE ENTITY BOX TITLE -->
-            <p class="create-entity-box-title">{{ hebergementType?.name }}</p>
+            <p *ngIf="!hebergementType?.updating"  class="create-entity-box-title">
+              {{ hebergementType?.name }}</p>
             <!-- /CREATE ENTITY BOX TITLE -->
-
+            <div *ngIf="hebergementType?.updating" class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input small active">
+                <label for="item-name">Type name</label>
+                <input
+                  [(ngModel)]="hebergementType.name"
+                  type="text"
+                  id="item-name"
+                  name="item_name"
+                />
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
             <!-- BUTTON -->
             <p
               (click)="deleteCategory(hebergementType, 'hebergement')"
@@ -1273,11 +1318,12 @@
 
             <!-- BUTTON -->
             <p
+            (click)="updateCategoryHebergement(hebergementType, '')"
               id="updateBtn"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{ "update_category" | translate }}
+            {{ hebergementType?.updating ? "save" : "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
           </div>
@@ -1412,9 +1458,22 @@
           <!-- CREATE ENTITY BOX INFO -->
           <div class="create-entity-box-info">
             <!-- CREATE ENTITY BOX TITLE -->
-            <p class="create-entity-box-title">{{ serviceType?.name }}</p>
+            <p  *ngIf="!serviceType?.updating"  class="create-entity-box-title">
+              {{ serviceType?.name }}</p>
             <!-- /CREATE ENTITY BOX TITLE -->
-
+            <div *ngIf="serviceType?.updating" class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input small active">
+                <label for="item-name">Type name</label>
+                <input
+                  [(ngModel)]="serviceType.name"
+                  type="text"
+                  id="item-name"
+                  name="item_name"
+                />
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
             <!-- BUTTON -->
             <p
               (click)="deleteCategory(serviceType, 'service')"
@@ -1427,11 +1486,12 @@
 
             <!-- BUTTON -->
             <p
+            (click)="updateCategoryService(serviceType, '')"
               id="updateBtn"
               style="margin-top: 10px"
               class="button full popup-edit-hosting-trigger"
             >
-              {{ "update_category" | translate }}
+            {{ serviceType?.updating ? "save" : "update_category" | translate }}
             </p>
             <!-- /BUTTON -->
           </div>

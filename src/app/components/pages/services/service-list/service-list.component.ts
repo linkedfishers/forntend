@@ -9,10 +9,10 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-
+import * as countriesLib from 'i18n-iso-countries';
 declare var initForm, $: any;
 declare var initSidebar, initPopups: any;
-
+declare const require;
 @Component({
   selector: 'app-service-list',
   templateUrl: './service-list.component.html',
@@ -29,6 +29,7 @@ export class ServiceListComponent implements OnInit {
     private modalService: NgbModal
   ) {}
   readonly API: string = environment.apiUrl + '/';
+  countries = [];
   currentUser: User;
   services: Service[];
   serviceType: ServiceType;
@@ -51,6 +52,7 @@ export class ServiceListComponent implements OnInit {
       }
       this.initServices(typeId);
     });
+    this._getCoutries();
   }
   initServices(typeId: string) {
     this.newService = new Service();
@@ -153,6 +155,19 @@ export class ServiceListComponent implements OnInit {
       }
     });
   }
+  private _getCoutries() {
+    countriesLib.registerLocale(require('i18n-iso-countries/langs/en.json'));
+    this.countries = Object.entries(
+      countriesLib.getNames('en', { select: 'official' })
+    ).map((entry) => {
+      return {
+        id: entry[0],
+        name: entry[1],
+      };
+    });
+    console.log("countryyy",this.countries);
+  }
+
   onUpdateService() {
     this.formData = this.formData || new FormData();
     for (const key in this.services[this.selectedService]) {

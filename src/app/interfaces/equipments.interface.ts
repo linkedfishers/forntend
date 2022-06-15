@@ -41,6 +41,7 @@ export class Service {
   createdAt: any;
   reviews: any[];
   rating: number;
+  country: string;
   details: DetailServices = new DetailServices();
 }
 export class ServiceType {
