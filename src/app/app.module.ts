@@ -130,6 +130,7 @@ import { FirstscreenpageComponent } from './components/pages/firstscreenpage/fir
 import { VisiteguiderComponent } from './components/pages/visiteguider/visiteguider.component';
 import { MentionLegaleComponent } from './components/common/mention-legale/mention-legale.component';
 import { PConfComponent } from './components/common/p-conf/p-conf.component';
+
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -225,6 +226,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     VisiteguiderComponent,
     MentionLegaleComponent,
     PConfComponent,
+
   ],
 
   imports: [

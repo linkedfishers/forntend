@@ -1,4 +1,4 @@
-<app-spalshscreen></app-spalshscreen>
+<!-- <app-spalshscreen></app-spalshscreen> -->
 <div class="container">
   <video
     [muted]="true"
@@ -10,7 +10,38 @@
     id="video"
   ></video>
   <div class="row height-div">
-    <div *ngIf="!ishidden" class="second-div">
+    <div class="paragraphe">
+      <p>Linkedfishers, la première plateforme dédiée aux
+        expériences nautiques et la pêche de plaisance.</p>
+        <p>Lancement imminent sur:</p>
+        <span>web, Android et iOS</span> <br>
+        <p class="image">
+          <img src="../../../assets/img/wb.png" alt="web">
+          <img src="../../../assets/img/android.png" alt="android">
+          <img src="../../../assets/img/ios.png" alt="ios">
+        </p>
+    </div>
+
+    <div class="contact">
+      <P>Contactez nous:</P>
+      <div>
+        <div class="info">
+          <img src="../../../assets/img/fb.png" alt="web">
+
+          <a href="https://www.facebook.com/Linkedfishers-
+          233713955243900/">https://www.facebook.com/Linkedfishers-
+          233713955243900/</a>
+        </div>
+
+        <div class="info">
+          <img src="../../../assets/img/tll.png" alt="web">
+          <span>+216 96 600 9OO</span>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- <div *ngIf="!ishidden" class="second-div">
       <div class="slideInRight titles" (click)="boatList()">
         <div class="list-item">
           <img src="../../../../assets/img/homefolder/fishing-boat.png" />
@@ -129,6 +160,6 @@
           {{ "Access_the_site" | translate }}
         </button>
       </div>
-    </div>
+    </div>-->
   </div>
 </div>
