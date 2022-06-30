@@ -13,7 +13,7 @@ import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import * as countriesLib from 'i18n-iso-countries';
-
+import { FormBuilder, FormGroup, Validators,  } from '@angular/forms';
 declare var initSidebar, initPopups, loadSvg: any;
 declare var initForm, $: any;
 declare var initAnimation, $: any;
@@ -29,11 +29,14 @@ export class HebergementsComponent implements OnInit {
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private translate: TranslateService,
-    private authService: AuthService
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
   ) {}
 
+  public homeForm: FormGroup;
   readonly API: string = environment.apiUrl + '/';
   countries = [];
+  images: any='';
   currentUser: User;
   formData: FormData;
   imageSrc: any;
@@ -44,6 +47,14 @@ export class HebergementsComponent implements OnInit {
   selectedHome = -1;
 
   ngOnInit(): void {
+    this.homeForm = this.formBuilder.group({
+      name: ['', Validators.required],
+     description: ['', Validators.required],
+      price : ['', Validators.required],
+      type : ['', Validators.required],
+      images : [''],
+      country : [''],
+});
     /*     initAnimation();
      */ initSidebar();
     initPopups();
@@ -90,14 +101,17 @@ export class HebergementsComponent implements OnInit {
 
   fileChange(event) {
     this.imageSrc = '';
+    var files = [];
     let fileList: FileList = event.target.files;
+    console.log("filelist",fileList);
     this.formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
+      console.log("el",fileList[i]);
       const el = fileList[i];
-      console.log(el);
-
-      this.formData.append('files', el);
+      this.images=el;
+      this.formData.append('files', this.images);
     }
+
     const reader = new FileReader();
     reader.onload = (e) => {
       this.imageSrc = e.target['result'];
@@ -191,11 +205,16 @@ export class HebergementsComponent implements OnInit {
 
   updateHebergement() {
     this.formData = this.formData || new FormData();
-    for (const key in this.userHomes[this.selectedHome]) {
+   /*  for (const key in this.userHomes[this.selectedHome]) {
       if (this.userHomes[this.selectedHome].hasOwnProperty(key)) {
         this.formData.append(key, this.userHomes[this.selectedHome][key]);
       }
-    }
+    } */
+    this.formData.append('name', this.userHomes[this.selectedHome].name);
+    this.formData.append('price',JSON.stringify(this.userHomes[this.selectedHome].price) );
+    this.formData.append('description', this.userHomes[this.selectedHome].description);
+    this.formData.append('type', this.userHomes[this.selectedHome].type);
+    this.formData.append('country', this.userHomes[this.selectedHome].country);
     if (this.userHomes[this.selectedHome].position) {
       this.formData.append(
         'lat',
@@ -210,10 +229,19 @@ export class HebergementsComponent implements OnInit {
       .updateHebergement(this.formData, this.userHomes[this.selectedHome]._id)
       .subscribe(
         (res) => {
+          console.log(res);
           this.toastr.success(res.message);
           this.formData = new FormData();
-          this.newHome = new Hebergement();
-          this.imageSrc = '';
+          //this.newHome = new Hebergement();
+          //this.imageSrc = '';$
+          this.equipmentService.getHebergementsByUser(this.currentUser._id).subscribe(
+            (res) => {
+              this.userHomes = res.data;
+            },
+            (err) => {
+              this.toastr.error('Error while loading homes');
+            }
+          );
         },
         (err) => {
           this.imageSrc = '';

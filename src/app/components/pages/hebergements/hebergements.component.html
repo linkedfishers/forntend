@@ -758,7 +758,7 @@
         <!-- WIDGET BOX CONTENT -->
         <div class="widget-box-content">
           <!-- FORM -->
-          <form class="form">
+          <form class="form"  [formGroup]="homeForm">
             <!-- FORM ROW -->
             <div class="form-row">
               <!-- FORM ITEM -->
@@ -767,6 +767,7 @@
                 <div class="form-input small active">
                   <label for="item-name">Hebergement Name</label>
                   <input
+                    formControlName="name"
                     *ngIf="selectedHome >= 0"
                     [(ngModel)]="userHomes[selectedHome].name"
                     type="text"
@@ -787,6 +788,7 @@
                 <div class="form-input small active">
                   <label for="item-name">Hebergement Price</label>
                   <input
+                    formControlName="price"
                     min="0"
                     *ngIf="selectedHome >= 0"
                     [(ngModel)]="userHomes[selectedHome].price"
@@ -808,6 +810,7 @@
                 <div class="form-select">
                   <label for="item-description">Hebergement type</label>
                   <select
+                    formControlName="type"
                     *ngIf="selectedHome >= 0"
                     [(ngModel)]="userHomes[selectedHome].type"
                     name="hebergement-name"
@@ -835,10 +838,41 @@
             <div class="form-row">
               <!-- FORM ITEM -->
               <div class="form-item">
+                <!-- FORM SELECT -->
+                <div class="form-select">
+                  <label for="item-description">Country type</label>
+                  <select
+                    *ngIf="selectedHome >= 0"
+                    formControlName="country"
+                    [(ngModel)]="userHomes[selectedHome].country"
+                    name="country-name">
+                    <option value="" selected>Select Country type</option>
+                    <option
+                    *ngFor="let country of countries"
+                    value="{{ country.name }}">
+                    {{ country.name }}
+                  </option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+              </div>
+              <!-- /FORM ITEM -->
+            </div>
+
+
+            <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
                   <label for="item-description">Hebergement description</label>
                   <input
+                    formControlName="description"
                     *ngIf="selectedHome >= 0"
                     [(ngModel)]="userHomes[selectedHome].description"
                     type="text"

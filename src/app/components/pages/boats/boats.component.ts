@@ -31,7 +31,7 @@ export class BoatsComponent implements OnInit {
   ) {}
 
   readonly API: string = environment.apiUrl + '/';
-  boatCredentials = { name: '',description:'' ,price:'' ,type:'',image:'',country:''};
+ 
   public boatForm: FormGroup;
   countries = [];
   currentUser: User;
@@ -239,7 +239,7 @@ export class BoatsComponent implements OnInit {
       }
     } */
 
-    
+
     if (this.userBoats[this.selectedBoat].position) {
       this.formData.append('lat',this.userBoats[this.selectedBoat].position['lat'] );
       this.formData.append('lng',this.userBoats[this.selectedBoat].position['lng']);
