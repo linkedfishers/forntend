@@ -78,8 +78,8 @@ export class ChekoutPageComponent implements OnInit {
       email: ['', [Validators.email, Validators.required]],
       phone: [, Validators.required],
       city: ['', Validators.required],
-      country: ['' /* , Validators.required */],
-      zip: [, Validators.required],
+      country: [''],
+      zip: ['', Validators.required],
       apartment: ['', Validators.required],
       street: ['', Validators.required],
     });

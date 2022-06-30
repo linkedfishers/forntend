@@ -36,7 +36,12 @@
                   cover no-repeat;
               "
             >
-              <img src="{{ eq?.image | picture }}" alt="item-01" />
+
+              <img
+              [src]="eq.image ? API + eq.image : API + eq.images[0]"
+              alt="item-01"
+              class="imgprod"
+            />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->

@@ -11,6 +11,7 @@ export class Product {
   owner: Provider;
   type: Categorie;
   createdAt: any;
+  country:string;
 }
 
 export class Categorie {

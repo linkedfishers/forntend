@@ -1,18 +1,6 @@
 <!-- CONTENT GRID -->
 <div class="content-grid">
-  <!--   <div class="section-banner">
 
-        <img class="section-banner-icon" src="../../../../assets/img/banner/marketplace-icon.png" alt="accounthub-icon">
-
-
-        <p class="section-banner-title">Host your home!</p>
-
-
-
-        <p class="section-banner-text">Manage your homes</p>
-    </div> -->
-
-  <!-- GRID -->
   <div class="grid medium-space">
     <!-- GRID COLUMN -->
     <div class="account-hub-content">
@@ -83,23 +71,18 @@
 
         <!-- PRODUCT PREVIEW -->
         <div
-          *ngFor="let home of userEquipment; let i = index"
+          *ngFor="let equipment of userEquipment; let i = index"
           class="product-preview fixed-height"
         >
           <!-- PRODUCT PREVIEW IMAGE -->
           <a
-            [routerLink]="['/details-home', home._id]"
+            [routerLink]="['/details-equipment', equipment._id]"
             routerLinkActive="router-link-active"
           >
-            <figure class="product-preview-image liquid">
-              <img
-                [src]="
-                  home.image
-                    ? API + home.image
-                    : '../../../../assets/img/fishing-home-header.png'
-                "
-                alt="item-01"
-              />
+          <figure
+          class="product-preview-image liquid"
+        >
+        <img src="{{ equipment?.images[0] | picture }}" alt="item-01" />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
@@ -108,20 +91,20 @@
           <div class="product-preview-info">
             <!-- TEXT STICKER -->
             <p class="text-sticker">
-              <span class="highlighted">$</span> {{ home?.price }}
+              <span class="highlighted">$</span> {{ equipment?.price }}
             </p>
             <!-- /TEXT STICKER -->
 
             <!-- PRODUCT PREVIEW TITLE -->
             <p class="product-preview-title">
-              <a [routerLink]="['/details-home', home._id]">{{ home?.name }}</a>
+              <a [routerLink]="['/details-equipment', equipment._id]">{{ equipment?.name }}</a>
             </p>
             <!-- /PRODUCT PREVIEW TITLE -->
 
             <!-- PRODUCT PREVIEW CATEGORY -->
             <p class="product-preview-category digital">
-              <a [routerLink]="['/details-home', home._id]"
-                >{{ home?.description }}</a
+              <a [routerLink]="['/details-equipment', equipment._id]"
+                >{{ equipment?.description }}</a
               >
             </p>
             <!-- /PRODUCT PREVIEW CATEGORY -->
@@ -172,14 +155,14 @@
       <div class="product-preview">
         <!-- PRODUCT PREVIEW IMAGE -->
         <a (click)="openFileInput()" [routerLink]="">
-          <figure class="product-preview-image liquid">
-            <img
-              *ngIf="!imgSrc"
-              src="../../../../assets/img/fishing-home-header.png"
-              alt="item-10"
-            />
-            <img *ngIf="imgSrc" [src]="imgSrc" alt="item-10" />
-          </figure>
+
+            <figure class="product-preview-image liquid">
+              <img
+                *ngIf="!imgSrc"
+                [src]="API + userEquipment[selectedEquipment]?.images[0]" alt="item-10"/>
+              <img *ngIf="imgSrc" [src]="imgSrc" alt="item-10" />
+            </figure>
+
         </a>
         <!-- /PRODUCT PREVIEW IMAGE -->
 
@@ -285,7 +268,7 @@
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
-  
+
             <div class="form-row" style="margin-top: 15px !important">
               <div class="form-item">
                 <div class="form-select">
@@ -318,9 +301,9 @@
             <!-- ************************************ -->
 
             <!-- /FORM SELECT -->
-        
+
           <!-- /FORM ITEM -->
-        
+
         <!-- /FORM ROW -->
             <div class="form-row">
               <!-- FORM ITEM -->
@@ -422,7 +405,7 @@
           <figure class="product-preview-image liquid">
             <img
               *ngIf="!imgSrc"
-              [src]="API + userEquipment[selectedEquipment]?.image" alt="item-10"/>
+              [src]="API + userEquipment[selectedEquipment]?.images[0]" alt="item-10"/> -->
             <img *ngIf="imgSrc" [src]="imgSrc" alt="item-10" />
           </figure>
         </a>
@@ -533,6 +516,34 @@
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
+            <div class="form-row" style="margin-top: 15px !important">
+              <div class="form-item">
+                <div class="form-select">
+                  <label for="item-description">Equipment Country</label>
+                  <select
+                    [(ngModel)]="newEquipement.country"
+                    name="country-name"
+                    class="scroll"
+                    placeholder="Select a Country"
+                  >
+                    <option value="" selected>
+                      Select the Country name
+                    </option>
+                    <option
+                      *ngFor="let country of countries"
+                      value="{{ country.name }}"
+                    >
+                      {{ country.name }}
+                    </option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+              </div>
+            </div>
 
             <div class="form-row">
               <!-- FORM ITEM -->

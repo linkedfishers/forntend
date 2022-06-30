@@ -37,6 +37,7 @@ export class HebergementsComponent implements OnInit {
   currentUser: User;
   formData: FormData;
   imageSrc: any;
+  home: Hebergement ;
   newHome: Hebergement;
   userHomes: Hebergement[] = [];
   hebergementTypes: HebergementType[] = [];

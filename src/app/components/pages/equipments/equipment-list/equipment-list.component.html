@@ -67,12 +67,8 @@
                   routerLinkActive="router-link-active"
                 >
                   <figure class="product-preview-image liquid">
-                    <img
-                      [src]="
-                        equipment?.image
-                          ? API + equipment?.image
-                          : API + equipmentType.icon
-                      "
+                    <img [src]="equipment?.image ? API + equipment?.image : API + equipment.image[0]"
+                    class="imgprod"
                     />
                   </figure>
                 </a>

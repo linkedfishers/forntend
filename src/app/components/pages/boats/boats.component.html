@@ -73,11 +73,10 @@
           <!-- PRODUCT PREVIEW IMAGE -->
           <a [routerLink]="['/details-boat', boat._id]">
             <figure
-              class="product-preview-image liquid"
-
-            >
+              class="product-preview-image liquid">
               <img src="{{ boat?.images[0] | picture }}" alt="item-01" />
             </figure>
+
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
 
@@ -555,7 +554,7 @@
             <img
               *ngIf="!imageSrc"
               [src]="API + userBoats[selectedBoat]?.images[0]"
-              alt="item-10"
+              alt="image"
             />
             <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
           </figure>
@@ -574,11 +573,11 @@
             <a (click)="openFileInput()" [routerLink]="">update picture</a>
           </p>
           <input
-            id="postPhoto"
-            type="file"
-            style="display: none"
-            multiple
-            (change)="fileChange($event)"
+          id="postPhoto"
+          type="file"
+          style="display: none"
+          multiple
+          (change)="fileChange($event)"
           />
 
           <!-- /PRODUCT PREVIEW TITLE -->
@@ -619,17 +618,19 @@
         <!-- WIDGET BOX CONTENT -->
         <div class="widget-box-content">
           <!-- FORM -->
-          <form class="form">
+          <form class="form" [formGroup]="boatForm">
             <!-- FORM ROW -->
             <div class="form-row">
               <!-- FORM ITEM -->
               <div class="form-item">
                 <!-- FORM INPUT -->
                 <div class="form-input small active">
-                  <label for="item-name">Boat Name</label>
+                  <label for="item-name">Boat Namee</label>
                   <input
-                    *ngIf="selectedBoat >= 0"
+                  *ngIf="selectedBoat >= 0"
+                    formControlName="name"
                     [(ngModel)]="userBoats[selectedBoat].name"
+                    value="{{userBoats[selectedBoat].name}}"
                     type="text"
                     id="item-name"
                     name="item_name"
@@ -648,6 +649,7 @@
                   <label for="item-description">Boat type</label>
                   <select
                     *ngIf="selectedBoat >= 0"
+                    formControlName="type"
                     [(ngModel)]="userBoats[selectedBoat].type"
                     name="boat-name"
                   >
@@ -671,6 +673,37 @@
             </div>
             <!-- /FORM ROW -->
 
+
+            <div class="form-row">
+              <!-- FORM ITEM -->
+              <div class="form-item">
+                <!-- FORM SELECT -->
+                <div class="form-select">
+                  <label for="item-description">Country type</label>
+                  <select
+                    *ngIf="selectedBoat >= 0"
+                    formControlName="country"
+                    [(ngModel)]="userBoats[selectedBoat].country"
+                    name="country-name">
+                    <option value="" selected>Select Country type</option>
+                    <option
+                    *ngFor="let country of countries"
+                    value="{{ country.name }}">
+                    {{ country.name }}
+                  </option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+              </div>
+              <!-- /FORM ITEM -->
+            </div>
+
+
             <div class="form-row split">
               <div class="form-item">
                 <!-- FORM INPUT -->
@@ -679,6 +712,7 @@
                   <input
                     min="0"
                     *ngIf="selectedBoat >= 0"
+                    formControlName="price"
                     [(ngModel)]="userBoats[selectedBoat].price"
                     type="number"
                     id="item-name"
@@ -700,6 +734,7 @@
                   <label for="item-files" class="active">Description</label>
                   <textarea
                     *ngIf="selectedBoat >= 0"
+                    formControlName="description"
                     [(ngModel)]="userBoats[selectedBoat].description"
                     id="item-files"
                     name="item_files"
@@ -718,6 +753,7 @@
                 <div class="form-input small mid-textarea">
                   <app-map-box
                     *ngIf="selectedBoat >= 0"
+
                     [(position)]="userBoats[selectedBoat].position"
                   ></app-map-box>
                 </div>

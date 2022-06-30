@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import * as countriesLib from 'i18n-iso-countries';
 import { TranslateService } from '@ngx-translate/core';
-
+import { FormBuilder, FormGroup, Validators,  } from '@angular/forms';
 declare var initSidebar, initPopups: any, loadSvg: any;
 declare var initForm, $: any;
 declare const require;
@@ -26,22 +26,33 @@ export class BoatsComponent implements OnInit {
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private authService: AuthService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private formBuilder: FormBuilder,
   ) {}
 
   readonly API: string = environment.apiUrl + '/';
-
+  boatCredentials = { name: '',description:'' ,price:'' ,type:'',image:'',country:''};
+  public boatForm: FormGroup;
   countries = [];
   currentUser: User;
   formData: FormData;
   imageSrc: any;
-  images: any[] = [];
+  images: any='';
   newBoat: Boat;
   userBoats: Boat[] = [];
   selectedBoat = -1;
   boatTypes: BoatType[] = [];
 
   ngOnInit(): void {
+
+    this.boatForm = this.formBuilder.group({
+          name: ['', Validators.required],
+         description: ['', Validators.required],
+          price : ['', Validators.required],
+          type : ['', Validators.required],
+          images : [''],
+          country : [''],
+    });
     this.currentUser = this.authService.getCurrentUser();
     this._getCoutries();
     this.newBoat = new Boat();
@@ -89,12 +100,15 @@ export class BoatsComponent implements OnInit {
   } */
   fileChange(event) {
     this.imageSrc = '';
+    var files = [];
     let fileList: FileList = event.target.files;
+    console.log("filelist",fileList);
     this.formData = new FormData();
     for (let i = 0; i < fileList.length; i++) {
+      console.log("el",fileList[i]);
       const el = fileList[i];
-      console.log(el);
-      this.formData.append('files', el);
+      this.images=el;
+      this.formData.append('files', this.images);
     }
 
     const reader = new FileReader();
@@ -152,6 +166,7 @@ export class BoatsComponent implements OnInit {
       this.formData.append('lng', this.newBoat.position['lng']);
     }
     this.formData.append('details', JSON.stringify(this.newBoat.details));
+    console.log('details', JSON.stringify(this.newBoat.details))
     this.equipmentService.createBoat(this.formData).subscribe(
       (res) => {
         this.userBoats.unshift(res.data);
@@ -218,29 +233,47 @@ export class BoatsComponent implements OnInit {
 
   async updateBoat() {
     this.formData = this.formData || new FormData();
-    for (const key in this.userBoats[this.selectedBoat]) {
+   /*  for (const key in this.userBoats[this.selectedBoat]) {
       if (this.userBoats[this.selectedBoat].hasOwnProperty(key)) {
         this.formData.append(key, this.userBoats[this.selectedBoat][key]);
       }
-    }
+    } */
+
+    
     if (this.userBoats[this.selectedBoat].position) {
-      this.formData.append(
-        'lat',
-        this.userBoats[this.selectedBoat].position['lat']
-      );
-      this.formData.append(
-        'lng',
-        this.userBoats[this.selectedBoat].position['lng']
-      );
+      this.formData.append('lat',this.userBoats[this.selectedBoat].position['lat'] );
+      this.formData.append('lng',this.userBoats[this.selectedBoat].position['lng']);
     }
-    this.equipmentService
-      .updateBoat(this.formData, this.userBoats[this.selectedBoat]._id)
-      .subscribe(
+
+    this.formData.append('name', this.userBoats[this.selectedBoat].name);
+    this.formData.append('price',JSON.stringify(this.userBoats[this.selectedBoat].price) );
+    this.formData.append('description', this.userBoats[this.selectedBoat].description);
+    this.formData.append('type', this.userBoats[this.selectedBoat].type);
+    this.formData.append('country', this.userBoats[this.selectedBoat].country);
+    /*  const boat = new Boat();
+      boat.name= this.userBoats[this.selectedBoat].name;
+      boat.price=+ this.userBoats[this.selectedBoat].price;
+      boat.images= this.images;
+      boat.description= this.userBoats[this.selectedBoat].description;
+      boat.type= this.userBoats[this.selectedBoat].type;
+      boat.country= this.userBoats[this.selectedBoat].country;
+      console.log(boat); */
+    this.equipmentService.updateBoat(this.formData, this.userBoats[this.selectedBoat]._id).subscribe(
         (res) => {
+          console.log('res',res.data);
           this.toastr.success(res.message);
           this.formData = new FormData();
-          this.userBoats[this.selectedBoat] = new Boat();
-          this.imageSrc = '';
+         //this.userBoats[this.selectedBoat] = res.data;
+          //this.imageSrc = '';
+          this.equipmentService.getBoatsByUser(this.currentUser._id).subscribe(
+            (res) => {
+              this.userBoats = res.data;
+              console.log("user boat",this.userBoats);
+            },
+            (err) => {
+              this.toastr.error('Error while loading boats');
+            }
+          );
         },
         (err) => {
           this.imageSrc = '';

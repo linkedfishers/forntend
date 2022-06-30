@@ -93,11 +93,7 @@
           >
             <figure class="product-preview-image liquid">
               <img
-                [src]="
-                  home.image
-                    ? API + home.image
-                    : '../../../../assets/img/fishing-home-header.png'
-                "
+                src="{{home?.images[0] | picture }} "
                 alt="item-01"
               />
             </figure>
@@ -173,9 +169,7 @@
           <figure class="product-preview-image liquid">
             <img
               *ngIf="!imageSrc"
-              src="../../../../assets/img/fishing-home-header.png"
-              alt="item-10"
-            />
+              [src]="API + userHomes[selectedHome]?.images[0]" alt="item-10"/>
             <img *ngIf="imageSrc" [src]="imageSrc" alt="item-10" />
           </figure>
         </a>
@@ -271,7 +265,7 @@
             <div class="form-row" style="margin-top: 15px !important">
               <div class="form-item">
                 <div class="form-select">
-                  <label for="item-description">Boat Country</label>
+                  <label for="item-description">Home Country</label>
                   <select
                     [(ngModel)]="newHome.country"
                     name="country-name"
@@ -696,7 +690,7 @@
           <figure class="product-preview-image liquid">
             <img
               *ngIf="!imageSrc"
-              [src]="API + userHomes[selectedHome]?.image"
+              [src]="API + userHomes[selectedHome]?.images[0]"
             />
             <img *ngIf="imageSrc" [src]="imageSrc" />
           </figure>

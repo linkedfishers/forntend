@@ -11,7 +11,8 @@ export class Equipment {
   price: number = 0;
   owner: any;
   type: any;
-  image: any;
+  image: string;
+  images: any[] = [];
   description: string;
   country: string
   position: any;
@@ -35,6 +36,7 @@ export class Service {
   owner: any;
   type: any;
   image: any;
+  images: any[] = [];
   description: string;
   position: any;
   isAvailable: boolean;
@@ -75,6 +77,7 @@ export class Hebergement {
   owner: any;
   country: string;
   image: any;
+  images: any[] = [];
   description: string;
   isAvailable: boolean;
   adress: string;

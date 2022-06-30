@@ -33,6 +33,8 @@ export class EquipmentpecheComponent implements OnInit {
   currentUser: User;
   formData: FormData;
   imgSrc: any;
+  equipment:Equipment;
+  images: any[] = [];
   newEquipement: Equipment;
   userEquipment: Equipment[] = [];
   equipmentTypes: EquipmentType[] = [];
@@ -108,7 +110,7 @@ export class EquipmentpecheComponent implements OnInit {
         console.log(err);
         this.toastr.error(err.error.message);
       },
-     
+
     );
   }
 
@@ -166,6 +168,7 @@ export class EquipmentpecheComponent implements OnInit {
         this.userEquipment[this.selectedEquipment].position['lng']
       );
     }
+    this.formData.append('details', JSON.stringify(this.userEquipment[this.selectedEquipment]));
     this.equipmentService
       .updateEquipment(
         this.formData,
@@ -183,7 +186,7 @@ export class EquipmentpecheComponent implements OnInit {
           console.log(err);
           this.toastr.error(err.error.message);
         },
-   
+
       );
   }
   openUpdatePopup(i) {

@@ -15,7 +15,8 @@ declare var initSidebar, initPopups, loadSvg: any;
 export class ListEquipmentsComponent implements OnInit {
   constructor(private equipementService: EquipmentService) {}
   readonly API: string = environment.apiUrl + '/';
-
+  images: any[] = [];
+  image: any ;
   equipments: Equipment[];
   equipmentType: EquipmentType[];
   visibleequipments: Equipment[];
@@ -27,7 +28,7 @@ export class ListEquipmentsComponent implements OnInit {
     loadSvg();
     this.equipementService.getEquipments().subscribe((res) => {
       this.equipments = res.data;
-   
+
     });
     this.equipementService.getEquipmentTypes().subscribe((res) => {
       this.equipmentType = res.data;
