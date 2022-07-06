@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/interfaces/users.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
-
+import { FormBuilder, FormGroup, Validators,  } from '@angular/forms';
 declare var initSidebar, initPopups, loadSvg: any;
 declare var initForm, $: any;
 declare const require;
@@ -25,9 +25,10 @@ export class EquipmentpecheComponent implements OnInit {
     private equipmentService: EquipmentService,
     private toastr: ToastrService,
     private translate: TranslateService,
-    private authService: AuthService
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
   ) {}
-
+  public equipmentForm: FormGroup;
   readonly API: string = environment.apiUrl + '/';
   countries = [];
   currentUser: User;
@@ -40,6 +41,14 @@ export class EquipmentpecheComponent implements OnInit {
   equipmentTypes: EquipmentType[] = [];
   selectedEquipment = -1;
   ngOnInit(): void {
+    this.equipmentForm = this.formBuilder.group({
+      name: ['', Validators.required],
+     description: ['', Validators.required],
+      price : ['', Validators.required],
+      type : ['', Validators.required],
+      images : [''],
+      country : [''],
+});
       initSidebar();
       this._getCoutries();
       initPopups();
@@ -53,6 +62,7 @@ export class EquipmentpecheComponent implements OnInit {
     this.equipmentService.getEquipmentsByUser(this.currentUser._id).subscribe(
       (res) => {
         this.userEquipment = res.data;
+        console.log("res",res);
       },
       (err) => {
         this.toastr.error('Error while loading Equipment types');
@@ -150,36 +160,41 @@ export class EquipmentpecheComponent implements OnInit {
   }
   updateEquipment() {
     this.formData = this.formData || new FormData();
-    for (const key in this.userEquipment[this.selectedEquipment]) {
+  /*   for (const key in this.userEquipment[this.selectedEquipment]) {
       if (this.userEquipment[this.selectedEquipment].hasOwnProperty(key)) {
         this.formData.append(
           key,
           this.userEquipment[this.selectedEquipment][key]
         );
       }
-    }
+    } */
     if (this.userEquipment[this.selectedEquipment].position) {
-      this.formData.append(
-        'lat',
-        this.userEquipment[this.selectedEquipment].position['lat']
-      );
-      this.formData.append(
-        'lng',
-        this.userEquipment[this.selectedEquipment].position['lng']
-      );
+      this.formData.append('lat',this.userEquipment[this.selectedEquipment].position['lat']);
+      this.formData.append('lng',this.userEquipment[this.selectedEquipment].position['lng']);
     }
-    this.formData.append('details', JSON.stringify(this.userEquipment[this.selectedEquipment]));
-    this.equipmentService
-      .updateEquipment(
-        this.formData,
-        this.userEquipment[this.selectedEquipment]._id
-      )
-      .subscribe(
-        (res) => {
+
+    this.formData.append('name', this.userEquipment[this.selectedEquipment].name);
+    this.formData.append('price',JSON.stringify(this.userEquipment[this.selectedEquipment].price) );
+    this.formData.append('description', this.userEquipment[this.selectedEquipment].description);
+    this.formData.append('type', this.userEquipment[this.selectedEquipment].type);
+    this.formData.append('country', this.userEquipment[this.selectedEquipment].country);
+
+    /* this.formData.append('details', JSON.stringify(this.userEquipment[this.selectedEquipment])); */
+    this.equipmentService.updateEquipment(this.formData,this.userEquipment[this.selectedEquipment]._id)
+      .subscribe((res) => {
+          console.log('res',res.data);
           this.toastr.success(res.message);
           this.formData = new FormData();
-          this.newEquipement = new Equipment();
-          this.imgSrc = '';
+         /*  this.newEquipement = new Equipment();
+          this.imgSrc = ''; */
+          this.equipmentService.getEquipmentsByUser(this.currentUser._id).subscribe(
+            (res) => {
+              this.userEquipment = res.data;
+            },
+            (err) => {
+              this.toastr.error('Error while loading Equipment types');
+            }
+          );
         },
         (err) => {
           this.imgSrc = '';

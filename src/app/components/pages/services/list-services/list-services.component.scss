@@ -2,7 +2,7 @@
   display: flex;
   max-width: 1200px;
   margin: 20px auto;
-  justify-content: space-around;
+  justify-content: flex-start !important;
   flex-wrap: wrap;
 }
 .widthprod {
@@ -12,3 +12,36 @@
   width: 1200px;
 }
  */
+/* .pad {
+  padding: 20px !important;
+}
+ */
+ .content-grid {
+  padding: 80px !important;
+}
+
+.title-search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.input-radio {
+  margin-right: 15px !important;
+  cursor: pointer !important;
+  color: blue;
+}
+
+li {
+  font-weight: 600;
+}
+.split {
+  display: block !important;
+  margin-top: 20px;
+}
+.form-select {
+  margin-bottom: 10px;
+}
+.scroll {
+  padding: 5px;
+  width: 50%;
+}

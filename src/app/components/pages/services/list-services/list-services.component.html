@@ -1,52 +1,204 @@
 <div
-  class="content-grid"
+  class="content-grid pad"
   style="
     transform: translate(360.5px, 0px);
     transition: transform 0.4s ease-in-out 0s;
   "
 >
   <!-- SECTION HEADER -->
-  <div class="section-header">
-    <!-- SECTION HEADER INFO -->
-    <div class="section-header-info">
-      <!-- SECTION PRETITLE -->
-      <p class="section-pretitle">Browse Freelancer</p>
-      <!-- /SECTION PRETITLE -->
-    </div>
-    <!-- /SECTION HEADER INFO -->
-  </div>
-  <!-- /SECTION HEADER -->
 
-  <!-- SECTION FILTERS BAR -->
+  <div></div>
 
-  <!-- /SECTION FILTERS BAR -->
+  <div class="grid grid-3-9 small-space">
+    <div class="marketplace-sidebar">
+      <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+          <!-- SECTION PRETITLE -->
+          <p class="section-pretitle">Search by :</p>
+          <!-- /SECTION PRETITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+      </div>
 
-  <!-- GRID -->
-  <div class="grid grid-12 small-space">
-    <!-- MARKETPLACE SIDEBAR -->
+      <!-- ************************ -->
 
-    <!-- /MARKETPLACE SIDEBAR -->
-
-    <!-- MARKETPLACE CONTENT -->
-    <div class="marketplace-content maxw">
-      <!-- GRID -->
-      <div class="grid grid-3-3-3 centered displayflef">
-        <!-- PRODUCT PREVIEW -->
-        <div
-          *ngFor="let boat of visibleservices"
-          class="product-preview widthprod"
+      <div>
+        <h6 class="title-search">Country:</h6>
+        <select
+          [(ngModel)]="countryName"
+          name="country-name"
+          class="scroll"
+          (click)="search()"
         >
+          <option value="" selected>Select the Country name</option>
+          <option *ngFor="let country of countries" value="{{ country.name }}">
+            {{ country.name }}
+          </option>
+        </select>
+        <!--  <input
+          (keyup.enter)="search()"
+          [(ngModel)]="countryName"
+          type="text"
+          id="search-main"
+          name="search_main"
+          placeholder="Search For Boat By country Name"
+        /> -->
+        <h6 class="title-search">Categories :</h6>
+        <ul>
+          <li *ngFor="let cat of catList">
+            <input
+              class="input-radio"
+              type="radio"
+              id="{{ cat._id }}"
+              name="check"
+              (change)="getProdLi($event)"
+            />{{ cat?.name }}
+          </li>
+          <li>
+            <input
+              class="input-radio"
+              type="radio"
+              id=""
+              name="check"
+              (change)="getAllProducts()"
+            />
+            All Services
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div>
+          <div class="section-filters-bar-actions">
+            <!-- FORM -->
+            <form class="form">
+              <!-- FORM ITEM -->
+              <div class="form-item split medium">
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-category">Filter By</label>
+                  <select
+                    [(ngModel)]="filterBy"
+                    id="items-filter-category"
+                    name="items_filter_category"
+                  >
+                    <option value="price">Price</option>
+                    <option value="createdAt">Date Published</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- FORM SELECT -->
+                <div class="form-select small">
+                  <label for="items-filter-order">Order By</label>
+                  <select
+                    [(ngModel)]="orderBy"
+                    id="items-filter-order"
+                    name="items_filter_order"
+                  >
+                    <option value="-1">Descending</option>
+                    <option value="1">Ascending</option>
+                  </select>
+                  <!-- FORM SELECT ICON -->
+                  <svg class="form-select-icon icon-small-arrow">
+                    <use xlink:href="#svg-small-arrow"></use>
+                  </svg>
+                  <!-- /FORM SELECT ICON -->
+                </div>
+                <!-- /FORM SELECT -->
+
+                <!-- BUTTON -->
+                <button (click)="applySortFilters()" class="button secondary">
+                  Apply Filters
+                </button>
+                <!-- /BUTTON -->
+              </div>
+              <!-- /FORM ITEM -->
+            </form>
+            <!-- /FORM -->
+          </div>
+        </div>
+        <div class="sidebar-box">
+          <!-- SIDEBAR BOX TITLE -->
+          <p class="sidebar-box-title">Price Range</p>
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items small-space">
+            <!-- FORM ITEM -->
+            <div class="form-item split">
+              <ngx-slider
+                (userChangeEnd)="updatePriceFilter()"
+                [(value)]="minPrice"
+                [(highValue)]="maxPrice"
+                [options]="options"
+              ></ngx-slider>
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+
+          <!-- SIDEBAR BOX TITLE -->
+          <!--         <p class="sidebar-box-title">categories</p>
+ -->
+          <!-- /SIDEBAR BOX TITLE -->
+
+          <!-- SIDEBAR BOX ITEMS -->
+          <div class="sidebar-box-items">
+            <!-- CHECKBOX LINE -->
+
+            <div class="checkbox-line display-bloc">
+              <!-- <div class="checkbox-wrap" *ngFor="let item of productCat">
+              <input
+                type="checkbox"
+                [value]="item.value"
+                (change)="onCbChange($event)"
+              />
+              <label for="{{ item.id }}"> {{ item.name }} </label>
+              <div class="checkbox-box round"></div>
+            </div> -->
+            </div>
+          </div>
+          <!-- /SIDEBAR BOX ITEMS -->
+        </div>
+      </div>
+
+      <!-- *************** -->
+    </div>
+    <div class="marketplace-content">
+      <div class="section-header">
+        <!-- SECTION HEADER INFO -->
+        <div class="section-header-info">
+          <!-- SECTION PRETITLE -->
+          <p class="section-pretitle" style="margin-bottom: 20px">
+            Browse Services
+          </p>
+          <!-- /SECTION PRETITLE -->
+        </div>
+        <!-- /SECTION HEADER INFO -->
+      </div>
+      <div class="grid grid-3-3-3 centered">
+        <div *ngIf="!services" class="m-auto" style="font-size: 36px">
+          <div class="text-center disably-3 mt-5">
+            <i class="fa fa-spinner"></i>
+          </div>
+        </div>
+        <!-- PRODUCT PREVIEW -->
+        <!--  <div *ngIf="boats"> -->
+        <div *ngFor="let service of services" class="product-preview widthprod">
           <!-- PRODUCT PREVIEW IMAGE -->
-          <a [routerLink]="['/details-service', boat?._id]">
-            <figure
-              class="product-preview-image liquid"
-              style="
-                border-radius: 2%;
-                background: url('img/marketplace/items/01.jpg') center center /
-                  cover no-repeat;
-              "
-            >
-              <img src="{{ boat?.image | picture }}" alt="item-01" />
+          <a [routerLink]="['/details-boat', service._id]">
+            <figure class="product-preview-image liquid">
+              <img
+                [src]="service.images[0] ? API + service.images[0] : API + service.image"
+                alt="item-01"
+              />
             </figure>
           </a>
           <!-- /PRODUCT PREVIEW IMAGE -->
@@ -55,14 +207,14 @@
           <div class="product-preview-info">
             <!-- TEXT STICKER -->
             <p class="text-sticker">
-              <span class="highlighted">DT</span> {{ boat?.price }}
+              {{ service?.price }} <span class="highlighted">DT</span>
             </p>
             <!-- /TEXT STICKER -->
 
             <!-- PRODUCT PREVIEW TITLE -->
             <p class="product-preview-title">
-              <a [routerLink]="['/details-boat', boat?._id]">{{
-                boat?.name
+              <a [routerLink]="['/details-service', service?._id]">{{
+                service?.name
               }}</a>
             </p>
             <!-- /PRODUCT PREVIEW TITLE -->
@@ -70,19 +222,19 @@
             <!-- PRODUCT PREVIEW CATEGORY -->
             <p class="product-preview-category digital">
               <a [routerLink]="" routerLinkActive="router-link-active">{{
-                boat?.type?.name
+                service?.type?.name
               }}</a>
             </p>
             <!-- /PRODUCT PREVIEW CATEGORY -->
 
             <!-- PRODUCT PREVIEW TEXT -->
-            <!--         <p class="product-preview-text">
-              {{
-                boat?.description.length > 100
-                  ? (boat?.description | slice: 0:100) + "..."
-                  : boat?.description
-              }}
-            </p> -->
+            <!--     <p class="product-preview-text">
+                {{
+                  boat?.description?.length > 100
+                    ? (boat?.description | slice: 0:100) + "..."
+                    : boat?.description
+                }}
+              </p> -->
             <!-- /PRODUCT PREVIEW TEXT -->
           </div>
           <!-- /PRODUCT PREVIEW INFO -->
@@ -94,7 +246,7 @@
               <!-- PRODUCT PREVIEW AUTHOR IMAGE -->
               <a
                 class="product-preview-author-image user-avatar micro no-border"
-                [routerLink]="['details-boat', boat?._id]"
+                [routerLink]="['details-service', service?._id]"
               >
                 <!-- USER AVATAR CONTENT -->
                 <div class="user-avatar-content">
@@ -184,6 +336,7 @@
           </div>
           <!-- /PRODUCT PREVIEW META -->
         </div>
+        <!--  </div> -->
         <!-- /PRODUCT PREVIEW -->
       </div>
       <!-- /GRID -->

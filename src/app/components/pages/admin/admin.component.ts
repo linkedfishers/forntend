@@ -298,6 +298,7 @@ export class AdminComponent implements OnInit {
   //   });
   // }
 
+
   updateBoatType() {
     this.formData = this.formData || new FormData();
     for (const key in this.userBoat[this.selectedBoat]) {

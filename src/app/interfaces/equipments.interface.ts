@@ -14,7 +14,7 @@ export class Equipment {
   image: string;
   images: any[] = [];
   description: string;
-  country: string
+  country: string;
   position: any;
   isAvailable: boolean;
   createdAt: any;
@@ -31,22 +31,23 @@ export class EquipmentType {
 }
 export class Service {
   _id: string;
-  name: string;
-  price: number = 0;
-  owner: any;
-  type: any;
-  image: any;
-  images: any[] = [];
-  description: string;
-  position: any;
-  isAvailable: boolean;
-  createdAt: any;
-  reviews: any[];
-  rating: number;
-  country: string;
-  details: DetailServices = new DetailServices();
-}
-export class ServiceType {
+   name: string;
+   country: string;
+   owner: any;
+   price: number = 0;
+   image: any;
+   images: any[];
+   description: string;
+   isAvailable: boolean;
+   createdAt: any;
+   position: any;
+   type: any;
+   reviews: any[];
+   rating: number;
+   details: DetailServices = new DetailServices();
+
+ }
+ export class ServiceType {
   _id: string;
   name: string;
   icon: string;
@@ -135,6 +136,7 @@ export class BoatDetails {
 export class DetailServices {
   capacity: number = 0;
   size: number = 0;
+  port: any;
   smokingAllowed: boolean = false;
   alcoholAllowed: boolean = false;
   partyAllowed: boolean = false;

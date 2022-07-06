@@ -472,7 +472,7 @@
         <!-- WIDGET BOX CONTENT -->
         <div class="widget-box-content">
           <!-- FORM -->
-          <form class="form">
+          <form class="form" [formGroup]="equipmentForm">
             <!-- FORM ROW -->
             <div class="form-row">
               <!-- FORM ITEM -->
@@ -484,6 +484,7 @@
                   }}</label>
                   <input
                     *ngIf="selectedEquipment >= 0"
+                    formControlName="name"
                     [(ngModel)]="userEquipment[selectedEquipment].name"
                     type="text"
                     id="item-name"
@@ -505,6 +506,7 @@
                   <input
                     min="0"
                     *ngIf="selectedEquipment >= 0"
+                    formControlName="price"
                     [(ngModel)]="userEquipment[selectedEquipment].price"
                     type="number"
                     id="item-name"
@@ -516,25 +518,26 @@
               <!-- /FORM ITEM -->
             </div>
             <!-- /FORM ROW -->
-            <div class="form-row" style="margin-top: 15px !important">
+
+
+
+            <div class="form-row">
+              <!-- FORM ITEM -->
               <div class="form-item">
+                <!-- FORM SELECT -->
                 <div class="form-select">
-                  <label for="item-description">Equipment Country</label>
+                  <label for="item-description">Country type</label>
                   <select
-                    [(ngModel)]="newEquipement.country"
-                    name="country-name"
-                    class="scroll"
-                    placeholder="Select a Country"
-                  >
-                    <option value="" selected>
-                      Select the Country name
-                    </option>
+                    *ngIf="selectedEquipment >= 0"
+                    formControlName="country"
+                    [(ngModel)]="userEquipment[selectedEquipment].country"
+                    name="country-name">
+                    <option value="" selected>Select Country type</option>
                     <option
-                      *ngFor="let country of countries"
-                      value="{{ country.name }}"
-                    >
-                      {{ country.name }}
-                    </option>
+                    *ngFor="let country of countries"
+                    value="{{ country.name }}">
+                    {{ country.name }}
+                  </option>
                   </select>
                   <!-- FORM SELECT ICON -->
                   <svg class="form-select-icon icon-small-arrow">
@@ -542,8 +545,11 @@
                   </svg>
                   <!-- /FORM SELECT ICON -->
                 </div>
+                <!-- /FORM SELECT -->
               </div>
+              <!-- /FORM ITEM -->
             </div>
+
 
             <div class="form-row">
               <!-- FORM ITEM -->
@@ -553,6 +559,7 @@
                   <label for="item-description">Equipment type</label>
                   <select
                     *ngIf="selectedEquipment >= 0"
+                    formControlName="type"
                     [(ngModel)]="userEquipment[selectedEquipment].type"
                     name="hebergement-name"
                   >
@@ -584,6 +591,7 @@
                   <label for="item-description">Equipment description</label>
                   <input
                     *ngIf="selectedEquipment >= 0"
+                    formControlName="description"
                     [(ngModel)]="userEquipment[selectedEquipment].description"
                     type="text"
                     id="item-description"

@@ -115,7 +115,7 @@
 
           "options": {
             "browserTarget": "seven-seas-frontend:build",
-            "ssl": true,
+            "ssl": false,
             "sslKey": "ssl/www.linkedfishers.com.key",
             "sslCert": "ssl/www.linkedfishers.com.pem"
           },
