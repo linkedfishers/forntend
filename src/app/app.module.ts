@@ -131,6 +131,9 @@ import { VisiteguiderComponent } from './components/pages/visiteguider/visitegui
 import { MentionLegaleComponent } from './components/common/mention-legale/mention-legale.component';
 import { PConfComponent } from './components/common/p-conf/p-conf.component';
 
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+
 export function momentAdapterFactory() {
   return adapterFactory(moment);
 }
@@ -240,6 +243,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatNativeDateModule,
     MatDatepickerModule,
     FormsModule,
+    MatMenuModule,
+    MatTabsModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule,

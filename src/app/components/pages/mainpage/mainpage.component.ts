@@ -19,13 +19,15 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./mainpage.component.scss'],
 })
 export class MainpageComponent implements OnInit {
+  accent="accent";
+
   constructor(
     private productService: ProductService,
     private adminservice: AdminService,
     private translate: TranslateService,
     private equipmentService: EquipmentService
   ) {
-    	this.responsiveOptions = [
+    	/* this.responsiveOptions = [
         {
           breakpoint: '1024px',
           numVisible: 3,
@@ -41,12 +43,12 @@ export class MainpageComponent implements OnInit {
           numVisible: 1,
           numScroll: 1,
         },
-      ];
+      ]; */
   }
   readonly API: string = environment.apiUrl + '/';
-  myStyle: object = {};
+/*   myStyle: object = {};
   myParams: object = {};
-  responsiveOptions;
+  responsiveOptions; */
 
   width: number = 100;
   height: number = 100;
@@ -72,7 +74,7 @@ export class MainpageComponent implements OnInit {
   photos: any;
   photoss: any = [];
   ngOnInit(): void {
-    this.myStyle = {
+    /* this.myStyle = {
       position: 'fixed',
       width: '100%',
       height: '100%',
@@ -96,7 +98,7 @@ export class MainpageComponent implements OnInit {
         },
       },
     };
-    this.productService
+     */this.productService
       ./* getProducts */ getSomeProducts()
       .subscribe((response) => {
         this.products = response.data;

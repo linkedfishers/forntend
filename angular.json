@@ -76,7 +76,8 @@
               "src/assets/js/global/global.accordions.js",
               "src/assets/js/form/form.utils.js",
               "src/assets/js/content/content.js",
-              "node_modules/sweetalert2/dist/sweetalert2.js"
+              "node_modules/sweetalert2/dist/sweetalert2.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -115,7 +116,7 @@
 
           "options": {
             "browserTarget": "seven-seas-frontend:build",
-            "ssl": true,
+            "ssl": false,
             "sslKey": "ssl/www.linkedfishers.com.key",
             "sslCert": "ssl/www.linkedfishers.com.pem"
           },

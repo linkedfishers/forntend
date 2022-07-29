@@ -1,7 +1,34 @@
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import 'bootstrap/dist/css/bootstrap.css';
 /* You can add global styles to this file, and also import other style files */
 .hide-svg {
     display: none;
 }
 .image-carousel{width: 100%}
 .picsum-img-wrapper{text-align: center;border-radius: 11px}
+/* You can add global styles to this file, and also import other style files */
+
+
+
+:root {
+  --dark-color:#02134B;
+  --green-color:#33d1cc;
+  --red-color:#ff3150;
+  --yello-color:#ffc400;
+  --section-color:#eff7fa;
+
+  --orange-color:#f54B2a;
+  --blue-color:#5BD2E8;
+  --gray-color:#f7f7f7;
+  --light-color :#e0e7f2;
+}
+
+body{
+  font-family: "Poppins",sans-serif;
+
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Poppins, sans-serif; }

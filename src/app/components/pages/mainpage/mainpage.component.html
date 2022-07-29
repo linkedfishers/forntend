@@ -1,534 +1,1003 @@
-<div class="container top">
-  <div class="height-caroussel">
-    <app-carousel [pictures]="photoss"></app-carousel>
-  </div>
-</div>
-
-<!-- <div class="container background">
-  <div class="row test" style="max-width: 1200px; margin: 0 auto">
-    <div class="col col-md-6">
-      <div class="images-reb">
-        <img
-          src="../../../../assets/img/Nouveau projet (16).png"
-          alt=""
-          class="slit-in-vertical"
-        />
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="max">
-        <h2 class="tracking-in-expand">
-          Il est temps de revenir à la nature !
-        </h2>
-        <p style="padding: 10px">
-          Marre de la routine quotidienne?Vous voulez acquérir une nouvelle
-          compétence ou simplement vous amuser avec vos amis?Linkedfishers croit
-          qu&#39;il est temps de se reconnecter avec la nature.Ici, vous pouvez
-          trouver:
-        </p>
-        <ul style="padding: 10px">
-          <li>
-            Formation à la pêche ou aux sports nautiques avec des moniteurs
-            professionnels.
-          </li>
-          <li>Tous les équipements dont vous avez besoin.</li>
-          <li>Accès aux bateaux, paddles, kayaks et hébergements côtiers.</li>
-          <li>Organisation d&#39;événements et de compétitions.</li>
-          <li>
-            Photographie professionnelle pour votre contenu sur les réseaux
-            sociaux.
-          </li>
-          <li>
-            Des événements personnalisés, privés ou professionnels au beau
-            milieu de la mer!
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div> -->
-  <app-visiteguider></app-visiteguider>
-
-
-<!-- <div class="container background">
-  <div class="row test" style="max-width: 1200px; margin: 0 auto">
-    <div class="col-md-6">
-      <div class="max">
-        <h2 class="tracking-in-expand">
-          Quand la passion rime avec prospérité!
-        </h2>
-        <p style="padding: 10px">
-          Offrez vos services sur Linkedfishers et rentabilisez vos actifs!
-          Faites-en une source de revenu additionnel! Si vous possédez un
-          bateau, une maison côtière que vous aimeriez louer ou du matériel de
-          pêche que vous aimeriez vendre, vous pouvez simplement poster vos
-          offres et descriptifs et passer le deal en quelques clics ! Notre
-          plateforme traduit les valeurs de la communauté : Partage et
-          Compassion. Pourquoi ne pas tirer le meilleur parti de cette
-          expérience?
-        </p>
-      </div>
-    </div>
-    <div class="col col-md-6">
-      <div class="images-reb">
-        <img
-          src="../../../../assets/img/Nouveau projet (20).png"
-          alt=""
-          class="slit-in-vertical"
-        />
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- <app-na></app-na> -->
-
-<!-- <div class="blog-card spring-fever" style="height: 500">
-  <div class="title-content">
-    <h3 style="font-weight: bold"><a href="#">Qui Sommes Nous</a></h3>
-    <div class="intros" style="line-height: 59px">
-      <a href="#"> {{ "Qui_somme_nous" | translate }}</a>
-    </div>
-  </div>
-  <div class="card-info">
-    <h4>LinkedFishers &copy;</h4>
-    <h6><em>by Hookedup</em></h6>
-  </div>
-  card.png
-</div> -->
-<!-- <div class="backatt">
-<div class="flex-card">
-  <div
-    class="blog-cards spring-fevers"
-    [routerLink]="['/main']"
-    style="
-      background-image: url(../../../../assets/img/card.png);
-      background-color: #fdfdfd;
-    "
-  >
-    <div class="title-contents">
-      <h3 style="color: #3678b1; font-weight: bold; line-height: 20px">
-        Looking for a service, a product or a tailor-made outing?
-      </h3>
-      <hr />
-      <div
-        class="intro"
-        style="color: #7f8184; line-height: 30px; font-weight: bold"
-      >
-        Linkedfishers.com is the only platform in the world that offers this
-        collaborative economic intermediation and co-sharing features !
-        Equipment and services Coastal accommodation Boats, yachts and yawls
-        Monitoring
-      </div>
-    </div>
-
-    <div class="gradient-overlays"></div>
-    <div class="color-overlays"></div>
-  </div>
-  <div
-    class="blog-cards spring-fevers"
-    [routerLink]="['/map']"
-    style="
-      background-image: url(../../../../assets/img/card.png);
-      background-color: #fdfdfd;
-    "
-  >
-    <div class="title-contents">
-      <h3 style="color: #3678b1; font-weight: bold; line-height: 20px">
-        Looking for additional income and better optimization of your assets ?
-      </h3>
-      <hr />
-      <div
-        class="intro"
-        style="color: #7f8184; line-height: 30px; font-weight: bold"
-      >
-        Linkedfishers.com is the only platform in the world that offers this
-        collaborative economic intermediation and co-sharing features !
-        Equipment and services Coastal accommodation Boats, yachts and yawls
-        Monitoring
-      </div>
-    </div>
-
-    <div class="gradient-overlays"></div>
-    <div class="color-overlays"></div>
-  </div>
-  <div
-    class="blog-cards spring-fevers"
-    [routerLink]="['/marketplace/products-list']"
-    style="
-      background-image: url(../../../../assets/img/card.png);
-      background-color: #fdfdfd;
-    "
-  >
-    <div class="title-contents">
-      <h3 style="color: #3678b1; font-weight: bold; line-height: 20px">
-        Professional or Freelancer aiming to maximize your customers number ?
-      </h3>
-      <hr />
-      <div
-        class="intro"
-        style="color: #7f8184; line-height: 30px; font-weight: bold"
-      >
-        Linkedfishers.com is the only platform in the world that offers this
-        collaborative economic intermediation and co-sharing features !
-        Equipment and services Coastal accommodation Boats, yachts and yawls
-        Monitoring
-      </div>
-    </div>
-
-    <div class="gradient-overlays"></div>
-    <div class="color-overlays"></div>
-  </div>
-</div>
-</div> -->
-
-<div class="title-map mari">
-  <div
-    style="
-      height: 75px;
-      overflow: hidden;
-      position: relative;
-      top: 0px;
-      background: #e9e9e9;
-    "
-  >
-    <svg
-      viewBox="0 0 500 150"
-      preserveAspectRatio="none"
-      style="height: 100%; width: 100%"
+<nav class="navb bg-transparent navbar-expand-lg ">
+<div class="container-fluid">
+<div class="row ">
+  <div class="col-lg-3 fox">
+    <a class="navbar-brand" href="#">
+       <img src="assets/imgs/logoLF.png"> linkedfishers</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#main"
+      aria-controls="main"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <path
-        d="M0.00,92.27 C216.83,192.92 304.30,8.39 500.00,109.03 L500.00,0.00 L0.00,0.00 Z"
-        style="stroke: none; fill: #fff"
-      ></path>
-    </svg>
+    <i class="fa-solid fa-bars"></i>
+    </button>
   </div>
-  <h4>{{ "OUR_BOATS" | translate }}</h4>
-</div>
-<div class="spinner" *ngIf="!boats">
-  <div class="dot1"></div>
-  <div class="dot2"></div>
-</div>
-<div class="marketplace-content mrg bgfixed">
-  <div class="grid grid-10 centered">
-    <!--    <div *ngFor="let boat of boats" class="product-preview">
-      <a [routerLink]="['/marketplace/details-boats', boat?._id]">
-        <figure
-          class="product-preview-image liquid"
-          style="
-            border-radius: 2%;
-            background: url('img/marketplace/items/01.jpg') center center /
-              cover no-repeat;
-          "
-        >
-          <img
-            src="{{ boat?.images[0] | picture }}"
-            alt="item-01"
-            class="imgprod"
-          />
-        </figure>
-      </a>
-      <div class="product-preview-info">
-        <p class="text-sticker">
-          <span class="highlighted">DT</span> {{ boat?.price }}
-        </p>
-        <p class="product-preview-category digital">
-          <a [routerLink]="" routerLinkActive="router-link-active">{{
-            boat?.type?.name
-          }}</a>
-        </p>
-      </div>
-    </div> -->
-    <p-carousel
-      [value]="boats"
-      styleClass="custom-carousel"
-      [numVisible]="3"
-      [numScroll]="1"
-      [circular]="true"
-      [autoplayInterval]="3000"
-      [responsiveOptions]="responsiveOptions"
-    >
-      <ng-template pTemplate="header"> </ng-template>
-      <ng-template let-boat pTemplate="boats">
-        <div class="product-item">
-          <div class="product-item-content">
-            <div class="p-mb-3"></div>
-            <div>
-              <a [routerLink]="['/details-boat', boat._id]">
-                <img
-                  class="product-image p-md-3"
-                  src="{{
-                    boat.images ? API + boat.images[0] : API + boat.image
-                  }}"
-                  alt=""
-              /></a>
-              <h6 class="color-pr custum p-mt-0 p-mb-3">${{ boat.price }}</h6>
+  <div class="col-lg-8 fo">
+    <div class="collapse navbar-collapse bor" id="main">
+      <ul class="navbar-nav ms-auto  mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link  p-2 p-lg-3 active">Acceuil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3">Hébergements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link p-2 p-lg-3" >Expériences</a>
+        </li>
 
-              <h4 class="color-pr color-txt p-mb-3">{{ boat.name }}</h4>
-              <!--   <div class="car-buttons p-mt-5">
-                <p-button
-                  type="button"
-                  styleClass="p-button p-button-rounded p-mr-2"
-                  icon="pi pi-search"
-                ></p-button>
-                <p-button
-                  type="button"
-                  styleClass="p-button-success p-button-rounded p-mr-2"
-                  icon="pi pi-star"
-                ></p-button>
-                <p-button
-                  type="button"
-                  styleClass="p-button-help p-button-rounded"
-                  icon="pi pi-cog"
-                ></p-button>
-              </div> -->
+        <li class="nav-item">
+          <a class="nav-link  p-2 p-lg-3">Evénements</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link  p-2 p-lg-3" >Inspiration</a>
+        </li>
+
+      </ul>
+      <a class="btn main-btn text-uppercase ">Login</a>
+
+      <div class="menu-icon">
+          <button mat-button [matMenuTriggerFor]="afterMenu" class=" btn  bg-transparent">   <img src="assets/imgs/icon menu .svg" alt="" class="img-fluid"></button>
+          <mat-menu #afterMenu="matMenu" xPosition="before">
+            <button mat-menu-item>A propos</button>
+            <button mat-menu-item>Meteo</button>
+            <button mat-menu-item>Card</button>
+
+
+          </mat-menu>
+      </div>
+    </div>
+
+    </div>
+
+    </div>
+
+</div>
+    <div class="row align-items-center textt">
+      <div class="col-lg-12 text-center text-md-start mt-5 mb-5">
+        <div class="text">
+          <h2 class="fw-bold lh-lg">Tenté par une <span>Experience Notique</span> ?</h2>
+          <h2 class="fw-bold lh-lg">Accéder a Nos  offres ET Prenez La Mer !</h2>
+          <p>  A Transformative triple-camera system that adds tons of capability widhout complexity</p>
+          <a class="btn main-btn mt-3 ms-3" >Devenez un Linkedfishers</a>
+          <a class="btn bttn  mt-3 ms-3" >Acceder a nos offres</a>
+        </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="content align-items-center glass">
+
+  <ul class="row align-items-center  list-unstyled d-flex justify-content-center">
+    <li class="col-lg-2 col-md-2  col-sm-2  col-xs-2 active text-center lh-lg" id="Experience"> <img src="assets/imgs/expérience.svg" alt="" class="img-fluid dropdown-toggle  " ></li>
+    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center lh-lg"> <img src="assets/imgs/bateau.svg" alt="" class="img-fluid dropdown-toggle active" ></li>
+    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center lh-lg"><img src="assets/imgs/évenement.svg" alt="" class="img-fluid dropdown-toggle " ></li>
+    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center lh-lg"><img src="assets/imgs/hébergement.svg" alt="" class="img-fluid dropdown-toggle " ></li>
+    <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center lh-lg"><img src="assets/imgs/boutique.svg" alt="" class="img-fluid dropdown-toggle " ></li>
+
+
+<div class="pus">
+<ul class="row align-items-center list-unstyled puss d-flex justify-content-center mt-5 mb-4">
+      <li class="col-lg-2  active text-center lh-lg Experience"><p>Experience des péches</p></li>
+      <li class="col-lg-2 text-center lh-lg Bateaux"> <p>Bateaux </p></li>
+      <li class="col-lg-2 text-center lh-lg Evénements"><p>Evénements</p></li>
+      <li class="col-lg-2 text-center lh-lg Hébergements"><p>Hébergements</p></li>
+      <li class="col-lg-2 text-center lh-lg Boutiques"><p>Boutiques</p></li>
+
+    <div class="row   align-items-center list-unstyled ">
+      <div class="col-lg-10 d-flex input-search">
+        <select class="form-select " aria-label="Default select example">
+          <option selected>DISPONIBILITE</option>
+          <option value="1">One</option>
+        </select>
+
+        <select class="form-select " aria-label="Default select example">
+          <option selected>EMPLACEMENT</option>
+          <option value="1">One</option>
+        </select>
+
+        <select class="form-select " aria-label="Default select example">
+          <option selected>TAILLE</option>
+          <option value="1">One</option>
+        </select>
+
+        <select class="form-select " aria-label="Default select example">
+          <option selected>PRIX</option>
+          <option value="1">One</option>
+        </select>
+
+        <select class="form-select " aria-label="Default select example">
+          <option selected>CAPACITE</option>
+          <option value="1">One</option>
+        </select>
+        <a class="btn btna main-btn col-lg-2">  <img src="assets/imgs/recherche.svg" alt="" class="img-fluid rech" ></a>
+      </div>
+
+
+
+    </div>
+
+
+</ul>
+</div>
+
+</ul> </div>
+
+
+
+
+</div>
+</nav>
+
+
+
+
+
+
+
+
+<div class="offre ">
+  <div class="main-title mb-5 pt-5 pb-5  text-center">
+    <img src="assets/imgs/Ancre bateau.svg" alt="" class="img-fluid dropdown-toggle img" >
+    <h2 class="mb-5 mt-2 fw-bold">Des Offres D'experiences</h2>
+  </div>
+  <div class="container padding">
+    <div class="row">
+
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
+
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
             </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+
+              </div>
+            </div>
+
+
           </div>
         </div>
-      </ng-template>
-    </p-carousel>
-  </div>
-</div>
-<div class="title-map mari">
-  <h4>{{ "OUR_EQUIPMENTS" | translate }}</h4>
-</div>
-<div class="spinner" *ngIf="!equipments">
-  <div class="dot1"></div>
-  <div class="dot2"></div>
-</div>
-<div class="marketplace-content mrg">
-  <div class="grid grid-3-3-3 centered">
-    <!-- PRODUCT PREVIEW -->
-    <div *ngFor="let eq of equipments" class="product-preview">
-      <!-- PRODUCT PREVIEW IMAGE -->
-      <a [routerLink]="['/details-equipment', eq?._id]">
-        <figure
-          class="product-preview-image liquid"
-          style="
-            border-radius: 2%;
-            background: url('img/marketplace/items/01.jpg') center center /
-              cover no-repeat;
-          "
-        >
-          <img src="{{ eq?.image | picture }}" alt="item-01" class="imgprod" />
-        </figure>
-      </a>
-      <!-- /PRODUCT PREVIEW IMAGE -->
-
-      <!-- PRODUCT PREVIEW INFO -->
-      <div class="product-preview-info">
-        <!-- TEXT STICKER -->
-        <p class="text-sticker">
-          <span class="highlighted">DT</span> {{ eq?.price }}
-        </p>
-        <!-- /TEXT STICKER -->
-
-        <!-- PRODUCT PREVIEW TITLE -->
-
-        <!-- /PRODUCT PREVIEW TITLE -->
-
-        <!-- PRODUCT PREVIEW CATEGORY -->
-        <p class="product-preview-category digital">
-          <a [routerLink]="" routerLinkActive="router-link-active">{{
-            eq?.type?.name
-          }}</a>
-        </p>
-        <!-- /PRODUCT PREVIEW CATEGORY -->
-
-        <!-- PRODUCT PREVIEW TEXT -->
-        <!--     <p class="product-preview-text">
-          {{
-            product?.description?.length > 100
-              ? (product?.description | slice: 0:100) + "..."
-              : product?.description
-          }}
-        </p> -->
-        <!-- /PRODUCT PREVIEW TEXT -->
       </div>
-      <!-- /PRODUCT PREVIEW INFO -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
 
-      <!-- PRODUCT PREVIEW META -->
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
 
-      <!-- /PRODUCT PREVIEW META -->
-    </div>
-    <!-- /PRODUCT PREVIEW -->
-  </div>
-  <!-- /GRID -->
+              </div>
+            </div>
 
-  <!-- SECTION PAGER BAR WRAP -->
 
-  <!-- /SECTION PAGER BAR WRAP -->
-</div>
-<div class="title-map mari">
-  <h4>{{ "OUR_ACCOMMODATION" | translate }}</h4>
-</div>
-<div class="spinner" *ngIf="!hebergements">
-  <div class="dot1"></div>
-  <div class="dot2"></div>
-</div>
-<div class="marketplace-content mrg">
-  <div class="grid grid-3-3-3 centered">
-    <!-- PRODUCT PREVIEW -->
-    <div *ngFor="let heb of hebergements" class="product-preview">
-      <!-- PRODUCT PREVIEW IMAGE -->
-      <a [routerLink]="['/details-home', heb?._id]">
-        <figure
-          class="product-preview-image liquid"
-          style="
-            border-radius: 2%;
-            background: url('img/marketplace/items/01.jpg') center center /
-              cover no-repeat;
-          "
-        >
-          <!-- [src]="{{ (heb?.images[0] | picture)} }"" -->
-          <img
-            [src]="heb.image ? API + heb.image : API + heb.images[0]"
-            alt="item-01"
-            class="imgprod"
-          />
-        </figure>
-      </a>
-      <!-- /PRODUCT PREVIEW IMAGE -->
-
-      <!-- PRODUCT PREVIEW INFO -->
-      <div class="product-preview-info">
-        <!-- TEXT STICKER -->
-        <p class="text-sticker">
-          <span class="highlighted">DT</span> {{ heb?.price }}
-        </p>
-        <!-- /TEXT STICKER -->
-
-        <!-- PRODUCT PREVIEW TITLE -->
-        <!--    <p class="product-preview-title">
-          <a [routerLink]="['/marketplace/details-product', heb?._id]">{{
-            heb?.name
-          }}</a>
-        </p> -->
-        <!-- /PRODUCT PREVIEW TITLE -->
-
-        <!-- PRODUCT PREVIEW CATEGORY -->
-        <p class="product-preview-category digital">
-          <a [routerLink]="" routerLinkActive="router-link-active">{{
-            heb?.type?.name
-          }}</a>
-        </p>
-        <!-- /PRODUCT PREVIEW CATEGORY -->
-
-        <!-- PRODUCT PREVIEW TEXT -->
-        <!--     <p class="product-preview-text">
-          {{
-            product?.description?.length > 100
-              ? (product?.description | slice: 0:100) + "..."
-              : product?.description
-          }}
-        </p> -->
-        <!-- /PRODUCT PREVIEW TEXT -->
+          </div>
+        </div>
       </div>
-      <!-- /PRODUCT PREVIEW INFO -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
 
-      <!-- PRODUCT PREVIEW META -->
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
 
-      <!-- /PRODUCT PREVIEW META -->
-    </div>
-    <!-- /PRODUCT PREVIEW -->
-  </div>
-  <!-- /GRID -->
+              </div>
+            </div>
 
-  <!-- SECTION PAGER BAR WRAP -->
 
-  <!-- /SECTION PAGER BAR WRAP -->
-</div>
-
-<div class="title-map mari">
-  <h4>{{ "Marketplace" | translate }}</h4>
-</div>
-
-<div class="spinner" *ngIf="!visibleProducts">
-  <div class="dot1"></div>
-  <div class="dot2"></div>
-</div>
-
-<div class="marketplace-content mrg">
-  <div class="grid grid-3-3-3 centered">
-    <!-- PRODUCT PREVIEW -->
-    <div *ngFor="let product of visibleProducts" class="product-preview">
-      <!-- PRODUCT PREVIEW IMAGE -->
-      <a [routerLink]="['/marketplace/details-product', product?._id]">
-        <figure
-          class="product-preview-image liquid"
-          style="
-            border-radius: 2%;
-            background: url('img/marketplace/items/01.jpg') center center /
-              cover no-repeat;
-          "
-        >
-          <img
-            src="{{ product?.picture | picture }}"
-            alt="item-01"
-            class="imgprod"
-          />
-        </figure>
-      </a>
-      <!-- /PRODUCT PREVIEW IMAGE -->
-
-      <!-- PRODUCT PREVIEW INFO -->
-      <div class="product-preview-info">
-        <!-- TEXT STICKER -->
-        <p class="text-sticker">
-          <span class="highlighted">DT</span> {{ product?.price }}
-        </p>
-        <!-- /TEXT STICKER -->
-
-        <!-- PRODUCT PREVIEW TITLE -->
-        <!--   <p class="product-preview-title">
-          <a [routerLink]="['/marketplace/details-product', product?._id]">{{
-            product?.name
-          }}</a>
-        </p> -->
-        <!-- /PRODUCT PREVIEW TITLE -->
-
-        <!-- PRODUCT PREVIEW CATEGORY -->
-        <p class="product-preview-category digital">
-          <a [routerLink]="" routerLinkActive="router-link-active">{{
-            product?.type?.name
-          }}</a>
-        </p>
-        <!-- /PRODUCT PREVIEW CATEGORY -->
-
-        <!-- PRODUCT PREVIEW TEXT -->
-        <!--     <p class="product-preview-text">
-          {{
-            product?.description?.length > 100
-              ? (product?.description | slice: 0:100) + "..."
-              : product?.description
-          }}
-        </p> -->
-        <!-- /PRODUCT PREVIEW TEXT -->
+          </div>
+        </div>
       </div>
-      <!-- /PRODUCT PREVIEW INFO -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
 
-      <!-- PRODUCT PREVIEW META -->
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
 
-      <!-- /PRODUCT PREVIEW META -->
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
+
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card mb-3">
+            <span class="notify-badge-right fw-bold">1.2 Km</span>
+            <span class="notify-badge-left text-uppercase">Evénements</span>
+            <img src="assets/imgs/plage.jpg" alt="" class="img-fluid  p-3 m-auto">
+
+          <div class="card-content px-3">
+            <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+            <p class="m-auto"><span class="fw-bold fs-6 ">120Dt</span> /Personne</p>
+            <h5 class="fw-bold"> Exclusivement Linkedfishers</h5>
+            <p class="paragraphe">marre de la routine quotidienne?Vous voulez acquérir une nouvelle compétance dans le monde nautique? Regoigner la communauté pour se reconnecter avec la nature </p>
+            <div class="row icons align-items-center text-center">
+              <div class=" icon-offre">
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10 H</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">10</p>
+                </span>
+                <span>
+                  <img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                  <p class="text-black-50">Plage</p>
+                </span>
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-6 col-lg-6">
+                <a class="btn main-btn" href="#">reserver vite !</a>
+              </div>
+              <div class="col-md-6 col-lg-6 action-icon my-auto">
+                <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1">
+                <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+
+  </div>
+</div>
+
+
+<div class="bateaux  pb-5">
+  <div class="container">
+    <div class=" mt-5 pt-5 main-title text-center">
+      <img src="assets/imgs/Ancre bateau.svg" alt="" class="img-fluid  icon" >
+      <h2 class="mt-2 fw-bold">Nos Bateaux</h2>
     </div>
-    <!-- /PRODUCT PREVIEW -->
+      <mat-tab-group [color]="accent" mat-align-tabs="center"  animationDuration="2000ms">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="my-custom-class">NOS BATEAUX</span>
+        </ng-template>
+          <div class="row p-3">
+
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </mat-tab>
+
+          <mat-tab>
+            <ng-template mat-tab-label>
+              <span class="my-custom-class">NOS EQUIPEMENTS</span>
+          </ng-template>
+          <div class="row  p-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span class="my-custom-class">NOS HEBERGEMENTS</span>
+        </ng-template>
+          <div class="row  p-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </mat-tab>
+        <mat-tab  >
+          <ng-template mat-tab-label>
+            <span class="my-custom-class">BOUTIQUE</span>
+        </ng-template>
+          <div class="row  p-3">
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="card pb-3">
+                <span class="notify-badge-right fw-bold">1.2 Km</span>
+                <span class="notify-badge-left text-uppercase">Evénements</span>
+                <img src="assets/imgs/plage.jpg" class="card-img px-3 pt-3 pb-2 img" alt="...">
+                <div class="card-content px-3">
+                  <p class="m-auto"><img src="assets/imgs/geo-alt.svg" alt="" class="img-fluid me-1">Bizerte</p>
+                  <p class="m-auto"><span class="fw-bold fs-6">120 Dt</span> / Personnes</p>
+                  <h5 class="fw-bold m-auto"> Exclusivement Linkedfishers</h5>
+                  <p class="text-black-50">marre de la routine quotidienne??Regoigner la communauté pour se reconnecter avec la nature </p>
+                  <div class="info d-flex">
+
+                      <div class="d-flex icon-bateaux">
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10 H</p>
+                        </span>
+                        <span><img src="assets/imgs/personnage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">10</p>
+                        </span>
+                        <span><img src="assets/imgs/plage.svg" alt="" class="img-fluid">
+                          <p class="text-black-50">Péche</p>
+                        </span>
+                      </div>
+
+                      <div class="action-icon my-auto ps-2">
+                        <img src="assets/imgs/map.svg" alt="" class="img-fluid mx-1">
+                        <img src="assets/imgs/Icon material-favorite.svg" alt="" class="img-fluid mx-1 align-middle">
+                        <img src="assets/imgs/voir +.svg" alt="" class="img-fluid mx-1">
+                      </div>
+
+                  </div>
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+</div>
+
+<div class="map">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 ">
+          <app-map></app-map>
+      </div>
+      <div class="col-lg-4 col-map">
+        <h3 class="text-uppercase">Carte des services</h3>
+      </div>
+    </div>
+
   </div>
-  <!-- /GRID -->
-
-  <!-- SECTION PAGER BAR WRAP -->
-
-  <!-- /SECTION PAGER BAR WRAP -->
 </div>
-<div class="title-map">
-  <h4>{{ "MAP_SERVICES" | translate }}</h4>
-</div>
-<div class="map-container">
-  <div class="framemap">
-    <app-map></app-map>
+
+
+<div class="footer pt-5 pb-5 text-white-50 text-center text-md-start">
+  <div class="container">
+    <div class="subscribe pt-3 pb-3 text-center text-md-start">
+        <h3 class="fw-bold  mb-3">
+          Contactez nous
+        </h3>
+        <form class="row  text-center">
+          <div class="col-md-6 col-lg-9 mb-5">
+            <input type="text" class="w-100 p-2" placeholder="Enter Your Email Adress">
+          </div>
+          <div class="col-md-6 col-lg-3">
+
+            <a class="btn btnn main-btn" href="#"><i class="fa-solid fa-envelope"></i> Email</a>
+          </div>
+        </form>
+
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 text-left">
+        <div class="footer-logo">
+          <img src="assets/imgs/logoLF.png" class="mb-4 fw-bold"> Linkedfishers
+          <p class="mb-5 fw-bold">Get out there & discover your next slope,mountain & destination </p>
+        </div>
+        <div class="copyright">
+
+          <div class="text-white-50 fw-bold">Copyright &copy; HOOKEDUP</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 text-center">
+        <div class="contact fw-bold">
+          Contact & support
+          <ul class="list-unstyled lh-lg text-light mt-3 ">
+            <li class="fw-bold">+216 96 600 900</li>
+            <li class="fw-bold">linkedfishers@gmail.com</li>
+
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 text-right">
+        <div class="contact fw-bold">
+          Payment Securisé
+          <ul class="list-unstyled lh-lg text-light mt-3 ">
+
+            <li> <img
+              src="../../../../assets/img/badge/PaiementSecuriseLogo2.png"
+              alt=""
+              class="image-payment"
+            /></li>
+            <li>
+              <p class="lh-lg mt-3 mb-5 text-white-50 fw-bold">Privacy Policy Terms of Use</p> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="map-container">
-  <app-contact></app-contact>
-</div>
 
-<!-- <app-footer></app-footer>
- -->
+
+
+
+

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="68.767" height="64.743" viewBox="0 0 68.767 64.743">
+  <defs>
+    <filter id="Icon_material-favorite" x="0" y="0" width="68.767" height="64.743" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.369"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_material-favorite)">
+    <path id="Icon_material-favorite-2" data-name="Icon material-favorite" d="M27.383,49.243l-3.536-3.219C11.29,34.638,3,27.128,3,17.911A13.281,13.281,0,0,1,16.411,4.5,14.6,14.6,0,0,1,27.383,9.6,14.6,14.6,0,0,1,38.356,4.5,13.281,13.281,0,0,1,51.767,17.911c0,9.217-8.29,16.727-20.848,28.138Z" transform="translate(7 2.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>
